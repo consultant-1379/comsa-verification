@@ -1,0 +1,152 @@
+#! /bin/sh
+##
+## updatecampaign --
+##   Script for JAVACAF campaign manipulation.
+##
+## Commands;
+##
+
+prg=$(basename $0)
+dir=$(dirname $0); dir=$(cd $dir; pwd)
+tmp=$(mktemp -td ${prg}_XXXXXX)
+defaultFromRState=@@DEFAULT_PREVIOUS_VERSION
+
+die() {
+    echo "ERROR: $*" >&2
+    rm -rf $tmp
+    exit 1
+}
+help() {
+    grep '^##' $0 | cut -c3-
+    exit 0
+}
+test -n "$1" || help
+echo "$1" | grep -qi help && help
+
+## generate <installation-campaign-sdp> [SC=1] [PL=#]
+##   The JAVACAF delivery contains an campaign SDP that
+##   install JAVACAF on two System Controllers, SC-1 and SC-2. This
+##   command is used to generate an campaign sdp for a
+##   general size cluster.
+##
+##   The AMF node-names of are assumed to be SC-1, SC-2, PL-3, PL-4, ...
+##   by default but can be alteres using the $AMF_NODE_PATTERN variable.
+##
+##   The output is an SDP-file generated in the current directory and
+##   named something like;
+##
+##     ERIC-JAVACAF-I-CXP9013050_4-R1A03_SCx2_PLx18.sdp
+##
+##   Params;
+##
+##     <campaign-sdp>
+##       The original campaign SDP is taken as a template
+##       and must be specified in the call.
+##
+##     SC=1
+##       Is used to limit the number of SC's to one (single node system)
+##
+##     PL=#
+##       Specifies the number of Payload nodes.
+##     
+##    from=<Previous installation RSTATE>
+##       Specifies previous installation RSTATE for rolling upgrade
+##
+##   Environment;
+##
+##     $AMF_NODE_PATTERN (default "XX-n")
+##       If the amf-node names is *not* SC-1, SC-2, PL-3, etc the
+##       $AMF_NODE_PATTERN can be used. For example the old names;
+##       SC_2_1, SC_2_2, PL_2_3, etc can be specified with;
+##
+##         AMF_NODE_PATTERN=XX_2_n generatecampaign generate ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03.sdp PL=2
+##  
+##     Example:
+##         ./generatecampaign generate ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03.sdp PL=2
+##  
+cmd_generate() {
+    local scs=2
+    local pls=0
+    local from_version=""
+    test -n "$1" || die "No campaign-sdp specified"
+    base_sdp=$1; shift
+    test -r "$base_sdp" || die "Not readable [$base_sdp]"
+    if test "$1" = "SC=1"; then
+	scs=1
+	shift
+    fi
+    if test -n "$1"; then
+	echo "$1" | grep -q '^PL=[0-9]\+$' || die "Invalid param [$1]"
+	pls=$(echo $1 | cut -d= -f2)
+    fi
+    
+    out="ERIC-JAVACAF-I-CXP9013050_4-R1A03_SCx${scs}_PLx${pls}.sdp"
+    top=$(pwd)
+    echo "Generating [$out] ..."
+
+    tar -C $tmp -xzf $base_sdp || die "Failed to unpack [$base_sdp]"
+    cd $tmp
+    sed -i -e "s/ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03/ERIC-JAVACAF-I-CXP9013050_4-R1A03_SCx${scs}_PLx${pls}/" ETF.xml
+    cmd_emit_sedscript $scs $pls > mod.sed
+    
+    sed -i -f mod.sed campaign.xml
+    rm mod.sed
+    
+    # Verify the second argument for upgrade campaign
+    if test -n "$2"; then
+        echo "$2" | grep -q '^from=[A-Z0-9]\+$' || die "Invalid param [$2]"
+        from_version=$(echo $2 | cut -d= -f2)
+        sed -i -e "s/_PREVIOUS_PACKAGE_VESION_/$from_version/g" campaign.xml
+    else
+        sed -i -e "s/_PREVIOUS_PACKAGE_VESION_/$defaultFromRState/g" campaign.xml
+    fi
+
+    if test -n "$AMF_NODE_PATTERN"; then
+	echo "$AMF_NODE_PATTERN" | grep -q '^XX.\+n$' ||\
+	    die "Invalid AMF_NODE_PATTERN [$AMF_NODE_PATTERN]"
+	delimiter=$(echo $AMF_NODE_PATTERN | sed -e 's,^XX,,' -e 's,n$,,')
+	sed -i -e "s/SC-/SC$delimiter/g" -e "s/PL-/PL$delimiter/g" campaign.xml
+    fi
+    tar czf $top/$out *
+}
+
+# emit_sedscript <scs> <pls>
+# "Secret" command for generating a sed-script.
+cmd_emit_sedscript() {
+    test -n "$2" || die "Too few parameters"
+    echo "s/ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03/ERIC-JAVACAF-I-CXP9013050_4-R1A03_SCx${1}_PLx${2}/"
+    if test $1 -eq 1; then 
+	echo '/SC-2/ d'
+    fi
+    pls=$2
+    for pl in $(seq 3 $((pls+2))); do
+	cat<<EOF
+/<\/swAdd>/ i \                <plmExecEnv amfNode="safAmfNode=PL-$pl,safAmfCluster=myAmfCluster"/>
+EOF
+    done
+    
+    for pl in $(seq 3 $((pls+2))); do
+	cat<<EOF
+/<\/swAdd_ADD>/ i \                <plmExecEnv amfNode="safAmfNode=PL-$pl,safAmfCluster=myAmfCluster"/>
+EOF
+    done
+    
+    for pl in $(seq 3 $((pls+2))); do
+	cat<<EOF
+/<\/swAdd_REMOVE>/ i \                <plmExecEnv amfNode="safAmfNode=PL-$pl,safAmfCluster=myAmfCluster"/>
+EOF
+    done
+}
+
+# Get the command
+cmd=$1
+shift
+grep -q "^cmd_$cmd()" $0 || die "Invalid command [$cmd]"
+
+# Execute command
+trap "die Interrupted" INT TERM
+mkdir -p $tmp
+cmd_$cmd "$@"
+status=$?
+rm -rf $tmp
+exit $status

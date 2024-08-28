@@ -1,0 +1,12 @@
+ definitely lost 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+strdup (in /lib64/libc-2.11.3.so)
+ComFmSnmp::SnmpMaSession::initSession(char const*, int, char const*, char const*, char const*) (in /opt/com/lib/comp/libcom_fm_snmp.so)
+ComFmSnmp::SnmpMaSession::initSessionWithPwdFile(char const*, int, char const*, char const*) (in /opt/com/lib/comp/libcom_fm_snmp.so)
+ComFmSnmp::FmStateCreateSession::onUpdate(ComFmSnmp::SnmpAdaptorRunnable&) (in /opt/com/lib/comp/libcom_fm_snmp.so)
+StateMachine<ComFmSnmp::SnmpAdaptorRunnable, ComFmSnmp::SnmpEvent>::updateStateMachine() (in /opt/com/lib/comp/libcom_fm_snmp.so)
+ComFmSnmp::SnmpAdaptorRunnable::selectLoop(std::list<int, std::allocator<int> >) (in /opt/com/lib/comp/libcom_fm_snmp.so)
+ComFmSnmp::SnmpAdaptorRunnable::run() (in /opt/com/lib/comp/libcom_fm_snmp.so)
+Poco::ThreadImpl::runnableEntry(void*) (in /usr/lib64/libPocoFoundation.so.15)
+start_thread (in /lib64/libpthread-2.11.3.so)
+clone (in /lib64/libc-2.11.3.so)

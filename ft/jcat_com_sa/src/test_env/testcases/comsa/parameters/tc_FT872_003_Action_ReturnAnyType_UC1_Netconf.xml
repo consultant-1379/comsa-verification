@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP872 - Testing Action Any Return Type UC1 with Netconf</id>
+		<tag>TC-FT872-003</tag>
+		<version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>SDP872 - Testing Action Any Return Type UC1 with Netconf</description>
+	</info>
+	<config>
+		<reqComSaMajorVersion>4</reqComSaMajorVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<scriptFile>execCommandScript.sh</scriptFile>
+		<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+		<useExternalModels>yes</useExternalModels>
+		<modelFilePathOnTarget>/home/netconfTest/</modelFilePathOnTarget>
+		<modelFileType>975</modelFileType>
+		<momFile>Sdp872ActiontestMom_mp.xml</momFile>
+		<immClassesFile>Sdp872ActiontestMom_imm_classes.xml</immClassesFile>
+
+		<helloFile>Hello.xml</helloFile>
+		<actionFile>['tc_nc_action_return_types.xml']</actionFile>
+		<closeFile>Close.xml</closeFile>
+		<logFile>logFile.txt</logFile>
+		<respFile>sdp872_ExpOutput.txt</respFile>
+		<serviceInstanceName>ComSa</serviceInstanceName>
+		<amfNodePattern>Cmw</amfNodePattern>
+
+		<forbiddenContent>['SnmpTargetV2C']</forbiddenContent>
+	</config>
+</testcase>

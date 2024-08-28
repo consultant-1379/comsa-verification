@@ -1,0 +1,12 @@
+This directory contains a number of script that can be used to exercise the cliss interface of COM/COM_SA for test purposes.
+
+The script local.sh read a textfile and pipes that into cliss 1000 times.
+The prepared text files are:
+change_to_55.txt 
+change_to_60.txt 
+small_test.txt 
+small_test_struct.txt
+
+The script alarm_mem_check.sh sends one alarm 500000 times.
+
+The script reads the com pid and check how much memory the heap has allocated.

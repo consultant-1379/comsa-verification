@@ -1,0 +1,13 @@
+ definitely lost 
+operator new(unsigned long) (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+PmtSa::PmEventHandler::stop() (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmEventHandler.cxx:155)
+PmtSa::PmComComponent::pmtsa_stop(ComStateChangeReason) (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmComComponent.cxx:233)
+pmtsa_stop (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmComComponent.cxx:301)
+Maf::SpiComponent<MafMgmtSpiComponent_1>::stop(MafStateChangeReason) (in /opt/com/bin/maf)
+Maf::ComponentManager::Component::stop(MafStateChangeReason) (in /opt/com/bin/maf)
+Maf::ComponentManager::stop(std::list<Maf::ComponentManager::Component, std::allocator<Maf::ComponentManager::Component> >&, MafStateChangeReason) (in /opt/com/bin/maf)
+Maf::ComponentManager::stopComponents(bool, MafStateChangeReason) (in /opt/com/bin/maf)
+Maf::ComponentManager::prepareTermination(void*, MafMwSpiHaMode) (in /opt/com/bin/maf)
+Maf::MafCore::prepareTermination(void*) (in /opt/com/bin/maf)
+MafMwAcService::PrepareTerminationExec::execute() (in /opt/com/bin/maf)
+Maf::MafCore::runMaf() (in /opt/com/bin/maf)

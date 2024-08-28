@@ -1,0 +1,35 @@
+# Eclipse project files
+.cproject
+.project
+
+# Test repo target files
+ft/JCAT_OMP_core_mw/target/*
+ft/JCAT_OMP_extensions/target/*
+
+# Temprary files
+*~
+*.nfs*
+
+# Object files
+ft/mafOI/*.so
+
+# Function test temporary python files
+*$py.class
+.metadata*
+ft/jcat_com_sa/.settings/
+ft/jcat_com_sa/src/test_env/testsuites/comsa/tmpSingleTestCaseSuite.xml
+ft/JCAT_OMP_core_mw/.settings/
+ft/JCAT_OMP_extensions/.settings/
+
+# Binaries of test applications used by FT
+ft/FT1724/testOI/src/bin/*.d
+ft/FT1724/testOI/src/bin/*.o
+ft/actionTest/implementor/actionTestAppl
+ft/testOI/testOI
+*pyc
+
+# Other FT files not needed to be tracked
+ft/buildTokens/*
+ft/jcat_com_sa/src/test_env/testcases/comsa/configFiles/logFile.txt
+ft/mafOI/defines2.h
+*1*.txt

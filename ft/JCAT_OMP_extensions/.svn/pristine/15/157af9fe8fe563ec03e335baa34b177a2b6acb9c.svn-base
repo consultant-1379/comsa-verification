@@ -1,0 +1,4 @@
+version: 8.3.11 (api:88/proto:86-96)
+GIT-hash: 0de839cee13a4160eed6037c4bddd066645e23c5 build by phil@fat-tyre, 2011-06-29 11:37:11
+ 0: cs:Connected ro:Secondary/Primary ds:UpToDate/UpToDate C r-----
+    ns:0 nr:169384 dw:169384 dr:0 al:0 bm:19 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:0

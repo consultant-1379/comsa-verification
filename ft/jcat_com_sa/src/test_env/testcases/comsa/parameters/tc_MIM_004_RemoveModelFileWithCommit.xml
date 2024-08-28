@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COM SA MIM Tool - Remove model file(s) with commit</id>
+        <tag>TC-MIM-004</tag>	
+        <version>P1A01</version>
+		<testcase>mimToolTestCase</testcase>
+		<class>MimTool</class>
+		<method>MimTool</method>
+		<description>COM SA MIM Tool - Remove model file(s) with commit</description>
+	</info>	
+    <config>
+        <mimToolParams1>add</mimToolParams1>
+        <expectedResponses1>["Starting new session", "Updated session file with new entry", "Operation completed"]</expectedResponses1>
+        <diffResult1>no</diffResult1>
+        <appendSdpBundleName1>yes</appendSdpBundleName1>
+        <appendExtraArgs1>yes</appendExtraArgs1>
+        <extraArgs1> MW_OAM 1 1</extraArgs1>
+        
+        <mimToolParams2>commit</mimToolParams2>
+        <expectedResponses2>["Found handler", "Operation completed"]</expectedResponses2>
+        <diffResult2>yes</diffResult2>
+        <appendSdpBundleName2>no</appendSdpBundleName2>
+        <appendExtraArgs2>no</appendExtraArgs2>
+        <extraArgs2> </extraArgs2>
+        
+        <mimToolParams3>remove</mimToolParams3>
+        <expectedResponses3>["Starting new session", "Updated session file with new entry", "removeModelFile", "Operation completed"]</expectedResponses3>
+        <diffResult3>yes</diffResult3>
+        <appendSdpBundleName3>yes</appendSdpBundleName3>
+        <appendExtraArgs3>yes</appendExtraArgs3>
+        <extraArgs3> MW_OAM 1 1</extraArgs3>
+        
+        <mimToolParams4>commit</mimToolParams4>
+        <expectedResponses4>["Found handler", "Removed root entry", "Operation completed"]</expectedResponses4>
+        <diffResult4>no</diffResult4>
+        <appendSdpBundleName4>no</appendSdpBundleName4>
+        <appendExtraArgs4>no</appendExtraArgs4>
+        <extraArgs4> </extraArgs4>
+	</config>  
+</testcase>

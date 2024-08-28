@@ -1,0 +1,174 @@
+safCSIComp=safComp=AMFWDOG\,safSu=SC-1\,safSg=NoRed\,safApp=OpenSAF,safCsi=AMFWDOG,safSi=NoRed1,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=CPND\,safSu=SC-1\,safSg=NoRed\,safApp=OpenSAF,safCsi=CPND,safSi=NoRed1,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=IMMND\,safSu=SC-1\,safSg=NoRed\,safApp=OpenSAF,safCsi=IMMND,safSi=NoRed1,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=SMFND\,safSu=SC-1\,safSg=NoRed\,safApp=OpenSAF,safCsi=SMFND,safSi=NoRed1,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=CLM\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=CLM,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=CPD\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=CPD,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=DTS\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=DTS,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=LOG\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=LOG,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=SMF\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=SMF,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=FMS\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=FMS,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=IMMD\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=IMMD,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=NTF\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=NTF,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=RDE\,safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safCsi=RDE,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=EcimSwm\,safSu=SC-1\,safSg=2N\,safApp=ERIC-CoreMW,safCsi=EcimSwm,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=OSAlarmBridge\,safSu=SC-2\,safSg=NWayActive\,safApp=ERIC-CoreMW,safCsi=OSAlarmBridge,safSi=All-NWayActive,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=OSAlarmBridge\,safSu=SC-1\,safSg=NWayActive\,safApp=ERIC-CoreMW,safCsi=OSAlarmBridge,safSi=All-NWayActive,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=ClusterMonitor\,safSu=SC-1\,safSg=2N\,safApp=ERIC-CoreMW,safCsi=ClusterMonitor,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=MdfImmCC\,safSu=SC-1\,safSg=2N\,safApp=ERIC-CoreMW,safCsi=MdfImmCC,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=Cmw\,safSu=Cmw2\,safSg=2N\,safApp=ERIC-ComSa,safCsi=2N,safSi=2N,safApp=ERIC-ComSa
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=AMFWDOG\,safSu=SC-2\,safSg=NoRed\,safApp=OpenSAF,safCsi=AMFWDOG,safSi=NoRed2,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=CPND\,safSu=SC-2\,safSg=NoRed\,safApp=OpenSAF,safCsi=CPND,safSi=NoRed2,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=IMMND\,safSu=SC-2\,safSg=NoRed\,safApp=OpenSAF,safCsi=IMMND,safSi=NoRed2,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=SMFND\,safSu=SC-2\,safSg=NoRed\,safApp=OpenSAF,safCsi=SMFND,safSi=NoRed2,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=CLM\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=CLM,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=CPD\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=CPD,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=DTS\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=DTS,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=LOG\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=LOG,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=SMF\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=SMF,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=FMS\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=FMS,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=IMMD\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=IMMD,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=NTF\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=NTF,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=RDE\,safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safCsi=RDE,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=Cmw\,safSu=Cmw1\,safSg=2N\,safApp=ERIC-ComSa,safCsi=2N,safSi=2N,safApp=ERIC-ComSa
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=ClusterMonitor\,safSu=SC-2\,safSg=2N\,safApp=ERIC-CoreMW,safCsi=ClusterMonitor,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=EcimSwm\,safSu=SC-2\,safSg=2N\,safApp=ERIC-CoreMW,safCsi=EcimSwm,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=MdfImmCC\,safSu=SC-2\,safSg=2N\,safApp=ERIC-CoreMW,safCsi=MdfImmCC,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=MdfGCC\,safSu=SC-2\,safSg=NoRed\,safApp=ERIC-CoreMW,safCsi=MdfGCC,safSi=NoRed1,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=MdfGCC\,safSu=SC-1\,safSg=NoRed\,safApp=ERIC-CoreMW,safCsi=MdfGCC,safSi=NoRed2,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=AMFWDOG\,safSu=PL-4\,safSg=NoRed\,safApp=OpenSAF,safCsi=AMFWDOG,safSi=NoRed3,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=CPND\,safSu=PL-4\,safSg=NoRed\,safApp=OpenSAF,safCsi=CPND,safSi=NoRed3,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=IMMND\,safSu=PL-4\,safSg=NoRed\,safApp=OpenSAF,safCsi=IMMND,safSi=NoRed3,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=SMFND\,safSu=PL-4\,safSg=NoRed\,safApp=OpenSAF,safCsi=SMFND,safSi=NoRed3,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=OSAlarmBridge\,safSu=PL-4\,safSg=NWayActive\,safApp=ERIC-CoreMW,safCsi=OSAlarmBridge,safSi=All-NWayActive,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=MdfGCC\,safSu=PL-4\,safSg=NoRed\,safApp=ERIC-CoreMW,safCsi=MdfGCC,safSi=NoRed3,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=COORD\,safSu=COORD2\,safSg=2N-COORD\,safApp=ERIC-MMAS,safCsi=2N,safSi=2N-COORD,safApp=ERIC-MMAS
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=ta_tapp_pl\,safSu=PL-4\,safSg=ta_tapp_pl\,safApp=ta_global,safCsi=ta_tapp_pl,safSi=ta_tapp_pl,safApp=ta_global
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=COORD\,safSu=COORD1\,safSg=2N-COORD\,safApp=ERIC-MMAS,safCsi=2N,safSi=2N-COORD,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=DAS\,safSu=DAS1\,safSg=2N-DAS\,safApp=ERIC-MMAS,safCsi=2N,safSi=2N-DAS,safApp=ERIC-MMAS
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=ta_tgc_sc\,safSu=SC-2\,safSg=ta_tgc_sc\,safApp=ta_global,safCsi=ta_tgc_sc,safSi=ta_tgc_sc,safApp=ta_global
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=AGENT\,safSu=OAM2\,safSg=NWay-OAM\,safApp=ERIC-MMAS,safCsi=NWay_AGENT,safSi=NWay-OAM,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=AGENT\,safSu=OAM1\,safSg=NWay-OAM\,safApp=ERIC-MMAS,safCsi=NWay_AGENT,safSi=NWay-OAM,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=INSTANCE\,safSu=OAM1\,safSg=NWay-OAM\,safApp=ERIC-MMAS,safCsi=NWay_INSTANCE,safSi=NWay-OAM,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=ta_tgc_pl\,safSu=PL-4\,safSg=ta_tgc_pl\,safApp=ta_global,safCsi=ta_tgc_pl,safSi=ta_tgc_pl,safApp=ta_global
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=ta_tgc_sc\,safSu=SC-1\,safSg=ta_tgc_sc\,safApp=ta_global,safCsi=ta_tgc_sc,safSi=ta_tgc_sc,safApp=ta_global
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=INSTANCE\,safSu=OAM2\,safSg=NWay-OAM\,safApp=ERIC-MMAS,safCsi=NWay_INSTANCE,safSi=NWay-OAM,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=AGENT\,safSu=TRAFFIC4\,safSg=NWay-TRAFFIC\,safApp=ERIC-MMAS,safCsi=NWay_AGENT,safSi=NWay-TRAFFIC,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=INSTANCE\,safSu=TRAFFIC4\,safSg=NWay-TRAFFIC\,safApp=ERIC-MMAS,safCsi=NWay_INSTANCE,safSi=NWay-TRAFFIC,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safCSIComp=safComp=DAS\,safSu=DAS2\,safSg=2N-DAS\,safApp=ERIC-MMAS,safCsi=2N,safSi=2N-DAS,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <object class="ObjImpComplexClass">
+        <dn>objImpComplexClassId=1</dn>
+    </object>
+    <object class="ObjImpReferenceClass">
+        <dn>ObjImpReferenceClassId=1</dn>
+    </object>
+    <object class="ObjImpReferenceClass">
+        <dn>ObjImpReferenceClassId=2</dn>
+    </object>
+    <object class="ObjImpReferenceClass">
+        <dn>ObjImpReferenceClassId=3</dn>
+    </object>
+    <object class="ObjImpReferenceClass">
+        <dn>ObjImpReferenceClassId=4</dn>
+    </object>
+    <object class="ObjImpReferenceClass">
+        <dn>ObjImpReferenceClassId=5</dn>
+    </object>
+    <object class="ObjImpReferenceClass">
+        <dn>ObjImpReferenceClassId=6</dn>
+    </object>
+</imm:IMM-contents>

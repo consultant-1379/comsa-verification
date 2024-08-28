@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COM-SA reinstallation</id>
+        <tag>TC-MISC-004</tag>	
+        <version>P1A01</version>
+		<testcase>comsaReInstall</testcase>
+		<class>ReInstallCOMSA</class>
+		<method>ReInstallCOMSA</method>
+		<description>This testcase reinstalls COM-SA only, by restoring COM backup, rebooting the cluster and installing COM-SA</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

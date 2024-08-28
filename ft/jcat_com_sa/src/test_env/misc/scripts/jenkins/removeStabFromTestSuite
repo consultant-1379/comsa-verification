@@ -1,0 +1,18 @@
+oldTestSuite=$1
+newTestSuite="$1_noStab"
+echo $oldTestSuite
+echo $newTestSuite
+cp $oldTestSuite $newTestSuite
+
+cat $oldTestSuite
+
+sed -i 's/TC-STAB-001/TC-SEC-001/g' $newTestSuite
+sed -i 's/tc_STAB_001_12HoursStabilityTest.xml/tc_SEC_001_SuccessfulLoginOnSCUsingSSHInterface.xml/g' $newTestSuite
+sed -i 's/TC-MAINT-018/TC-SEC-001/g' $newTestSuite
+sed -i 's/tc_MAINT_018_SmfReduceTapp.xml/tc_SEC_001_SuccessfulLoginOnSCUsingSSHInterface.xml/g' $newTestSuite
+sed -i 's/TC-MAINT-017/TC-SEC-001/g' $newTestSuite
+sed -i 's/tc_MAINT_017_SmfExpandTapp.xml/tc_SEC_001_SuccessfulLoginOnSCUsingSSHInterface.xml/g' $newTestSuite
+
+cat $newTestSuite
+
+echo "Test cases removed from $oldTestSuite, and saved in $newTestSuite"

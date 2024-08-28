@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>COMSA BFU upgrade from 3.3 SH2 to current</id>
+		<tag>TC-BFU-008</tag>
+		<version>P1A01</version>
+		<testcase>comsaBfu</testcase>
+		<class>UpgradeCOMSA</class>
+		<method>UpgradeCOMSA</method>
+		<description>This testcase restores COM backup, installs old version of COMSA and then upgrades to the current version</description>
+	</info>
+	<config>
+		<upgradeType>bfu</upgradeType>
+		<old_comsa>comsa3.3sh2/</old_comsa>
+	</config>
+</testcase>

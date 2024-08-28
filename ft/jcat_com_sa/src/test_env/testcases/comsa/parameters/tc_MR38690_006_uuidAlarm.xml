@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MR38690-Parameter controlling UUID exposure in alarms - Set uuidmapping flag to 0 with vendorId different to 193</id>
+        <tag>TC-MR38690-006</tag>
+        <version>P1A01</version>
+        <testcase>alarms</testcase>
+        <class>Alarms</class>
+        <method>Alarms</method>
+        <description>MR38690-Parameter controlling UUID exposure in alarms - Set uuidmapping flag to 0 with vendorId different to 193</description>
+    </info>
+    <config>
+
+        <reqComSaVersion>R7A07</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <comsaConfigFile>comsa.cfg</comsaConfigFile>
+        <mapUUIDToAddTextFlag>0</mapUUIDToAddTextFlag>
+        <mr38690Flag>True</mr38690Flag>
+        <ntfsendMsg>ntfsend -T 0x4000 -e 16384 -c 18568,2,3 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -z "123abd23-1a23-2e64-3d89-12acf3474a35;234abd89-1a23-2e64-3d89-12acf3474a35;345abd79-1a23-2e64-3d89-12acf3474a35;456abd79-1a23-2e64-3d89-12acf3474a35" -x "199;99;100;99" -s 5 -a "COM SA, CLM Cluster Node Unavailable;</ntfsendMsg>
+        <ntfsendMsg2>ntfsend -T 0x4000 -e 16384 -c 18568,2,3 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -z "123abd23-1a23-2e64-3d89-12acf3474a35;234abd89-1a23-2e64-3d89-12acf3474a35;345abd79-1a23-2e64-3d89-12acf3474a35;456abd79-1a23-2e64-3d89-12acf3474a35" -x "199;99;100;99" -s 0 -a "COM SA, CLM Cluster Node Unavailable;</ntfsendMsg2>
+
+        <expectedDN>ManagedElement=1,SystemFunctions=1,Fm=1,FmAlarmModel=CW,FmAlarmType=ComSaCLMClusterNodeUnavailable;</expectedDN>
+        <expectedMajorType>18568;</expectedMajorType>
+        <expectedMinorType>131075;</expectedMinorType>
+        <expectedAlarmMsg>COM SA, AMF Component Cleanup Failed;</expectedAlarmMsg>
+        <expectedAddText>COM SA, CLM Cluster Node Unavailable;</expectedAddText>
+        <expectedAddInfo>;;123abd23-1a23-2e64-3d89-12acf3474a35;</expectedAddInfo>
+        <expectedAddInfo_2>;;234abd89-1a23-2e64-3d89-12acf3474a35;</expectedAddInfo_2>
+        <expectedAddInfo_3>;;345abd79-1a23-2e64-3d89-12acf3474a35;</expectedAddInfo_3>
+        <expectedAddInfo_4>;;456abd79-1a23-2e64-3d89-12acf3474a35</expectedAddInfo_4>
+
+    </config>
+</testcase>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COMSA, PMTSA enable trace</id>
+        <tag>TC-MISC-025</tag>
+        <version>P1A01</version>
+        <testcase>trace</testcase>
+        <class>Trace</class>
+        <method>Trace</method>
+        <description>COMSA, PMTSA enable trace</description>
+    </info>
+    <config>
+
+        <configFile>com_sa_trace.conf</configFile>
+
+        <enableOnly>True</enableOnly>
+        <ntfsendMsg>ntfsend -T 0x4000 -e 16384 -c 193,12960,1 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -s 5 -a " Com Sa CLM Cluster Node Unavailable"</ntfsendMsg>
+
+        <expectedPmtSA_enter_leave>pmtsa_stop</expectedPmtSA_enter_leave>
+        <expectedComSA_enter_leave>dispatch_ntf</expectedComSA_enter_leave>
+        <expectedComSA_debug>maf_coremw_stop called</expectedComSA_debug>
+        <expectedPmtSA_debug>PerfMgmtTransferSA::instance() called</expectedPmtSA_debug>
+
+    </config>
+</testcase>

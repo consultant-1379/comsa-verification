@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Alarms - Component Instantiation Failed - TR HS54955</id>
+        <tag>TC-MISC-032</tag>
+        <version>P1A01</version>
+        <testcase>alarms</testcase>
+        <class>Alarms</class>
+        <method>Alarms</method>
+        <description>Alarms - Component Instantiation Failed - TR HS54955</description>
+    </info>
+    <config>
+        <reqCmwRelease>1</reqCmwRelease>
+        <reqCmwVersion>R8A09</reqCmwVersion>
+        <reqComRelease>4</reqComRelease>
+        <reqComVersion>R1A05</reqComVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <reqComSaVersion>R5A11</reqComSaVersion>
+        <raisedAlarm>True</raisedAlarm>
+        <expectedDN>ManagedElement=1,SaAmfApplication.safApp=OpenSAF,SaAmfSG.safSg=NoRed,SaAmfSU.safSu=PL-3,SaAmfComp.safComp=CPND;</expectedDN>
+        <expectedMajorType>18568;</expectedMajorType>
+        <expectedMinorType>131074;</expectedMinorType>
+        <expectedAlarmMsg>COM SA, AMF Component Instantiation Failed;</expectedAlarmMsg>
+        <expectedAlarmMsg_2>Instantiation of Component safComp=CPND,safSu=PL-3,safSg=NoRed,safApp=OpenSAF failed;</expectedAlarmMsg_2>
+        <expectedAddInfo>ManagedElement=1,SaAmfCluster.safAmfCluster=myAmfCluster,SaAmfNode.safAmfNode=PL-3</expectedAddInfo>
+
+    </config>
+</testcase>

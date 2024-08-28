@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Replicated list - preparing the cluster for testing</id>
+        <tag>TC-RPLIST-011</tag>
+        <version>P1A01</version>
+        <testcase>replicatedList</testcase>
+        <class>Replicatedlist</class>
+        <method>Replicatedlist</method>
+        <description>Replicated list - preparing the cluster for testing</description>
+    </info>
+    <config>
+        <comSaRPMofficialPrefix>COM_SA</comSaRPMofficialPrefix>
+        <comSaRPMorigPrefix>ComSa</comSaRPMorigPrefix>
+        <reqComSaVersion>R8A06</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <reqComSaVersion_4>R1A01</reqComSaVersion_4>
+        <reqComSaRelease_4>4</reqComSaRelease_4>
+    </config>
+</testcase>

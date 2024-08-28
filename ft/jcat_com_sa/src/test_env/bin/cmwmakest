@@ -1,0 +1,223 @@
+#!/bin/bash
+
+date
+scriptname=`basename $0`
+
+help_and_exit() {
+    cat  <<EOF
+$scriptname [-v] [clean|realclean|strict|realstrict|-?]
+Runs 'make' and 'make all-test' in current directory twice to create two different versions of cmw and test-apps.
+Copies all sdp and tar files to \${CXP_DIR} , if set, or /vobs/coremw/release/cxp_archive, if it exists.
+P1A01 will be copied to directory as above, P1A99 will copied to a directory call new in directory for P1A01.
+
+clean      Runs 'make clean', 'make clean test-apps' and removes files and directories in destination directory described above.
+realclean  Runs 'make realclean', 'make clean test-apps' and removes buildfiles, files and directories in destination directory described above.
+strict     Runs 'make' and 'make all-test' for first version then clean and 'make' and 'make all-test' for second version
+realstrict Runs 'make' and 'make all-test' for first version then realclean and 'make' and 'make all-test' for second version
+-v         print what happens.
+-?         (this) help screen.
+EOF
+    exit 0
+}
+
+clean_all() {
+    if [ $verbose ] ; then echo run make clean; fi
+    make clean >/tmp/${USER}.$$ 2>&1 
+    if [ 0 -ne $? ] ; then
+	echo make clean failed:
+	cat /tmp/${USER}.$$
+    else
+	/bin/rm /tmp/${USER}.$$
+    fi
+    if [ $verbose ] ; then echo remove files in ${CXP_ARCHIVE}/new and ${CXP_ARCHIVE};fi
+    /bin/rm -rf ${CXP_ARCHIVE}/* 
+    if [ 2 -eq ${clean} ] ; then
+	if [ $verbose ] ; then echo remove build directory /local/scratch/${USER}/${CC_VIEW_NAME}/CMW ; fi
+	/bin/rm -rf /local/scratch/${USER}/${CC_VIEW_NAME}/CMW
+    fi
+}
+
+clean() {
+    if [ $verbose ] ; then echo run make clean; fi
+    make clean >/tmp/${USER}.$$ 2>&1 
+    if [ 0 -ne $? ] ; then
+	echo make clean failed:
+	cat /tmp/${USER}.$$
+    else
+	/bin/rm /tmp/${USER}.$$
+    fi
+    if [ 2 -eq ${clean} ] ; then
+	if [ $verbose ] ; then echo remove build directory /local/scratch/${USER}/${CC_VIEW_NAME}/CMW ; fi
+	/bin/rm -rf /local/scratch/${USER}/${CC_VIEW_NAME}/CMW
+    fi
+}
+
+verbose=""
+clean=0
+leave=0
+
+while [ $# -gt 0 ]; do 
+	case $1 in
+	    'clean')
+             clean=1	
+	     leave=1
+	     ;;
+	    'realclean')
+             clean=2
+	     leave=1
+	     ;;
+	    'strict')
+	     clean=1	
+	     ;;
+	    'realstrict')
+	     clean=2
+	     ;;
+	     '-v')
+	     verbose="true"
+	     echo $scriptname: verbose set to true
+	     ;;
+	    *)
+	    if [ "-?" != "$1" ] ; then
+		echo $scriptname: unknown argument $*
+		echo ""
+	    fi
+	    help_and_exit
+	    ;;	
+	esac
+	shift
+done
+
+if [ $verbose ] ; then echo Check if HOSTARCH is set, otherwise use x86_64-lsb;fi
+HOSTARCH=${HOSTARCH-x86_64-lsb}
+if [ $verbose ] ; then echo using HOSTARCH=$HOSTARCH ;fi
+
+if [ $verbose ] ; then echo Check if NUMBER_OF_NODES is set, otherwise use NUMBER_OF_NODES=4;fi
+NUMBER_OF_NODES=${NUMBER_OF_NODES-4}
+if [ $verbose ] ; then echo using NUMBER_OF_NODES=$NUMBER_OF_NODES ;fi
+
+if [ $verbose ] ; then echo Check if CXP_DIR is set, otherwise use /vobs/coremw/release/cxp_archive;fi
+CXP_ARCHIVE=${CXP_DIR-/vobs/coremw/release/cxp_archive}
+if [ $verbose ] ; then echo using CXP_ARCHIVE=${CXP_ARCHIVE} ;fi
+
+if [ $verbose ] ; then echo Check if we are running clearcase;fi
+CC_VIEW_NAME=${CC_VIEW_NAME-`echo $CLEARCASE_ROOT | cut -d"/" -f3`}
+if [ $verbose ] ; then echo using CC_VIEW_NAME=${CC_VIEW_NAME} ;fi
+
+if [ $verbose ] ; then echo Check if ${CXP_ARCHIVE} exists;fi
+if [ ! -d ${CXP_ARCHIVE} ] ; then
+	echo $scriptname : cxp archive does not exist: ${CXP_ARCHIVE}
+	echo $scriptname : Set clearcase view or set environment variable CXP_DIR
+	exit 1
+fi
+
+if [ 0 -ne ${clean} ] ; then
+    echo Remove old build
+    clean_all
+    if [ 0 -ne ${leave} ] ; then
+	exit 0
+    fi
+fi
+
+if [ $verbose ] ; then echo Check if a Makefile exists in working directory exists;fi
+if [ ! -e Makefile ] ; then
+	echo $scriptname : Makefile does NOT exists in: `pwd`
+	echo $scriptname : Are you in correct directory?
+	exit 1
+fi
+if [ $verbose ] ; then echo Makefile exists in working directory exists;fi
+
+# Build P1A99
+if [ $verbose ] ; then echo run make BUILD_REV=P1A99;fi
+echo Running make BUILD_REV=P1A99 please wait
+make BUILD_REV=P1A99 > /tmp/${USER}.$$ 2>&1 
+res=$?
+if [ 0 -ne $res ] ; then
+    echo ret code ${res}
+    echo result file /tmp/${USER}.$$
+    echo ""
+    echo $scriptname: make BUILD_REV=P1A99 failed
+    exit 2
+else
+    /bin/rm -f /tmp/${USER}.$$
+fi
+if [ $verbose ] ; then echo Built CMW P1A99;fi
+
+echo Running make BUILD_REV=P1A99 all-test please wait
+if [ $verbose ] ; then echo run make all-test BUILD_REV=P1A99;fi
+make BUILD_REV=P1A99 all-test >/tmp/${USER}.$$ 2>&1 
+if [ 0 -ne $? ] ; then
+    cat /tmp/${USER}.$$
+    echo ""
+    echo $scriptname: make BUILD_REV=P1A99 all-test failed
+    exit 2
+else
+    /bin/rm -f /tmp/${USER}.$$
+fi
+if [ $verbose ] ; then echo Built test apps P1A99;fi
+
+if [ ! -d ${CXP_ARCHIVE}/../new ] ; then 
+    if [ $verbose ] ; then echo create new dir ${CXP_ARCHIVE}/../new;fi
+    mkdir ${CXP_ARCHIVE}/../new
+    if [ ! -d ${CXP_ARCHIVE}/../new ] ; then
+	echo $scriptname : cxp new archive could not be created ${CXP_ARCHIVE}/../new
+	exit 1
+    fi
+else
+    if [ $verbose ] ; then echo dir exists ${CXP_ARCHIVE}/new;fi
+fi
+
+echo Copying P1A99
+if [ $verbose ] ; then echo copying P1A99 to tmp dir ${CXP_ARCHIVE}/../new  ;fi
+/bin/cp /local/scratch/${USER}/${CC_VIEW_NAME}/CMW/TargetRoot/${HOSTARCH}/Archives/*.tar ${CXP_ARCHIVE}/../new 
+/bin/cp /local/scratch/${USER}/${CC_VIEW_NAME}/CMW/TargetRoot/${HOSTARCH}/Archives/*.sdp ${CXP_ARCHIVE}/../new 
+if [ 0 -ne $? ] ; then
+    echo $scriptname: copy failed
+    echo /bin/cp /local/scratch/${USER}/${CC_VIEW_NAME}/CMW/TargetRoot/${HOSTARCH}/Archives/\*.\* ${CXP_ARCHIVE}/../new
+    exit 2
+fi
+
+if [ 0 -ne ${clean} ] ; then
+    echo Remove old build
+    clean
+fi
+
+# Build P1A01
+if [ $verbose ] ; then echo run make ;fi
+echo Running make please wait
+make  >/tmp/${USER}.$$ 2>&1 
+if [ 0 -ne $? ] ; then
+    cat /tmp/${USER}.$$
+    echo ""
+    echo $scriptname: make failed
+    exit 2
+else
+    /bin/rm -f /tmp/${USER}.$$
+fi
+if [ $verbose ] ; then echo Built CMW ;fi
+
+echo Running make all-test please wait
+if [ $verbose ] ; then echo run make all-test ;fi
+make all-test >/tmp/${USER}.$$ 2>&1 
+if [ 0 -ne $? ] ; then
+    cat /tmp/${USER}.$$
+    echo ""
+    echo $scriptname: make all-test failed
+    exit 2
+else
+    /bin/rm -f /tmp/${USER}.$$
+fi
+if [ $verbose ] ; then echo Built test apps ;fi
+
+echo Copying P1A01
+/bin/cp /local/scratch/${USER}/${CC_VIEW_NAME}/CMW/TargetRoot/${HOSTARCH}/Archives/*.* ${CXP_ARCHIVE}/
+if [ 0 -ne $? ] ; then
+    echo $scriptname: copy failed
+    echo /bin/cp /local/scratch/${USER}/${CC_VIEW_NAME}/CMW/TargetRoot/${HOSTARCH}/Archives/\*.\* ${CXP_ARCHIVE}/
+    exit 2
+fi
+
+if [ $verbose ] ; then echo moving P1A99 from ${CXP_ARCHIVE}/../new to ${CXP_ARCHIVE}/  ;fi
+/bin/mv ${CXP_ARCHIVE}/../new ${CXP_ARCHIVE}/
+
+date
+exit 0

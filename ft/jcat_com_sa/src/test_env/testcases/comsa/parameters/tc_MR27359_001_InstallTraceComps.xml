@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Install Trace EA and Trace CC</id>
+        <tag>TC-MR27359-001</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr27359</testcase>
+        <class>FTMr27359</class>
+        <method>FTMr27359</method>
+        <description>Install Trace EA and Trace CC</description>
+        </info>
+    <config>
+		<createInitBackup>True</createInitBackup>
+		<installTraceEA>True</installTraceEA>
+		<installTraceCC>True</installTraceCC>
+		<createBackupWithTrace>True</createBackupWithTrace>
+    </config>  
+</testcase>

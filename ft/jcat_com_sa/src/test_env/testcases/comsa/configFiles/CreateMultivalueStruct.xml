@@ -1,0 +1,28 @@
+<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:urn="urn:com:ericsson:ecim:ComTop" xmlns:urn1="urn:com:ericsson:ecim:cmwtestmom">
+   <edit-config>
+     <target>
+       <running/>
+     </target>
+     <config>
+       <urn:ManagedElement>
+         <urn:managedElementId>1</urn:managedElementId>
+         <urn1:ObjImpComplexClass operation="create">
+           <urn1:objImpComplexClassId>1</urn1:objImpComplexClassId>
+           <urn1:TestStructAttr struct="TestStruct">
+           <urn1:name>"one"</urn1:name>
+           <urn1:testWritableAttrUint8>33</urn1:testWritableAttrUint8>
+           <urn1:testWritableAttrString>"one"</urn1:testWritableAttrString>
+           <urn1:testWritableAttrBool>true</urn1:testWritableAttrBool>
+           </urn1:TestStructAttr>
+           <urn1:TestStructAttr struct="TestStruct">
+           <urn1:name>"two"</urn1:name>
+           <urn1:testWritableAttrUint8>66</urn1:testWritableAttrUint8>
+           <urn1:testWritableAttrString>"two"</urn1:testWritableAttrString>
+           <urn1:testWritableAttrBool>true</urn1:testWritableAttrBool>
+           </urn1:TestStructAttr>
+         </urn1:ObjImpComplexClass>
+       </urn:ManagedElement>
+     </config>
+   </edit-config>
+</rpc>
+]]>]]>

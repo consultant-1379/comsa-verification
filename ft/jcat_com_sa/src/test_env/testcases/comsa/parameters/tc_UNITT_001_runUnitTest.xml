@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Run Unit Test</id>
+        <tag>TC-UNITT-001</tag>
+        <version>P1A01</version>
+        <testcase>runUnitTest</testcase>
+        <class>UnitTest</class>
+        <method>UnitTest</method>
+        <description>Run Unit Test</description>
+    </info>
+    <config>
+        <unitTestFile>runUnitTest.sh</unitTestFile>
+        <unitTestValgrindFile>runUnitTest_valgrind.sh</unitTestValgrindFile>
+    </config>
+</testcase>

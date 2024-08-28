@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>Test for support Long DN using CLI - Backward compatible case</id>
+		<tag>TC-MR35347-005</tag>
+		<version>P1A01</version>
+		<testcase>functionTestMr35347</testcase>
+		<class>functionTestMr35347</class>
+		<method>functionTestMr35347</method>
+		<description>Changing an attribute value using CLI config - Backward compatible case</description>
+	</info>
+	<config>
+
+		<cli_input_1>"configure" "ManagedElement=1,SystemFunctions=1,SysM=1" "NtpServer=StringDN89A123456789B123456789C123456789D123456789E123456789F123456789G123456789H123456789I123456789J123456789K123456789L123456789M123456789N123456789O123456789P123456789Q123456789R123456789S123456789T123456789U123456789V123456789W123456789X123456789Y123456789Z123456789" "serverAddress=1.1.1.1" "administrativeState=UNLOCKED" "commit" "exit" </cli_input_1>
+		<cli_expected_output_1>['ERROR: Caught Command Module Exception|ERROR: Transaction commit failed and uncommitted changes have been lost', 'ERROR: Command not found.|New cursor location: ManagedElement=1,SystemFunctions=1,SysM=1']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<backupName>backupMR35347</backupName>
+		<storedBackupFilesLocation>/home/backupfileMR35347/</storedBackupFilesLocation>
+		<comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+		<comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+		<cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+		<loctBackupLocation>/cluster/snapshot/</loctBackupLocation>
+	</config>
+
+</testcase>

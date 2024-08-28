@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>HQ93452</id>
+        <tag>TC-MISC-009</tag>
+        <version>P1A01</version>
+                <testcase>cliConfigurationTestCase</testcase>
+                <class>CLIconfiguration</class>
+                <method>CLIconfiguration</method>
+                <description>HQ93452</description>
+        </info>
+    <config>
+
+        <useExternalModels>yes</useExternalModels>
+        <modelFileType>CDT</modelFileType>
+        <momFile>mp_HQ93452.xml</momFile>
+        <immClassesFile>imm_class_HQ93452.xml</immClassesFile>
+        <immObjectsFile>imm_object_HQ93452.xml</immObjectsFile>
+
+        <cli_input_1>"show ManagedElement=1, CmwTest=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ComSaTest=1', 'CmwTest=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'failed', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show ManagedElement=1, CmwTest=1, ComSaTest=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ComSaTest=1', 'attrdefault2']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'failed', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <immObjPattern>["cmwTest"]</immObjPattern>
+
+    </config>
+</testcase>

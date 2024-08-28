@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_CmNtfCfgTest">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="CmNtfCfgTest">
+            <mimName>ObjImpTestMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpTestMom" namespace="urn:com:ericsson:ecim:ObjImpTestMom::1.0" namespacePrefix="objimptestmom" organization="" release="1" revision="" version="1">
+    <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_PM"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="2"/>
+            <extension name="immNamespace" value="MOM_NAME"/>
+    </domainExtension>
+    <description>desc</description>
+    <class name="CmNtfCfgTest">
+      <description>A test class</description>
+      <root/>
+      <attribute name="cmNtfCfgTestId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>                                                                                                                                                                          </attribute>
+      <attribute name="cmNtfCfgTestInt32">
+	<description>A test attribute</description>
+        <mandatory/>
+       	<dataType>
+	  <int32/>
+        </dataType>
+      </attribute>
+    </class>
+
+</mim>
+     
+</models>

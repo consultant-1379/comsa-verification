@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id> Run CLI and Netconf over SSH when SSHD is configured by COM under AMF</id>
+		<tag>TC-AMFSSHD-001</tag>
+		<version>P1A01</version>
+		<testcase>amfHandleSshd</testcase>
+		<class>amfHandleSshd</class>
+		<method>amfHandleSshd</method>
+		<description>Run CLI and Netconf over SSH when SSHD is configured by COM under AMF</description>
+	</info>
+	<config>
+		<reqCmwVersion>R10A16</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComVersion>R2A09</reqComVersion>
+		<reqComRelease>5</reqComRelease>
+		<reqComSaVersion>R7A09</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+	</config>
+</testcase>

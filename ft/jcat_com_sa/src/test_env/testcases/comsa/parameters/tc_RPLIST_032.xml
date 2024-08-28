@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>TR HT70246: Fix for MR-37637 cyclic reboot issue - Delete bin file in FmStatusSection - Make sure system is still OK after com restart</id>
+		<tag>TC-RPLIST-032</tag>
+		<version>P1A01</version>
+		<testcase>rpListImm</testcase>
+		<class>RPListImm</class>
+		<method>RPListImm</method>
+		<description>TR HT70246: Fix for MR-37637 cyclic reboot issue - Delete bin file in FmStatusSection - Make sure system is still OK after com restart</description>
+	</info>
+	<config>
+		<reqCmwVersion>R10A01</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComSaVersion>R7A14</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<testHT70246>True</testHT70246>
+		<fileStatus>deleted</fileStatus>
+		<fileName>1.bin</fileName>
+		<searchPattern>'safSu=Cmw[1-2],safSg=2N,safApp=ERIC-ComSa' Presence State INSTANTIATED => RESTARTING\|'safSu=Cmw1,safSg=2N,safApp=ERIC-ComSa' Presence State INSTANTIATED => TERMINATING</searchPattern>
+
+	</config>
+</testcase>

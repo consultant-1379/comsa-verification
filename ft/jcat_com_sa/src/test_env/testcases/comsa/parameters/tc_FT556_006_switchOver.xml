@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP556 FT - Do a switch-over and check the alarm and alert logs and cfg files</id>
+        <tag>TC-FT556-006</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp556</testcase>
+		<class>FTSdp556</class>
+		<method>FTSdp556</method>
+		<description>SDP556 FT - Do a switch-over and check the alarm and alert logs and cfg files</description>
+	</info>
+    <config>
+    	   <serviceInstanceName>ComSa</serviceInstanceName>
+    	   <amfNodePattern>Cmw</amfNodePattern>
+    	   <copyTestCompToTarget>NO</copyTestCompToTarget>
+
+    	   <testCompAlarmLogText>testComp556: Alarm test log</testCompAlarmLogText>
+    	   <testCompAlertLogText>testComp556: Alert test log</testCompAlertLogText>
+
+    	   <cli_input_1>"show ManagedElement=1,SystemFunctions=1,FileM=1,LogicalFs=1" "exit"</cli_input_1>
+           <cli_expected_output_1>['FileGroup=AlarmLogs','FileGroup=AlertLogs']</cli_expected_output_1>
+           <cli_nonexpected_output_1>['error', 'ailed', 'COM Closed connection']</cli_nonexpected_output_1>
+           
+           <cli_input_2>"show ManagedElement=1,SystemFunctions=1,FileM=1,LogicalFs=1,FileGroup=AlarmLogs" "exit"</cli_input_2>
+           <!--
+           Important! The following line is extended with realtime parameters in the testcase script(which can not be hardcoded here),
+            check "load_TC_cli_config" function in functionTestSdp556.py
+           -->
+           <cli_expected_output_2>['show']</cli_expected_output_2>
+           <cli_nonexpected_output_2>['error', 'ailed', 'COM Closed connection']</cli_nonexpected_output_2>
+           
+           <cli_input_3>"show ManagedElement=1,SystemFunctions=1,FileM=1,LogicalFs=1,FileGroup=AlertLogs" "exit"</cli_input_3>
+           <!--
+           Important! The following line is extended with realtime parameters in the testcase script(which can not be hardcoded here),
+            check "load_TC_cli_config" function in functionTestSdp556.py
+           -->
+           <cli_expected_output_3>['show']</cli_expected_output_3>
+           <cli_nonexpected_output_3>['error', 'ailed', 'COM Closed connection']</cli_nonexpected_output_3>
+	</config>  
+</testcase>
+
+ 

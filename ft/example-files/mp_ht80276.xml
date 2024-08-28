@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_CmwTest">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="CmwTest">
+            <mimName>CmwTestMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+            <max>3</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </interMim>
+<mim author="" contact="" date="" docNo="" name="CmwTestMom" namespace="urn:com:ericsson:ecim:cmwtestmom" namespacePrefix="cmwmom" organization="" release="0" revision="" version="1">
+    <struct name="TestStruct">
+      <description>e</description>
+      <structMember name="attr1">
+        <uint8>
+          <defaultValue>0</defaultValue>
+        </uint8>
+      </structMember>
+      <structMember name="attr2">
+        <uint8>
+          <defaultValue>0</defaultValue>
+        </uint8>
+      </structMember>
+      <structMember name="attr3">
+        <uint8>
+          <defaultValue>0</defaultValue>
+        </uint8>
+      </structMember>
+      <structMember name="attr4">
+        <uint8>
+          <defaultValue>0</defaultValue>
+        </uint8>
+      </structMember>
+    </struct>
+    <class name="CmwTest">
+      <root/>
+      <attribute name="cmwTestId">
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="myStructAttr">
+        <dataType>
+          <sequence>
+            <structRef name="TestStruct">
+              <mimName>CmwTestMom</mimName>
+            </structRef>
+            <minLength>0</minLength>
+          </sequence>
+        </dataType>
+      </attribute>
+    </class>
+  </mim>
+</models>

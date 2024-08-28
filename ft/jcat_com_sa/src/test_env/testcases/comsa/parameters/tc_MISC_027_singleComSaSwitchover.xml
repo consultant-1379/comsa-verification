@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Perform a single switchover of the COM SA serivce unit</id>
+        <tag>TC-MISC-027</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr27359</testcase>
+        <class>FTMr27359</class>
+        <method>FTMr27359</method>
+        <description>Perform a single switchover of the COM SA serivce unit</description>
+    </info>
+    <config>
+		<installTraceEA>False</installTraceEA>
+		<installTraceCC>False</installTraceCC>
+		<uninstallTraceEA>False</uninstallTraceEA>
+		<uninstallTraceCC>False</uninstallTraceCC>
+		<createBackupWithTrace>False</createBackupWithTrace>
+		<restoreInitBackup>False</restoreInitBackup>
+		<enableComSaTrace>False</enableComSaTrace>
+		<doSwitchover>False</doSwitchover>
+		<makeIndependentSwitchover>True</makeIndependentSwitchover>
+    </config>  
+</testcase>

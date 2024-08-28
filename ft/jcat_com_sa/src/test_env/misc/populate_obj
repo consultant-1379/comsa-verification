@@ -1,0 +1,272 @@
+#!/bin/bash
+
+#---------------------------#
+help() {
+    echo "$0 <No of objects, default 200000>"
+    exit 0
+}
+
+# Assuming that immpopulate is in the same directory as script
+IMMPOPULATE="`cd $(dirname $0); pwd`/immpopulate"
+
+
+echo "$1" | grep -qi "^help\|^-h" && help
+
+popObj=200000
+test -z $1 || popObj=$1
+
+#---------------------------#
+cnt2=$(immlist TestClassPBEId=1,TestClassPBEId=0 2> /dev/null | grep -c 'TestClassPBEId')
+
+if [ $cnt2 != 1 ]; then
+
+attr2='<?xml version="1.0"?>
+<!-- 
+  4 + 46 + 8 +26 + 4 + 100 + 4 + 8 + 100 + runtime = 300 bytes
+-->
+<imm:IMM-contents
+    xmlns:imm="http://www.saforum.org/IMMSchema"
+    xmlns:cs="http://tail-f.com/ns/confspec/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:mount_0="http://ericsson.com/ns/tspsaf_cm/1.0"
+    xsi:schemaLocation="http://www.saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+    <class name="TestClassPBE">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>TestClassPBEId</name>
+            <type>SA_NAME_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+        <attr>
+            <name>testAttrA</name>
+            <type>SA_INT32_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>9</default-value>
+        </attr>
+        <attr>
+            <name>testAttrB</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>ValueOfAttribute_testAttrB_000000000000000000</default-value>
+        </attr>
+        <attr>
+            <name>testAttrC</name>
+            <type>SA_INT64_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>1000</default-value>
+        </attr>
+        <attr>
+            <name>testAttrD</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>ValueOfAttribute_testAttrD</default-value>
+        </attr>
+        <attr>
+            <name>testAttrE</name>
+            <type>SA_TIME_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>1000000</default-value>
+        </attr>
+        <attr>
+            <name>testAttrF</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>62838Z6135623399282745095033496Z25688Z105a002a5Z746565286a06ZZ19626a306314510a39588361024293a4043Z3</default-value>
+        </attr>
+        <attr>
+            <name>testAttrG</name>
+            <type>SA_UINT32_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>20000</default-value>
+        </attr>
+        <attr>
+            <name>testAttrH</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>8Z6135623399282745095033496Z25688Z105a002a5Z74656khwerkhwekrhwekhr5286a06ZZ19626a30661024293a4043Z3</default-value>
+        </attr>
+        <attr>
+            <name>testAttrI</name>
+            <type>SA_UINT32_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>300000</default-value>
+        </attr>
+        <attr>
+            <name>testAttrJ</name>
+            <type>SA_UINT32_T</type>
+            <category>SA_RUNTIME</category>
+            <flag>SA_PERSISTENT</flag>
+            <flag>SA_CACHED</flag>
+        </attr>
+    </class>
+</imm:IMM-contents>
+'
+   echo "$attr2" > test_attr2.xml
+
+   immcfg -f test_attr2.xml > /dev/null
+
+   \rm test_attr2.xml
+
+   echo "TestClassPBE created" 
+fi
+
+#---------------------------#
+cnt=$(immlist TestXYZClassPBEId=1,TestXYZClassPBEId=0 2> /dev/null | grep -c 'XYZ')
+
+if [ $cnt != 3 ]; then
+
+attr='<?xml version="1.0"?>
+<imm:IMM-contents
+    xmlns:imm="http://www.saforum.org/IMMSchema"
+    xmlns:cs="http://tail-f.com/ns/confspec/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:mount_0="http://ericsson.com/ns/tspsaf_cm/1.0"
+    xsi:schemaLocation="http://www.saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+    <class name="TestXYZClassen">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>TestXYZClassenId</name>
+            <type>SA_NAME_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+        <attr>
+            <name>testXYZAttrA</name>
+            <type>SA_INT32_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <flag>SA_MULTI_VALUE</flag>
+            <default-value>9,11</default-value>
+        </attr>
+    </class>
+</imm:IMM-contents> 
+'
+
+class='<?xml version="1.0"?>
+<imm:IMM-contents
+    xmlns:imm="http://www.saforum.org/IMMSchema"
+    xmlns:cs="http://tail-f.com/ns/confspec/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:mount_0="http://ericsson.com/ns/tspsaf_cm/1.0"
+    xsi:schemaLocation="http://www.saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+    <class name="TestXYZClassPBE">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>TestXYZClassPBEId</name>
+            <type>SA_NAME_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+        <attr>
+            <name>testXYZAttrA</name>
+            <type>SA_INT32_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+            <default-value>9</default-value>
+        </attr>
+    </class>
+</imm:IMM-contents>
+'
+   echo "$attr" > test_attr.xml
+   echo "$class" > test_class.xml
+
+   immcfg -f test_attr.xml > /dev/null
+   immcfg -f test_class.xml > /dev/null
+   
+   $IMMPOPULATE -p 2 TestXYZClassPBE  > /dev/null
+
+   \rm test_attr.xml
+   \rm test_class.xml
+
+   echo "TestXYZClassen created" 
+   echo "TestXYZClassPBE created" 
+fi
+
+#---------------------------#
+WAIT_FOR_WRITE() {
+#   echo "Wait"
+   IMMCFG_LOOP -a testXYZAttrA=1 TestXYZClassPBEId=1,TestXYZClassPBEId=0
+   echo " "
+}
+
+#---------------------------#
+IMMCFG_LOOP() {
+   in="$@"
+ 
+   for (( ix=1; ix <= 50; ix++ )) ; do
+      echo -n "."
+      tmp=$(mktemp -t immcfg_loop_XXXXXX)	
+      immcfg $in 2>> $tmp
+      err=$?
+      tryagain=`grep -c SA_AIS_ERR_TRY_AGAIN $tmp`
+      \rm $tmp 2> /dev/null
+ 
+      if [ $err == 1 ]; then
+ 
+          if [ $tryagain == 0 ]; then
+             echo "IMMCFG ERROR = $err"
+             exit $err
+	  fi
+      else
+          return $err
+      fi
+
+      sleep 1 
+
+   done
+ 
+   exit 1
+ 
+}
+
+#---------------------------#
+ENABLE_PBE() {
+   echo "Enable PBE"
+   IMMCFG_LOOP -m -a saImmRepositoryInit=1 safRdn=immManagement,safApp=safImmService
+   echo " "
+}
+
+#---------------------------#
+DISABLE_PBE() {
+   echo "Disable PBE"
+   IMMCFG_LOOP -m -a saImmRepositoryInit=2 safRdn=immManagement,safApp=safImmService
+   echo " "
+}
+
+#--------- Main ------------#
+
+DISABLE_PBE
+
+WAIT_FOR_WRITE   
+ 
+echo "Delete all testobjects"
+immcfg -d TestClassPBEId=0 > /dev/null
+
+WAIT_FOR_WRITE   
+
+echo "Populate all testobjects"
+$IMMPOPULATE -p $popObj TestClassPBE > /dev/null
+
+WAIT_FOR_WRITE   
+
+ENABLE_PBE
+ 
+WAIT_FOR_WRITE
+
+cnt3=$(immfind TestClassPBEId=0 | wc -l)
+echo "Check: $cnt3 objects populated"
+echo " "
+#----------- End -----------#

@@ -1,0 +1,12 @@
+configure
+ManagedElement=1
+CmwTest=1
+myStructAttr
+attr1=12
+commit
+up
+up
+no CmwTest=1
+commit
+end
+exit

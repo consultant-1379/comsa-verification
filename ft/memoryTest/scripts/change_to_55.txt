@@ -1,0 +1,8 @@
+configure
+ManagedElement=1,SystemFunctions=1,Fm=1
+show verbose
+heartbeatInterval=55
+commit
+top
+end
+exit

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>COMSA_BFU_upgrade_from_PRA_release_of_COM_SA_3.5</id>
+		<tag>TC-BFU-017</tag>
+		<version>P1A01</version>
+		<testcase>comsaBfu</testcase>
+		<class>UpgradeCOMSA</class>
+		<method>UpgradeCOMSA</method>
+		<description>This testcase restores COM backup, installs COMSA 3.5 PRA and then upgrades to the current version</description>
+	</info>
+	<config>
+		<upgradeType>bfu</upgradeType>
+		<upgradePRA>True</upgradePRA>
+		<old_comsa>comsa3.5pra/</old_comsa>
+		<old_comsa_major_version>6</old_comsa_major_version>
+	</config>
+</testcase>

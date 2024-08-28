@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Code Coverage - preparing the cluster for testing</id>
+        <tag>TC-COV-001</tag>	
+        <version>P1A01</version>
+		<testcase>codeCoverage</testcase>
+		<class>CodeCoverage</class>
+		<method>CodeCoverage</method>
+		<description>Code Coverage - preparing the cluster for testing</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CLI change configuration - change an attribute value multiple times and commit</id>
+        <tag>TC-CLI-017</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>CLI change configuration - change an attribute value multiple times and commit</description>
+	</info>	
+    <config>
+    	<cli_input_1>"configure"  "ManagedElement=1" "no userLabel" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1', 'no userLabel', 'commit']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"show ManagedElement=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ManagedElement=1', 'SystemFunctions=1', 'Transport=1']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'userLabel', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+        
+        <cli_input_3>"configure"  "ManagedElement=1" "userLabel=A" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'userLabel=A', 'commit']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+        <cli_input_4>"show ManagedElement=1" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'userLabel="A"', 'SystemFunctions=1', 'Transport=1']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+        
+        <cli_input_5>"configure"  "ManagedElement=1" "userLabel=B" "userLabel=C" "userLabel=D" "commit" "exit"</cli_input_5>
+        <cli_expected_output_5>['ManagedElement=1', 'userLabel=B', 'userLabel=C', 'userLabel=D', 'commit']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['error', 'fail', 'close', 'connection', 'reset', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+        
+        <cli_input_6>"show ManagedElement=1" "exit"</cli_input_6>
+        <cli_expected_output_6>['ManagedElement=1', 'userLabel="D"', 'SystemFunctions=1', 'Transport=1']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['error', 'userLabel=A', 'userLabel=B', 'userLabel=C', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+
+    	<cli_input_7>"configure"  "ManagedElement=1" "no userLabel" "commit" "exit"</cli_input_7>
+        <cli_expected_output_7>['ManagedElement=1', 'no userLabel', 'commit']</cli_expected_output_7>
+        <cli_nonexpected_output_7>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_7>
+
+	</config>  
+</testcase>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eozasaf</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eozasaf</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpTestRoot">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpTestRoot">
+            <mimName>ObjImpTestMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>3</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="Ozan Safi" contact="" date="2011-07-21" docNo="" name="ObjImpTestMom" namespace="urn:com:ericsson:ecim:ObjImpTestMom::1.0" namespacePrefix="objimptestmom" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+    <class name="ObjImpTestRoot">
+      <description>A root class</description>
+      <root/>
+      <attribute name="objImpTestRootId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+     <attribute name="userLabel">
+        <description>a dummy userLabel</description>
+        <dataType>
+          <string>
+			<defaultValue/>
+          </string>
+        </dataType>
+      </attribute>
+	 <attribute name="testLabel">
+        <description>a dummy testLabel</description>
+        <dataType>
+          <string>
+			<defaultValue/>
+          </string>
+        </dataType>
+      </attribute>
+    </class>
+    <class name="TestClass">
+      <description>Test Class</description>
+      <attribute name="testClassId">
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+	 <attribute name="userLabel">
+        <description>a dummy userLabel</description>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <relationship name="ObjImpTestRoot_to_TestClass">
+      <containment>
+        <parent>
+          <hasClass name="ObjImpTestRoot">
+            <mimName>TestOIMom</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="TestClass">
+            <mimName>TestOIMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>3</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+</mim>
+     
+</models>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>COMSA BFU upgrade to the same version</id>
+		<tag>TC-BFU-020</tag>
+		<version>P1A01</version>
+		<testcase>comsaBfu</testcase>
+		<class>UpgradeCOMSA</class>
+		<method>UpgradeCOMSA</method>
+		<description>This testcase upgrades COMSA to the same version</description>
+	</info>
+	<config>
+		<upgradeType>bfu</upgradeType>
+		<reqComSaMajorVersion>5</reqComSaMajorVersion>
+	</config>
+</testcase>
+

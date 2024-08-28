@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+	<momTitle>title</momTitle>
+	<momSubTitle>sub title</momSubTitle>
+	<momIdentity>
+		<docNum>0</docNum>
+		<docLang>English</docLang>
+		<docRev>0</docRev>
+		<docDate>date</docDate>
+	</momIdentity>
+	<createdBy>
+		<signature>ejnolsz</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>ejnolsz</signature>
+	</approvedBy>
+</momMetaData>
+<interMim>
+	<relationship name="ManagedElement_to_TestMixClass">
+		<containment>
+			<parent>
+				<hasClass name="ManagedElement">
+					<mimName>ComTop</mimName>
+				</hasClass>
+			</parent>
+			<child>
+				<hasClass name="TestMixClass">
+					<mimName>TestMixMom</mimName>
+				</hasClass>
+			</child>
+		</containment>
+	</relationship>
+</interMim>
+<mim author="ejnolsz" contact="" date="2011-11-17" docNo="" name="TestMixMom" namespace="urn:com:ericsson:ecim:TestMixMom::1.0" namespacePrefix="testmixmom" organization="" release="1" revision="" version="1">
+	<description>desc</description>
+    
+
+	<struct name="TestStructSv">
+		<description>define a single-value struct</description>
+		<structMember name="testWritableAttrUint8">
+			<uint8/>
+		</structMember>
+		
+		<structMember name="testWritableAttrUint16">
+			<description>Uint16Multivalue</description>
+			<sequence>
+				<uint16/>
+				<minLength>0</minLength>
+				<maxLength>5</maxLength>
+			</sequence>
+		</structMember>
+		
+	</struct>
+
+	<struct name="TestStructMv">
+		<description>define a multi-value struct</description>
+		<structMember name="name">
+			<description>Name of the country</description>
+                        <domainExtension domain="ECIM"><extension name="isKey" value="true"/></domainExtension>
+			<string/>
+		</structMember>
+		
+		<structMember name="testWritableAttrInt8">
+			<description>Int8Multivalue</description>
+			<int8/>
+		</structMember>
+      
+		<structMember name="testWritableAttrBool">
+			<boolean/>
+		</structMember>
+	</struct>
+
+
+	<class name="TestMixClass">
+		<description>A test class</description>
+		<root/>
+		<attribute name="testMixClassId">
+			<description>id</description>
+			<mandatory/>
+			<readOnly/>
+			<key/>
+			<dataType>
+				<string/>
+			</dataType>
+		</attribute>
+      
+		<attribute name="TestStructAttrSv">
+                               <domainExtension domain="ECIM">
+                                  <extension name="isNillable" value="true"/>
+                                </domainExtension>
+			<dataType>
+				<structRef name="TestStructSv">
+					<mimName>TestMixMom</mimName>
+					<mimVersion>1</mimVersion>
+				</structRef>
+			</dataType>
+		</attribute>
+		
+		<attribute name="TestStructAttrSv2">
+                               <domainExtension domain="ECIM">
+                                  <extension name="isNillable" value="true"/>
+                                </domainExtension>
+			<dataType>
+				<structRef name="TestStructSv">
+					<mimName>TestMixMom</mimName>
+					<mimVersion>1</mimVersion>
+				</structRef>
+			</dataType>
+		</attribute>
+
+		<attribute name="TestStructAttrSv3">
+                               <domainExtension domain="ECIM">
+                                  <extension name="isNillable" value="true"/>
+                                </domainExtension>
+			<dataType>
+				<structRef name="TestStructSv">
+					<mimName>TestMixMom</mimName>
+					<mimVersion>1</mimVersion>
+				</structRef>
+			</dataType>
+		</attribute>
+
+		<attribute name="TestStructAttrMv">
+                               <domainExtension domain="ECIM">
+                                  <extension name="isNillable" value="true"/>
+                                </domainExtension>
+			<dataType>
+			        <sequence>
+					<structRef name="TestStructMv">
+						<mimName>TestMixMom</mimName>
+						<mimVersion>1</mimVersion>
+					</structRef>
+				</sequence>
+			</dataType>
+		</attribute>
+
+		<attribute name="TestStructAttrMv2">
+                               <domainExtension domain="ECIM">
+                                  <extension name="isNillable" value="true"/>
+                                </domainExtension>
+		
+	<dataType>
+		
+				<sequence>
+					<structRef name="TestStructMv">
+						<mimName>TestMixMom</mimName>
+						<mimVersion>1</mimVersion>
+					</structRef>
+				</sequence>
+			</dataType>
+		</attribute>
+
+		<attribute name="TestStructAttrMv3">
+                               <domainExtension domain="ECIM">
+                                  <extension name="isNillable" value="true"/>
+                                </domainExtension>
+
+			<dataType>
+				<sequence>
+					<structRef name="TestStructMv">
+						<mimName>TestMixMom</mimName>
+						<mimVersion>1</mimVersion>
+					</structRef>
+				</sequence>
+			</dataType>
+		</attribute>
+
+		<attribute name="testWritableInt8">
+			<description>a test attribute</description>
+                               <domainExtension domain="ECIM">
+                                  <extension name="isNillable" value="true"/>
+                                </domainExtension>
+
+			<dataType>                               
+			<int8/>
+			</dataType>
+		</attribute>                                                                                                                                                                                             
+
+		<attribute name="testWritableInt16">                      
+			<description>a test attribute</description>             
+		        <domainExtension domain="ECIM">
+		          <extension name="isNillable" value="true"/>
+		        </domainExtension>
+			<dataType>                              
+				<int16/>
+			</dataType>                                             
+		</attribute>                                                    
+    </class>
+    
+</mim>
+     
+</models>

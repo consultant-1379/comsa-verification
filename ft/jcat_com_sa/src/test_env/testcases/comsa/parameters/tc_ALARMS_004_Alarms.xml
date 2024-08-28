@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Alarms - ComSaAmfSiUnassigned</id>
+        <tag>TC-ALARMS-004</tag>	
+        <version>P1A01</version>
+		<testcase>alarms</testcase>
+		<class>Alarms</class>
+		<method>Alarms</method>
+		<description>Alarms - ComSaAmfSiUnassigned</description>
+	</info>	
+    <config>
+        
+        <ntfsendMsg>ntfsend -T 0x4000 -e 16384 -c 18568,2,5 -n "fmAlarmTypeId=ComSaAmfSiUnassigned,fmAlarmModelId=coreMw,fmId=1" -s 5 -a "</ntfsendMsg>
+        <ntfsendMsg2>ntfsend -T 0x4000 -e 16384 -c 18568,2,5 -n "fmAlarmTypeId=ComSaAmfSiUnassigned,fmAlarmModelId=coreMw,fmId=1" -s 0 -a "</ntfsendMsg2>
+    	
+    	<expectedDN>ManagedElement=1,SystemFunctions=1,Fm=1,FmAlarmModel=coreMw,FmAlarmType=ComSaAmfSiUnassigned;</expectedDN>
+    	<expectedMajorType>18568;</expectedMajorType>
+    	<expectedMinorType>131077;</expectedMinorType>
+    	<expectedAlarmMsg>COM SA, AMF SI Unassigned;</expectedAlarmMsg>
+    
+      
+	</config>  
+</testcase>

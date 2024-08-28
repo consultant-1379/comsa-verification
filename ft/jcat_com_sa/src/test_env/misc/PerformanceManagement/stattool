@@ -1,0 +1,165 @@
+#!/bin/sh
+
+# Stattool is a script that collect performance data for one or more processes.
+# 
+# SYNOPSIS
+# stattool [-i sleeptime] [-r reffile] [processnames...]
+# 
+# DESCRIPTION
+# Options
+# -i Sleep time in seconds between each sample, default 10
+# -r reference file. stattool waits for the file to be created before start sampling, default /home/test/pm/run_stattool
+# 
+# Optional arguments are names of processes to sample. If no arguments are present, stattool will sample osafpmnd and osafpmd.
+# 
+# LIMITATIONS
+# stattool can't handle situations where one process name corresponds to more than one process.
+# stattool can't handle situations where a process dies and restarts.
+# Sampled processes needs to exist before sampling is started.
+# Due to limitations in used command pgrep, a process name is limited to 15 characters. To sample pmsv_producer_testapp, the string pmsv_producer_t must be given as an argument.
+# 
+# OUTPUT
+# A stattool report consists of eight columns and one line for each sample. 
+# Elapsed time since start in hours:minutes:seconds 
+# Elapsed time since start in seconds 
+# Process name. 
+# Used CPU time, user and system, in seconds since start of sampling. 
+# Used CPU time, user and system, in percent since start of sampling. 
+# Used CPU time, user and system, in seconds since previous sample. 
+# Used CPU time, user and system, in percent since previous sample. 
+# Size of process, VmSize, in kb. 
+# 
+# EXAMPLES 
+#  ./stattool -i100 pmsv_producer_t
+# 0:00:00 0 pmsv_producer_t 0.000000 0.000000 0.000000 0.000000 172196
+# 0:01:40 100 pmsv_producer_t 0.970000 0.485000 0.970000 0.485000 172196
+# 0:03:20 200 pmsv_producer_t 1.960000 0.490000 0.990000 0.495000 172196
+# 0:05:00 300 pmsv_producer_t 2.930000 0.488333 0.970000 0.485000 172196
+# 
+# This example samples pmsv_producer_testapp, with a sample interval of 100 seconds.
+# 
+# Line "0:03:20" shows that 3 mins and 20 seconds (200 seconds) has passed since start of sampling.
+# The process name is pmsv_producer_t.
+# In column 4 and 5, the line has the values 1.96 and 0.49. This means that 
+# the process has consumed 1.96 seconds CPU time, which is equivalent to 
+# 0.49% CPU time, in the 200 seconds that has passed since start of sampling.
+# The percent value is 0.49% since the host has two CPU cores.
+# In column 6 and 7. the line has the values 0.99 and 0.495. This means that 
+# the process has consumed 0.99 seconds CPU time, which is equivalent to 
+# 0.495% CPU time in the 100 seconds that has passed since the previous 
+# sample. Even here the percent values has been adjusted for the multi core
+#  environment.
+# In column 8 the value 172196 shows the virtual memory size in kb for the 
+# process.
+# 
+# 
+# Example below shows output when more than one process is sampled. The lines
+#  with the same process name should be compared with each other. 
+# ./stattool -i100 pmsv_producer_t osafpmnd
+# 0:00:00 0 pmsv_producer_t 0.000000 0.000000 0.000000 0.000000 155920
+# 0:00:00 0 osafpmnd 0.000000 0.000000 0.000000 0.000000 125596
+# 0:01:40 100 pmsv_producer_t 0.560000 0.280000 0.560000 0.280000 155912
+# 0:01:40 100 osafpmnd 0.000000 0.000000 0.000000 0.000000 125596
+# 0:03:20 200 pmsv_producer_t 1.120000 0.280000 0.560000 0.280000 155912
+# 0:03:20 200 osafpmnd 0.000000 0.000000 0.000000 0.000000 125596
+# 0:05:00 300 pmsv_producer_t 1.680000 0.280000 0.560000 0.280000 155912
+# 0:05:00 300 osafpmnd 0.010000 0.001667 0.010000 0.005000 125596
+
+
+
+ 
+
+
+
+reffile=/home/test/pm/run_stattool
+interval=10
+
+while getopts i:r: o
+do
+    case "$o" in
+        r) reffile="$OPTARG" ;;
+	i) interval="$OPTARG" ;;
+        *)
+            echo "Usage: $0 [-r reffile] [-i interval] [procs]" 1>&2
+            exit 1
+            ;;
+    esac
+done
+shift $(expr $OPTIND - 1)
+
+echo $interval | egrep -q '^[[:digit:]]+$'
+if test $? -gt 0
+    then
+    echo "Argument to \"-i\" must be numerical" 1>&2
+    exit 1
+fi
+
+# CLK_TCK=$(ps -o "pid bsdtime" -e | sed 's/:/ /g' | awk 'NR==1 {max=0; next} {secs=$2*60+$3; if( secs>max ) {max=secs; pid=$1}} END {cmd=sprintf("cat /proc/%d/stat",pid); cmd | getline; tics=$14+$15; print int(tics/max);close(cmd);}')
+CLK_TCK=100
+export CLK_TCK
+NCPUS=$(grep processor /proc/cpuinfo | wc -l)
+
+CMDS=
+DELIM=
+for i in "$@"
+do
+    CMDS=${CMDS}${DELIM}${i}
+    DELIM=":"
+done
+
+test -z "$CMDS" && CMDS=osafpmnd:osafpmd
+
+while true
+do
+    test -f $reffile && break
+    sleep 1
+done
+
+STATFILES=
+DELIM=
+for i in $(echo $CMDS | tr ':' ' ')
+do
+    PID=$(pgrep $i)
+    if test -n "$PID"
+	then
+	STATFILES="${STATFILES}${DELIM}/proc/${PID}/stat"
+	DELIM=" "
+    fi
+done
+
+while test -f $reffile
+do
+    awk -v tck=$CLK_TCK '{gsub("[()]","",$2); print $2,($14+$15)/tck,$23/1024;}' $STATFILES 2>/dev/null
+    sleep $interval
+done |
+awk -vncpus=$NCPUS 'NR==1 {
+    start=systime();
+}
+{
+    if( cpuref[$1]=="" ) cpuref[$1]=$2;
+    now=systime();
+    elapsed=now-start;
+    if( last[$1]!="" ) {
+        diff=now-last[$1];
+    } else {
+        diff=0;
+    }
+    last[$1]=now;
+
+    used=$2-cpuref[$1];
+    if (elapsed>0) {
+        pcent=(100*used)/(elapsed*ncpus);
+    } else {
+        pcent=0.0;
+    }
+    if( lastused[$1]!="" && diff>0 ) {
+        iused=$2-lastused[$1];
+        ipcent=(100*iused)/(diff*ncpus);
+    } else {
+        ipcent=0.0;
+    }
+    lastused[$1]=$2;
+    printf("%d:%02d:%02d %d %s %f %f %f %f %d\n",elapsed/3600,(elapsed/60)%60,elapsed%60,elapsed, $1, used, pcent, iused, ipcent, $3);
+    fflush();
+}'
+

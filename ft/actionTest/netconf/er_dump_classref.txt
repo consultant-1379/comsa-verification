@@ -1,0 +1,2 @@
+pMoClass SA_IMM_ATTR_SANAMET {length =39, value = a,c,t,i,o,n,T,e,s,t,I,d,=,1,,,s,d,p,6,1,7,A,c,t,i,o,n,t,e,s,t,R,o,o,t,I,d,=,1} actionTestId=1,sdp617ActiontestRootId=1
+pRootMoClass SA_IMM_ATTR_SANAMET {length =24, value = s,d,p,6,1,7,A,c,t,i,o,n,t,e,s,t,R,o,o,t,I,d,=,1} sdp617ActiontestRootId=1

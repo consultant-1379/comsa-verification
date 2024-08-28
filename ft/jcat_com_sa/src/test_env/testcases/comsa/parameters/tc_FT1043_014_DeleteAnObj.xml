@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CLI change configuration FT1043- deleting an object</id>
+        <tag>TC-FT1043-014</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationFT1043_2</testcase>
+		<class>CLIconfigurationFT1043_2</class>
+		<method>CLIconfigurationFT1043_2</method>
+		<description>CLI change configuration - deleting an object</description>
+	</info>	
+    <config>
+    	<methodName>handleCcbCreateObject</methodName>
+    	<testOIRunParams>SnmpTargetV1</testOIRunParams>
+    	<serchPatternSyslog1>["com: COM_SA Looping over the available error strings"]</serchPatternSyslog1>
+    	<serchPatternSyslog2>["com: COM_SA Error string number 0: @CoMNbi@forced ERROR: handleCcbDeleteObject()"]</serchPatternSyslog2>
+    	
+        <cli_input_1>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['SnmpTargetV1=1', 'address="1.2.3.4"', 'community="public"']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"configure" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "no SnmpTargetV1=1" "commit" "exit"</cli_input_2>        
+        <cli_expected_output_2>['ManagedElement=1', 'SystemFunctions=1', 'SysM=1', 'Snmp=1', 'ailed']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+        
+        <cli_input_3>"show all" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'SystemFunctions=1', 'SysM=1', 'Snmp=1', 'SnmpTargetV1=1', 'address="1.2.3.4"', 'community="public"']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['closed connection', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+	</config>  
+</testcase>

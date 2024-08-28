@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>FT for SDP 1043 - preparing the cluster for testing</id>
+        <tag>TC-FT1043-011</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp1043_2</testcase>
+		<class>FTSdp1043_2</class>
+		<method>FTSdp1043_2</method>
+		<description>FT for SDP 1043 - preparing the cluster for testing</description>
+	</info>	
+    <config>
+        <cli_input_1>"configure" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "address=1.2.3.4" "community=public" "show" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['address="1.2.3.4"', 'community="public"']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>              
+        
+        <cli_input_2>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['SnmpTargetV1=1', 'address="1.2.3.4"', 'community="public"']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+        
+        <cli_input_3>"configure" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "no SnmpTargetV1=1" "commit" "exit"</cli_input_3>        
+        <cli_expected_output_3>['ManagedElement=1', 'SystemFunctions=1', 'SysM=1', 'Snmp=1']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['closed connection', 'ERROR', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+        <cli_input_4>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "exit"</cli_input_4>
+        <cli_expected_output_4>['Snmp=1', 'operationalState=', 'agentAddress', 'host=', 'port=']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['SnmpTargetV1=1', 'address="1.2.3.4"', 'community="public"', 'error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <cli_input_5>"configure" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "address=1.2.3.4" "community=public" "show" "commit" "exit"</cli_input_5>
+        <cli_expected_output_5>['address="1.2.3.4"', 'community="public"']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+	</config>  
+</testcase>

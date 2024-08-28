@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_Sdp617ActiontestRoot">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="Sdp617ActiontestRoot">
+            <mimName>Sdp617ActiontestMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>1</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </interMim>
+<mim author="" contact="" date="" docNo="" name="Sdp617ActiontestMom" namespace="urn:com:ericsson:ecim:Sdp617ActiontestMom::1.0" namespacePrefix="sdp617actiontestmom" organization="" release="1" revision="" version="1">
+    <description>qe</description>
+    <struct name="StructType">
+      <structMember name="alpha">
+        <int16/>
+      </structMember>
+      <structMember name="beta">
+        <string/>
+      </structMember>
+      <structMember name="charlie">
+        <int16/>
+      </structMember>
+    </struct>
+    <enum name="EnumType">
+      <enumMember name="E1">
+        <value>1</value>
+      </enumMember>
+      <enumMember name="E2">
+        <value>2</value>
+      </enumMember>
+    </enum>
+    <derivedDataType name="DerNumericType">
+      <baseType>
+        <int16>
+          <range>
+            <max>10</max>
+            <min>1</min>
+          </range>
+        </int16>
+      </baseType>
+    </derivedDataType>
+    <derivedDataType name="DerStringType">
+      <baseType>
+        <string>
+          <lengthRange>
+            <max>10</max>
+            <min>1</min>
+          </lengthRange>
+        </string>
+      </baseType>
+    </derivedDataType>
+    <class name="Sdp617ActiontestRoot">
+      <description>A root class</description>
+      <root/>
+      <attribute name="sdp617ActiontestRootId">
+        <description>qwe</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <class name="ActionTest">
+      <description>Action test</description>
+      <action name="simpleAction">
+        <description>Simple action with no parameters</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="10"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+      </action>
+      <action name="intReturn">
+        <description>qwe</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="11"/>
+        </domainExtension>
+        <returnType>
+          <int16/>
+        </returnType>
+      </action>
+      <action name="setReturnValue">
+        <description>The return value in COM SA is set to the first parameter provided in the method</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="999"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="value">
+          <description>The return value in COM SA will be set to this value</description>
+          <in/>
+          <dataType>
+            <int32/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="noReturn">
+        <description>A method with no return type specified</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="12"/>
+        </domainExtension>
+        <returnType>
+          <void/>
+        </returnType>
+      </action>
+      <action name="setFileName">
+        <description>Sets the filename of the output file from actionTestAppl.
+All parameters and their content will be dump to that file.</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="1000"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="fileName">
+          <description>Filename of the dump file. The file will be prefixed with /tmp/actiontest_</description>
+          <in/>
+          <dataType>
+            <string/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testIntParams">
+        <description>Testing integer parameters</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="21"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="paramInt8">
+          <in/>
+          <dataType>
+            <int8/>
+          </dataType>
+        </parameter>
+        <parameter name="paramInt16">
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="paramInt32">
+          <in/>
+          <dataType>
+            <int32/>
+          </dataType>
+        </parameter>
+        <parameter name="paramInt64">
+          <in/>
+          <dataType>
+            <int64/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint8">
+          <in/>
+          <dataType>
+            <uint8/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint16">
+          <in/>
+          <dataType>
+            <uint16/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint32">
+          <in/>
+          <dataType>
+            <uint32/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint64">
+          <in/>
+          <dataType>
+            <uint64/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testParamOrder">
+        <description>Testing order of parameters in com sa</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="22"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="param2">
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="param3">
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testString">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="23"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <in/>
+          <dataType>
+            <string/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testBool">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="24"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="paramBool">
+          <in/>
+          <dataType>
+            <boolean/>
+          </dataType>
+        </parameter>
+        <parameter name="paramBool2">
+          <in/>
+          <dataType>
+            <boolean/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testDerived">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="25"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="pNum">
+          <in/>
+          <dataType>
+            <derivedDataTypeRef name="DerNumericType">
+              <mimName>Sdp617ActiontestMom</mimName>
+            </derivedDataTypeRef>
+          </dataType>
+        </parameter>
+        <parameter name="pString">
+          <in/>
+          <dataType>
+            <derivedDataTypeRef name="DerStringType">
+              <mimName>Sdp617ActiontestMom</mimName>
+            </derivedDataTypeRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testEnumParam">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="26"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <in/>
+          <dataType>
+            <enumRef name="EnumType">
+              <mimName>Sdp617ActiontestMom</mimName>
+            </enumRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testStruct">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="27"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="p1">
+          <in/>
+          <dataType>
+            <structRef name="StructType">
+              <mimName>Sdp617ActiontestMom</mimName>
+            </structRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testClass">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="28"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="pRootMoClass">
+          <in/>
+          <dataType>
+            <moRef name="Sdp617ActiontestRoot">
+              <mimName>Sdp617ActiontestMom</mimName>
+            </moRef>
+          </dataType>
+        </parameter>
+        <parameter name="pMoClass">
+          <in/>
+          <dataType>
+            <moRef name="ActionTest">
+              <mimName>Sdp617ActiontestMom</mimName>
+            </moRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testEventType">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="29"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="pEvent">
+          <in/>
+          <dataType>
+            <enumRef name="EventType">
+              <mimName>ComFm</mimName>
+            </enumRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testArray">
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="30"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="array">
+          <in/>
+          <dataType>
+            <sequence>
+              <int16/>
+              <minLength>1</minLength>
+            </sequence>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testErrString">
+        <description>Send error string to COM</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="31"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+		<parameter name="errorText">
+          <in/>
+          <dataType>
+            <string/>
+          </dataType>
+        </parameter>
+      </action>
+      <attribute name="actionTestId">
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <relationship name="Sdp617ActiontestRoot_to_ActionTest">
+      <containment>
+        <parent>
+          <hasClass name="Sdp617ActiontestRoot">
+            <mimName>Sdp617ActiontestMom</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ActionTest">
+            <mimName>Sdp617ActiontestMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>1</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </mim>
+</models>

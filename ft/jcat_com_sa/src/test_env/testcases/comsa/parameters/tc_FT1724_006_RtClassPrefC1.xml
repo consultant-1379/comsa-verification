@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP1724 FT - COM-SA forwards a CM notification for a runtime object. Prefixed MOM, key attribute case 1</id>
+        <tag>TC-FT1724-006</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp1724</testcase>
+		<class>FTSdp1724</class>
+		<method>FTSdp1724</method>
+		<description>SDP1724 FT - COM-SA forwards a CM notification for a runtime object. Prefixed MOM, key attribute case 1</description>
+	</info>
+    <config>
+    
+     	<modelfile_mp1>CmNtfRt_class_Pref_C1_mp.xml</modelfile_mp1>
+     	<modelfile_imm_classes1>CmNtfRt_class_Pref_C1_imm_classes.xml</modelfile_imm_classes1>
+     
+        <test_consumer_1>testConsumer1.so</test_consumer_1>
+        <test_consumer_2>testConsumer2.so</test_consumer_2>
+        <test_consumer_3>testConsumer3.so</test_consumer_3>
+
+		<testCons1Regexp1>.*CmNtfRtTest.*</testCons1Regexp1>
+		<testCons1Regexp2>.*anotherName.*</testCons1Regexp2>
+		<testCons2Regexp1>.*</testCons2Regexp1>
+		<testCons3Regexp1>^ManagedElement=1,SystemFunctions=1.*</testCons3Regexp1>
+     
+     
+     	<testOIarg1>-d -C -c ObjImpTestMomCmNtfRtTest -k ObjImpTestMomcmNtfRtTestId -r ObjImpTestMomcmNtfRtTestId=1 -a cmNtfRtTestInt32 -v 13 -n CmEventsOi</testOIarg1>
+     	<testOIarg2>-d -M -c ObjImpTestMomCmNtfRtTest -k ObjImpTestMomcmNtfRtTestId -r ObjImpTestMomcmNtfRtTestId=1 -a cmNtfRtTestInt32 -v 14 -n CmEventsOi</testOIarg2>
+     	<testOIarg3>-d -D -c ObjImpTestMomCmNtfRtTest -k ObjImpTestMomcmNtfRtTestId -r ObjImpTestMomcmNtfRtTestId=1 -n CmEventsOi</testOIarg3>
+     
+     	<testOIarg_tearDown1>-d -D -c ObjImpTestMomCmNtfRtTest -k ObjImpTestMomcmNtfRtTestId -r ObjImpTestMomcmNtfRtTestId=1 -n CmEventsOi</testOIarg_tearDown1>
+     
+     
+     	<searchPatterns1>['testConsumer1: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: MoCreated ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 13 ', 'eventTime: ']</searchPatterns1>
+     	<searchPatterns2>['testConsumer2: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: MoCreated ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 13 ', 'eventTime: ']</searchPatterns2> 
+		<searchPatterns3>['testConsumer1: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: AttributeValueChange ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 14 ', 'eventTime: ']</searchPatterns3>
+		<searchPatterns4>['testConsumer2: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: AttributeValueChange ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 14 ', 'eventTime: ']</searchPatterns4>
+		<searchPatterns5>['testConsumer1: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</searchPatterns5>
+		<searchPatterns6>['testConsumer2: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</searchPatterns6>
+<!--
+		<searchPatterns7>[]</searchPatterns7>
+		<searchPatterns8>[]</searchPatterns8>
+		<searchPatterns9>[]</searchPatterns9>
+-->
+		<unexpectedPattern1>['testConsumer3: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: MoCreated ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 13 ', 'eventTime: ']</unexpectedPattern1>
+		<unexpectedPattern2>['testConsumer3: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: AttributeValueChange ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 14 ', 'eventTime: ']</unexpectedPattern2>
+		<unexpectedPattern3>['testConsumer3: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</unexpectedPattern3>
+
+		<unexpectedPattern4>['testConsumer2: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1,', 'eventType: MoCreated ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 13 ', 'eventTime: ']</unexpectedPattern4>
+		<unexpectedPattern5>['testConsumer2: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1,', 'eventType: AttributeValueChange ', 'attributes: name: cmNtfRtTestInt32 attrType: INT32 nrOfValues: 1 values: 14 ', 'eventTime: ']</unexpectedPattern5>
+		<unexpectedPattern6>['testConsumer2: cmEventNotify(): ', 'txHandle: 0 ', 'sourceIndicator: ResourceOperation ', 'dn: ManagedElement=1,CmNtfRtTest=1,', 'eventType: MoDeleted ', 'attributes: eventTime: ']</unexpectedPattern6>
+<!--
+		<unexpectedPattern7></unexpectedPattern7>
+		<unexpectedPattern8></unexpectedPattern8>
+		<unexpectedPattern9></unexpectedPattern9>
+-->		
+	</config>
+</testcase>

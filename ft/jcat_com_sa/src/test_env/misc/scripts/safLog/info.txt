@@ -1,0 +1,10 @@
+The provoke_saflog script is used for starting number of
+saflogger instances. 
+The saflogger is a SAF LOG client used to write a log record into a specified log stream.
+ 
+
+Usage: provoke_saflog  <nr of safLogger instances>
+ 
+ NOTE: This script doesn't terminate the safLogger processes
+  
+ 

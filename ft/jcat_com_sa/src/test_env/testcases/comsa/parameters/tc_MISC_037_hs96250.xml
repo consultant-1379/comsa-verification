@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"HS96250 - getMoAttribute() for an unset attribute"</id>
+        <tag>TC-MISC-037</tag>
+        <version>P1A01</version>
+        <testcase>cliConfigurationTestCase</testcase>
+        <class>CLIconfiguration</class>
+        <method>CLIconfiguration</method>
+        <description>"HS96250 - getMoAttribute() for an unset attribute"</description>
+    </info>
+    <config>
+        <configFile>com_sa_trace.conf</configFile>
+
+        <enableComSaTrace>True</enableComSaTrace>
+
+        <cli_input_1>"configure" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "show" "exit"</cli_input_1>
+        <cli_expected_output_1>['Snmp=1', 'operationalState=', 'agentAddress', 'host=', 'port=']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['SnmpTargetV1=', 'SnmpTargetV2C=', 'SnmpTargetV3=', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"configure" "ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1" "SnmpTargetV1=1" "abort" "exit"</cli_input_2>
+        <cli_expected_output_2>['ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1', 'SnmpTargetV1=1', 'abort']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <cli_input_3>"configure" "ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1" "SnmpTargetV1=1" "show verbose" "abort" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1', 'SnmpTargetV1=1', 'snmpTargetV1Id=\"1\"', 'abort']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+        <expectedComSA_syslog_1>com: COM_SA getImmMoAttributeSimple after looking in cache objres = 2</expectedComSA_syslog_1>
+        <expectedComSA_syslog_2>com: COM_SA getImmMoAttributeSimple after getImmAttribute imm return value = 12</expectedComSA_syslog_2>
+        <expectedComSA_syslog_3>com: COM_SA getImmMoAttributeSimple leaving return value = 0</expectedComSA_syslog_3>
+        <unexpectedComSA_syslog_1>com: COM_SA getImmMoAttributeSimple leaving return value = -2</unexpectedComSA_syslog_1>
+    </config>
+</testcase>

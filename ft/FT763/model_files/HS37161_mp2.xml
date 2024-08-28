@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>xdonngu</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>xdonngu</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpComplexClass">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpComplexClass">
+            <mimName>ObjImpComplexMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="xdonngu" contact="" date="2014-03-26" docNo="" name="ObjImpComplexMom" namespace="urn:com:ericsson:ecim:ObjImpComplexMom::1.0" namespacePrefix="objimpcomplexmom" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+    
+    <struct name="TestStruct">
+      <description>define a struct</description>
+      <structMember name="testRuntimeAttrUint8">
+        <description>Uint8 member</description>
+          <sequence>
+            <uint8/>
+            <minLength>0</minLength>
+            <maxLength>10</maxLength>
+          </sequence>
+      </structMember>
+      
+      <structMember name="testRuntimeAttrUint16">
+        <description>Uint16 member</description>
+          <sequence>
+            <uint16/>
+            <minLength>0</minLength>
+            <maxLength>10</maxLength>
+          </sequence>
+      </structMember>
+      
+      <structMember name="testRuntimeAttrUint32">
+        <description>Uint32 member</description>
+          <sequence>
+            <uint32/>
+            <minLength>0</minLength>
+            <maxLength>10</maxLength>
+          </sequence>
+      </structMember>
+      
+      <structMember name="testRuntimeAttrUint64">
+        <description>Uint64 member</description>
+          <sequence>
+            <uint64/>
+            <minLength>0</minLength>
+            <maxLength>10</maxLength>
+          </sequence>
+      </structMember>
+    </struct>
+
+    <class name="ObjImpComplexClass">
+      <description>A test class</description>
+      <root/>
+      <attribute name="objImpComplexClassId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+      
+      <attribute name="TestStructAttr">
+        <description>a test attribute</description>
+        <dataType>
+          <sequence>
+            <structRef name="TestStruct">
+              <mimName>ObjImpComplexMom</mimName>
+              <mimVersion>1</mimVersion>
+            </structRef>
+            <minLength>0</minLength>
+            <maxLength>10</maxLength>
+          </sequence>
+        </dataType>
+      </attribute>
+    </class>
+    
+</mim>
+     
+</models>

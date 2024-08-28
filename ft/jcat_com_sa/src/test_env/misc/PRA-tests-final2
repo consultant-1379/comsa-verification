@@ -1,0 +1,44 @@
+***3.1 PRA test final2***
+
+LOTC: R3A04-sh1 (if not specified otherwise)
+Vip: R1A03 (if not specified otherwise)
+CoreMW 3.1 PRA revision = R4A10
+
+Date 		Test case			Version		Target	Config	Result	Notes									Status	TC logs
+--------------------------------------------------------------------------------------------------------------------------------------------
+Joel		LCT - LRC								2+10	
+Joel		LCT - LBC								2+10															https://cc-isisupp.rnd.ki.sw.ericsson.se/RDA/logs/LCT_LOGS/201209/LCT_582_20120925090026/
+Joel		FT					R5A10		cots24a	2+2		314/315	with LOTC4.2 PRA						??		file:///home/eanjoel/tmp/201209/CMW_FT_20120921212501/index.html			
+Joel		nightTest       	R5A10		sun1	2+2     81/82											OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-nightTest_2p2_20120921215641/index.html
+Joel		nightTest			R5A10		sun2	2+8		129/132	dc, run maint-017 & 018! yes box!		OK		file:///proj/coremw_scratch/eanjoel/logs//201209/CMW-coremw3.1_dev-nightTest_2p8_dc_20120921221007/index.html
+Joel		Upgrade	all			R5A10		sun2	2+8		4/6		dc										OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-deploymentUpgradeTestSuite_2p8_dc_20120924093958/index.html
+Joel		Upgrade	all			R5A10		sun1	2+0		6/6												NOK?	file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-deploymentUpgradeTestSuite_2p0_20120924100856/index.html
+Joel		Char				R5A10		cots4b	2+0		61/61	100k, no pm								OK		file:///proj/coremw_scratch/eanjoel/logs//201209/CMW-coremw3.1_dev-CoreMW3.1_R5A10_2plus0_100k_eanjoel2_20120926160039/index.html
+Joel		Char				R5A10		sun2	2+8		10/12	dc, 350k, no pm							OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-CoreMW3.1_R5A10_2plus8_350k_20120925110258/index.html
+
+Ingvar		FT										2+0												
+Ingvar		Hostname agn+night						2+2												
+Ingvar		Cluster resize							2+8				1+0->2+0->2+8->2+2(testapps)
+Ingvar		U3+rollback+start						2+2				manual test							
+
+Janne		FT										2+2		310/311											OK		file:///home/ejanper/tmp/201209/CMW_FT_20120921192916/index.html
+Janne		Upgrade U2								2+2		1/1												OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120925145852/index.html
+			+nightT									2+2		81/82											OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120925162029/index.html
+Janne		Upgrade U3      						2+2				Pm activated, manual test				OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120926164115/index.html		
+Janne		nightTest2p0							2+0		1/2/55	Re-Run TC-MAINT-071, TC-MAINT-063		OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120921192530/index.html		
+Janne		Stabtest, 72 h							2+0				Pm activated							OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120922040358/index.html			
+
+Marianne	nightTest								2+2		81/82	dc enabled								OK		file:///proj/coremw_scratch/ehsmebm/logs//201209/CMW-coremw3.1_dev-PRA_BUILD_20120922053910/index.html								
+Marianne	Stabtest, 72 h							2+0				Pm activated					
+										
+Per-Erik	smokeTest								2+38			LOTC4.1 CP4
+Per-Erik	nightTest								2+38			default config file??
+Per-Erik	Manual tests							2+68    		Only with CMW and LOTC 4.2 PRA file:???	NOK		file:///proj/coremw_scratch/erapeik/manually_tests/Selected_manually_tests_on_70.htm		
+Per-Erik	Stabtest, 72 h							2+38			LOTC4.1 CP4Pm NOT activated
+Per-Erik	72h stab test							2+68			with CMW,LOTC 4.2 PRA,eVIP2.0 CP1
+		
+DEK			PM full FT								2+2		
+DEK			PM char test							2+8
+DEK			AIT										?				already done in LCT?
+
+Rafael		CPI										2+?

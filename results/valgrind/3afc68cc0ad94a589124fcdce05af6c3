@@ -1,0 +1,11 @@
+ still reachable 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+_dl_signal_error (in /lib64/ld-2.19.so)
+_dl_open (in /lib64/ld-2.19.so)
+dlopen_doit (in /lib64/libdl-2.19.so)
+_dl_catch_error (in /lib64/ld-2.19.so)
+_dlerror_run (in /lib64/libdl-2.19.so)
+dlopen@@GLIBC_2.2.5 (in /lib64/libdl-2.19.so)
+__tracepoints__ptrs_init (tracepoint.h:370)
+__libc_csu_init (elf-init.c:88)
+(below main) (in /lib64/libc-2.19.so)

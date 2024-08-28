@@ -1,0 +1,131 @@
+#!/bin/bash
+#
+# Copyright (C) 2010 by Ericsson AB
+# S - 125 26  STOCKHOLM
+# SWEDEN, tel int + 46 10 719 0000
+#
+# The copyright to the computer program herein is the property of
+# Ericsson AB. The program may be used and/or copied only with the
+# written permission from Ericsson AB, or in accordance with the terms
+# and conditions stipulated in the agreement/contract under which the
+# program has been supplied.
+#
+# All rights reserved.
+# Uninstallation script for CoreMW without node reboot. EA agnostic as far as to delete the rpms from /cluster/rpms
+# Only LOTC will remain.
+#
+# The script will do the following:
+#  - Stop opensaf on all blades 
+#  - Stop log_sync on all blades
+#  - Remove all rpms beside linux
+#  - Remove all coremw related directories
+#  - Remove all coremw related rpms (In non EA agnostic way)
+#  - Remove all opensaf related directories
+
+die() {
+    #logger -s -t CMW -p user.err "$prg: ERROR: $@"
+    echo "Error: $1. Exiting!"
+    exit 1
+}
+
+## check exit status for critical commands
+verifyExitStatus()
+{
+    # $1 exitstatus
+    # $2 output of command
+    # $3 description of command
+    if [ $1 -ne 0 ] ; then
+        echo "  CRITICAL: $3 returned non-zero ($1) - $2"
+        echo "Aborting script! exitCode: $1"
+        exit $1
+    fi
+}
+
+# Stop opensaf on node
+# $1 tipc-node
+stop_opensaf()
+{
+    echo "# Enter stop_opensaf()"
+    node=`cmwea hostname-get 1,1,$1`
+    verifyExitStatus $? $node "cmwea cmwea hostname-get"
+    echo "Stopping opensaf on node $node"
+    rsh $node /etc/init.d/opensafd stop
+    rsh $node /etc/init.d/opensaf_log_sync halt
+    echo "# Leave stop_opensaf()"
+}
+
+# Get number of nodes in cluster
+MAX_NODE_ID=`cmwea tipcaddress-get --max | sed 's/.*,.*,//'`
+
+# Check that all nodes are up before allowing to continue
+# At the moment, compare with the number of additional TIPC nodes in the cluster
+# TIPC addresses should be 1.1.<x> and one for each of the other nodes
+ONLINE_NODES=`tipc-config -n | grep "<1.1." | grep up | wc -l`
+
+test $[ONLINE_NODES +1] -lt ${MAX_NODE_ID} && die "All nodes not up, Exiting"
+
+# Iterate over all present nodes and stop opensaf, start with payloads
+for (( i=3; i <= $MAX_NODE_ID; i++ )) ; do
+    #stop_opensaf $i 
+   echo "Not stopping opensaf"
+done
+
+# SC agnostic approach
+#stop_opensaf 1
+#stop_opensaf 2 
+
+# Iterate over all present nodes
+for (( i=1; i <= $MAX_NODE_ID; i++ )) ; do
+    node_hostname=`cmwea hostname-get 1,1,$i`
+    verifyExitStatus $? $node_hostname "cmwea cmwea hostname-get"
+    rpms=`cmwea rpm-list $node_hostname`
+
+    # Remove all rpms; the OS rpms will not be removed
+    echo "# Removing rpms from node $i"
+    for rpm in $rpms ; do
+        cmwea rpm-config-delete $rpm $node_hostname
+    done
+done
+
+# Remove coremw directories
+echo "# Remove coremw directories"
+location=`cmwea storage-location-get`
+rm -rf $location/co*
+rm -rf $location/coremw_appdata
+rm -rf /var/log/opensaf
+
+echo "# Remove rest of directories from /storage area."
+confd=`cmwea config-location-get`
+softd=`cmwea software-location-get`
+otherd=`cmwea no-backup-location-get`
+cleard=`cmwea clear-location-get`
+userd=`cmwea no-backup-location-get`/../user
+rm -rf $confd/*
+rm -rf $softd/*
+rm -rf $otherd/*
+rm -rf $cleard/*
+rm -rf $userd/*
+
+# Remove all RPM's. NOTE: not EA agnostic
+echo "# Remove all RPM's. NOTE: not EA agnostic"
+location=`cmwea storage-location-get`
+pushd /cluster/rpms/; ls | grep -v ^linux | grep -v ^valgrind | xargs rm; popd
+echo "# Remove snapshots from /cluster/snapshots"
+snapshotList=`ls -la /cluster/snapshot/`
+echo "# Snapshots before clean: $snapshotList"
+rm -f /cluster/snapshot/*
+rm -f /cluster/snapshot/.*
+snapshotList=`ls -la /cluster/snapshot/`
+echo "# Snapshots after clean: $snapshotList"
+echo "# Remove directories under /opt/co*"
+rm -rf /opt/com
+rm -rf /opt/coremw
+rm -rf /opt/comsa
+
+# Clean the rpm.conf files, just in case the rpm-config-delete did not work fine
+echo "# Clean the rpm.conf files, just in case the rpm-config-delete did not work fine"
+for node in `ls /cluster/nodes/ | grep -v .sw`; do 
+    echo "Cleaning /cluster/nodes/$node/etc/rpm.conf"
+    sed -i '1!d' /cluster/nodes/$node/etc/rpm.conf 
+done
+echo "# Uninstallation script completed."

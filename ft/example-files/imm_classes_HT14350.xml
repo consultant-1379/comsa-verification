@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+	Copyright (c) 2014 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on 23/10/2014 2:13:19 PM using:
+	* com.ericsson.ecim.coremw.m2m 2.8.0.201307301648
+	* com.ericsson.ecim.coremw.dsl 2.8.0.201307301648
+	* com.ericsson.ecim.coremw.imm 2.8.0.201307301648
+--><imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+    <class name="YMomRootY">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>YMomrootYId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+    </class>
+    <class name="XMomRootX">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>XMomrootXId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+        <attr>
+            <name>abstractRef</name>
+            <type>SA_NAME_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_WRITABLE</flag>
+        </attr>
+    </class>
+    <class name="CMomRootC">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>CMomrootCId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+    </class>
+    <class name="CMomClassA">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>classAId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+    </class>
+    <class name="AMomRootA">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>AMomrootAId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+    </class>
+    <class name="AMomClassA">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>classAId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+    </class>
+    <class name="TestMomRootA">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>TestMomTestMomrootAId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+    </class>
+    <class name="TestMomClassA">
+        <category>SA_CONFIG</category>
+        <rdn>
+            <name>classAId</name>
+            <type>SA_STRING_T</type>
+            <category>SA_CONFIG</category>
+            <flag>SA_INITIALIZED</flag>
+        </rdn>
+    </class>
+</imm:IMM-contents>

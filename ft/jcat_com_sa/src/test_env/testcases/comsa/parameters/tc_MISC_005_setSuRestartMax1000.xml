@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MISC - Set up test case</id>
+        <tag>TC-MISC-005</tag>
+        <version>P1A01</version>
+		<testcase>miscSetUpTestCase</testcase>
+		<class>SetUpTestCase</class>
+		<method>SetUpTestCase</method>
+		<description>MISC - Set up test case</description>
+	</info>	
+    <config>
+    	<installStressTool>False</installStressTool>
+    	<sync>100</sync>
+    	<numberOfvm>100</numberOfvm>
+    	<timeToExecuteSec>60</timeToExecuteSec>
+
+        <suRestartMaxSet>True</suRestartMaxSet>        
+    	<toDefault>False</toDefault>
+    	<value>1000</value>
+        <operation>copy</operation>
+        <pathRelToRep>True</pathRelToRep>
+        <pathLocalMachine>['test_env/misc/dump_handling/all_bt.sh', 'test_env/misc/dump_handling/backtrace.sh', 'test_env/misc/dump_handling/frequency.sh']</pathLocalMachine>
+        <pathOnTarget>/home/test/</pathOnTarget>
+        <createBackup>True</createBackup>
+        <backupName>testBackup</backupName>
+        <setUpTest>True</setUpTest>
+        <imm_input_1>immlist safSg=2N,safApp=ERIC-ComSa | grep saAmfSGAutoRepair</imm_input_1>
+        <imm_expected_output_1>['saAmfSGAutoRepair', 'SA_UINT32_T', '1', '(0x1)']</imm_expected_output_1>
+        <imm_nonexpected_output_1>['(0x0)']</imm_nonexpected_output_1>
+	</config>  
+</testcase>

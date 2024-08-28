@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>UC1: Check that COM delivers the models when COM3.4 is installed, then COMSA is installed</id>
+        <tag>TC-MR28452-001</tag>
+        <version>P1A01</version>
+                <testcase>functionTestMR28452</testcase>
+                <class>backupAndInstallOfCmwComComsaMR28452</class>
+                <method>backupAndInstallOfCmwComComsaMR28452</method>
+                <description>This test case create a backup of the system first then install CMW3.3SH14, COM3.4, COMSA. Check if COM delivered the model then restore to the old system</description>
+        </info>
+    <config>
+        <suRestartMaxSet>True</suRestartMaxSet>   
+    	<toDefault>False</toDefault>
+    	<value>1000</value>        
+        <backupName>backupMR28452testcase</backupName>
+        <createBackup>True</createBackup>
+        <storedBackupFilesLocation>/home/backupfileMR28452/</storedBackupFilesLocation>
+        
+        <comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+        <comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+        <cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+        <loctBackupLocation>/cluster/snapshot/</loctBackupLocation>
+        
+    </config>  
+</testcase>

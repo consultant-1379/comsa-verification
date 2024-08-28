@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CM action - testing with external regression test script</id>
+        <tag>TC-CM-003</tag>	
+        <version>P1A01</version>
+		<testcase>cmActionTestCaseNew</testcase>
+		<class>CMaction</class>
+		<method>CMaction</method>
+		<description>CM action - testing with external regression test script</description>
+	</info>	
+    <config>
+    	<external_script_name>runalltests.sh</external_script_name>
+        <pathOnTarget>/home/test/</pathOnTarget>
+	</config>  
+</testcase>

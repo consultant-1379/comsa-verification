@@ -1,0 +1,1 @@
+['urn:ietf:params:netconf:capability:rollback-on-error:1.0', 'SnmpTargetV2C', 'snmpTargetV2CId', 'testRDA', '147.214.15.82', '49804', 'TRAP', 'ok/']

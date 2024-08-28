@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>Execute backups while COM and COM SA execute as a non-root user</id>
+		<tag>TC-SUGAR-003</tag>
+		<version>P1A01</version>
+		<testcase>sugar</testcase>
+		<class>Sugar</class>
+		<method>Sugar</method>
+		<description>Execute backups while COM and COM SA execute as a non-root user</description>
+	</info>
+	<config>
+		<reqCmwVersion>R9A19</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComVersion>R1A01</reqComVersion>
+		<reqComRelease>6</reqComRelease>
+		<reqComSaVersion>R8A04</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+	</config>
+</testcase>

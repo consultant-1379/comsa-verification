@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>HT14350 Create object with duplicate class but difference prefix MOM</id>
+		<tag>TC-MISC-038</tag>
+		<version>P1A01</version>
+		<testcase>compDataTypesTestCase</testcase>
+		<class>CompDatatypes</class>
+		<method>CompDatatypes</method>
+		<description>HT14350 Create object with duplicate class but difference prefix MOM</description>
+	</info>
+	<config>
+		<pathToConfigFiles>/test_env/testcases/comsa/configFiles/</pathToConfigFiles>
+		<cli_tester_script>cli_tester</cli_tester_script>
+		<modelfile_mp>ImmSplitTestModel_mp_HT14350.xml</modelfile_mp>
+		<modelfile_imm>imm_classes_HT14350.xml</modelfile_imm>
+		<runTearDown>True</runTearDown>
+		<runSetUp>True</runSetUp>
+
+		<!--
+			Test case 1: Duplicate RootA (difference MOM) with difference parent: RootC RootY
+		-->
+
+		<cli_input_1>"show ManagedElement=1,RootX=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['ERROR', 'Specific element not found', 'show ManagedElement=1', 'RootX=1', 'exit']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['RootC', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show ManagedElement=1,RootY=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['ERROR', 'Specific element not found', 'show ManagedElement=1', 'RootY=1', 'exit']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['RootA', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<cli_input_3>"configure" "ManagedElement=1" "RootX=1" "RootC=1" "RootA=1" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['configure', 'ManagedElement=1', 'RootX=1', 'RootC=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1" "RootY=1" "RootA=1" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['configure', 'ManagedElement=1', 'RootY=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_4>
+
+		<cli_input_5>"show all ManagedElement=1,RootX=1" "exit"</cli_input_5>
+		<cli_expected_output_5>['ManagedElement=1', 'RootX=1', 'RootC=1', 'RootA=1']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_5>
+
+		<cli_input_6>"show all ManagedElement=1,RootY=1" "exit"</cli_input_6>
+		<cli_expected_output_6>['ManagedElement=1', 'RootY=1', 'RootA=1']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_6>
+
+		<cli_input_7>"configure" "no ManagedElement=1,RootX=1,RootC=1,RootA=1" "commit" "exit"</cli_input_7>
+		<cli_expected_output_7>['ManagedElement=1', 'RootX=1', 'RootC=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_7>
+		<cli_nonexpected_output_7>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_7>
+
+		<cli_input_8>"configure" "no ManagedElement=1,RootX=1,RootC=1" "commit" "exit"</cli_input_8>
+		<cli_expected_output_8>['ManagedElement=1', 'RootX=1', 'RootC=1', 'commit', 'exit']</cli_expected_output_8>
+		<cli_nonexpected_output_8>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_8>
+
+		<cli_input_9>"configure" "no ManagedElement=1,RootX=1" "commit" "exit"</cli_input_9>
+		<cli_expected_output_9>['ManagedElement=1', 'RootX=1', 'commit', 'exit']</cli_expected_output_9>
+		<cli_nonexpected_output_9>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_9>
+
+		<cli_input_10>"configure" "no ManagedElement=1,RootY=1,RootA=1" "commit" "exit"</cli_input_10>
+		<cli_expected_output_10>['ManagedElement=1', 'RootY=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_10>
+		<cli_nonexpected_output_10>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_10>
+
+		<cli_input_11>"configure" "no ManagedElement=1,RootY=1" "commit" "exit"</cli_input_11>
+		<cli_expected_output_11>['ManagedElement=1', 'RootY=1', 'commit', 'exit']</cli_expected_output_11>
+		<cli_nonexpected_output_11>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_11>
+
+		<!--
+			Test case 2: Duplicate ClassA (difference MOM) with difference root RootC RootA
+		-->
+
+		<cli_input_12>"show ManagedElement=1,RootX=1" "exit"</cli_input_12>
+		<cli_expected_output_12>['ERROR', 'Specific element not found', 'show ManagedElement=1', 'RootX=1', 'exit']</cli_expected_output_12>
+		<cli_nonexpected_output_12>['RootC', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_12>
+
+		<cli_input_13>"show ManagedElement=1,RootY=1" "exit"</cli_input_13>
+		<cli_expected_output_13>['ERROR', 'Specific element not found', 'show ManagedElement=1', 'RootY=1', 'exit']</cli_expected_output_13>
+		<cli_nonexpected_output_13>['RootA', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_13>
+
+		<cli_input_14>"configure" "ManagedElement=1" "RootX=1" "RootC=1" "ClassA=1" "commit" "exit"</cli_input_14>
+		<cli_expected_output_14>['configure', 'ManagedElement=1', 'RootX=1', 'RootC=1', 'ClassA=1', 'commit', 'exit']</cli_expected_output_14>
+		<cli_nonexpected_output_14>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_14>
+
+		<cli_input_15>"configure" "ManagedElement=1" "RootY=1" "RootA=1" "ClassA=1" "commit" "exit"</cli_input_15>
+		<cli_expected_output_15>['configure', 'ManagedElement=1', 'RootY=1', 'RootA=1', 'ClassA=1', 'commit', 'exit']</cli_expected_output_15>
+		<cli_nonexpected_output_15>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_15>
+
+		<cli_input_16>"show all ManagedElement=1,RootX=1" "exit"</cli_input_16>
+		<cli_expected_output_16>['ManagedElement=1', 'RootX=1', 'RootC=1', 'ClassA=1']</cli_expected_output_16>
+		<cli_nonexpected_output_16>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_16>
+
+		<cli_input_17>"show all ManagedElement=1,RootY=1" "exit"</cli_input_17>
+		<cli_expected_output_17>['ManagedElement=1', 'RootY=1', 'RootA=1', 'ClassA=1']</cli_expected_output_17>
+		<cli_nonexpected_output_17>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_17>
+
+		<cli_input_18>"configure" "no ManagedElement=1,RootX=1,RootC=1" "commit" "exit"</cli_input_18>
+		<cli_expected_output_18>['ManagedElement=1', 'RootX=1', 'RootC=1', 'commit', 'exit']</cli_expected_output_18>
+		<cli_nonexpected_output_18>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_18>
+
+		<cli_input_19>"configure" "no ManagedElement=1,RootX=1" "commit" "exit"</cli_input_19>
+		<cli_expected_output_19>['ManagedElement=1', 'RootX=1', 'commit', 'exit']</cli_expected_output_19>
+		<cli_nonexpected_output_19>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_19>
+
+		<cli_input_20>"configure" "no ManagedElement=1,RootY=1,RootA=1" "commit" "exit"</cli_input_20>
+		<cli_expected_output_20>['ManagedElement=1', 'RootY=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_20>
+		<cli_nonexpected_output_20>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_20>
+
+		<cli_input_21>"configure" "no ManagedElement=1,RootY=1" "commit" "exit"</cli_input_21>
+		<cli_expected_output_21>['ManagedElement=1', 'RootY=1', 'commit', 'exit']</cli_expected_output_21>
+		<cli_nonexpected_output_21>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_21>
+
+		<!--
+			Test case 3: Duplicate ClassA (difference MOM) with duplicate parent RootA (difference MOM)
+		-->
+
+		<cli_input_22>"show ManagedElement=1,RootX=1" "exit"</cli_input_22>
+		<cli_expected_output_22>['ERROR', 'Specific element not found', 'show ManagedElement=1', 'RootX=1', 'exit']</cli_expected_output_22>
+		<cli_nonexpected_output_22>['RootC', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_22>
+
+		<cli_input_23>"show ManagedElement=1,RootY=1" "exit"</cli_input_23>
+		<cli_expected_output_23>['ERROR', 'Specific element not found', 'show ManagedElement=1', 'RootY=1', 'exit']</cli_expected_output_23>
+		<cli_nonexpected_output_23>['RootA', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_23>
+
+		<cli_input_24>"configure" "ManagedElement=1" "RootX=1" "RootC=1" "RootA=1" "ClassA=1" "commit" "exit"</cli_input_24>
+		<cli_expected_output_24>['configure', 'ManagedElement=1', 'RootX=1', 'RootC=1', 'RootA=1', 'ClassA=1', 'commit', 'exit']</cli_expected_output_24>
+		<cli_nonexpected_output_24>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_24>
+
+		<cli_input_25>"configure" "ManagedElement=1" "RootY=1" "RootA=1" "ClassA=1" "commit" "exit"</cli_input_25>
+		<cli_expected_output_25>['configure', 'ManagedElement=1', 'RootY=1', 'RootA=1', 'ClassA=1', 'commit', 'exit']</cli_expected_output_25>
+		<cli_nonexpected_output_25>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_25>
+
+		<cli_input_26>"show all ManagedElement=1,RootX=1" "exit"</cli_input_26>
+		<cli_expected_output_26>['ManagedElement=1', 'RootX=1', 'RootC=1', 'RootA=1', 'ClassA=1']</cli_expected_output_26>
+		<cli_nonexpected_output_26>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_26>
+
+		<cli_input_27>"show all ManagedElement=1,RootY=1" "exit"</cli_input_27>
+		<cli_expected_output_27>['ManagedElement=1', 'RootY=1', 'RootA=1', 'ClassA=1']</cli_expected_output_27>
+		<cli_nonexpected_output_27>['error', 'closed connection', 'empty', 'Connection to COM failed', 'no']</cli_nonexpected_output_27>
+
+		<cli_input_28>"configure" "no ManagedElement=1,RootX=1,RootC=1,RootA=1" "commit" "exit"</cli_input_28>
+		<cli_expected_output_28>['ManagedElement=1', 'RootX=1', 'RootC=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_28>
+		<cli_nonexpected_output_28>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_28>
+
+		<cli_input_29>"configure" "no ManagedElement=1,RootX=1,RootC=1" "commit" "exit"</cli_input_29>
+		<cli_expected_output_29>['ManagedElement=1', 'RootX=1', 'RootC=1', 'commit', 'exit']</cli_expected_output_29>
+		<cli_nonexpected_output_29>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_29>
+
+		<cli_input_30>"configure" "no ManagedElement=1,RootX=1" "commit" "exit"</cli_input_30>
+		<cli_expected_output_30>['ManagedElement=1', 'RootX=1', 'commit', 'exit']</cli_expected_output_30>
+		<cli_nonexpected_output_30>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_30>
+
+		<cli_input_31>"configure" "no ManagedElement=1,RootY=1,RootA=1" "commit" "exit"</cli_input_31>
+		<cli_expected_output_31>['ManagedElement=1', 'RootY=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_31>
+		<cli_nonexpected_output_31>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_31>
+
+		<cli_input_32>"configure" "no ManagedElement=1,RootY=1" "commit" "exit"</cli_input_32>
+		<cli_expected_output_32>['ManagedElement=1', 'RootY=1', 'commit', 'exit']</cli_expected_output_32>
+		<cli_nonexpected_output_32>['error', 'closed connection', 'empty', 'Connection to COM failed']</cli_nonexpected_output_32>
+
+</config>
+</testcase>

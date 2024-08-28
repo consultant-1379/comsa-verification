@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COMSA U2 upgrade from latest release of COM SA 3.5</id>
+        <tag>TC-U2UPG-013</tag>
+        <version>P1A01</version>
+        <testcase>comsaBfu</testcase>
+        <class>UpgradeCOMSA</class>
+        <method>UpgradeCOMSA</method>
+        <description>This testcase restores COM backup, installs old version of COMSA and then upgrades to the current version</description>
+    </info>
+    <config>
+        <old_comsa>comsa3.5_latest/</old_comsa>
+        <old_comsa_major_version>6</old_comsa_major_version>
+        <reqComSaMajorVersion>6</reqComSaMajorVersion>
+        <upgradeType>u2</upgradeType>
+    </config>
+</testcase>

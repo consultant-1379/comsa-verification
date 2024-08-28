@@ -1,0 +1,33 @@
+<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:urn="urn:com:ericsson:ecim:ComTop" xmlns:urn1="urn:com:ericsson:ecim:ComSysM" xmlns:urn2="urn:com:ericsson:ecim:ComSnmp">
+   <edit-config>
+     <target>
+       <running/>
+     </target>
+     <config>
+       <urn:ManagedElement>
+         <urn:managedElementId>1</urn:managedElementId>
+         <urn:SystemFunctions>
+           <urn:systemFunctionsId>1</urn:systemFunctionsId>
+           <urn1:SysM>
+             <urn1:sysMId>1</urn1:sysMId>
+             <urn2:Snmp>
+               <urn2:snmpId>1</urn2:snmpId>
+               <urn2:SnmpTargetV2C>
+                 <urn2:snmpTargetV2CId>1</urn2:snmpTargetV2CId>
+                 <urn2:community>testRDA</urn2:community>
+                 <urn2:informRetryCount>1</urn2:informRetryCount>
+                 <urn2:address>147.214.15.82</urn2:address>
+                 <urn2:port>49804</urn2:port>
+                 <urn2:informTimeout>10</urn2:informTimeout>
+                 <urn2:transportMethod>TRAP</urn2:transportMethod>
+                 <urn2:isMibWritable>false</urn2:isMibWritable>
+                 <urn2:administrativeState>UNLOCKED</urn2:administrativeState>
+               </urn2:SnmpTargetV2C>
+             </urn2:Snmp>
+           </urn1:SysM>
+         </urn:SystemFunctions>
+       </urn:ManagedElement>
+     </config>
+   </edit-config>
+</rpc>
+]]>]]>

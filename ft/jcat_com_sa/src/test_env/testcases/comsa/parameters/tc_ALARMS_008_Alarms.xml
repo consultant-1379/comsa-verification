@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>A Fallback Operation will soon be started</id>
+        <tag>TC-ALARMS-008</tag>	
+        <version>P1A01</version>
+		<testcase>alarms</testcase>
+		<class>Alarms</class>
+		<method>Alarms</method>
+		<description>A Fallback Operation will soon be started</description>
+	</info>	
+    <config>
+        
+        <ntfsendMsg>ntfsend -T 0x4000 -e 16384 -c 193,1,1 -n "fmAlarmTypeId=FallbackOperationStartingSoon,fmAlarmModelId=SwM,fmId=1" -s 5 -a "</ntfsendMsg>
+        <ntfsendMsg2>ntfsend -T 0x4000 -e 16384 -c 193,1,1 -n "fmAlarmTypeId=FallbackOperationStartingSoon,fmAlarmModelId=SwM,fmId=1" -s 0 -a "</ntfsendMsg2>
+    	
+    	<expectedDN>ManagedElement=1,SystemFunctions=1,Fm=1,FmAlarmModel=SwM,FmAlarmType=FallbackOperationStartingSoon;</expectedDN>
+    	<expectedMajorType>193;</expectedMajorType>
+    	<expectedMinorType>65537;</expectedMinorType>
+    	<expectedAlarmMsg>A Fallback Operation will soon be started;</expectedAlarmMsg>
+    	
+      
+	</config>  
+</testcase>

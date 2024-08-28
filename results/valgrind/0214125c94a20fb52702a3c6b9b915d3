@@ -1,0 +1,13 @@
+ definitely lost 
+calloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+snmp_varlist_add_variable (in /usr/lib64/libnetsnmp.so.15.1.2)
+netsnmp_table_helper_add_indexes (in /usr/lib64/libnetsnmphelpers.so.15.1.2)
+initialize_table_eriAlarmActiveAlarmTable() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/ericssonAlarmMIB.cc:47)
+init_ericssonAlarmMIB() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/ericssonAlarmMIB.cc:25)
+ComFmSnmp::SnmpAdaptorRunnable::initSubAgentHandlers() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpAdaptorRunnable.cc:288)
+ComFmSnmp::SnmpAdaptorRunnable::initSubAgentAfterRestart() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpAdaptorRunnable.cc:266)
+ComFmSnmp::FmStateConfigureAgentX::onUpdate(ComFmSnmp::SnmpAdaptorRunnable&) (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpStateMachine.cc:381)
+StateMachine<ComFmSnmp::SnmpAdaptorRunnable, ComFmSnmp::SnmpEvent>::updateStateMachine() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/StateMachine.h:228)
+ComFmSnmp::SnmpAdaptorRunnable::selectLoop(std::list<int, std::allocator<int> >) (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpAdaptorRunnable.cc:213)
+ComFmSnmp::SnmpAdaptorRunnable::run() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpAdaptorRunnable.cc:339)
+Poco::ThreadImpl::runnableEntry(void*) (/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src/Thread_POSIX.cpp:378)

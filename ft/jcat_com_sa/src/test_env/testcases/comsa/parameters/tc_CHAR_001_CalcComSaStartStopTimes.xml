@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Characteristics - Measrue COM SA start and stop times</id>
+        <tag>TC-CHAR-001</tag>	
+        <version>P1A01</version>
+		<testcase>charRestartComTestCase</testcase>
+		<class>ComRestart</class>
+		<method>ComRestart</method>
+		<description>Characteristics - Measrue COM SA start and stop times</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

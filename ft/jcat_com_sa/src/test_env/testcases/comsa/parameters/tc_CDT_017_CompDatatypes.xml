@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Complex Datatypes - Creating an object that have default value, verify for TR HQ95132 and HQ79989</id>
+        <tag>TC-CDT-017</tag>
+        <version>P1A01</version>
+                <testcase>compDataTypesTestCase</testcase>
+                <class>CompDatatypes</class>
+                <method>CompDatatypes</method>
+                <description>Complex Datatypes - Creating an object that have default value, verify for TR HQ95132 and HQ79989</description>
+        </info>
+    <config>
+        <cli_input_1>"configure" "ManagedElement=1" "CmwTest=1" "myStructAttr" "attr1=12" "up" "ComSaTest=1" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1', 'CmwTest=1', 'myStructAttr', 'attr1=12', 'ComSaTest=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show ManagedElement=1, CmwTest=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ManagedElement=1', 'CmwTest=1', 'myStructAttr', 'attr1=12', 'ComSaTest=1']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <cli_input_3>"show verbose ManagedElement=1, CmwTest=1, ComSaTest=1" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'ComSaTest=1', 'attrdefault', 'comSaTestkey']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+        <cli_input_4>"configure" "ManagedElement=1" "no CmwTest=1" "commit" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'no CmwTest=1', 'commit']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <cli_input_5>"show ManagedElement=1, CmwTest=1" "exit"</cli_input_5>
+        <cli_expected_output_5>['ERROR: Specific element not found']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+        </config>
+</testcase>

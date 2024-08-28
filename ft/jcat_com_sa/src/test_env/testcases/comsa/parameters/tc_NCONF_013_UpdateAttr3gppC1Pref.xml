@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configuration Using Netconf - Changing an attribute in a struct - prefixed MOM, key attribute case 1 with random upper_lower case characters</id>
+        <tag>TC-NCONF-013</tag>	
+        <version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>Changing an attribute in a struct - prefixed MOM, key attribute case 1 with random upper_lower case characters</description>
+	</info>	
+    <config>    
+    	<reqComSaMajorVersion>3</reqComSaMajorVersion>
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<useExternalModels>yes</useExternalModels>
+    	<modelFilePathOnTarget>/home/netconfTest/</modelFilePathOnTarget>
+    	<modelFileType>CDT</modelFileType>    	
+    	<momFile>mp_mom_C1.xml</momFile>
+    	<immClassesFile>imm_mom_C1.xml</immClassesFile>
+    	
+    	<immObjPattern>["cmwtest"]</immObjPattern>
+    	
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <helloFile>Hello.xml</helloFile>
+
+        <actionFile>['CreateObjPrefixedMomC1.xml', 'ChangingAttrPrefixedMomC1.xml']</actionFile>
+        <actionFile2>['check013.xml']</actionFile2>
+        <actionFile3>['ChangingAttrPrefixedMom2C1.xml']</actionFile3>
+        <actionFile4>['check013.xml']</actionFile4>
+        <actionFile5>['removingStructWPrefixedMomC1.xml']</actionFile5>
+        <actionFile6>['check008b.xml']</actionFile6>
+        <closeFile>Close.xml</closeFile> 
+        <logFile>logFile.txt</logFile>
+    	<respFile>expectedOutput008a.txt</respFile>
+    	<respFile2>expectedOutput013b.txt</respFile2>
+    	<respFile3>expectedOutput008a.txt</respFile3>
+    	<respFile4>expectedOutput013d.txt</respFile4>
+    	<respFile5>expectedOutput008a.txt</respFile5>
+    	<respFile6>expectedOutput008a.txt</respFile6>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+
+    	<forbiddenContent>['CmwTest', 'cMwtEsTiD', 'myStructAttr', 'attr1', '89', '196']</forbiddenContent>
+	</config>  
+</testcase>

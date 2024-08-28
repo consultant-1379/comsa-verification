@@ -1,0 +1,1371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The campaign upgrades { CoreMW 3.0 PRA } to { CoreMW 3.0 CPx } in rolling upgrade manner.
+  Note: This upgrade cannot be run via Ecim Swm since EcimSwm will be terminated due to class update
+        that is not possible to perform via schema change.
+
+  UPGRADE TYPE:     Rolling Upgrade over SCs and PLs with node reboot.
+  SUPPORTED SIZES:  2+0 -> 2+68
+  ROLLBACK SUPPORT: Yes.
+
+  This campaign need to processed by cmw-generate-campaign-sdp script.
+  The script will create the actual campaign SDP that can be imported.
+  This campaign contains sections DYNAMIC_REMOVE_ENTER, DYNAMIC_ENTER which will be extrapolated by the cmw-generate-campaign-sdp
+  depending of number of payloads.
+  See README file in this directory how to run the script in production or offline.
+
+  The upgrade consists of following:
+  #################################
+    * Upgrade of OpenSAF software
+          From CoreMW 3.0 PRA
+    *
+
+-->
+<upgradeCampaign 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:noNamespaceSchemaLocation="SAI-AIS-SMF-UCS-A.01.01.04_modified.xsd" 
+  safSmfCampaign="safSmfCampaign=ERIC-CMWRollingUpgrade">
+  <campaignInfo>
+    <campaignPeriod />
+  </campaignInfo>
+  <campaignInitialization>
+    <addToImm>
+      <amfEntityTypes>
+        <CompBaseType safCompType="safCompType=ERIC-ClusterMonitor" >
+          <CompType safVersion="safVersion=P5B02" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0\,safCSType=ERIC-ClusterMonitor" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefDisableRestart="0" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="clustermonitor.sh" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="clustermonitor.sh" >
+              <cmdArgv>cleanup</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="10000000000" saAmfHealthcheckMaxDuration="6000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_SC-CXP9017565_1-P5B02" />
+          </CompType>
+        </CompBaseType>        
+        <CompBaseType safCompType="safCompType=ERIC-EcimSwm">
+            <CompType safVersion="safVersion=P5B02">
+                <providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0\,safCSType=ERIC-EcimSwm" saAmfCtCompCapability="1" />
+                <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefDisableRestart="0" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+                <instantiateCmd saAmfCtRelPathInstantiateCmd="ecimswm.sh">
+                    <cmdArgv>instantiate</cmdArgv>
+                </instantiateCmd>
+                <cleanupCmd saAmfCtRelPathCleanupCmd="ecimswm.sh">
+                    <cmdArgv>cleanup</cmdArgv>
+                </cleanupCmd>
+                <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="10000000000" saAmfHealthcheckMaxDuration="60000000000" />
+                <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_SC-CXP9017565_1-P5B02" />
+            </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=ERIC-EcimPm">
+            <CompType safVersion="safVersion=P5B02">
+                <providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0\,safCSType=ERIC-EcimPm" saAmfCtCompCapability="1" />
+                <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefDisableRestart="0" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+                <instantiateCmd saAmfCtRelPathInstantiateCmd="cmwpm.sh">
+                    <cmdArgv>instantiate</cmdArgv>
+                </instantiateCmd>
+                <cleanupCmd saAmfCtRelPathCleanupCmd="cmwpm.sh">
+                    <cmdArgv>cleanup</cmdArgv>
+                </cleanupCmd>
+                <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="10000000000" saAmfHealthcheckMaxDuration="60000000000" />
+                <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_SC-CXP9017565_1-P5B02" />
+            </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=ERIC-MdfImmCC" >
+          <CompType safVersion="safVersion=P5B02" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0\,safCSType=ERIC-MdfImmCC" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtDefDisableRestart="0" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="100000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="cmwmdf_immcc.sh" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <!-- Missing in mdf_objects.xml
+            <terminateCmd saAmfCtRelPathTerminateCmd="cmwmdf_immcc.sh" >
+              <cmdArgv>cleanup</cmdArgv>
+            </terminateCmd>
+            -->
+            <cleanupCmd saAmfCtRelPathCleanupCmd="cmwmdf_immcc.sh" >
+              <cmdArgv>cleanup</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="60000000000" saAmfHealthcheckMaxDuration="60000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_SC-CXP9017565_1-P5B02" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=ERIC-OSAlarmBridge" >
+          <CompType safVersion="safVersion=P5A52" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0\,safCSType=ERIC-OSAlarmBridge" saAmfCtCompCapability="7" />
+            <compTypeDefaults saAmfCtDefDisableRestart="0" saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="8" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="3" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osalarmbridge.sh" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <terminateCmd saAmfCtRelPathTerminateCmd="osalarmbridge.sh" >
+              <cmdArgv>cleanup</cmdArgv>
+            </terminateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osalarmbridge.sh" >
+              <cmdArgv>cleanup</cmdArgv>
+            </cleanupCmd>
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_COMMON-CXP9017566_1-P5A52" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeAMFWDOG" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=AMFWDOG-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-amfwd" >
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-amfwd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="10000000000" saAmfHealthcheckMaxDuration="6000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeCLM" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=CLM-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" saAmfCtDefInstantiationLevel="2" saAmfCtDefDisableRestart="1" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-clmd" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-clmd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeCPD" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=CPD-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-ckptd" >
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-ckptd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeCPND" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=CPND-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-ckptnd" >
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-ckptnd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeDTS" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=DTS-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" saAmfCtDefDisableRestart="1" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-dtd" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-dtd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=A9FD64E12C12" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeFMS" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=FMS-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-fmd" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-fmd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeIMMD" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=IMMD-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" saAmfCtDefDisableRestart="1" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-immd" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-immd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeIMMND" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=IMMND-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-immnd" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-immnd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeLOG" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=LOG-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="120000000000" saAmfCtDefRecoveryOnError="6" saAmfCtDefDisableRestart="1" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-logd" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-logd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeNTF" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=NTF-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" saAmfCtDefInstantiationLevel="2" saAmfCtDefDisableRestart="1" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-ntfd" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-ntfd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeRDE" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=RDE-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-rded" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-rded" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeSMF" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=SMF-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="100000000000" saAmfCtDefCallbackTimeout="100000000000" saAmfCtDefRecoveryOnError="6" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-smfd" >
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-smfd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=A1B2" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypeSMFND" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=SMFND-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="100000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-smfnd" >
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-smfnd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=A1B2" saAmfHealthcheckPeriod="660000000000" saAmfHealthcheckMaxDuration="620000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=ERIC-MdfGCC" >
+          <CompType safVersion="safVersion=P5A52" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0\,safCSType=ERIC-MdfGCC" saAmfCtCompCapability="5" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtDefDisableRestart="0" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="100000000000" saAmfCtDefCallbackTimeout="120000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="cmwmdf_gcc.sh" >
+              <cmdArgv>instantiate</cmdArgv>
+            </instantiateCmd>
+            <!-- Missing in mdf_objects.xml
+            <terminateCmd saAmfCtRelPathTerminateCmd="cmwmdf_gcc.sh" >
+              <cmdArgv>cleanup</cmdArgv>
+            </terminateCmd>
+            -->
+            <cleanupCmd saAmfCtRelPathCleanupCmd="cmwmdf_gcc.sh" >
+              <cmdArgv>cleanup</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="60000000000" saAmfHealthcheckMaxDuration="60000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_COMMON-CXP9017566_1-P5A52" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypePMD" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=PMD-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="6" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-pmd" >
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-pmd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+        <CompBaseType safCompType="safCompType=OpenSafCompTypePMND" >
+          <CompType safVersion="safVersion=P5C07" >
+            <providesCSType safSupportedCsType="safSupportedCsType=safVersion=4.0.0\,safCSType=PMND-OpenSAF" saAmfCtCompCapability="1" />
+            <compTypeDefaults saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtCompCategory="1" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefRecoveryOnError="2" />
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="osaf-pmnd" >
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="osaf-pmnd" >
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=Default" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000" />
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" />
+          </CompType>
+        </CompBaseType>
+      </amfEntityTypes>
+    </addToImm>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5B02\,safCompType=ERIC-ClusterMonitor</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5B02\,safCompType=ERIC-EcimSwm</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5B02\,safCompType=ERIC-EcimPm</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5B02\,safCompType=ERIC-MdfImmCC</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=1.0,safSuType=ERIC-CoreMWSuTypeAll" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5A52\,safCompType=ERIC-OSAlarmBridge</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeND" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeAMFWDOG</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeND" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeCPND</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeND" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeIMMND</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeND" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeSMFND</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeCLM</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeCPD</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeDTS</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeFMS</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeIMMD</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeLOG</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeNTF</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeRDE</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypeSMF</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=1.0,safSuType=ERIC-CoreMWSuTypeAll" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5A52\,safCompType=ERIC-MdfGCC</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeND" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypePMND</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+    <campInitAction>
+      <immCCB ccbFlags="0" >
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=4.0.0,safSuType=OpenSafSuTypeServer" >
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET" >
+            <value>safMemberCompType=safVersion=P5C07\,safCompType=OpenSafCompTypePMD</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T" >
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+    </campInitAction>
+  </campaignInitialization>
+  <upgradeProcedure safSmfProcedure="safSmfProc=CoreMWRollingOverNodeWithTemplate_SCs" saSmfExecLevel="1">
+    <outageInfo>
+      <acceptableServiceOutage>
+        <all />
+      </acceptableServiceOutage>
+      <procedurePeriod saSmfProcPeriod="60000000000" />
+    </outageInfo>
+    <upgradeMethod>
+      <rollingUpgrade>
+        <upgradeScope>
+          <byTemplate>
+            <targetNodeTemplate objectDN="safAmfNodeGroup=SCs,safAmfCluster=myAmfCluster" >
+              <swRemove bundleDN="CMW_GETDN(^safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C05$)" pathnamePrefix="/usr/lib64/opensaf/clc-cli" />
+              <swRemove bundleDN="CMW_GETDN(^safSmfBundle=ERIC-COREMW_COMMON-CXP9017566_1-P5A48$)" pathnamePrefix="/opt/coremw/clc-cli" />
+              <swRemove bundleDN="CMW_GETDN(^safSmfBundle=ERIC-COREMW_SC-CXP9017565_1-P5A97$)" pathnamePrefix="/opt/coremw/clc-cli" />
+              <swAdd bundleDN="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" pathnamePrefix="/usr/lib64/opensaf/clc-cli" />
+              <swAdd bundleDN="safSmfBundle=ERIC-COREMW_COMMON-CXP9017566_1-P5A52" pathnamePrefix="/opt/coremw/clc-cli" />
+              <swAdd bundleDN="safSmfBundle=ERIC-COREMW_SC-CXP9017565_1-P5B02" pathnamePrefix="/opt/coremw/clc-cli" />
+            </targetNodeTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-ClusterMonitor$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5B02,safCompType=ERIC-ClusterMonitor</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-EcimSwm$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5B02,safCompType=ERIC-EcimSwm</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-EcimPm$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5B02,safCompType=ERIC-EcimPm</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-MdfImmCC$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5B02,safCompType=ERIC-MdfImmCC</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeAMFWDOG$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeAMFWDOG</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCLM$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeCLM</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCPD$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeCPD</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCPND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeCPND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeDTS$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeDTS</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeFMS$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeFMS</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeIMMD$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeIMMD</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeIMMND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeIMMND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeLOG$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeLOG</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeNTF$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeNTF</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeRDE$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeRDE</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeSMF$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeSMF</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeSMFND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeSMFND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-OSAlarmBridge$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5A52,safCompType=ERIC-OSAlarmBridge</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-MdfGCC$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5A52,safCompType=ERIC-MdfGCC</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypePMD$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypePMD</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypePMND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypePMND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+          </byTemplate>
+        </upgradeScope>
+        <upgradeStep />
+      </rollingUpgrade>
+    </upgradeMethod>
+  </upgradeProcedure>
+  
+  <!-- DYNAMIC_REMOVE_ENTER -->
+  
+  <upgradeProcedure safSmfProcedure="safSmfProc=CoreMWRollingOverNodeWithTemplate_PLs" saSmfExecLevel="2">
+    <outageInfo>
+      <acceptableServiceOutage>
+        <all />
+      </acceptableServiceOutage>
+      <procedurePeriod saSmfProcPeriod="60000000000" />
+    </outageInfo>
+    <upgradeMethod>
+      <rollingUpgrade>
+        <upgradeScope>
+          <byTemplate>
+            <targetNodeTemplate objectDN="safAmfNodeGroup=PLs,safAmfCluster=myAmfCluster" >
+              <swRemove bundleDN="CMW_GETDN(^safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C05$)" pathnamePrefix="/usr/lib64/opensaf/clc-cli" />
+              <swRemove bundleDN="CMW_GETDN(^safSmfBundle=ERIC-COREMW_COMMON-CXP9017566_1-P5A48$)" pathnamePrefix="/opt/coremw/clc-cli" />
+              <swAdd bundleDN="safSmfBundle=ERIC-COREMW_OPENSAF-CXP9017656_1-P5C07" pathnamePrefix="/usr/lib64/opensaf/clc-cli" />
+              <swAdd bundleDN="safSmfBundle=ERIC-COREMW_COMMON-CXP9017566_1-P5A52" pathnamePrefix="/opt/coremw/clc-cli" />
+            </targetNodeTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeAMFWDOG$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeAMFWDOG</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCLM$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeCLM</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCPD$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeCPD</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCPND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeCPND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeDTS$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeDTS</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeFMS$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeFMS</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeIMMD$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeIMMD</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeIMMND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeIMMND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeLOG$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeLOG</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeNTF$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeNTF</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeRDE$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeRDE</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeSMF$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeSMF</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeSMFND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypeSMFND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-OSAlarmBridge$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5A52,safCompType=ERIC-OSAlarmBridge</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-MdfGCC$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5A52,safCompType=ERIC-MdfGCC</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+            <targetEntityTemplate>
+              <type objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypePMND$)" />
+              <modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE" >
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET" >
+                  <value>safVersion=P5C07,safCompType=OpenSafCompTypePMND</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+          </byTemplate>
+        </upgradeScope>
+        <upgradeStep />
+      </rollingUpgrade>
+    </upgradeMethod>
+  </upgradeProcedure>
+  
+  <!-- DYNAMIC_REMOVE_LEAVE -->
+  
+  <campaignWrapup>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=ERIC-ClusterMonitor$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=ERIC-EcimSwm$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=ERIC-EcimPm$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=ERIC-MdfImmCC$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=ERIC-MdfGCC$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=A1B2,safVersion=.*,safCompType=OpenSafCompTypeSMF$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=A1B2,safVersion=.*,safCompType=OpenSafCompTypeSMFND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=A9FD64E12C12,safVersion=.*,safCompType=OpenSafCompTypeDTS$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeAMFWDOG$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeCLM$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeCPD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeCPND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeFMS$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeIMMD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeIMMND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeLOG$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeNTF$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypeRDE$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypePMD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safHealthcheckKey=Default,safVersion=.*,safCompType=OpenSafCompTypePMND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=ERIC-ClusterMonitor,safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=ERIC-EcimSwm,safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=ERIC-EcimPm,safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=ERIC-MdfImmCC,safVersion=1.0,safSuType=ERIC-CoreMWSuTypeController$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=ERIC-MdfGCC,safVersion=1.0,safSuType=ERIC-CoreMWSuTypeAll$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=ERIC-OSAlarmBridge,safVersion=1.0,safSuType=ERIC-CoreMWSuTypeAll$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeAMFWDOG,safVersion=4.0.0,safSuType=OpenSafSuTypeND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeCLM,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeCPD,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeCPND,safVersion=4.0.0,safSuType=OpenSafSuTypeND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeDTS,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeFMS,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeIMMD,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeIMMND,safVersion=4.0.0,safSuType=OpenSafSuTypeND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeLOG,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeNTF,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeRDE,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeSMF,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypeSMFND,safVersion=4.0.0,safSuType=OpenSafSuTypeND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypePMD,safVersion=4.0.0,safSuType=OpenSafSuTypeServer$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safMemberCompType=safVersion=.*[\\],safCompType=OpenSafCompTypePMND,safVersion=4.0.0,safSuType=OpenSafSuTypeND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=1.0[\\],safCSType=ERIC-ClusterMonitor,safVersion=.*,safCompType=ERIC-ClusterMonitor$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=1.0[\\],safCSType=ERIC-EcimSwm,safVersion=.*,safCompType=ERIC-EcimSwm$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=1.0[\\],safCSType=ERIC-EcimPm,safVersion=.*,safCompType=ERIC-EcimPm$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=1.0[\\],safCSType=ERIC-MdfImmCC,safVersion=.*,safCompType=ERIC-MdfImmCC$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=1.0[\\],safCSType=ERIC-MdfGCC,safVersion=.*,safCompType=ERIC-MdfGCC$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=1.0[\\],safCSType=ERIC-OSAlarmBridge,safVersion=.*,safCompType=ERIC-OSAlarmBridge$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=AMFWDOG-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeAMFWDOG$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=CLM-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeCLM$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=CPD-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeCPD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=CPND-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeCPND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=DTS-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeDTS$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=FMS-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeFMS$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=IMMD-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeIMMD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=IMMND-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeIMMND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=LOG-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeLOG$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=NTF-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeNTF$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=RDE-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeRDE$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=SMF-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeSMF$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=SMFND-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypeSMFND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=PMD-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypePMD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safSupportedCsType=safVersion=4.0.0[\\],safCSType=PMND-OpenSAF,safVersion=.*,safCompType=OpenSafCompTypePMND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-ClusterMonitor$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-EcimSwm$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-EcimPm$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-MdfImmCC$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-MdfGCC$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=ERIC-OSAlarmBridge$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeAMFWDOG$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCLM$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCPD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeCPND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeDTS$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeFMS$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeIMMD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeIMMND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeLOG$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeNTF$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeRDE$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeSMF$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypeSMFND$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypePMD$)" />
+      </immCCB>
+    </campCompleteAction>
+    <campCompleteAction>
+      <immCCB ccbFlags="0" >
+        <delete objectDN="CMW_GETDN(^safVersion=.*,safCompType=OpenSafCompTypePMND$)" />
+      </immCCB>
+    </campCompleteAction>
+<!-- Creating Ecim SWM structure from repository -->
+    <campCompleteAction>
+      <doCliCommand command="/opt/coremw/lib/ecim-swm-inventory" args="--upgrade"/>
+      <undoCliCommand command="/opt/coremw/lib/ecim-swm-inventory" args="--undo_upgrade"/>
+      <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+    </campCompleteAction>
+    <waitToCommit />
+    <waitToAllowNewCampaign />
+    <removeFromImm />
+  </campaignWrapup>
+</upgradeCampaign>

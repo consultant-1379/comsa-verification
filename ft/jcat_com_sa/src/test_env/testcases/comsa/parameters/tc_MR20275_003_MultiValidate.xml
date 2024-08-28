@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>MR20275 FT -A scenario with multiple configuration changes. Perform validate after each change </id>
+		<tag>TC-MR20275-003</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>MR20275 FT -A scenario with multiple configuration changes. Perform validate after each change</description>
+	</info>
+	<config>
+		<reqComSaVersion>R6A01</reqComSaVersion>
+		<reqComVersion>R2A12</reqComVersion>
+		<reqCmwVersion>R9A03</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<modelfile_mp>Mr20275_mp.xml</modelfile_mp>
+		<modelfile_imm_classes>Mr20275_imm_classes.xml</modelfile_imm_classes>
+		<modelfile_imm_objects>Mr20275_imm_objects.xml</modelfile_imm_objects>
+
+		<setup_REG1>#define REG1 \"ManagedElement=1,ObjectMr20275=1\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+
+		<expected_init_log_1>com: MAFOiComponent: mafLCMinit(): Component started</expected_init_log_1>
+		<expected_init_log_2>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: DN: ManagedElement=1,ObjectMr20275=1 Permission: YES</expected_init_log_2>
+		<expected_init_log_3>com: MAFOiComponent: maf_start(): returning MafOk</expected_init_log_3>
+
+		<cli_input_1>"show ManagedElement=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['ObjectMr20275=1']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'COM Closed connection']</cli_nonexpected_output_1>
+
+		<cli_input_2>"configure" "ManagedElement=1" "ObjectMr20275=1" "TestStructAttr=one" "testWritableAttrBool=true" "testWritableAttrUint8=22" "testWritableAttrString=\"good\"" "validate"	"testWritableAttrString=\"bad\"" "validate" "testWritableAttrString=\"very_good\"" "validate" "testWritableAttrUint8=13" "validate" "testWritableAttrUint8=55" "validate" "commit" "exit" </cli_input_2>
+		<cli_expected_output_2>['Transaction is valid!', 'Transaction validation failed!', 'Error: MR-20275 test: Validate failed. Invalid STRING parameter: \'bad\'', 'Error: MR-20275 test: Validate failed. Invalid UINT8 parameter: 13']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['COM Closed connection']</cli_nonexpected_output_2>
+
+		<expected_test_log_1>com: MAFOiComponent: TR::join() entered</expected_test_log_1>
+		<expected_test_log_2>com: MAFOiComponent: MO::maf_setMoAttribute() entered</expected_test_log_2>
+		<expected_test_log_3>com: MAFOiComponent: MO::maf_setMoAttribute(): dn ManagedElement=1,ObjectMr20275=1 attributeName TestStructAttr </expected_test_log_3>
+		<expected_test_log_4>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]: {name STRING = one, testWritableAttrBool BOOL = 1, testWritableAttrString STRING = good, testWritableAttrUint8 UINT8 = 22}</expected_test_log_4>
+		<expected_test_log_5>com: MAFOiComponent: TR::validate() entered</expected_test_log_5>
+		<expected_test_log_6>com: MAFOiComponent: TR::validate(): returning ComOk\|com: MAFOiComponent: TR::validate(): returning MafOk</expected_test_log_6>
+
+		<expected_test_log_7>com: MAFOiComponent: TR::join() entered</expected_test_log_7>
+		<expected_test_log_8>com: MAFOiComponent: MO::maf_setMoAttribute() entered</expected_test_log_8>
+		<expected_test_log_9>com: MAFOiComponent: MO::maf_setMoAttribute(): dn ManagedElement=1,ObjectMr20275=1 attributeName TestStructAttr</expected_test_log_9>
+		<expected_test_log_10>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]: {name STRING = one, testWritableAttrBool BOOL = 1, testWritableAttrString STRING = bad, testWritableAttrUint8 UINT8 = 22}</expected_test_log_10>
+		<expected_test_log_11>com: MAFOiComponent: TR::validate() entered</expected_test_log_11>
+		<expected_test_log_12>com: MAFOiComponent: TR::validate(): returning ComFailure\|com: MAFOiComponent: TR::validate(): returning MafFailure</expected_test_log_12>
+
+		<expected_test_log_13>com: MAFOiComponent: TR::join() entered</expected_test_log_13>
+		<expected_test_log_14>com: MAFOiComponent: MO::maf_setMoAttribute() entered</expected_test_log_14>
+		<expected_test_log_15>com: MAFOiComponent: MO::maf_setMoAttribute(): dn ManagedElement=1,ObjectMr20275=1 attributeName TestStructAttr</expected_test_log_15>
+		<expected_test_log_16>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]: {name STRING = one, testWritableAttrBool BOOL = 1, testWritableAttrString STRING = very_good, testWritableAttrUint8 UINT8 = 22}</expected_test_log_16>
+		<expected_test_log_17>com: MAFOiComponent: TR::validate() entered</expected_test_log_17>
+		<expected_test_log_18>com: MAFOiComponent: TR::validate(): returning ComOk\|com: MAFOiComponent: TR::validate(): returning MafOk</expected_test_log_18>
+
+		<expected_test_log_19>com: MAFOiComponent: TR::join() entered</expected_test_log_19>
+		<expected_test_log_20>com: MAFOiComponent: MO::maf_setMoAttribute() entered</expected_test_log_20>
+		<expected_test_log_21>com: MAFOiComponent: MO::maf_setMoAttribute(): dn ManagedElement=1,ObjectMr20275=1 attributeName TestStructAttr</expected_test_log_21>
+		<expected_test_log_22>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]: {name STRING = one, testWritableAttrBool BOOL = 1, testWritableAttrString STRING = very_good, testWritableAttrUint8 UINT8 = 13}</expected_test_log_22>
+		<expected_test_log_23>com: MAFOiComponent: TR::validate() entered</expected_test_log_23>
+		<expected_test_log_24>com: MAFOiComponent: TR::validate(): returning ComFailure\|com: MAFOiComponent: TR::validate(): returning MafFailure</expected_test_log_24>
+
+		<expected_test_log_25>com: MAFOiComponent: TR::join() entered</expected_test_log_25>
+		<expected_test_log_26>com: MAFOiComponent: MO::maf_setMoAttribute() entered</expected_test_log_26>
+		<expected_test_log_27>com: MAFOiComponent: MO::maf_setMoAttribute(): dn ManagedElement=1,ObjectMr20275=1 attributeName TestStructAttr</expected_test_log_27>
+		<expected_test_log_28>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]: {name STRING = one, testWritableAttrBool BOOL = 1, testWritableAttrString STRING = very_good, testWritableAttrUint8 UINT8 = 55}</expected_test_log_28>
+		<expected_test_log_29>com: MAFOiComponent: TR::validate() entered</expected_test_log_29>
+		<expected_test_log_30>com: MAFOiComponent: TR::validate(): returning ComOk\|com: MAFOiComponent: TR::validate(): returning MafOk</expected_test_log_30>
+
+		<teardown_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1\"</teardown_REG1>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+	</config>
+</testcase>

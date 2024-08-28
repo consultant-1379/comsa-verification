@@ -1,0 +1,4208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imm:IMM-contents 
+    xmlns:imm="http://www.saforum.org/IMMSchema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="SAI-AIS-IMM-XSD-A.01.01.xsd">
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-1,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-1,pmJobId=PM-1,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-1,measurementReaderId=PM-1,pmJobId=PM-1,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-1,measurementReaderId=PM-1,pmJobId=PM-1,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-1,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-2,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-2,pmJobId=PM-2,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-2,measurementReaderId=PM-2,pmJobId=PM-2,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-2,measurementReaderId=PM-2,pmJobId=PM-2,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-2,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-3,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-3,pmJobId=PM-3,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-3,measurementReaderId=PM-3,pmJobId=PM-3,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-3,measurementReaderId=PM-3,pmJobId=PM-3,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-3,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-4,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-4,pmJobId=PM-4,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-4,measurementReaderId=PM-4,pmJobId=PM-4,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-4,measurementReaderId=PM-4,pmJobId=PM-4,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-4,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-5,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-5,pmJobId=PM-5,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-5,measurementReaderId=PM-5,pmJobId=PM-5,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-5,measurementReaderId=PM-5,pmJobId=PM-5,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-5,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-6,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-6,pmJobId=PM-6,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-6,measurementReaderId=PM-6,pmJobId=PM-6,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-6,measurementReaderId=PM-6,pmJobId=PM-6,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-6,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-7,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-7,pmJobId=PM-7,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-7,measurementReaderId=PM-7,pmJobId=PM-7,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-7,measurementReaderId=PM-7,pmJobId=PM-7,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-7,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-8,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-8,pmJobId=PM-8,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-8,measurementReaderId=PM-8,pmJobId=PM-8,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-8,measurementReaderId=PM-8,pmJobId=PM-8,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-8,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-9,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-9,pmJobId=PM-9,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-9,measurementReaderId=PM-9,pmJobId=PM-9,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-9,measurementReaderId=PM-9,pmJobId=PM-9,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-9,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-10,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-10,pmJobId=PM-10,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-10,measurementReaderId=PM-10,pmJobId=PM-10,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-10,measurementReaderId=PM-10,pmJobId=PM-10,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-10,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-11,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-11,pmJobId=PM-11,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-11,measurementReaderId=PM-11,pmJobId=PM-11,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-11,measurementReaderId=PM-11,pmJobId=PM-11,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-11,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-12,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-12,pmJobId=PM-12,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-12,measurementReaderId=PM-12,pmJobId=PM-12,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-12,measurementReaderId=PM-12,pmJobId=PM-12,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-12,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-13,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-13,pmJobId=PM-13,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-13,measurementReaderId=PM-13,pmJobId=PM-13,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-13,measurementReaderId=PM-13,pmJobId=PM-13,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-13,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-14,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-14,pmJobId=PM-14,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-14,measurementReaderId=PM-14,pmJobId=PM-14,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-14,measurementReaderId=PM-14,pmJobId=PM-14,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-14,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-15,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-15,pmJobId=PM-15,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-15,measurementReaderId=PM-15,pmJobId=PM-15,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-15,measurementReaderId=PM-15,pmJobId=PM-15,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-15,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-16,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-16,pmJobId=PM-16,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-16,measurementReaderId=PM-16,pmJobId=PM-16,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-16,measurementReaderId=PM-16,pmJobId=PM-16,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-16,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-17,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-17,pmJobId=PM-17,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-17,measurementReaderId=PM-17,pmJobId=PM-17,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-17,measurementReaderId=PM-17,pmJobId=PM-17,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-17,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-18,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-18,pmJobId=PM-18,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-18,measurementReaderId=PM-18,pmJobId=PM-18,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-18,measurementReaderId=PM-18,pmJobId=PM-18,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-18,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-19,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-19,pmJobId=PM-19,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-19,measurementReaderId=PM-19,pmJobId=PM-19,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-19,measurementReaderId=PM-19,pmJobId=PM-19,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-19,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-20,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-20,pmJobId=PM-20,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-20,measurementReaderId=PM-20,pmJobId=PM-20,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-20,measurementReaderId=PM-20,pmJobId=PM-20,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-20,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-21,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-21,pmJobId=PM-21,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-21,measurementReaderId=PM-21,pmJobId=PM-21,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-21,measurementReaderId=PM-21,pmJobId=PM-21,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-21,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-22,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-22,pmJobId=PM-22,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-22,measurementReaderId=PM-22,pmJobId=PM-22,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-22,measurementReaderId=PM-22,pmJobId=PM-22,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-22,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-23,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-23,pmJobId=PM-23,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-23,measurementReaderId=PM-23,pmJobId=PM-23,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-23,measurementReaderId=PM-23,pmJobId=PM-23,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-23,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-24,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-24,pmJobId=PM-24,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-24,measurementReaderId=PM-24,pmJobId=PM-24,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-24,measurementReaderId=PM-24,pmJobId=PM-24,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-24,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-25,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-25,pmJobId=PM-25,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-25,measurementReaderId=PM-25,pmJobId=PM-25,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-25,measurementReaderId=PM-25,pmJobId=PM-25,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-25,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-26,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-26,pmJobId=PM-26,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-26,measurementReaderId=PM-26,pmJobId=PM-26,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-26,measurementReaderId=PM-26,pmJobId=PM-26,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-26,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-27,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-27,pmJobId=PM-27,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-27,measurementReaderId=PM-27,pmJobId=PM-27,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-27,measurementReaderId=PM-27,pmJobId=PM-27,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-27,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-28,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-28,pmJobId=PM-28,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-28,measurementReaderId=PM-28,pmJobId=PM-28,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-28,measurementReaderId=PM-28,pmJobId=PM-28,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-28,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-29,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-29,pmJobId=PM-29,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-29,measurementReaderId=PM-29,pmJobId=PM-29,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-29,measurementReaderId=PM-29,pmJobId=PM-29,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-29,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-30,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-30,pmJobId=PM-30,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-30,measurementReaderId=PM-30,pmJobId=PM-30,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-30,measurementReaderId=PM-30,pmJobId=PM-30,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-30,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-31,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-31,pmJobId=PM-31,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-31,measurementReaderId=PM-31,pmJobId=PM-31,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-31,measurementReaderId=PM-31,pmJobId=PM-31,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-31,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-32,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-32,pmJobId=PM-32,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-32,measurementReaderId=PM-32,pmJobId=PM-32,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-32,measurementReaderId=PM-32,pmJobId=PM-32,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-32,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-33,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-33,pmJobId=PM-33,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-33,measurementReaderId=PM-33,pmJobId=PM-33,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-33,measurementReaderId=PM-33,pmJobId=PM-33,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-33,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-34,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-34,pmJobId=PM-34,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-34,measurementReaderId=PM-34,pmJobId=PM-34,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-34,measurementReaderId=PM-34,pmJobId=PM-34,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-34,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-35,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-35,pmJobId=PM-35,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-35,measurementReaderId=PM-35,pmJobId=PM-35,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-35,measurementReaderId=PM-35,pmJobId=PM-35,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-35,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-36,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-36,pmJobId=PM-36,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-36,measurementReaderId=PM-36,pmJobId=PM-36,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-36,measurementReaderId=PM-36,pmJobId=PM-36,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-36,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-37,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-37,pmJobId=PM-37,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-37,measurementReaderId=PM-37,pmJobId=PM-37,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-37,measurementReaderId=PM-37,pmJobId=PM-37,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-37,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-38,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-38,pmJobId=PM-38,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-38,measurementReaderId=PM-38,pmJobId=PM-38,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-38,measurementReaderId=PM-38,pmJobId=PM-38,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-38,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-39,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-39,pmJobId=PM-39,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-39,measurementReaderId=PM-39,pmJobId=PM-39,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-39,measurementReaderId=PM-39,pmJobId=PM-39,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-39,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-40,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-40,pmJobId=PM-40,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-40,measurementReaderId=PM-40,pmJobId=PM-40,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-40,measurementReaderId=PM-40,pmJobId=PM-40,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-40,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-41,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-41,pmJobId=PM-41,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-41,measurementReaderId=PM-41,pmJobId=PM-41,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-41,measurementReaderId=PM-41,pmJobId=PM-41,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-41,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-42,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-42,pmJobId=PM-42,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-42,measurementReaderId=PM-42,pmJobId=PM-42,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-42,measurementReaderId=PM-42,pmJobId=PM-42,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-42,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-43,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-43,pmJobId=PM-43,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-43,measurementReaderId=PM-43,pmJobId=PM-43,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-43,measurementReaderId=PM-43,pmJobId=PM-43,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-43,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-44,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-44,pmJobId=PM-44,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-44,measurementReaderId=PM-44,pmJobId=PM-44,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-44,measurementReaderId=PM-44,pmJobId=PM-44,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-44,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-45,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-45,pmJobId=PM-45,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-45,measurementReaderId=PM-45,pmJobId=PM-45,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-45,measurementReaderId=PM-45,pmJobId=PM-45,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-45,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-46,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-46,pmJobId=PM-46,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-46,measurementReaderId=PM-46,pmJobId=PM-46,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-46,measurementReaderId=PM-46,pmJobId=PM-46,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-46,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-47,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-47,pmJobId=PM-47,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-47,measurementReaderId=PM-47,pmJobId=PM-47,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-47,measurementReaderId=PM-47,pmJobId=PM-47,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-47,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-48,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-48,pmJobId=PM-48,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-48,measurementReaderId=PM-48,pmJobId=PM-48,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-48,measurementReaderId=PM-48,pmJobId=PM-48,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-48,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-49,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-49,pmJobId=PM-49,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-49,measurementReaderId=PM-49,pmJobId=PM-49,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-49,measurementReaderId=PM-49,pmJobId=PM-49,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-49,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-50,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-50,pmJobId=PM-50,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-50,measurementReaderId=PM-50,pmJobId=PM-50,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-50,measurementReaderId=PM-50,pmJobId=PM-50,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-50,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-51,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-51,pmJobId=PM-51,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-51,measurementReaderId=PM-51,pmJobId=PM-51,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-51,measurementReaderId=PM-51,pmJobId=PM-51,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-51,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-52,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-52,pmJobId=PM-52,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-52,measurementReaderId=PM-52,pmJobId=PM-52,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-52,measurementReaderId=PM-52,pmJobId=PM-52,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-52,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-53,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-53,pmJobId=PM-53,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-53,measurementReaderId=PM-53,pmJobId=PM-53,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-53,measurementReaderId=PM-53,pmJobId=PM-53,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-53,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-54,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-54,pmJobId=PM-54,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-54,measurementReaderId=PM-54,pmJobId=PM-54,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-54,measurementReaderId=PM-54,pmJobId=PM-54,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-54,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-55,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-55,pmJobId=PM-55,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-55,measurementReaderId=PM-55,pmJobId=PM-55,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-55,measurementReaderId=PM-55,pmJobId=PM-55,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-55,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-56,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-56,pmJobId=PM-56,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-56,measurementReaderId=PM-56,pmJobId=PM-56,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-56,measurementReaderId=PM-56,pmJobId=PM-56,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-56,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-57,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-57,pmJobId=PM-57,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-57,measurementReaderId=PM-57,pmJobId=PM-57,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-57,measurementReaderId=PM-57,pmJobId=PM-57,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-57,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-58,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-58,pmJobId=PM-58,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-58,measurementReaderId=PM-58,pmJobId=PM-58,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-58,measurementReaderId=PM-58,pmJobId=PM-58,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-58,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-59,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-59,pmJobId=PM-59,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-59,measurementReaderId=PM-59,pmJobId=PM-59,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-59,measurementReaderId=PM-59,pmJobId=PM-59,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-59,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-60,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-60,pmJobId=PM-60,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-60,measurementReaderId=PM-60,pmJobId=PM-60,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-60,measurementReaderId=PM-60,pmJobId=PM-60,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-60,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-61,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-61,pmJobId=PM-61,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-61,measurementReaderId=PM-61,pmJobId=PM-61,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-61,measurementReaderId=PM-61,pmJobId=PM-61,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-61,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-62,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-62,pmJobId=PM-62,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-62,measurementReaderId=PM-62,pmJobId=PM-62,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-62,measurementReaderId=PM-62,pmJobId=PM-62,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-62,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-63,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-63,pmJobId=PM-63,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-63,measurementReaderId=PM-63,pmJobId=PM-63,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-63,measurementReaderId=PM-63,pmJobId=PM-63,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-63,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-64,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-64,pmJobId=PM-64,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-64,measurementReaderId=PM-64,pmJobId=PM-64,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-64,measurementReaderId=PM-64,pmJobId=PM-64,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-64,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-65,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-65,pmJobId=PM-65,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-65,measurementReaderId=PM-65,pmJobId=PM-65,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-65,measurementReaderId=PM-65,pmJobId=PM-65,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-65,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-66,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-66,pmJobId=PM-66,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-66,measurementReaderId=PM-66,pmJobId=PM-66,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-66,measurementReaderId=PM-66,pmJobId=PM-66,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-66,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-67,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-67,pmJobId=PM-67,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-67,measurementReaderId=PM-67,pmJobId=PM-67,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-67,measurementReaderId=PM-67,pmJobId=PM-67,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-67,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-68,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-68,pmJobId=PM-68,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-68,measurementReaderId=PM-68,pmJobId=PM-68,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-68,measurementReaderId=PM-68,pmJobId=PM-68,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-68,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-69,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-69,pmJobId=PM-69,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-69,measurementReaderId=PM-69,pmJobId=PM-69,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-69,measurementReaderId=PM-69,pmJobId=PM-69,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-69,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-70,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-70,pmJobId=PM-70,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-70,measurementReaderId=PM-70,pmJobId=PM-70,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-70,measurementReaderId=PM-70,pmJobId=PM-70,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-70,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-71,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-71,pmJobId=PM-71,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-71,measurementReaderId=PM-71,pmJobId=PM-71,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-71,measurementReaderId=PM-71,pmJobId=PM-71,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-71,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-72,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-72,pmJobId=PM-72,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-72,measurementReaderId=PM-72,pmJobId=PM-72,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-72,measurementReaderId=PM-72,pmJobId=PM-72,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-72,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-73,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-73,pmJobId=PM-73,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-73,measurementReaderId=PM-73,pmJobId=PM-73,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-73,measurementReaderId=PM-73,pmJobId=PM-73,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-73,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-74,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-74,pmJobId=PM-74,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-74,measurementReaderId=PM-74,pmJobId=PM-74,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-74,measurementReaderId=PM-74,pmJobId=PM-74,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-74,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-75,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-75,pmJobId=PM-75,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-75,measurementReaderId=PM-75,pmJobId=PM-75,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-75,measurementReaderId=PM-75,pmJobId=PM-75,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-75,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-76,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-76,pmJobId=PM-76,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-76,measurementReaderId=PM-76,pmJobId=PM-76,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-76,measurementReaderId=PM-76,pmJobId=PM-76,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-76,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-77,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-77,pmJobId=PM-77,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-77,measurementReaderId=PM-77,pmJobId=PM-77,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-77,measurementReaderId=PM-77,pmJobId=PM-77,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-77,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-78,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-78,pmJobId=PM-78,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-78,measurementReaderId=PM-78,pmJobId=PM-78,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-78,measurementReaderId=PM-78,pmJobId=PM-78,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-78,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-79,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-79,pmJobId=PM-79,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-79,measurementReaderId=PM-79,pmJobId=PM-79,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-79,measurementReaderId=PM-79,pmJobId=PM-79,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-79,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-80,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-80,pmJobId=PM-80,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-80,measurementReaderId=PM-80,pmJobId=PM-80,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-80,measurementReaderId=PM-80,pmJobId=PM-80,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-80,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-81,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-81,pmJobId=PM-81,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-81,measurementReaderId=PM-81,pmJobId=PM-81,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-81,measurementReaderId=PM-81,pmJobId=PM-81,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-81,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-82,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-82,pmJobId=PM-82,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-82,measurementReaderId=PM-82,pmJobId=PM-82,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-82,measurementReaderId=PM-82,pmJobId=PM-82,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-82,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-83,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-83,pmJobId=PM-83,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-83,measurementReaderId=PM-83,pmJobId=PM-83,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-83,measurementReaderId=PM-83,pmJobId=PM-83,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-83,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-84,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-84,pmJobId=PM-84,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-84,measurementReaderId=PM-84,pmJobId=PM-84,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-84,measurementReaderId=PM-84,pmJobId=PM-84,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-84,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-85,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-85,pmJobId=PM-85,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-85,measurementReaderId=PM-85,pmJobId=PM-85,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-85,measurementReaderId=PM-85,pmJobId=PM-85,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-85,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-86,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-86,pmJobId=PM-86,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-86,measurementReaderId=PM-86,pmJobId=PM-86,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-86,measurementReaderId=PM-86,pmJobId=PM-86,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-86,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-87,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-87,pmJobId=PM-87,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-87,measurementReaderId=PM-87,pmJobId=PM-87,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-87,measurementReaderId=PM-87,pmJobId=PM-87,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-87,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-88,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-88,pmJobId=PM-88,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-88,measurementReaderId=PM-88,pmJobId=PM-88,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-88,measurementReaderId=PM-88,pmJobId=PM-88,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-88,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-89,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-89,pmJobId=PM-89,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-89,measurementReaderId=PM-89,pmJobId=PM-89,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-89,measurementReaderId=PM-89,pmJobId=PM-89,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-89,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-90,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-90,pmJobId=PM-90,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-90,measurementReaderId=PM-90,pmJobId=PM-90,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-90,measurementReaderId=PM-90,pmJobId=PM-90,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-90,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-91,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-91,pmJobId=PM-91,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-91,measurementReaderId=PM-91,pmJobId=PM-91,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-91,measurementReaderId=PM-91,pmJobId=PM-91,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-91,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-92,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-92,pmJobId=PM-92,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-92,measurementReaderId=PM-92,pmJobId=PM-92,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-92,measurementReaderId=PM-92,pmJobId=PM-92,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-92,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-93,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-93,pmJobId=PM-93,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-93,measurementReaderId=PM-93,pmJobId=PM-93,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-93,measurementReaderId=PM-93,pmJobId=PM-93,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-93,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-94,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-94,pmJobId=PM-94,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-94,measurementReaderId=PM-94,pmJobId=PM-94,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-94,measurementReaderId=PM-94,pmJobId=PM-94,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-94,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-95,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-95,pmJobId=PM-95,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-95,measurementReaderId=PM-95,pmJobId=PM-95,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-95,measurementReaderId=PM-95,pmJobId=PM-95,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-95,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-96,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-96,pmJobId=PM-96,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-96,measurementReaderId=PM-96,pmJobId=PM-96,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-96,measurementReaderId=PM-96,pmJobId=PM-96,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-96,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-97,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-97,pmJobId=PM-97,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-97,measurementReaderId=PM-97,pmJobId=PM-97,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-97,measurementReaderId=PM-97,pmJobId=PM-97,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-97,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-98,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-98,pmJobId=PM-98,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-98,measurementReaderId=PM-98,pmJobId=PM-98,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-98,measurementReaderId=PM-98,pmJobId=PM-98,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-98,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-99,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-99,pmJobId=PM-99,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-99,measurementReaderId=PM-99,pmJobId=PM-99,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-99,measurementReaderId=PM-99,pmJobId=PM-99,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-99,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=PM-100,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>4</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>1</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>1</value>
+    </attr>
+  </object>
+       
+
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=PM-100,pmJobId=PM-100,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+      <value>id=PM-100,measurementReaderId=PM-100,pmJobId=PM-100,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=PM-100,measurementReaderId=PM-100,pmJobId=PM-100,CmwPmpmId=1</dn>
+    <attr>
+      <name>groupRef</name>
+      <value>pmGroupId=PM-100,CmwPmpmId=1</value>
+     </attr>
+  </object>
+
+
+</imm:IMM-contents>

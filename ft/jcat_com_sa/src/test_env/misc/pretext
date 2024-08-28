@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE doc PUBLIC "-//ERICSSON//DTD XSEIF 1/FAD 110 05 R5//EN"
+ "XSEIF_R5.dtd">
+<doc version="XSEIF R5"
+xmlns="urn:x-ericsson:r2:reg-doc:1551-fad.110.05:en:*">
+<meta-data><?Pub Dtl?>
+<confidentiality class="ericsson-internal"/>
+<doc-name></doc-name>
+<doc-id>
+<doc-no type="registration"></doc-no><language code="en"/><rev></rev>
+<date><y>2011</y><m>02</m><d>17</d></date>
+</doc-id>
+<company-id>
+<business-unit></business-unit>
+<company-name></company-name>
+<company-symbol logotype="ericsson"></company-symbol>
+</company-id>
+<title></title>
+<drafted-by>
+<person>
+<name></name><signature></signature>
+</person>
+</drafted-by>
+<approved-by approved="no">
+<person>
+<name></name><signature></signature>
+</person>
+</approved-by>
+</meta-data>
+<front></front>
+<body>

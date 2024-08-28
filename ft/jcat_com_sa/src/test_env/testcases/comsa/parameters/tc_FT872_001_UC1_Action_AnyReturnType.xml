@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP872 UC1 - Testing Any Return Type from CM Action with IMM OI using COM CLI</id>
+		<tag>TC-FT872-001</tag>
+		<version>P1A01</version>
+		<testcase>cmActionTestCaseNew</testcase>
+		<class>CMaction</class>
+		<method>CMaction</method>
+		<description>SDP872 UC1 - Testing Any Return Type from CM Action with IMM OI using COM CLI</description>
+	</info>
+	<config>
+		<reqComSaVersion>R4A09</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<number_of_steps>16</number_of_steps>
+
+		<cli_sessions_step1>2</cli_sessions_step1>
+		<trace_entries_read_step1>8</trace_entries_read_step1>
+
+		<cli_input_1>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnSingleInt 789" "commit" "exit"</cli_input_2>
+		<cli_expected_output_2>['789']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<expected_trace_value_1>\[TRACE\] Dispatching from IMM.</expected_trace_value_1>
+		<expected_trace_value_2>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_2>
+		<expected_trace_value_3>\[TRACE\] operationId=40</expected_trace_value_3>
+		<expected_trace_value_4>\[TRACE\] Parameters:</expected_trace_value_4>
+		<expected_trace_value_5>\[TRACE\] Name = p1</expected_trace_value_5>
+		<expected_trace_value_6>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_6>
+		<expected_trace_value_7>\[TRACE\] Value = 789</expected_trace_value_7>
+		<expected_trace_value_8>\[TRACE\] ReturnParam=1</expected_trace_value_8>
+
+		<cli_sessions_step2>2</cli_sessions_step2>
+		<trace_entries_read_step2>12</trace_entries_read_step2>
+
+		<cli_input_3>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnMultiBool" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['false', 'true']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+		<expected_trace_value_9>\[TRACE\] Dispatching from IMM.</expected_trace_value_9>
+		<expected_trace_value_10>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_10>
+		<expected_trace_value_11>\[TRACE\] operationId=47</expected_trace_value_11>
+		<expected_trace_value_12>\[TRACE\] Parameters:</expected_trace_value_12>
+		<expected_trace_value_13>\[TRACE\] Name = EcimBool_1</expected_trace_value_13>
+		<expected_trace_value_14>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_14>
+		<expected_trace_value_15>\[TRACE\] Value = 0</expected_trace_value_15>
+		<expected_trace_value_16>\[TRACE\] Parameters:</expected_trace_value_16>
+		<expected_trace_value_17>\[TRACE\] Name = EcimBool_1</expected_trace_value_17>
+		<expected_trace_value_18>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_18>
+		<expected_trace_value_19>\[TRACE\] Value = -77</expected_trace_value_19>
+		<expected_trace_value_20>\[TRACE\] ReturnParam=1</expected_trace_value_20>
+
+		<cli_sessions_step3>2</cli_sessions_step3>
+		<trace_entries_read_step3>16</trace_entries_read_step3>
+
+		<cli_input_5>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_5>
+		<cli_expected_output_5>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+
+		<cli_input_6>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnMultiInt02" "commit" "exit"</cli_input_6>
+		<cli_expected_output_6>['1111', '2222', '3333']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_6>
+
+		<expected_trace_value_21>\[TRACE\] Dispatching from IMM.</expected_trace_value_21>
+		<expected_trace_value_22>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_22>
+		<expected_trace_value_23>\[TRACE\] operationId=53</expected_trace_value_23>
+		<expected_trace_value_24>\[TRACE\] Parameters:</expected_trace_value_24>
+		<expected_trace_value_25>\[TRACE\] Name = EcimInt32_1</expected_trace_value_25>
+		<expected_trace_value_26>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_26>
+		<expected_trace_value_27>\[TRACE\] Value = 1111</expected_trace_value_27>
+		<expected_trace_value_28>\[TRACE\] Parameters:</expected_trace_value_28>
+		<expected_trace_value_29>\[TRACE\] Name = EcimInt32_3</expected_trace_value_29>
+		<expected_trace_value_30>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_30>
+		<expected_trace_value_31>\[TRACE\] Value = 3333</expected_trace_value_31>
+		<expected_trace_value_32>\[TRACE\] Parameters:</expected_trace_value_32>
+		<expected_trace_value_33>\[TRACE\] Name = EcimInt32_2</expected_trace_value_33>
+		<expected_trace_value_34>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_34>
+		<expected_trace_value_35>\[TRACE\] Value = 2222</expected_trace_value_35>
+		<expected_trace_value_36>\[TRACE\] ReturnParam=1</expected_trace_value_36>
+
+		<cli_sessions_step4>2</cli_sessions_step4>
+		<trace_entries_read_step4>20</trace_entries_read_step4>
+
+		<cli_input_7>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_7>
+		<cli_expected_output_7>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_7>
+		<cli_nonexpected_output_7>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_7>
+
+		<cli_input_8>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnStruct02" "commit" "exit"</cli_input_8>
+		<cli_expected_output_8>['intArrayMember=3333|TestStruct02', 'intArrayMember=4444|intArrayMember', 'stringArrayMember=The FIRST returned test string|3333', 'stringArrayMember=The SECOND returned test string|4444', '|stringArrayMember', '|"The FIRST returned test string"', '|"The SECOND returned test string"']</cli_expected_output_8>
+		<cli_nonexpected_output_8>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_8>
+
+		<expected_trace_value_37>\[TRACE\] Dispatching from IMM.</expected_trace_value_37>
+		<expected_trace_value_38>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_38>
+		<expected_trace_value_39>\[TRACE\] operationId=43</expected_trace_value_39>
+		<expected_trace_value_40>\[TRACE\] Parameters:</expected_trace_value_40>
+		<expected_trace_value_41>\[TRACE\] Name = TestStruct02_stringArrayMember_1</expected_trace_value_41>
+		<expected_trace_value_42>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_42>
+		<expected_trace_value_43>\[TRACE\] Value = The FIRST returned test string</expected_trace_value_43>
+		<expected_trace_value_44>\[TRACE\] Parameters:</expected_trace_value_44>
+		<expected_trace_value_45>\[TRACE\] Name = TestStruct02_stringArrayMember_1</expected_trace_value_45>
+		<expected_trace_value_46>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_46>
+		<expected_trace_value_47>\[TRACE\] Value = The FIRST returned test string</expected_trace_value_47>
+		<expected_trace_value_48>\[TRACE\] Parameters:</expected_trace_value_48>
+		<expected_trace_value_49>\[TRACE\] Name = TestStruct02_intArrayMember_1</expected_trace_value_49>
+		<expected_trace_value_50>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_50>
+		<expected_trace_value_51>\[TRACE\] Value = 3333</expected_trace_value_51>
+		<expected_trace_value_52>\[TRACE\] Parameters:</expected_trace_value_52>
+		<expected_trace_value_53>\[TRACE\] Name = TestStruct02_intArrayMember_2</expected_trace_value_53>
+		<expected_trace_value_54>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_54>
+		<expected_trace_value_55>\[TRACE\] Value = 4444</expected_trace_value_55>
+		<expected_trace_value_56>\[TRACE\] ReturnParam=1</expected_trace_value_56>
+
+		<cli_sessions_step5>2</cli_sessions_step5>
+		<trace_entries_read_step5>47</trace_entries_read_step5>
+
+		<cli_input_9>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_9>
+		<cli_expected_output_9>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_9>
+		<cli_nonexpected_output_9>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_9>
+
+		<cli_input_10>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnStructAllTypes" "commit" "exit"</cli_input_10>
+		<cli_expected_output_10>['memberBool=false|TestStructAllTypes', 'memberDerivedInt=7777|memberBool=false', 'memberDerivedString=Returned DERIVED test string|memberDerivedInt=7777', 'memberEnum=E2|memberDerivedString="Returned DERIVED test string"', 'memberInt16=-1616|memberEnum=E2', 'memberInt32=-32323232|memberInt16=-1616', 'memberInt64=-646464646464|memberInt32=-32323232', 'memberInt8=-88|memberInt64=-646464646464', 'memberReference=ManagedElement=1,Sdp617ActiontestRoot=1,ActionTest=1|memberInt8=-88', 'memberString=Another returned test string|memberReference="ManagedElement=1,Sdp617ActiontestRoot=1,ActionTest=1"', 'memberUint16=1616|memberString="Another returned test string"', 'memberUint32=32323232|memberUint16=1616', 'memberUint64=646464646464|memberUint32=32323232', 'memberUint8=88|memberUint64=646464646464', '|memberUint8=88']</cli_expected_output_10>
+		<cli_nonexpected_output_10>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_10>
+
+		<expected_trace_value_57>\[TRACE\] Dispatching from IMM.</expected_trace_value_57>
+		<expected_trace_value_58>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_58>
+		<expected_trace_value_59>\[TRACE\] operationId=45</expected_trace_value_59>
+		<expected_trace_value_60>\[TRACE\] Parameters:</expected_trace_value_60>
+		<expected_trace_value_61>\[TRACE\] Name = TestStructAllTypes_memberBool</expected_trace_value_61>
+		<expected_trace_value_62>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_62>
+		<expected_trace_value_63>\[TRACE\] Value = 0</expected_trace_value_63>
+		<expected_trace_value_64>\[TRACE\] Name = TestStructAllTypes_memberInt8</expected_trace_value_64>
+		<expected_trace_value_65>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_65>
+		<expected_trace_value_66>\[TRACE\] Value = -88</expected_trace_value_66>
+		<expected_trace_value_67>\[TRACE\] Name = TestStructAllTypes_memberInt16</expected_trace_value_67>
+		<expected_trace_value_68>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_68>
+		<expected_trace_value_69>\[TRACE\] Value = -1616</expected_trace_value_69>
+		<expected_trace_value_70>\[TRACE\] Name = TestStructAllTypes_memberInt32</expected_trace_value_70>
+		<expected_trace_value_71>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_71>
+		<expected_trace_value_72>\[TRACE\] Value = -32323232</expected_trace_value_72>
+		<expected_trace_value_73>\[TRACE\] Name = TestStructAllTypes_memberInt64</expected_trace_value_73>
+		<expected_trace_value_74>\[TRACE\] Type = SA_IMM_ATTR_SAINT64T</expected_trace_value_74>
+		<expected_trace_value_75>\[TRACE\] Value = -646464646464</expected_trace_value_75>
+		<expected_trace_value_76>\[TRACE\] Name = TestStructAllTypes_memberUint8</expected_trace_value_76>
+		<expected_trace_value_77>\[TRACE\] Type = SA_IMM_ATTR_SAUINT32T</expected_trace_value_77>
+		<expected_trace_value_78>\[TRACE\] Value = 88</expected_trace_value_78>
+		<expected_trace_value_79>\[TRACE\] Name = TestStructAllTypes_memberUint16</expected_trace_value_79>
+		<expected_trace_value_80>\[TRACE\] Type = SA_IMM_ATTR_SAUINT32T</expected_trace_value_80>
+		<expected_trace_value_81>\[TRACE\] Value = 1616</expected_trace_value_81>
+		<expected_trace_value_82>\[TRACE\] Name = TestStructAllTypes_memberUint32</expected_trace_value_82>
+		<expected_trace_value_83>\[TRACE\] Type = SA_IMM_ATTR_SAUINT32T</expected_trace_value_83>
+		<expected_trace_value_84>\[TRACE\] Value = 32323232</expected_trace_value_84>
+		<expected_trace_value_85>\[TRACE\] Name = TestStructAllTypes_memberUint64</expected_trace_value_85>
+		<expected_trace_value_86>\[TRACE\] Type = SA_IMM_ATTR_SAUINT64T</expected_trace_value_86>
+		<expected_trace_value_87>\[TRACE\] Value = 646464646464</expected_trace_value_87>
+		<expected_trace_value_88>\[TRACE\] Name = TestStructAllTypes_memberString</expected_trace_value_88>
+		<expected_trace_value_89>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_89>
+		<expected_trace_value_90>\[TRACE\] Value = Another returned test string</expected_trace_value_90>
+		<expected_trace_value_91>\[TRACE\] Name = TestStructAllTypes_memberDerivedInt</expected_trace_value_91>
+		<expected_trace_value_92>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_92>
+		<expected_trace_value_93>\[TRACE\] Value = 7777</expected_trace_value_93>
+		<expected_trace_value_94>\[TRACE\] Name = TestStructAllTypes_memberDerivedString</expected_trace_value_94>
+		<expected_trace_value_95>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_95>
+		<expected_trace_value_96>\[TRACE\] Value = Returned DERIVED test string</expected_trace_value_96>
+		<expected_trace_value_97>\[TRACE\] Name = TestStructAllTypes_memberEnum</expected_trace_value_97>
+		<expected_trace_value_98>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_98>
+		<expected_trace_value_99>\[TRACE\] Value = 2</expected_trace_value_99>
+		<expected_trace_value_100>\[TRACE\] Name = TestStructAllTypes_memberReference</expected_trace_value_100>
+		<expected_trace_value_101>\[TRACE\] Type = SA_IMM_ATTR_SANAMET</expected_trace_value_101>
+		<expected_trace_value_102>\[TRACE\] Value = {length =39, value = a,c,t,i,o,n,T,e,s,t,I,d,=,1,,,s,d,p,6,1,7,A,c,t,i,o,n,t,e,s,t,R,o,o,t,I,d,=,1} actionTestId=1,sdp617ActiontestRootId=1</expected_trace_value_102>
+		<expected_trace_value_103>\[TRACE\] ReturnParam=1</expected_trace_value_103>
+
+		<cli_sessions_step6>2</cli_sessions_step6>
+		<trace_entries_read_step6>32</trace_entries_read_step6>
+
+		<cli_input_11>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_11>
+		<cli_expected_output_11>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_11>
+		<cli_nonexpected_output_11>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_11>
+
+		<cli_input_12>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnMultiStruct02" "commit" "exit"</cli_input_12>
+		<cli_expected_output_12>['intArrayMember=1111|TestStruct02', 'intArrayMember=2222|intArrayMember', 'stringArrayMember=The FIRST returned test string in the FIRST struct|1111', 'stringArrayMember=The SECOND returned test string in the FIRST struct|2222', 'intArrayMember=3333|stringArrayMember', 'intArrayMember=4444|"The FIRST returned test string in the FIRST struct"', 'intArrayMember=5555|"The SECOND returned test string in the FIRST struct"', 'stringArrayMember=The FIRST returned test string in the SECOND struct|TestStruct02', 'stringArrayMember=The SECOND returned test string in the SECOND struct|intArrayMember', '|3333', '|4444', '|5555', '|stringArrayMember', '|"The FIRST returned test string in the SECOND struct"','|"The SECOND returned test string in the SECOND struct"']</cli_expected_output_12>
+		<cli_nonexpected_output_12>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_12>
+
+		<expected_trace_value_104>\[TRACE\] Dispatching from IMM.</expected_trace_value_104>
+		<expected_trace_value_105>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_105>
+		<expected_trace_value_106>\[TRACE\] operationId=52</expected_trace_value_106>
+		<expected_trace_value_107>\[TRACE\] Parameters:</expected_trace_value_107>
+		<expected_trace_value_108>\[TRACE\] Name = TestStruct02_1_stringArrayMember_1</expected_trace_value_108>
+		<expected_trace_value_109>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_109>
+		<expected_trace_value_110>\[TRACE\] Value = The FIRST returned test string in the FIRST struct</expected_trace_value_110>
+		<expected_trace_value_111>\[TRACE\] Name = TestStruct02_1_stringArrayMember_2</expected_trace_value_111>
+		<expected_trace_value_112>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_112>
+		<expected_trace_value_113>\[TRACE\] Value = The SECOND returned test string in the FIRST struct</expected_trace_value_113>
+		<expected_trace_value_114>\[TRACE\] Name = TestStruct02_1_intArrayMember_1</expected_trace_value_114>
+		<expected_trace_value_115>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_115>
+		<expected_trace_value_116>\[TRACE\] Value = 1111</expected_trace_value_116>
+		<expected_trace_value_117>\[TRACE\] Name = TestStruct02_1_intArrayMember_2</expected_trace_value_117>
+		<expected_trace_value_118>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_118>
+		<expected_trace_value_119>\[TRACE\] Value = 2222</expected_trace_value_119>
+		<expected_trace_value_120>\[TRACE\] Name = TestStruct02_2_stringArrayMember_1</expected_trace_value_120>
+		<expected_trace_value_121>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_121>
+		<expected_trace_value_122>\[TRACE\] Value = The FIRST returned test string in the SECOND struct</expected_trace_value_122>
+		<expected_trace_value_123>\[TRACE\] Name = TestStruct02_2_stringArrayMember_2</expected_trace_value_123>
+		<expected_trace_value_124>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_124>
+		<expected_trace_value_125>\[TRACE\] Value = The SECOND returned test string in the SECOND struct</expected_trace_value_125>
+		<expected_trace_value_126>\[TRACE\] Name = TestStruct02_2_intArrayMember_1</expected_trace_value_126>
+		<expected_trace_value_127>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_127>
+		<expected_trace_value_128>\[TRACE\] Value = 3333</expected_trace_value_128>
+		<expected_trace_value_129>\[TRACE\] Name = TestStruct02_2_intArrayMember_2</expected_trace_value_129>
+		<expected_trace_value_130>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_130>
+		<expected_trace_value_131>\[TRACE\] Value = 4444</expected_trace_value_131>
+		<expected_trace_value_132>\[TRACE\] Name = TestStruct02_2_intArrayMember_3</expected_trace_value_132>
+		<expected_trace_value_133>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_133>
+		<expected_trace_value_134>\[TRACE\] Value = 5555</expected_trace_value_134>
+		<expected_trace_value_135>\[TRACE\] ReturnParam=1</expected_trace_value_135>
+
+		<cli_sessions_step7>2</cli_sessions_step7>
+		<trace_entries_read_step7>3</trace_entries_read_step7>
+
+		<cli_input_13>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_13>
+		<cli_expected_output_13>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_13>
+		<cli_nonexpected_output_13>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_13>
+
+		<cli_input_14>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "noReturn" "commit" "exit"</cli_input_14>
+		<cli_expected_output_14>['']</cli_expected_output_14>
+		<cli_nonexpected_output_14>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_14>
+
+		<expected_trace_value_136>\[TRACE\] Dispatching from IMM.</expected_trace_value_136>
+		<expected_trace_value_137>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_137>
+		<expected_trace_value_138>\[TRACE\] operationId=12</expected_trace_value_138>
+
+		<cli_sessions_step8>2</cli_sessions_step8>
+		<trace_entries_read_step8>8</trace_entries_read_step8>
+
+		<cli_input_15>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_15>
+		<cli_expected_output_15>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_15>
+		<cli_nonexpected_output_15>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_15>
+
+		<cli_input_16>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNoInput" "commit" "exit"</cli_input_16>
+		<cli_expected_output_16>['1234']</cli_expected_output_16>
+		<cli_nonexpected_output_16>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_16>
+
+		<expected_trace_value_139>\[TRACE\] Dispatching from IMM.</expected_trace_value_139>
+		<expected_trace_value_140>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_140>
+		<expected_trace_value_141>\[TRACE\] operationId=50</expected_trace_value_141>
+		<expected_trace_value_142>\[TRACE\] Parameters:</expected_trace_value_142>
+		<expected_trace_value_143>\[TRACE\] Name = EcimInt32_1</expected_trace_value_143>
+		<expected_trace_value_144>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_144>
+		<expected_trace_value_145>\[TRACE\] Value = 1234</expected_trace_value_145>
+		<expected_trace_value_146>\[TRACE\] ReturnParam=1</expected_trace_value_146>
+
+		<cli_sessions_step9>2</cli_sessions_step9>
+		<trace_entries_read_step9>3</trace_entries_read_step9>
+
+		<cli_input_17>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_17>
+		<cli_expected_output_17>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_17>
+		<cli_nonexpected_output_17>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_17>
+
+		<cli_input_18>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNothing 9" "commit" "exit"</cli_input_18>
+		<cli_expected_output_18>['']</cli_expected_output_18>
+		<cli_nonexpected_output_18>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_18>
+
+		<expected_trace_value_147>\[TRACE\] Dispatching from IMM.</expected_trace_value_147>
+		<expected_trace_value_148>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_148>
+		<expected_trace_value_149>\[TRACE\] operationId=49</expected_trace_value_149>
+
+		<cli_sessions_step10>2</cli_sessions_step10>
+		<trace_entries_read_step10>3</trace_entries_read_step10>
+
+		<cli_input_19>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_19>
+		<cli_expected_output_19>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_19>
+		<cli_nonexpected_output_19>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_19>
+
+		<cli_input_20>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNegInt" "commit" "exit"</cli_input_20>
+		<cli_expected_output_20>['ERROR: Call command failed, error code: ComInvalidArgument']</cli_expected_output_20>
+		<cli_nonexpected_output_20>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_20>
+
+		<expected_trace_value_150>\[TRACE\] Dispatching from IMM.</expected_trace_value_150>
+		<expected_trace_value_151>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_151>
+		<expected_trace_value_152>\[TRACE\] operationId=60</expected_trace_value_152>
+
+		<cli_sessions_step11>2</cli_sessions_step11>
+		<trace_entries_read_step11>14</trace_entries_read_step11>
+
+		<cli_input_21>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_21>
+		<cli_expected_output_21>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_21>
+		<cli_nonexpected_output_21>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_21>
+
+		<cli_input_22>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNegInt02" "commit" "exit"</cli_input_22>
+		<cli_expected_output_22>['ERROR: Call command failed, error code: ComInvalidArgument']</cli_expected_output_22>
+		<cli_nonexpected_output_22>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_22>
+
+		<expected_trace_value_153>\[TRACE\] Dispatching from IMM.</expected_trace_value_153>
+		<expected_trace_value_154>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_154>
+		<expected_trace_value_155>\[TRACE\] operationId=64</expected_trace_value_155>
+		<expected_trace_value_156>\[TRACE\] Parameters:</expected_trace_value_156>
+		<expected_trace_value_157>\[TRACE\] Name = EcimInt32_1</expected_trace_value_157>
+		<expected_trace_value_158>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_158>
+		<expected_trace_value_159>\[TRACE\] Value = 11</expected_trace_value_159>
+		<expected_trace_value_160>\[TRACE\] Name = EcimInt32_3</expected_trace_value_160>
+		<expected_trace_value_161>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_161>
+		<expected_trace_value_162>\[TRACE\] Value = 33</expected_trace_value_162>
+		<expected_trace_value_163>\[TRACE\] Name = EcimInt32_2</expected_trace_value_163>
+		<expected_trace_value_164>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_164>
+		<expected_trace_value_165>\[TRACE\] Value = 22</expected_trace_value_165>
+		<expected_trace_value_166>\[TRACE\] ReturnParam=1</expected_trace_value_166>
+
+		<cli_sessions_step12>2</cli_sessions_step12>
+		<trace_entries_read_step12>8</trace_entries_read_step12>
+
+		<cli_input_23>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_23>
+		<cli_expected_output_23>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_23>
+		<cli_nonexpected_output_23>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_23>
+
+		<cli_input_24>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNegInt03" "commit" "exit"</cli_input_24>
+		<cli_expected_output_24>['ERROR: Call command failed, error code: ComInvalidArgument']</cli_expected_output_24>
+		<cli_nonexpected_output_24>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_24>
+
+		<expected_trace_value_167>\[TRACE\] Dispatching from IMM.</expected_trace_value_167>
+		<expected_trace_value_168>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_168>
+		<expected_trace_value_169>\[TRACE\] operationId=68</expected_trace_value_169>
+		<expected_trace_value_170>\[TRACE\] Parameters:</expected_trace_value_170>
+		<expected_trace_value_171>\[TRACE\] Name = EcimInt32_</expected_trace_value_171>
+		<expected_trace_value_172>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_172>
+		<expected_trace_value_173>\[TRACE\] Value = 999</expected_trace_value_173>
+		<expected_trace_value_174>\[TRACE\] ReturnParam=1</expected_trace_value_174>
+
+		<cli_sessions_step13>2</cli_sessions_step13>
+		<trace_entries_read_step13>14</trace_entries_read_step13>
+
+		<cli_input_25>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_25>
+		<cli_expected_output_25>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_25>
+		<cli_nonexpected_output_25>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_25>
+
+		<cli_input_26>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNegParamName" "commit" "exit"</cli_input_26>
+		<cli_expected_output_26>['ERROR: Call command failed, error code: ComInvalidArgument']</cli_expected_output_26>
+		<cli_nonexpected_output_26>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_26>
+
+		<expected_trace_value_175>\[TRACE\] Dispatching from IMM.</expected_trace_value_175>
+		<expected_trace_value_176>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_176>
+		<expected_trace_value_177>\[TRACE\] operationId=70</expected_trace_value_177>
+		<expected_trace_value_178>\[TRACE\] Parameters:</expected_trace_value_178>
+		<expected_trace_value_179>\[TRACE\] Name = 7_EcimInt</expected_trace_value_179>
+		<expected_trace_value_180>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_180>
+		<expected_trace_value_181>\[TRACE\] Value = 11</expected_trace_value_181>
+		<expected_trace_value_182>\[TRACE\] Name = 9_EcimInt</expected_trace_value_182>
+		<expected_trace_value_183>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_183>
+		<expected_trace_value_184>\[TRACE\] Value = 33</expected_trace_value_184>
+		<expected_trace_value_185>\[TRACE\] Name = 8_EcimInt</expected_trace_value_185>
+		<expected_trace_value_186>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_186>
+		<expected_trace_value_187>\[TRACE\] Value = 22</expected_trace_value_187>
+		<expected_trace_value_188>\[TRACE\] ReturnParam=1</expected_trace_value_188>
+
+		<cli_sessions_step14>2</cli_sessions_step14>
+		<trace_entries_read_step14>8</trace_entries_read_step14>
+
+		<cli_input_27>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_27>
+		<cli_expected_output_27>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_27>
+		<cli_nonexpected_output_27>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_27>
+
+		<cli_input_28>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNegStruct" "commit" "exit"</cli_input_28>
+		<cli_expected_output_28>['ERROR: Call command failed, error code: ComInvalidArgument']</cli_expected_output_28>
+		<cli_nonexpected_output_28>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_28>
+
+		<expected_trace_value_189>\[TRACE\] Dispatching from IMM.</expected_trace_value_189>
+		<expected_trace_value_190>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_190>
+		<expected_trace_value_191>\[TRACE\] operationId=63</expected_trace_value_191>
+		<expected_trace_value_192>\[TRACE\] Parameters:</expected_trace_value_192>
+		<expected_trace_value_193>\[TRACE\] Name = EcimInt32_</expected_trace_value_193>
+		<expected_trace_value_194>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_194>
+		<expected_trace_value_195>\[TRACE\] Value = 999</expected_trace_value_195>
+		<expected_trace_value_196>\[TRACE\] ReturnParam=1</expected_trace_value_196>
+
+		<cli_sessions_step15>2</cli_sessions_step15>
+		<trace_entries_read_step15>17</trace_entries_read_step15>
+
+		<cli_input_29>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_29>
+		<cli_expected_output_29>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_29>
+		<cli_nonexpected_output_29>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_29>
+
+		<cli_input_30>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNegStruct02" "commit" "exit"</cli_input_30>
+		<cli_expected_output_30>['ERROR: Call command failed, error code: ComInvalidArgument']</cli_expected_output_30>
+		<cli_nonexpected_output_30>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_30>
+
+		<expected_trace_value_197>\[TRACE\] Dispatching from IMM.</expected_trace_value_197>
+		<expected_trace_value_198>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_198>
+		<expected_trace_value_199>\[TRACE\] operationId=65</expected_trace_value_199>
+		<expected_trace_value_200>\[TRACE\] Parameters:</expected_trace_value_200>
+		<expected_trace_value_201>\[TRACE\] Name = TestStruct01_1_stringMemb</expected_trace_value_201>
+		<expected_trace_value_202>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_202>
+		<expected_trace_value_203>\[TRACE\] Value = The returned FIRST test string</expected_trace_value_203>
+		<expected_trace_value_204>\[TRACE\] Name = TestStruct01_1_intMember</expected_trace_value_204>
+		<expected_trace_value_205>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_205>
+		<expected_trace_value_206>\[TRACE\] Value = 1111</expected_trace_value_206>
+		<expected_trace_value_207>\[TRACE\] Name = TestStruct01_2_stringMemb</expected_trace_value_207>
+		<expected_trace_value_208>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_208>
+		<expected_trace_value_209>\[TRACE\] Value = The returned SECOND test string</expected_trace_value_209>
+		<expected_trace_value_210>\[TRACE\] Name = TestStruct01_2_intMember</expected_trace_value_210>
+		<expected_trace_value_211>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_211>
+		<expected_trace_value_212>\[TRACE\] Value = 2222</expected_trace_value_212>
+		<expected_trace_value_213>\[TRACE\] ReturnParam=1</expected_trace_value_213>
+
+		<cli_sessions_step16>2</cli_sessions_step16>
+		<trace_entries_read_step16>11</trace_entries_read_step16>
+
+		<cli_input_31>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_31>
+		<cli_expected_output_31>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_31>
+		<cli_nonexpected_output_31>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_31>
+
+		<cli_input_32>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnNegStruct03" "commit" "exit"</cli_input_32>
+		<cli_expected_output_32>['ERROR: Call command failed, error code: ComInvalidArgument']</cli_expected_output_32>
+		<cli_nonexpected_output_32>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_32>
+
+		<expected_trace_value_214>\[TRACE\] Dispatching from IMM.</expected_trace_value_214>
+		<expected_trace_value_215>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_215>
+		<expected_trace_value_216>\[TRACE\] operationId=69</expected_trace_value_216>
+		<expected_trace_value_217>\[TRACE\] Parameters:</expected_trace_value_217>
+		<expected_trace_value_218>\[TRACE\] Name = TestStruct01_stringMemb</expected_trace_value_218>
+		<expected_trace_value_219>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_219>
+		<expected_trace_value_220>\[TRACE\] Value = The returned test string using new DX model</expected_trace_value_220>
+		<expected_trace_value_221>\[TRACE\] Name = TestStruct01_intMember</expected_trace_value_221>
+		<expected_trace_value_222>\[TRACE\] Type = SA_IMM_ATTR_SAINT32T</expected_trace_value_222>
+		<expected_trace_value_223>\[TRACE\] Value = 5678</expected_trace_value_223>
+		<expected_trace_value_224>\[TRACE\] ReturnParam=1</expected_trace_value_224>
+
+	</config>
+</testcase>

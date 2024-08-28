@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"Read in CLI objects created by importing files"</id>
+        <tag>TC-MR26712-002</tag>	
+                <testcase>functionTestMr26712</testcase>
+                <class>functiontestMR26712</class>
+                <method>functiontestMR26712</method>
+		<description>"Read in CLI objects created by importing files"</description>
+	</info>	
+    <config>
+        <useExternalModels>yes</useExternalModels>
+        <immClassesFile>XMom_imm_classes.xml</immClassesFile>
+        <immClassesFile2>YMom_imm_classes.xml</immClassesFile2>
+        <immClassesFile3>AMom_imm_classes.xml</immClassesFile3>
+        <immClassesFile4>BMom_imm_classes.xml</immClassesFile4>
+        <immClassesFile5>CMom_imm_classes.xml</immClassesFile5>
+        <immClassesFile6>DMom_imm_classes.xml</immClassesFile6>
+        <momFile>ImmSplitTestModel_mp.xml</momFile>
+        <momFile2>ImmSplitTestInstances_mp.xml</momFile2>
+        <immObjectsFile>ImmSplitTestInstances_imm_objects.xml</immObjectsFile>
+
+        <cli_input_1>"show all ManagedElement=1,RootX=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['RootX=1', 'RootC=1', 'ClassC=1', 'RootD=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show all ManagedElement=1,RootY=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['RootY=1', 'RootA=A1', 'ClassA=A1-1', 'RootB=B1', 'RootB=B2', 'RootA=A2', 'ClassA=A2-1', 'RootB=B3', 'ClassA=A2-2', 'RootB=B4']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <cli_input_3>"show all verbose ManagedElement=1,RootX=1" "exit"</cli_input_3>
+        <cli_expected_output_3>['RootX=1', 'rootXId=\"1\"', 'RootC=1', 'rootCId=\"1\"', 'ClassC=1', 'classCId=\"1\"', 'RootD=1', 'rootDId=\"1\"']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+        <cli_input_4>"show all verbose ManagedElement=1,RootY=1" "exit"</cli_input_4>
+        <cli_expected_output_4>['RootY=1', 'rootYId=\"1\"', 'RootA=A1', 'rootAId=\"A1\"', 'ClassA=A1-1', 'classAId=\"A1-1\"', 'RootB=B1', 'rootBId=\"B1\"', 'RootB=B2', 'rootBId=\"B2\"',  'RootA=A2', 'rootAId=\"A2\"', 'ClassA=A2-1', 'classAId=\"A2-1\"', 'RootB=B3', 'rootBId=\"B3\"', 'ClassA=A2-2', 'classAId=\"A2-2\"', 'RootB=B4', 'rootBId=\"B4\"']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+
+        <imm_input_1>immfind | grep -i root</imm_input_1>
+        <imm_expected_output_1>['AMomrootAId=A1,YMomrootYId=1', 'AMomrootAId=A2,YMomrootYId=1', 'BMomrootBId=B1,classAId=A1-1,AMomrootAId=A1,YMomrootYId=1', 'BMomrootBId=B2,classAId=A1-1,AMomrootAId=A1,YMomrootYId=1', 'BMomrootBId=B3,classAId=A2-1,AMomrootAId=A2,YMomrootYId=1', 'BMomrootBId=B4,classAId=A2-2,AMomrootAId=A2,YMomrootYId=1', 'CMomrootCId=1', 'DMomrootDId=1', 'XMomrootXId=1', 'YMomrootYId=1', 'classAId=A1-1,AMomrootAId=A1,YMomrootYId=1', 'classAId=A2-1,AMomrootAId=A2,YMomrootYId=1', 'classAId=A2-2,AMomrootAId=A2,YMomrootYId=1', 'classCId=1,CMomrootCId=1']</imm_expected_output_1>
+        <imm_nonexpected_output_1>['error']</imm_nonexpected_output_1>
+		
+        <immObjPattern>['root']</immObjPattern>
+	</config>  
+</testcase>

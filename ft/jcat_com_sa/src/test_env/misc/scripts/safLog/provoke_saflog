@@ -1,0 +1,40 @@
+#!/bin/bash
+usage_exit () {
+  echo "`basename $0` <no of safloggers>"
+  exit 1
+}
+
+if [ $# -ne 1 -a "$1" != "start_worker" ]; then
+  usage_exit
+fi
+
+# Only for script internal use!
+if [ "$1" = "start_worker" ]; then
+  while true; do
+     saflogger "Logentry from worker $2 at `date`"
+  done
+  exit 0
+fi
+
+LOGPID=`ps -ec | grep osaflogd | awk '{ print $1 }'`
+
+cat<<EOF
+
+In order to toggle osaflogd verbose syslogging, issue the following shell
+command:
+
+kill -HUP $LOGPID
+
+EOF
+
+echo "Starting $1 logger processes..."
+
+worker=( null )
+for i in `seq 1 $1`; do
+  $0 start_worker $i &
+  pid=$!
+  echo "Started worker pid $pid"
+  worker=( ${worker[*]} $pid )
+done
+exit 0
+

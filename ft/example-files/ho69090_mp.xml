@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  Copyright (c) 2011 Ericsson AB.
+  All rights reserved
+  
+  DX ECIM Tool-chain generated this file on Jun 19, 2011 4:35:46 PM using 
+    * ecim.m2m (1.3.0.Release)
+    * ecim.m2t (1.3.0.Release) 
+    * ecim.dsl (1.3.0.Release) 
+    * ecim.edm (1.3.0.Release) 
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>D</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <interMim>
+        <relationship name="Transport_to_Evip">
+            <deprecated/>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Evip">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <mim author="" contact="" date="" docNo="" name="EvipMOM" namespace="urn:com:ericsson:ecim:EvipMOM" namespacePrefix="evipmom" organization="" release="R1A0" revision="" version="1">
+        <description>-</description>
+        <class name="Evip">
+            <description>Top class for EVIP Configuration</description>
+            <root/>
+            <attribute name="evipId">
+                <description>The version of Evip config</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipAlbs">
+            <description>Container class for Abstract Load Balancers (ALBs).</description>
+            <attribute name="evipAlbsId">
+                <description>The RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on all ALBs when they are activated. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher. The commands are executed on all LBEs, FEEs and payload nodes in all ALBs.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipCommandDefinition">
+            <description>Container class for all command definitions.</description>
+            <attribute name="evipCommandDefinitionId">
+                <description>The RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipDeclarations">
+            <description>Container class for generic EVIP declarations.</description>
+            <attribute name="evipDeclarationsId">
+                <description>The RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipCommand">
+            <description>Defines a command to be used as a startup command. Startup commands may be defined at many places in the EVIP configuration. The actual shell command is defined here and are refered by its identity from other places.</description>
+            <attribute name="evipCommandId">
+                <description>The RDN attribute. This identity is used as reference at other places in the EVIP configuration when the command is used.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="command">
+                <description>This is the shell command to execute.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipCluster">
+            <description>Describes the cluster where EVIP is running.</description>
+            <attribute name="evipClusterId">
+                <description>RDN Attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="primaryInterface">
+                <description>Names the interface to use for EVIP traffic. This interface should be redundant in some way for instance with bonding.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on all nodes when EVIP starts. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="macvlanLinkLocalRangeStart">
+                <description>The MAC addresses are gnerated at random. For large clusters the probability for collitions becomes too high. Instead a range is used with this base address plus the node-id.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipNode">
+            <description>Describes a node (processor) in the cluster.</description>
+            <attribute name="evipNodeId">
+                <description>This is the RDN attribute. The node identities must be a consecutive integer value for all nodes. This identity is used to define node ranges, for instance "3-9" at other places in the EVIP configuration.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="hostname">
+                <description>This is the hostname of the node. It is just the simple hostname printed when the "hostname" command is executed, not the fully qualified domain name.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on this node when EVIP starts. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher. The commands defined here are executed after any commands defined on cluster level.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="primaryInterface">
+                <description>Names the interface to use for EVIP traffic. This interface should be redundant in some way for instance with bonding. This should only be specified if the interface name on this particular node differs from the one specified on cluster level.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipParam">
+            <description>Defines a generic parameter. This class is used on many places for defining various parameters.</description>
+            <attribute name="evipParamId">
+                <description>The RDN attribute. This is the parameter name or "key".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="value">
+                <description>The parameter value.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipTargetPools">
+            <description>Container class for Target Pools.</description>
+            <attribute name="evipTargetPoolsId">
+                <description>RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipTargetPool">
+            <description>Defines a Target Pool.</description>
+            <attribute name="evipTargetPoolId">
+                <description>The RDN attribute. This is a unique name within the ALB. This name is used in Flow Policies that selects traffic to this Target Pool.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="distributionMethod">
+                <description>The distribution method. Supportes values are;
+"round_robin"
+"weighted_round_robin"
+"least_connections"
+"weighted_least_connections"
+"locality_based_least_connections"
+"locality_based_least_connections_with_replication"
+"destination_hash"
+"source_hash"
+""
+""
+</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="stickiness">
+                <description>Stickiness means that all network traffic form one remote host is distributed to the same node. This may for instance be necessary to hold together a HTTP session consisting of multiple connections. Stickiness could however cause poor distribution if you have a dominant source andStickiness means that all network traffic form one remote host is distributed to the same node.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipPayload">
+            <description>Defines a payload node in a Target Pool.</description>
+            <attribute name="evipPayloadId">
+                <description>The RDN attribute. This specifies the node-id or a node-id range.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on this node when EVIP starts. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="weight">
+                <description>For weighted distribution methods this is an integer value defining the "weight" of the payload node. Id the distribution method is non-weighted this attribute is ignored.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipParams">
+            <description>Container class for generic EVIP parameters.</description>
+            <attribute name="evipParamsId">
+                <description>The RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipAlb">
+            <description>Defines an Abstract Load Balancer (ALB).</description>
+            <action name="activate">
+                <description>Activates the ALB. The activation may fail if the ALB configuration is invalid. The current state can be examined in the "state" attribute.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="1"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <action name="inactivate">
+                <description>Inactivates the ALB.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <attribute name="evipAlbId">
+                <description>The RDN attribute. Must be a unique name selected by the operator.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="serviceIp">
+                <description>An undocumented attribute.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="numKeys">
+                <description>Number of units (keys) used for connection distribution. This value should be several times higher than the number of LBEs but a too high value will slow down reconfiguration on an LBE failure. The default is 256 and will do nicely for most cases.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed when the ALB is activated. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher. The commands are executed on all LBEs, FEEs in the ALB.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="state">
+                <description>This is the state of the ALB. The state can be "ACTIVE" or "INACTIVE".</description>
+                <noNotification/>
+                <nonPersistent/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipLbes">
+            <description>Container class for Load Balancing Elements (LBEs)</description>
+            <attribute name="evipLbesId">
+                <description>The RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on all LBEs when the containing ALB is activated. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipFees">
+            <description>Container class for Front End Elements (FEEs).</description>
+            <attribute name="evipFeesId">
+                <description>The RDN Attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on all FEEs when the containing ALB is activated. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipVips">
+            <description>Container class for Virtual IP addresses (VIPs).</description>
+            <attribute name="evipVipsId">
+                <description>The RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipFlowPolicies">
+            <description>Container Class for Flow Policies.</description>
+            <attribute name="evipFlowPoliciesId">
+                <description>The RDN attribute. Awlays "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipLbe">
+            <description>Defines a Load Balancing Element (LBE).
+</description>
+            <attribute name="evipLbeId">
+                <description>RDN attribute. An unique name within the ALB.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="node">
+                <description>The node-id of the node where the LBE is executing.
+</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on the LBE the containing ALB is activated. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipFee">
+            <description>Defines a Front End Element (FEE).</description>
+            <action name="inactivate">
+                <description>Inactivates the FEE. The FEE must be inactive when routing parameters are updated. The current state can be examined in the "state" attribute.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <action name="activate">
+                <description>Activates the FEE. The FEE must be activeated after the routing parameters have been updated. The current state can be examined in the "state" attribute.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="1"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <attribute name="evipFeeId">
+                <description>The RDN attribute. A unique name within the ALB.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="node">
+                <description>The node-id of the node where the FEE is executing.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="commands">
+                <description>An array of commands that are executed on the FEE when the containing ALB is activated. The commands are refered by their identity specified in the EvipCommandDefinition. The commands are preceeded by a floating point order number and a colon, for example "1.0:defroute". The commands are executed in order lower to higher.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="state">
+                <description>The state of the FEE. May be ACTIVE or INACTIVE.</description>
+                <noNotification/>
+                <nonPersistent/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="externalInterface">
+                <description>The name of the interface to the external DCN. The interfaces may have a appended VLAN tag, for instance "eth3.4711".</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipRoutingSetup">
+            <description>Contains rputing setup parameter for a specific routing protocol.</description>
+            <attribute name="evipRoutingSetupId">
+                <description>The RDN attribute. This attribute specifies the routing protocol. The supported protocols are;
+"vrrp_ipv4"
+"vrrp_ipv6"
+"ospfv2"
+"bfd_ospfv2"
+"ospfv3"
+"bfd_static"
+For the specific routing parameters please see the "EVIP Management Guide"</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipSupervisedRemoteGateway">
+            <description>Defines an external gateway to supervise. This gateway may for instance be a router essential for EVIP traffic. If EVIP loses contact with the gateway an alarm is raised.</description>
+            <attribute name="evipSupervisedRemoteGatewayId">
+                <description>The RDN attribute. This is the IP-address of the supervised gateway.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>This is an optional description defined by the operator. The purpose of this attribute is to simplify the procedure when an alarm is raised for this gateway. The operator receiving the alarm for this gateway should open this object and read the description attribute for more information about the gateway. This attribute can for instance contain the location or identiry of the gateway, or a local contact person or any other useful information.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipVip">
+            <description>Defines a Virtual IP address (VIP)</description>
+            <attribute name="evipVipId">
+                <description>The RDN attribute. This the IP address.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="deflt">
+                <description>Identifies the default VIP. Only one VIP in the containing ALB must have this attribute set to "true"</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipFlowPolicy">
+            <description>Defines a Flow Policy. Incoming traffic selected by this Flow Policy must match all defined attributes (logical AND).</description>
+            <attribute name="evipFlowPolicyId">
+                <description>The RDN attribute. A unique name within the ALB.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="protocol">
+                <description>Defines the protocol for the Flow Policy: Supported values are;
+"tcp"
+"udp"
+"sctp"
+"other"
+"all"</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="targetPool">
+                <description>The name of the Target Pool whithin the containing ALB that receives traffic selected by this Flow Policy.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="destPort">
+                <description>Incoming traffic with this (local) destination port is selected by this Flow Policy. 
+Only 15 distinct ports or port ranges can map to one sticky target pool. This is due to a hard limit in iptables. Flow policies that specify ports that are in a range are converted to a range. For example if there are three flow policies for destPort 80, 81 and 82 (otherwise identical and mapped to the same sticky target pool) these policies will be converted to one range 80-82. 15 such ranges (or individual ports) on one sticky target pool is the maximum.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="src">
+                <description>Incoming traffic with this source (remote) IP address is selected by this Flow Policy.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="addressFamily">
+                <description>Incoming traffic with this address family is selected by this Flow Policy.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="srcPort">
+                <description>Incoming traffic with this source (remote) port is selected by this Flow Policy.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="dest">
+                <description>Incoming traffic with this destination (local) IP is selected by this Flow Policy.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipProtocol">
+            <description>Container class for Port Ranges.</description>
+            <attribute name="evipProtocolId">
+                <description>The RDN attribute. Defines the protocol for the cotained port ranges. Supported values are;
+"tcp"
+"udp"
+"sctp"
+"other"
+"all"
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipPortRange">
+            <description>Defines a Port Range.</description>
+            <attribute name="evipPortRangeId">
+                <description>The RDN attribute. The port range. This may be a single port or a range, for instance "1-32767".
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="type">
+                <description>The range type. Must be "wellknown" or "ephemeral".</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="blocksize">
+                <description>Block size for tistribution of ephemeral ports. Only used if the type is "ephemeral".</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipSelectionPolicies">
+            <description>Container class for Selection policies.</description>
+            <attribute name="evipSelectionPoliciesId">
+                <description>The RDN attribute. Always "1".</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EvipSelectionPolicy">
+            <description>Defines a Selection Policy. Traffic selected by a Selection Policy in this ALB is directed to this ALB.
+Traffic selected by this Selection Policy must match all defined attributes (logical AND).
+</description>
+            <attribute name="evipSelectionPolicyId">
+                <description>The RDN attribute. The name must be unique.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="process">
+                <description>Taffic to or from this process is selected by this Selection Policy.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="dest">
+                <description>Outgoing traffic with this (remote) address or subnet is selected by this Selection Policy.
+</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="destPort">
+                <description>Outgoing traffic with this (remote) port is selected by this Selection Policy.</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="bindPort">
+                <description>Incoming traffic to this port is selected by this selection policy.
+This attribute is only checked if an application makes a "bind" to the ANY address.
+</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="env">
+                <description>-</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="payloadNode">
+                <description>A multivalue attribute that defines the payload nodes where this Selection Policy is applied.</description>
+                <noNotification/>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="protocol">
+                <description>The level 4 protocol. Supported values are;
+"tcp"
+"udp"
+"sctp"
+"other"
+"all"
+</description>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="alb">
+                <description>Traffic selected by this policy is directed towards this ALB.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="sortorder">
+                <description>This must be a floating point number. The SelectionPolicies are ordered and are applied lowest-&gt;highest. This attribute defines the order. If more than one SelectionPolicy has the same value in this attribute the order is unspecified.</description>
+                <mandatory/>
+                <noNotification/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <obsolete/>
+            </attribute>
+        </class>
+        <relationship name="Evip_to_EvipAlbs">
+            <containment>
+                <parent>
+                    <hasClass name="Evip">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipAlbs">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="Evip_to_EvipDeclarations">
+            <containment>
+                <parent>
+                    <hasClass name="Evip">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipDeclarations">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipDeclarations_to_EvipCommandDefinition">
+            <containment>
+                <parent>
+                    <hasClass name="EvipDeclarations">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipCommandDefinition">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipCommandDefinition_to_EvipCommand">
+            <containment>
+                <parent>
+                    <hasClass name="EvipCommandDefinition">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipCommand">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipDeclarations_to_EvipCluster">
+            <containment>
+                <parent>
+                    <hasClass name="EvipDeclarations">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipCluster">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipCluster_to_EvipNode">
+            <containment>
+                <parent>
+                    <hasClass name="EvipCluster">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipNode">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipTargetPools_to_EvipTargetPool">
+            <containment>
+                <parent>
+                    <hasClass name="EvipTargetPools">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipTargetPool">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipTargetPool_to_EvipPayload">
+            <containment>
+                <parent>
+                    <hasClass name="EvipTargetPool">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipPayload">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="Evip_to_EvipParams">
+            <containment>
+                <parent>
+                    <hasClass name="Evip">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipParams">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipParams_to_EvipParam">
+            <containment>
+                <parent>
+                    <hasClass name="EvipParams">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipParam">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipAlbs_to_EvipAlb">
+            <containment>
+                <parent>
+                    <hasClass name="EvipAlbs">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipAlb">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipAlb_to_EvipErsipParams">
+            <containment>
+                <parent>
+                    <hasClass name="EvipAlb">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipErsipParams">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipAlb_to_EvipLbes">
+            <containment>
+                <parent>
+                    <hasClass name="EvipAlb">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipLbes">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipErsipParams_to_EvipParam">
+            <containment>
+                <parent>
+                    <hasClass name="EvipErsipParams">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipParam">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipAlb_to_EvipFees">
+            <containment>
+                <parent>
+                    <hasClass name="EvipAlb">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipFees">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipAlb_to_EvipVips">
+            <containment>
+                <parent>
+                    <hasClass name="EvipAlb">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipVips">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipAlb_to_EvipFlowPolicies">
+            <containment>
+                <parent>
+                    <hasClass name="EvipAlb">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipFlowPolicies">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipLbes_to_EvipLbe">
+            <containment>
+                <parent>
+                    <hasClass name="EvipLbes">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipLbe">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipFees_to_EvipFee">
+            <containment>
+                <parent>
+                    <hasClass name="EvipFees">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipFee">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipFee_to_EvipRoutingSetup">
+            <containment>
+                <parent>
+                    <hasClass name="EvipFee">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipRoutingSetup">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipRoutingSetup_to_EvipParam">
+            <containment>
+                <parent>
+                    <hasClass name="EvipRoutingSetup">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipParam">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipFee_to_EvipSupervisedRemoteGateway">
+            <containment>
+                <parent>
+                    <hasClass name="EvipFee">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipSupervisedRemoteGateway">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipVips_to_EvipVip">
+            <containment>
+                <parent>
+                    <hasClass name="EvipVips">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipVip">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipFlowPolicies_to_EvipFlowPolicy">
+            <containment>
+                <parent>
+                    <hasClass name="EvipFlowPolicies">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipFlowPolicy">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipVip_to_EvipProtocol">
+            <containment>
+                <parent>
+                    <hasClass name="EvipVip">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipProtocol">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipProtocol_to_EvipPortRange">
+            <containment>
+                <parent>
+                    <hasClass name="EvipProtocol">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipPortRange">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipSelectionPolicies_to_EvipSelectionPolicy">
+            <containment>
+                <parent>
+                    <hasClass name="EvipSelectionPolicies">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipSelectionPolicy">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="EvipAlb_to_EvipTargetPools">
+            <containment>
+                <parent>
+                    <hasClass name="EvipAlb">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipTargetPools">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+        <relationship name="Evip_to_EvipSelectionPolicies">
+            <containment>
+                <parent>
+                    <hasClass name="Evip">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EvipSelectionPolicies">
+                        <mimName>EvipMOM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </mim>
+</models>

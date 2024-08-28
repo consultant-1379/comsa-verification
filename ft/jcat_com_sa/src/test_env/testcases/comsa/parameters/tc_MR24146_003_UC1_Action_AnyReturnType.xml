@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MR24146: Testing Any Return Type from CM Action with Floating Point</id>
+        <tag>TC-MR24146-003</tag>	
+        <version>P1A01</version>
+		<testcase>cmActionMR24146</testcase>		
+		<class>CMactionFp</class>
+		<method>CMactionFp</method>
+		<description>MR24146: Testing Any Return Type from CM Action with Floating Point</description>
+	</info>	
+    <config>
+    	<number_of_steps>5</number_of_steps>					
+	
+	<cli_sessions_step1>2</cli_sessions_step1>				
+	<trace_entries_read_step1>8</trace_entries_read_step1> 
+		
+    	<cli_input_1>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnSingleFloat 3.1415926" "commit" "exit"</cli_input_2>
+        <cli_expected_output_2>['3.1415926']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <expected_trace_value_1>\[TRACE\] Dispatching from IMM.</expected_trace_value_1>
+        <expected_trace_value_2>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_2>
+        <expected_trace_value_3>\[TRACE\] operationId=81</expected_trace_value_3>
+	<expected_trace_value_4>\[TRACE\] Parameters:</expected_trace_value_4>
+        <expected_trace_value_5>\[TRACE\] Name = Float_1</expected_trace_value_5>
+        <expected_trace_value_6>\[TRACE\] Type = SA_IMM_ATTR_SADOUBLET</expected_trace_value_6>
+        <expected_trace_value_7>\[TRACE\] Value = 3.1415926</expected_trace_value_7>
+        <expected_trace_value_8>\[TRACE\] ReturnParam=1</expected_trace_value_8>
+		
+	
+	<cli_sessions_step2>2</cli_sessions_step2>
+	<trace_entries_read_step2>3</trace_entries_read_step2>
+    	
+    	<cli_input_3>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+        <cli_input_4>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testArrayFloat 1.1111 2.2222 3.3333" "commit" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1', 'testArrayFloat 1.1111 2.2222 3.3333', 'true']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <expected_trace_value_9>\[TRACE\] Value = 1.1111</expected_trace_value_9>
+        <expected_trace_value_10>\[TRACE\] Value = 2.2222</expected_trace_value_10>
+        <expected_trace_value_11>\[TRACE\] Value = 3.3333</expected_trace_value_11>
+       
+	
+	<cli_sessions_step3>2</cli_sessions_step3>						
+	<trace_entries_read_step2>8</trace_entries_read_step2>
+		
+	<cli_input_5>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_5>
+        <cli_expected_output_5>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+        
+        <cli_input_6>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnFloat" "commit" "exit"</cli_input_6>
+        <cli_expected_output_6>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1', 'testReturnFloat',]</cli_expected_output_6>
+        <cli_nonexpected_output_6>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+    	
+	<expected_trace_value_12>\[TRACE\] Dispatching from IMM.</expected_trace_value_12>
+        <expected_trace_value_13>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_13>
+        <expected_trace_value_14>\[TRACE\] operationId=80</expected_trace_value_14>
+	<expected_trace_value_15>\[TRACE\] Parameters:</expected_trace_value_15>
+        <expected_trace_value_16>\[TRACE\] Name = Float_0</expected_trace_value_16>
+        <expected_trace_value_17>\[TRACE\] Type = SA_IMM_ATTR_SADOUBLET</expected_trace_value_17>
+        <expected_trace_value_18>\[TRACE\] Value = 3.456700</expected_trace_value_18>
+        <expected_trace_value_19>\[TRACE\] ReturnParam=1</expected_trace_value_19>
+		
+		 
+	<cli_sessions_step4>2</cli_sessions_step4>						
+	<trace_entries_read_step2>12</trace_entries_read_step2>
+		
+	<cli_input_7>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_7>
+        <cli_expected_output_7>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_7>
+        <cli_nonexpected_output_7>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_7>
+        
+        <cli_input_8>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testReturnStructFloat" "commit" "exit"</cli_input_8>
+        <cli_expected_output_8>['stringMember=The returned test string using new DX model', 'floatMember=3.4567']</cli_expected_output_8>
+        <cli_nonexpected_output_8>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_8>
+    	
+	<expected_trace_value_20>\[TRACE\] Dispatching from IMM.</expected_trace_value_20>
+        <expected_trace_value_21>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_21>
+        <expected_trace_value_22>\[TRACE\] operationId=85</expected_trace_value_22>
+	<expected_trace_value_23>\[TRACE\] Parameters:</expected_trace_value_23>
+        <expected_trace_value_24>\[TRACE\] Name = TestStruct03_stringMember</expected_trace_value_24>
+        <expected_trace_value_25>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_25>
+        <expected_trace_value_26>\[TRACE\] Value = The returned test string using new DX model</expected_trace_value_26>
+	<expected_trace_value_27>\[TRACE\] Parameters:</expected_trace_value_27>
+        <expected_trace_value_28>\[TRACE\] Name = TestStruct03_floatMember</expected_trace_value_28>
+        <expected_trace_value_29>\[TRACE\] Type = SA_IMM_ATTR_SADOUBLET</expected_trace_value_29>
+        <expected_trace_value_30>\[TRACE\] Value = 3.4567</expected_trace_value_30>
+        <expected_trace_value_31>\[TRACE\] ReturnParam=1</expected_trace_value_31>
+		
+		 
+	<cli_sessions_step5>2</cli_sessions_step5>						
+	<trace_entries_read_step5>20</trace_entries_read_step5>
+		
+	<cli_input_9>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_9>
+        <cli_expected_output_9>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_9>
+        <cli_nonexpected_output_9>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_9>
+        
+        <cli_input_10>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "tetsReturnArrayFloat" "commit" "exit"</cli_input_10>
+        <cli_expected_output_10>['stringMember=The returned FIRST test string', 'floatMember=1.111', 'stringMember=The returned SECOND test string', 'floatMember=2.222']</cli_expected_output_10>
+        <cli_nonexpected_output_10>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_10>
+    	
+	<expected_trace_value_32>\[TRACE\] Dispatching from IMM.</expected_trace_value_32>
+        <expected_trace_value_33>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_33>
+        <expected_trace_value_34>\[TRACE\] operationId=84</expected_trace_value_34>
+	<expected_trace_value_35>\[TRACE\] Parameters:</expected_trace_value_35>
+        <expected_trace_value_36>\[TRACE\] Name = TestStruct03_1_stringMember</expected_trace_value_36>
+        <expected_trace_value_37>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_37>
+        <expected_trace_value_38>\[TRACE\] Value = The returned FIRST test string</expected_trace_value_38>
+	<expected_trace_value_39>\[TRACE\] Parameters:</expected_trace_value_39>
+        <expected_trace_value_40>\[TRACE\] Name = TestStruct03_1_floatMember</expected_trace_value_40>
+        <expected_trace_value_41>\[TRACE\] Type = SA_IMM_ATTR_SADOUBLET</expected_trace_value_41>
+        <expected_trace_value_42>\[TRACE\] Value = 1.111</expected_trace_value_42>
+	<expected_trace_value_43>\[TRACE\] Parameters:</expected_trace_value_43>
+        <expected_trace_value_44>\[TRACE\] Name = TestStruct03_2_stringMember</expected_trace_value_44>
+        <expected_trace_value_45>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_45>
+        <expected_trace_value_46>\[TRACE\] Value = The returned SECOND test string</expected_trace_value_46>
+	<expected_trace_value_47>\[TRACE\] Parameters:</expected_trace_value_47>
+        <expected_trace_value_48>\[TRACE\] Name = TestStruct03_2_floatMember</expected_trace_value_48>
+        <expected_trace_value_49>\[TRACE\] Type = SA_IMM_ATTR_SADOUBLET</expected_trace_value_49>
+        <expected_trace_value_50>\[TRACE\] Value = 2.222</expected_trace_value_50>
+        <expected_trace_value_51>\[TRACE\] ReturnParam=1</expected_trace_value_51>
+		
+    	
+	</config>  
+</testcase>

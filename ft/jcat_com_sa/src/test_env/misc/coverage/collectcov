@@ -1,0 +1,4 @@
+\rm -rf /cluster/html
+/home/shcov/shcov-5/scripts/shlcov /var/log/shcov/ /cluster/html
+
+echo "Coverage collection complete"

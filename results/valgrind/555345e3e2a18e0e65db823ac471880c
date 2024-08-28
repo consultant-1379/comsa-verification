@@ -1,0 +1,13 @@
+ definitely lost 
+calloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+ntfa_copy_ntf_filter_ptrs (/home/uabikan/git/coremw/opensaf/osaf/libs/agents/saf/ntfa/ntfa_util.c:1627)
+saNtfNotificationSubscribe (/home/uabikan/git/coremw/opensaf/osaf/libs/agents/saf/ntfa/ntfa_api.c:1937)
+subscribeFor_CM_Notifications (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/ntf/ComSANtf.c:2735)
+CmEventProducer::RegexpFilter::RegexpFilter(MafNameValuePair**) (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/ntf/CmEventProducer.cc:136)
+Com::EventProducer<CmEventProducer::CmNotification, MafOamSpiCmEvent_Notification_1T, CmEventProducer::RegexpFilter>::onAddFilter(unsigned long, char const*, MafNameValuePair**) (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/incl/EventProducer.h:382)
+Com::EventProducer<CmEventProducer::CmNotification, MafOamSpiCmEvent_Notification_1T, CmEventProducer::RegexpFilter>::evtProdAddFilter(unsigned long, char const*, MafNameValuePair**) (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/incl/EventProducer.h:449)
+MafEventRouter::EventRouter::addSubscriptionImpl_1(unsigned long, char const*, MafNameValuePair**) (in /opt/com/bin/maf)
+addSubscription_1 (in /opt/com/bin/maf)
+Com::EventConsumer<Com::CmEventConsumer<Com::MeIdTranslator, 1>, 1>::start(std::vector<Com::NameValuePair, std::allocator<Com::NameValuePair> > const&, void (Com::CmEventConsumer<Com::MeIdTranslator, 1>::*)(char const*, void*), Com::CmEventConsumer<Com::MeIdTranslator, 1>&, char const*) (in /opt/com/lib/libcom_common.so)
+Com::CmEventConsumer<Com::MeIdTranslator, 1>::start(std::list<std::string, std::allocator<std::string> > const&, void (Com::MeIdTranslator::*)(MafOamSpiCmEvent_Notification_1T const&), Com::MeIdTranslator&) (in /opt/com/lib/libcom_common.so)
+Com::CmEventConsumer<Com::MeIdTranslator, 1>::start(std::string const&, void (Com::MeIdTranslator::*)(MafOamSpiCmEvent_Notification_1T const&), Com::MeIdTranslator&) (in /opt/com/lib/libcom_common.so)

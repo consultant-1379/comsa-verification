@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpTestClass">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpTestClass">
+            <mimName>ObjImpTestMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpTestMom" namespace="urn:com:ericsson:ecim:ObjImpTestMom::1.0" namespacePrefix="objimptestmom" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+
+    <class name="ObjImpTestClass">
+      <description>A test class</description>
+      <root/>
+      <attribute name="objImpTestClassId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>                                                                                                                                                                          </attribute>
+
+
+      <attribute name="testWritableInt64">
+        <description>a test attribute</description>
+        <dataType>
+          <int64>
+               <defaultValue>11</defaultValue>
+          </int64>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableUint64">
+        <description>a test attribute</description>
+        <dataType>
+          <uint64>
+                <defaultValue>22</defaultValue>
+          </uint64>
+        </dataType>
+      </attribute>
+	  
+	  <attribute name="testWritableDecimal64">
+        <description>a test attribute</description>
+        <dataType>
+          <double>
+               <defaultValue>3.33</defaultValue>
+          </double>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableDecimal64Mv">
+        <description>a multi-value test attribute</description>
+        <dataType>
+          <sequence>
+          <double>
+                <defaultValue>4.44</defaultValue>
+          </double>
+          <minLength>0</minLength>
+          </sequence>
+        </dataType>
+      </attribute>
+
+    </class>
+
+</mim>
+     
+</models>
+

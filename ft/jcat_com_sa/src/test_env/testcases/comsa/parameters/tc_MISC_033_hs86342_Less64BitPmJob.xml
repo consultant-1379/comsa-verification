@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"HS86342 - Create PmJob object with more than 64 bit RDN length but less than 256 bit RDN length"</id>
+        <tag>TC-MISC-033</tag>
+        <version>P1A01</version>
+        <testcase>cliConfigurationTestCase</testcase>
+        <class>CLIconfiguration</class>
+        <method>CLIconfiguration</method>
+        <description>"HS86342 - Create PmJob object with more than 64 bit RDN length but less than 256 bit RDN length"</description>
+    </info>
+    <config>
+        <reqCmwRelease>1</reqCmwRelease>
+        <reqCmwVersion>R7F01</reqCmwVersion>
+        <useExternalModels>yes</useExternalModels>
+        <modelFileType>CDT</modelFileType>
+        <immObjectsFile>pm_jit_group1_mt1.xml</immObjectsFile>
+
+        <cli_input_1>'configure' 'ManagedElement=1,SystemFunctions=1,Pm=1' 'PmJob=DscRemotePeerCounterGroupJobThis_is_a_test_for_log_RDN_na_DscRemotePeerCounterGroupJobThis_is_a_test_for_log_RDN_na' 'requestedJobState=STOPPED' 'jobType=THRESHOLDJOB' 'granularityPeriod=ONE_MIN' 'reportingPeriod=ONE_MIN' 'MeasurementReader=mr1' 'measurementSpecification' 'measurementTypeRef="ManagedElement=1,SystemFunctions=1,Pm=1,PmGroup=PM-1,MeasurementType=PM-1-1"' 'up' 'PmThresholdMonitoring=mythres' 'thresholdLow=10' 'thresholdHigh=100' 'thresholdSeverity=WARNING' 'up' 'up' 'commit' 'show all' 'exit'</cli_input_1>
+        <cli_expected_output_1>['PmJob=DscRemotePeerCounterGroupJobThis_is_a_test_for_log_RDN_na_DscRemotePeerCounterGroupJobThis_is_a_test_for_log_RDN_na', 'currentJobState=STOPPED', 'granularityPeriod=ONE_MIN', 'jobType=THRESHOLDJOB', 'reportingPeriod=ONE_MIN', 'requestedJobState=STOPPED', 'MeasurementReader=mr1', 'measurementSpecification', 'measurementTypeRef="ManagedElement=1,SystemFunctions=1,Pm=1,PmGroup=PM-1,MeasurementType=PM-1-1"', 'PmThresholdMonitoring=mythres', 'thresholdHigh=100', 'thresholdLow=10', 'thresholdSeverity=WARNING']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+    <immObjPattern>['pmJobId=DscRemotePeerCounterGroupJobThis_is_a_test_for_log_RDN_na_DscRemotePeerCounterGroupJobThis_is_a_test_for_log_RDN_na' , 'pmGroupId=PM-1']</immObjPattern>
+
+ </config>
+</testcase>

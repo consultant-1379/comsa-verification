@@ -1,0 +1,30 @@
+Table 15-1. Commands And Utilities
+
+                  dmesg             id                msgfmt            split                
+ar                du                install           mv                strip                
+at                echo              install_initd     newgrp            stty                
+awk               ed                ipcrm             nice              su                
+basename          egrep             ipcs              nl                sync                
+batch             env               join              nohup             tail                
+bc                expand            kill              od                tar                
+cat               expr              killall           passwd            tee                
+chfn              false             ln                paste             test                
+chgrp             fgrep             locale            patch             time                
+chmod             file              localedef         pathchk           touch                
+chown             find              logger            pax               tr                
+chsh              find              logname           pidof             true                
+cksum             fold              lp                pr                tsort                
+cmp               fuser             lpr               printf            tty                
+col               gencat            ls                ps                umount                
+comm              getconf           lsb_release       pwd               uname                
+cp                gettext           m4                remove_initd      unexpand                
+cpio              grep              mailx             renice            uniq                
+crontab           groupadd          make              rm                useradd                
+csplit            groupdel          man               rmdir             userdel                
+cut               groupmod          md5sum            sed               usermod                
+cut               groups            mkdir             sendmail          wc                
+date              gunzip            mkfifo            seq               xargs                
+dd                gzip              mknod             sh                zcat                
+df                head              mktemp            shutdown                    
+diff              hostname          more              sleep                    
+dirname           iconv             mount             sort                    

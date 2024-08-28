@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COM-SA Uninstallation with Backup restore to original state</id>
+        <tag>TC-MISC-019</tag>	
+        <version>P1A01</version>
+		<testcase>comSaUninstall</testcase>
+		<class>UninstallComSa</class>
+		<method>UninstallComSa</method>
+		<description>This test case uninstalls COM-SA and restores the system</description>
+	</info>	
+    <config>
+		<createBackup>True</createBackup>
+		<restoreBackup>True</restoreBackup>
+	</config>  
+</testcase>

@@ -1,0 +1,13 @@
+ definitely lost 
+calloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+snmp_varlist_add_variable (in /usr/lib64/libnetsnmp.so.15.1.2)
+netsnmp_table_helper_add_indexes (in /usr/lib64/libnetsnmphelpers.so.15.1.2)
+initialize_table_eriAlarmActiveAlarmTable() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/ericssonAlarmMIB.cc:47)
+init_ericssonAlarmMIB() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/ericssonAlarmMIB.cc:25)
+ComFmSnmp::SnmpAdaptorRunnable::initSubAgentHandlers() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpAdaptorRunnable.cc:288)
+ComFmSnmp::SnmpAdaptorRunnable::initSubAgentAfterRestart() (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpAdaptorRunnable.cc:277)
+ComFmSnmp::SnmpAdaptorRunnable::prepareForStart(ComMgmtSpiInterfacePortal_1*) (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/SnmpAdaptorRunnable.cc:314)
+ComFmSnmp::FmSnmp::start(ComStateChangeReason) (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/FmSnmp.cc:141)
+snmp_start_if(ComStateChangeReason) (/home/ekimfou/git_repo/com_main/src/fm/fm_snmp/FmSnmp.cc:41)
+Maf::SpiComponent<MafMgmtSpiComponent_1>::start(MafStateChangeReason) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/SpiComponent.cc:212)
+Maf::ComponentManager::Component::start(MafStateChangeReason) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/ComponentManager.cc:41)

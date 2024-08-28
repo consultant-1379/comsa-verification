@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COMSA MIM TOOL - Install Java CAF with faulty Mom File</id>
+        <tag>TC-MIM-006</tag>
+        <version>P1A01</version>
+		<testcase>miscInstallApplication</testcase>
+		<class>InstallApplication</class>
+		<method>InstallApplication</method>
+		<description>COMSA MIM TOOL - Install Java CAF with faulty Mom File</description>
+	</info>	
+    <config>
+        <createBackup>True</createBackup>
+        <restoreSystem>False</restoreSystem>
+        <restoreSystemInRunTest>True</restoreSystemInRunTest>
+        <backupName>beforeFaultyJavaCaf</backupName>
+        <campExpectedToFail>True</campExpectedToFail>        
+        <serchPatternSyslog1>["(comsa-mim-tool)", "ERROR, ModelRepository:"]</serchPatternSyslog1>
+        <rtSdpPath>RT_SDP_PATH_IN_REPOSITORY_MODIFIED</rtSdpPath>
+        <deplSdpPath>DEPLOYMENT_SDP_PATHIN_REPOSITORY_MODIFIED</deplSdpPath>
+	</config>
+</testcase>

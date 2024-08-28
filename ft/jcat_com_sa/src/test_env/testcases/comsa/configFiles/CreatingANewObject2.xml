@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+   <edit-config>
+   <target><running/></target>
+   <config xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
+     <ManagedElement xmlns="urn:com:ericsson:ecim:ComTop">
+	<managedElementId>1</managedElementId>
+	<SystemFunctions>
+  	  <systemFunctionsId>1</systemFunctionsId>
+	  <Fm xmlns="urn:com:ericsson:ecim:ComFm">
+	    <fmId>1</fmId>
+		<FmAlarmModel xc:operation="create"> 
+		  <fmAlarmModelId>3</fmAlarmModelId>
+		</FmAlarmModel>
+	  </Fm>
+	</SystemFunctions>
+     </ManagedElement>
+   </config>
+ </edit-config>
+</rpc> 
+]]>]]> 

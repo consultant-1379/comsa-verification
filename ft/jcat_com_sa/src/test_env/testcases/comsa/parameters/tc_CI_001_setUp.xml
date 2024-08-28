@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CI - Set up test case</id>
+        <tag>TC-CI-001</tag>
+        <version>P1A01</version>
+		<testcase>miscSetUpTestCase</testcase>
+		<class>SetUpTestCase</class>
+		<method>SetUpTestCase</method>
+		<description>CI - Set up test case</description>
+	</info>	
+    <config>
+        <suRestartMaxSet>True</suRestartMaxSet>        
+    	<toDefault>False</toDefault>
+    	<value>1000</value>
+        <operation>copy</operation>
+        <pathRelToRep>True</pathRelToRep>
+        <pathLocalMachine>['test_env/misc/dump_handling/all_bt.sh', 'test_env/misc/dump_handling/backtrace.sh', 'test_env/misc/dump_handling/frequency.sh']</pathLocalMachine>
+        <pathOnTarget>/home/test/</pathOnTarget>
+        <createBackup>True</createBackup>
+        <backupName>testBackup</backupName>
+        <setUpTest>True</setUpTest>
+    	<emailList>CCC_CI</emailList>
+    	<swSource>CCC_CI</swSource>
+	</config>  
+</testcase>

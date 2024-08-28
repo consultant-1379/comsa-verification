@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>COM is stoped and SSHD (NBI) is stopped; COM is started up and SSHD NBI is started</id>
+		<tag>TC-AMFSSHD-002</tag>
+		<version>P1A01</version>
+		<testcase>amfHandleSshd</testcase>
+		<class>amfHandleSshd</class>
+		<method>amfHandleSshd</method>
+		<description>COM is stoped and SSHD (NBI) is stopped; COM is started up and SSHD NBI is started</description>
+	</info>
+	<config>
+		<reqCmwVersion>R9A19</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComVersion>R2A06</reqComVersion>
+		<reqComRelease>5</reqComRelease>
+		<reqComSaVersion>R7A06</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+	</config>
+</testcase>

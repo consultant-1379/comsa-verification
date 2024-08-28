@@ -1,0 +1,16 @@
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
+   <data>
+      <ManagedElement xmlns="urn:com:ericsson:ecim:ComTop">
+         <managedElementId>1</managedElementId>
+         <Sdp617ActiontestRoot xmlns="urn:com:ericsson:ecim:Sdp617ActiontestMom::1.0">
+            <sdp617ActiontestRootId>1</sdp617ActiontestRootId>
+            <ActionTest>
+               <actionTestId>1</actionTestId>
+               <testBool>
+                  <returnValue>true</returnValue>
+               </testBool>
+            </ActionTest>
+         </Sdp617ActiontestRoot>
+      </ManagedElement>
+   </data>
+</rpc-reply>

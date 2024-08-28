@@ -1,0 +1,12 @@
+safAmfNode=PL-3,safAmfCluster=myAmfCluster
+        AdminState=LOCKED(2)
+        OperState=DISABLED(2)
+safAmfNode=PL-4,safAmfCluster=myAmfCluster
+        AdminState=UNLOCKED(1)
+        OperState=ENABLED(1)
+safAmfNode=SC-1,safAmfCluster=myAmfCluster
+        AdminState=UNLOCKED(1)
+        OperState=ENABLED(1)
+safAmfNode=SC-2,safAmfCluster=myAmfCluster
+        AdminState=UNLOCKED(1)
+        OperState=ENABLED(1)

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>MR29443 FT - Application raises an Alarm with additionalInfo with COM 3.4</id>
+		<tag>TC-MR29443-001</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>MR29443 FT - Application raises an Alarm with additionalInfo with COM 3.4</description>
+	</info>
+	<config>
+		<reqComSaVersion>R5A11</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComVersion>R1A05</reqComVersion>
+		<reqComRelease>4</reqComRelease>
+		<reqCmwVersion>R0A00</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<number_of_alarms>1</number_of_alarms>
+		<number_of_lines>16</number_of_lines>
+		<expected_alarm1>eventType = SA_NTF_ALARM_NOTIFICATIONS_START notificationObject = "objImpTestClassId=1" notifyingObject = "objImpTestClassId=1" notificationClassId = SA_NTF_VENDOR_ID_SAF.SA_SVC_AMF.6 (0x6) additionalText = "Alarm_Raised_by_TestComponentMR29443" - additionalInfo: 0 -  infoId = 20  infoType = 11  infoValue = "addInfo1" - additionalInfo: 1 -  infoId = 20  infoType = 11  infoValue = "addInfo2" probableCause = SA_NTF_UNSPECIFIED_REASON perceivedSeverity = SA_NTF_SEVERITY_MAJOR </expected_alarm1>
+
+		<modelfile_mp>SDP763_mp10.xml</modelfile_mp>
+		<modelfile_imm_classes>SDP763_imm_classes10.xml</modelfile_imm_classes>
+		<modelfile_imm_objects>SDP763_imm_objects.xml</modelfile_imm_objects>
+
+		<setup_action_obj>YES</setup_action_obj>
+		<actionDn>actionTestId=1,objImpTestClassId=1</actionDn>
+
+		<setup_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1,ActionTest=1\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+
+		<setup_REG2>#define COMPONENT_NAME \"testComp29443a\"</setup_REG2>
+		<setup_REG3>#define ALARMS4</setup_REG3>
+
+		<attribute1>#define ACTION1 \"ManagedElement=1,ObjImpTestClass=1,ActionTest=1,control\"</attribute1>
+		<attribute1_type>#define ACTION1_TYPE ComOamSpiMoAttributeType_3_STRING</attribute1_type>
+		<attribute1_type_maf>#define ACTION1_TYPE MafOamSpiMoAttributeType_3_STRING</attribute1_type_maf>
+		<attribute1_value> </attribute1_value>
+
+		<expected_init_log_1>com: testComp29443a: maf_start(): returning MafOk</expected_init_log_1>
+
+		<cli_input_1>"configure" "ManagedElement=1" "ObjImpTestClass=1" "ActionTest=1" "control \"ALARM 'ManagedElement=1,ObjImpTestClass=1',18568,131078,'Alarm_Raised_by_TestComponentMR29443','major',1326512375205072572,addInfo1;addInfo2\"" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['true']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'COM Closed connection', 'ailed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show all ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['activeSeverity=MAJOR','additionalText="Alarm_Raised_by_TestComponentMR29443"','majorType=18568','minorType=131078','source="ManagedElement=1,ObjImpTestClass=1"','value="addInfo1"','value="addInfo2"']</cli_expected_output_2>
+		<cli_nonexpected_output_2>[ 'COM Closed connection']</cli_nonexpected_output_2>
+
+		<expected_test_log_1>com: testComp29443a: MO::maf_action(): dn ManagedElement=1,ObjImpTestClass=1,ActionTest=1 name control type 9</expected_test_log_1>
+
+		<teardown_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1,ActionTest=1\"</teardown_REG1>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+		<teardown_REG2>#define COMPONENT_NAME \"testComp29443a\"</teardown_REG2>
+		<teardown_REG2>#define ALARMS4</teardown_REG2>
+	</config>
+</testcase>
+

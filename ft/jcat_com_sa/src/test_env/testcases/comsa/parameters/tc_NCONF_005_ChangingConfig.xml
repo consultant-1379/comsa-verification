@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configuration Using Netconf - Changing an attribute value</id>
+        <tag>TC-NCONF-005</tag>	
+        <version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>Changing an attribute value</description>
+	</info>	
+    <config>
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <helloFile>Hello.xml</helloFile>
+        <actionFile>['ChangingAnAttribute.xml']</actionFile>
+        <actionFile2>['check005.xml']</actionFile2>
+        <actionFile3>['ChangingAnAttribute2.xml']</actionFile3>
+        <actionFile4>['check005.xml']</actionFile4>
+        <closeFile>Close.xml</closeFile> 
+        <logFile>logFile.txt</logFile>
+    	<respFile>expectedOutput005a.txt</respFile>
+    	<respFile2>expectedOutput005b.txt</respFile2>
+    	<respFile3>expectedOutput005a.txt</respFile3>
+    	<respFile4>expectedOutput005d.txt</respFile4>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+    	<forbiddenContent>['theNewUserLabel']</forbiddenContent>
+	</config>  
+</testcase>

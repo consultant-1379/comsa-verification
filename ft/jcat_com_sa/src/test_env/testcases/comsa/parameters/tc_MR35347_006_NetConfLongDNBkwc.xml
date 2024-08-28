@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Testing for Long DN leng supported Using Netconf - Backward compatible case: DN leng between (256B, 2048B)</id>
+        <tag>TC-MR35347-006</tag>
+        <version>P1A01</version>
+		<testcase>functionTestMr35347</testcase>
+		<class>functionTestMr35347</class>
+		<method>functionTestMr35347</method>
+		<description>Changing an attribute value using netconf - backward compability: DN leng between (256B, 2048B)</description>
+	</info>
+	<config>
+		<scriptFile>execCommandScript.sh</scriptFile>
+		<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+		<helloFile>Hello.xml</helloFile>
+		<actionFile>['NtpServerValidLongDn.xml']</actionFile>
+		<actionFile2>['check005.xml']</actionFile2>
+		<actionFile3>['NtpServerValidLongDn2.xml']</actionFile3>
+		<actionFile4>['check005.xml']</actionFile4>
+		<closeFile>Close.xml</closeFile>
+		<logFile>logFile_longDN.txt</logFile>
+		<respFile>expectedOutputFail.txt</respFile>
+		<serviceInstanceName>ComSa</serviceInstanceName>
+		<amfNodePattern>Cmw</amfNodePattern>
+
+		<cli_input_1>"show ManagedElement=1,SystemFunctions=1,SysM=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['SysM=1']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['NtpServer=This-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaaThis-is-s-very-long-dn-aaa']</cli_nonexpected_output_1>
+
+		<backupName>backupMR35347</backupName>
+		<storedBackupFilesLocation>/home/backupfileMR35347/</storedBackupFilesLocation>
+		<comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+		<comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+		<cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+		<loctBackupLocation>/cluster/snapshot/</loctBackupLocation>
+   </config>
+</testcase>

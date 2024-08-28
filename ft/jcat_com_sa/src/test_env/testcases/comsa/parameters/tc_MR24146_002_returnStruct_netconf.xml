@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MR24146 - Testing Action Any Return Type with Netconf</id>
+        <tag>TC-MR24146-002</tag>
+        <version>P1A01</version>
+                <testcase>changingNetconfConfig</testcase>
+                <class>changingNetconfConfig</class>
+                <method>changingNetconfConfig</method>
+                <description>MR24146 - Testing Action Any Return Type with Netconf</description>
+        </info>
+    <config>
+        <scriptFile>execCommandScript.sh</scriptFile>
+        <pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <useExternalModels>yes</useExternalModels>
+        <modelFilePathOnTarget>/home/netconfTest/</modelFilePathOnTarget>
+        <modelFileType>MR24146</modelFileType>
+        <momFile>ActiontestMom_mp.xml</momFile>
+        <immClassesFile>ActiontestMom_imm_classes.xml</immClassesFile>
+
+        <helloFile>Hello.xml</helloFile>
+        <actionFile>['tc_nc_action_return_struct_float.xml']</actionFile>
+        <closeFile>Close.xml</closeFile>
+        <logFile>logFile.txt</logFile>
+        <respFile>sdp975_ExpOutput.txt</respFile>
+        <serviceInstanceName>ComSa</serviceInstanceName>
+        <amfNodePattern>Cmw</amfNodePattern>
+
+        <forbiddenContent>['SnmpTargetV2C']</forbiddenContent>
+        </config>
+</testcase>

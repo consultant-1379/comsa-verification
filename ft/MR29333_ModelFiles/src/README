@@ -1,0 +1,16 @@
+The *.emx model files in this directory are for several model projects used for generating test XML files for testing.
+
+All were tested with DX ET 2.10.0 
+
+  ECIM Feature	2.10.0.201403211350	com.ericsson.ecim.feature.feature.group
+  
+To generate XML files with any of the projects:
+
+1). Create an empty model pro ject with the DX ET Tool.
+2). Inport all the EMX files from the specific subdirectory.
+3). generate XML files.
+
+For the 'noRootClass' project there are two variants - normal model and invalid model (for negative test cases).
+For the normal model use the 3 XML files in the 'noRootClass' subdirectory. For the invalid model replace the NoRootClass.emx file
+with the one from the 'ivalid' subdirectory.
+

@@ -1,0 +1,13 @@
+ definitely lost 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+???
+???
+???
+???
+PmConsumerInterface::initialize(void**, SaVersionT*, SaPmfJobTypeT, SaPmCJobDataOrganizationT, SaPmCSubscribeInfoT*) (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmConsumerInterface.cxx:193)
+PmtSa::PmRunnable::startSubscription() (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmRunnable.cxx:271)
+PmtSa::PmRunnable::handlePmInternalMessage() (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmRunnable.cxx:403)
+PmtSa::PmRunnable::pmtSelectLoop() (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmRunnable.cxx:147)
+PmtSa::PmThreadType<PmtSa::PmRunnable>::objectWrapper(void*) (/home/comsaci/ci_v3/comsa_build_2/comsa-source/src/../src/generic/pmt_sa/src/PmThreadTemplate.hxx:184)
+start_thread (in /lib64/libpthread-2.11.3.so)
+clone (in /lib64/libc-2.11.3.so)

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageInfoFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\eingber\CoreMW21\UpgradePackage.xsd"
+        name="ECIM TEST PACKAGE 1"
+        provider="Ingvar"
+        schemaVersion="1.1">
+        <UpgradePackageId
+                productName="ERIC-ECIMTEST-PACKAGE"
+                productNumber="CXP9010011_1" productRevision="R1A01"
+                productDate="110510"
+                description="An upgrade package" type="xx" />
+        <MESubtype name="default" campaignFileName="ERIC-NtfSubscribeAppUpgrade.sdp" />
+        <MESubtype name="SmallCluster" campaignFileName="ERIC-NtfSubscribeAppUpgrade.sdp" />
+        <SwDomain>
+                <DomainId productName="ERIC-NTFSUBSCRIBE" productNumber="CXP9010012_1" productRevision="R1A01" productDate="110510" description="A sample domain" type="xx" />
+                <SwBundle name="ERIC-NTFSUBSCRIBE-CXP9010000_1-@NEWVER" bundleFileName="ERIC-NTFSUBSCRIBE-CXP9010000_1.sdp"/>
+        </SwDomain>
+</packageInfoFile>

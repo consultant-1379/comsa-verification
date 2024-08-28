@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CI - Tear Down test case</id>
+        <tag>TC-CI-002</tag>
+        <version>P1A01</version>
+		<testcase>miscSetUpTestCase</testcase>
+		<class>SetUpTestCase</class>
+		<method>SetUpTestCase</method>
+		<description>CI - Tear Down test case</description>
+	</info>	
+    <config>
+        <suRestartMaxSet>True</suRestartMaxSet>        
+    	<toDefault>True</toDefault>
+    	<value>1</value>
+    	<tearDownTestCase>True</tearDownTestCase>
+    	<emailList>CCC_CI</emailList>
+	</config>  
+</testcase>

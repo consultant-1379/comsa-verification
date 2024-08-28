@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Stability - 169 Hours Test</id>
+        <tag>TC-STABILITY-005</tag>	
+        <version>P1A01</version>
+		<testcase>stabilityTestCase</testcase>
+		<class>Stability</class>
+		<method>Stability</method>
+		<description>Stability - 169 Hours Test</description>
+	</info>	
+    <config>
+    	<numberOfHours>169</numberOfHours>
+    	<hourlyCommand>executive.py --config targetName --sc numberOfSCs --pl numberOfPLs --productSettings comsa --suite nestedStabilityTestSuite.xml</hourlyCommand>
+
+    	<modelfile_mp1>CmNtfCfg_AttrMix_C1_mp.xml</modelfile_mp1>
+    	<modelfile_imm_classes1>CmNtfCfg_AttrMix_C1_imm_classes.xml</modelfile_imm_classes1>
+
+        <test_consumer_1>testConsumer1.so</test_consumer_1>
+        <test_consumer_2>testConsumer2.so</test_consumer_2>
+        <test_consumer_3>testConsumer3.so</test_consumer_3>
+
+		<testCons1Regexp1>.*TestMixClass.*</testCons1Regexp1>
+		<testCons1Regexp2>.*something.*</testCons1Regexp2>
+		<testCons2Regexp1>.*</testCons2Regexp1>
+		<testCons3Regexp1>^ManagedElement=1,SystemFunctions=1.*</testCons3Regexp1>
+        
+    	
+	</config>  
+</testcase>

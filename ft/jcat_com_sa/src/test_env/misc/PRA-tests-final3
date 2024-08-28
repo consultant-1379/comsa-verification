@@ -1,0 +1,36 @@
+***3.1 PRA test final3***
+
+LOTC: R3A04-sh1 (if not specified otherwise)
+Vip: R1A03 (if not specified otherwise)
+CoreMW 3.1 PRA revision = R4A11?
+
+Date 		Test case			Version		Target	Config	Result	Notes									Status	TC logs
+--------------------------------------------------------------------------------------------------------------------------------------------
+Joel		LCT - LRC								2+10	22/22											OK		https://cc-isisupp.rnd.ki.sw.ericsson.se/RDA/logs/LCT_LOGS/201210/LCT_609_20121001190200/
+Joel		LCT - LBC								2+10	27/27											OK		https://cc-isisupp.rnd.ki.sw.ericsson.se/RDA/logs/LCT_LOGS/201210/LCT_602_20121001091845/																		
+Joel		nightTest       				cots4b	2+2     82/83											OK		file:///proj/coremw_scratch/eanjoel/logs//201210/CMW-coremw3.1_dev-nightTest_2p2_20121001154629/index.html										
+Joel		Upgrade	all						sun1	2+7		3/7												OK		file:///proj/coremw_scratch/eanjoel/logs//201210/CMW-coremw3.1_dev-deploymentUpgradeTestSuite_20121001160712/index.html				
+
+Ingvar		Cluster resize					sun1	2+7				1+0->2+0->2+7->2+2(testapps)			OK
+
+Janne		U3+start						cots19b	2+2				MAINT-101								OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120928141008/index.html							
+Janne		Upgrade U2						cots19b	2+2				MAINT-100								OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120928162228/index.html																				
+			+nightT							cots19b	2+2		1/82	MAINT-063 fails							OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120928200735/index.html
+			FT								cots19b	2+2		2/313											OK		file:///home/ejanper/tmp/201210/CMW_FT_20121001081111/index.html
+Janne		FT								cots24A	2+2				with LOTC4.2 PRA						NOK lotc beter sig mycket dåligt
+Janne		nightTest2p0					cots24B	2+0		6/2/59	Runned nightTest instead of nt2p0		OK		file:///proj/coremw_scratch/ejanper/logs//201209/CMW-coremw3.1_dev-_20120928170111/index.html
+																	char-003, 053, 057,058
+Janne		Stabtest, 60 h					cots24B	2+0														OK		file:///proj/coremw_scratch/ejanper/logs/201209/CMW-coremw3.1_dev-_20120929022653/index.html							
+Janne		nightTest2p0					cots24B	2+0		1/16/42													file:///proj/coremw_scratch/ejanper/logs//201210/CMW-coremw3.1_dev-_20121001150944/index.html
+
+Marianne	nightTest 1						cots23b	2+2	   	82/83	dc enabled                             	OK      file:///proj/coremw_scratch/ehsmebm/logs//201209/CMW-coremw3.1_dev-PRA_BUILD_2_20120928154649/index.html				
+Marianne    nightTest 2                     cots23b	2+2    	82/83   dc enabled                             	OK      file:///proj/coremw_scratch/ehsmebm/logs//201209/CMW-coremw3.1_dev-PRA_BUILD_2_20120929042421/index.html
+Marianne    nightTest 3                     cots23b	2+2    	80/83   dc enabled                             	OK      file:///proj/coremw_scratch/ehsmebm/logs//201209/CMW-coremw3.1_dev-PRA_BUILD_2_20120929171007/index.html
+Marianne	Stabtest, 60 h					sun1	2+7		1      	Stab test need to be updated (PM)      	OK		file:///proj/coremw_scratch/ehsmebm/logs//201209/CMW-coremw3.1_dev-60_STAB_PRA_BUILD_2_20120928161231/index.html							
+Marianne	Upgrade	all						cots22b	2+0		5/6		TC-MAINT-100 failed TR HP89753        	NOK 	file:///proj/coremw_scratch/ehsmebm/logs//201210/CMW-coremw3.1_dev-PRA_BUILD_2_20121001110429/index.html
+Marianne    Upgrade all                     cots23b 2+2     4/6		dc enable                              	OK    	file:///proj/coremw_scratch/ehsmebm/logs//201209/CMW-coremw3.1_dev_opensaf-new_log_patch_20120928120800/index.html 							
+										
+Per-Erik	nightTest								2+38			default config file??		
+Per-Erik	Stabtest, 60 h							2+38			LOTC4.1 CP4Pm NOT activated				OK
+		
+DEK			PM char test					sun2	2+8

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP1724 FT - COM-SA receives a CM notification for a configuration attribute that is not notifiable. Non-prefixed MOM, key attribute case 2</id>
+        <tag>TC-FT1724-019</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp1724</testcase>
+		<class>FTSdp1724</class>
+		<method>FTSdp1724</method>
+		<description>SDP1724 FT - COM-SA receives a CM notification for a configuration attribute that is not notifiable. Non-prefixed MOM, key attribute case 2</description>
+	</info>
+    <config>
+       	<modelfile_mp1>CmNtfCfg_Attr_C2_noNotif_mp.xml</modelfile_mp1>
+    	<modelfile_imm_classes1>CmNtfCfg_Attr_C2_imm_classes.xml</modelfile_imm_classes1>
+    	
+    	<cli_input_1>"configure" "ManagedElement=1" "ObjImpTestClass=1" "testWritableInt8=88" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['configure']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_1>
+
+    	<cli_input_2>"configure" "ManagedElement=1" "ObjImpTestClass=1" "testWritableInt8=44" "commit" "exit"</cli_input_2>
+        <cli_expected_output_2>['configure']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_2>
+    
+        <cli_input_3>"configure" "ManagedElement=1" "no ObjImpTestClass=1" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['configure']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_3>
+ 
+        <enable_class_notify_1>ObjImpTestClass</enable_class_notify_1>
+        <enable_objectOrAttr_1>testWritableInt8</enable_objectOrAttr_1>
+                   
+        <test_consumer_1>testConsumer1.so</test_consumer_1>
+        <test_consumer_2>testConsumer2.so</test_consumer_2>
+        <test_consumer_3>testConsumer3.so</test_consumer_3>
+        
+                       
+        <testCons1Regexp1>.ManagedElement=1*</testCons1Regexp1>                  <!--Valid Regular Expression and no match with DN -->
+        <testCons1Regexp2>.*ManagedElement=1,ObjImpTestClass.*</testCons1Regexp2>  <!--Valid Regular Expression and a correct match with DN -->
+        <testCons1Regexp3>.*</testCons1Regexp3>                                  <!--Valid Regular Expression and a correct match with DN but according to rule, it will be skiped because before this expression, a valid expression exists-->
+
+
+        <testCons2Regexp1>^*.*.</testCons2Regexp1>                                <!-- '^*' is an invalid case in Regular Expression so the producer deny the subscription for the testConsumer2-->
+        <testCons2Regexp2>.*</testCons2Regexp2>                                   <!-- Valid Regular Expression and a valid match with DN but due to '^*' whole testCons2 has denyed by the producer-->
+
+
+        <testCons3Regexp1>^ManagedElement=2.*ObjImpTestClass.*</testCons3Regexp1>      <!--Valid Regular Expression and no match with DN so control will move to the next Regular Expression-->
+        <testCons3Regexp2>^ManagedElement=1,SystemFunctions=1,Fm=1.*</testCons3Regexp2>  <!--Valid Regular Expression and no match with DN so control will move to the next Regular Expression-->
+        <testCons3Regexp3>.*ObjImpTestClass.*</testCons3Regexp3>                           <!--Valid Regular Expression and a correct match with DN --> 
+        
+               
+        #com: testConsumer1:','cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation', 'dn: ManagedElement=1,CmNtfCfgTest=100 eventType: MoCreated attributes: name: cmNtfCfgTestInt32 attrType: INT32 nrOfValues: 1 values: 50
+        # Search patterns should be an empty list/ Null because there should be no notification for the creation of the object or for the deletion of the object !
+        
+       
+        
+        <searchPatterns1>['com: testConsumer1: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: MoCreated attributes: ']</searchPatterns1>   
+        <searchPatterns2>['com: testConsumer3: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: MoCreated attributes: ']</searchPatterns2> 
+        <searchPatterns5>['com: testConsumer1: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: MoDeleted attributes:']</searchPatterns5> 
+        <searchPatterns6>['com: testConsumer3: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: MoDeleted attributes:']</searchPatterns6> 
+
+                                                   
+        <unexpectedPattern1>['com: testConsumer1: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: AttributeValueChange attributes: name: testWritableInt8 attrType: INT32 nrOfValues: 1 values: 88 ']</unexpectedPattern1>
+        <unexpectedPattern2>['com: testConsumer2: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: AttributeValueChange attributes: name: testWritableInt8 attrType: INT32 nrOfValues: 1 values: 88 ']</unexpectedPattern2>
+        <unexpectedPattern3>['com: testConsumer3: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: AttributeValueChange attributes: name: testWritableInt8 attrType: INT32 nrOfValues: 1 values: 88 ']</unexpectedPattern3>
+        <unexpectedPattern4>['com: testConsumer1: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: AttributeValueChange attributes: name: testWritableInt8 attrType: INT32 nrOfValues: 1 values: 44 ']</unexpectedPattern4>
+        <unexpectedPattern5>['com: testConsumer2: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: AttributeValueChange attributes: name: testWritableInt8 attrType: INT32 nrOfValues: 1 values: 44 ']</unexpectedPattern5>
+        <unexpectedPattern6>['com: testConsumer3: cmEventNotify(): txHandle: 0 sourceIndicator: ManagementOperation dn: ManagedElement=1,ObjImpTestClass.keyAttr=1 eventType: AttributeValueChange attributes: name: testWritableInt8 attrType: INT32 nrOfValues: 1 values: 44 ']</unexpectedPattern6>
+        
+        
+        <searchPatterns_subscription_1>['com: testConsumer2: maf_start(): failed to addSubscription (-1)']</searchPatterns_subscription_1>
+              
+        <unexpected_searchPatterns_subscription_1>['com: testConsumer1: maf_start(): failed to addSubscription (-1)']</unexpected_searchPatterns_subscription_1>
+        <unexpected_searchPatterns_subscription_2>['com: testConsumer3: maf_start(): failed to addSubscription (-1)']</unexpected_searchPatterns_subscription_2>
+           
+	</config>
+</testcase>

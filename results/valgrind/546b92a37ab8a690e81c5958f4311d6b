@@ -1,0 +1,13 @@
+ definitely lost 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+_dl_map_object_deps (in /lib64/ld-2.11.3.so)
+dl_open_worker (in /lib64/ld-2.11.3.so)
+_dl_catch_error (in /lib64/ld-2.11.3.so)
+_dl_open (in /lib64/ld-2.11.3.so)
+dlopen_doit (in /lib64/libdl-2.11.3.so)
+_dl_catch_error (in /lib64/ld-2.11.3.so)
+_dlerror_run (in /lib64/libdl-2.11.3.so)
+dlopen@@GLIBC_2.2.5 (in /lib64/libdl-2.11.3.so)
+Maf::LibraryManager::openLib(std::string&, std::string&, std::string&) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/LibraryManager.cc:84)
+Maf::LibraryManager::initLibs() (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/LibraryManager.cc:371)
+Maf::LibraryManager::init() (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/LibraryManager.cc:307)

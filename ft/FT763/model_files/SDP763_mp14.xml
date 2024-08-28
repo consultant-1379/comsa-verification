@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>uabjoy</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>uabjoy</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="TestClass22_to_TOPROOT13">
+      <containment>
+        <parent>
+          <hasClass name="TestClass22">
+            <mimName>TESTMOM12</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="TOPROOT13">
+            <mimName>TESTMOM13</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="uabjoy" contact="" date="2012-11-23" docNo="" name="TESTMOM13" namespace="urn:com:ericsson:ecim:TESTMOM13::1.0" namespacePrefix="TESTMOM13" organization="" release="1" revision="" version="1">
+<description>desc</description>
+<class name="TOPROOT13">
+      <description>A test class</description>
+      <root/>
+      <attribute name="MAID3">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+    </class>
+
+<class name="TestClass13">
+      <description>A test class</description>
+      <attribute name="MAIID3">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+    </class>
+
+<class name="TestClass23">
+      <description>A test class</description>
+      <attribute name="MAIIID3">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+    </class>
+
+    <relationship name="TOPROOT13_to_TestClass13">
+            <containment>
+                <parent>
+                    <hasClass name="TOPROOT13">
+                        <mimName>TESTMOM13</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TestClass13">
+                        <mimName>TESTMOM13</mimName>
+                    </hasClass>
+                </child>
+            </containment>
+        </relationship>
+
+    <relationship name="TestClass13_to_TestClass23">
+            <containment>
+                <parent>
+                    <hasClass name="TestClass13">
+                        <mimName>TESTMOM13</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TestClass23">
+                        <mimName>TESTMOM13</mimName>
+                    </hasClass>
+                </child>
+            </containment>
+        </relationship>
+
+</mim>
+     
+</models>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>FT665 - Restore backup</id>
+        <tag>TC-FT665-004</tag>
+        <version>P1A01</version>
+		<testcase>miscRestoreBackup</testcase>
+		<class>RestoreBackup</class>
+		<method>RestoreBackup</method>
+		<description>FT665 - Restore backup</description>
+	</info>	
+    <config>
+		<backupName>FT665InitialBackup</backupName>
+		<takeStandardBackup>True</takeStandardBackup>
+	</config>  
+</testcase>

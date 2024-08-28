@@ -1,0 +1,111 @@
+#!/bin/bash
+#
+# Description:
+# Frenetic test of admin operations locking all SU's for each node in the cluster
+#
+# Author: Adrian
+# Version: LATEST
+
+APPLICATION_DN="safApp=ERIC-CoreMW"
+MAX_ITERATIONS=1
+
+# Source custom configuration
+if [ -f .config ]; then
+  . .config
+fi
+
+test -z $1 || MAX_ITERATIONS=$1
+shift
+
+test -z $1 || APPLICATION_DN=$1
+
+retry_command()
+{
+    local result
+    local retry
+    while true
+    do
+        output=`"$@" 2>&1`
+        result=$?
+        if [ $result != 0 ]; then
+            log "NOTICE: $@ returned $output"
+        fi
+        retry=`echo $output | grep -cE '(saImmOmAdminOwnerSet|SA_AIS_ERR_TRY_AGAIN)'`
+        if [ $retry == 0 ]; then
+            break
+        fi
+        sleep 1
+    done
+    if [ -n "$output" ]; then
+        log "${output%x}"
+    fi
+    return $result
+}
+
+amfadm="retry_command amf-adm"
+
+
+# arg $1 The logmessage
+# arg $2 optional errorcode. If omitted exit code 1 will be used
+function die() {
+    logger -s -p user.err -t CMW "ERROR ($prg): $1"
+    test ! -z $2 && exit $2 || exit 1
+}
+
+# Logs to syslog 
+function log() {
+    logger -p user.info -t CMW "$@"
+}
+
+# Check that no unexpected status is seen
+function check_status()
+{
+  local check_tries=1
+  local ret=1
+  local output=""
+  log "Checking status: "
+  #wait maximum 30 sec
+  while [ ${check_tries} -lt 30 -a $ret -ne 0 -a "$output" != "Status OK" ];
+  do
+    let check_tries++
+    output=`cmw-status node app comp su si sg`
+    ret=$?
+    test $ret -eq 0 || sleep 1
+  done
+  test $ret -eq 0 || die "Status is not showing OK"
+  test "$output" == "Status OK" || die "Status is not showing OK"
+  log "OK"
+}
+
+# Perform four admin operations on SU:
+# lock, lock-in, unlock-in, unlock
+# arg $1: SU DN to perform the four admin operations on
+function lock_unlock_su()
+{
+  for admin_op in lock lock-in unlock-in unlock; do
+    $amfadm ${admin_op} ${su_dn} 
+    ret=$?
+    test $ret -eq 0 || die "amf-adm returned $ret for operation: ${admin_op} ${su_dn}"
+  done
+}
+
+# Iterate over all SUs for defined application
+function run_su_iteration()
+{
+  local current_iteration=0
+  while [ $current_iteration -lt ${MAX_ITERATIONS} ]; 
+  do 
+    let current_iteration++
+    sus="`amf-find su | grep ,${APPLICATION_DN}$`"
+    test "${#sus}" == "0" && die "There are no SUs in the application dn: ${APPLICATION_DN}"
+    log "Iteration: $current_iteration"
+    for su_dn in $sus; do
+      log "Managing SU: $su_dn"
+      lock_unlock_su "${su_dn}" 
+      check_status
+    done
+  done
+}
+
+# main
+run_su_iteration

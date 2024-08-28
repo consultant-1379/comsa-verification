@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"Test using invalid No Root Classes model and observe the expected errors logged"</id>
+        <tag>TC-MR29333-007</tag>
+                <testcase>functionTestMr29333</testcase>
+                <class>functiontestMR29333</class>
+                <method>functiontestMR29333</method>
+		<description>"Test using invalid No Root Classes model and observe the expected errors logged"</description>
+	</info>
+    <config>
+        <reqComSaVersion>R5A11</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <useExternalModels>yes</useExternalModels>
+        <immClassesFile>NoRootMom1_imm_classes.xml</immClassesFile>
+        <immClassesFile2>NoRootMom2_imm_classes.xml</immClassesFile2>
+        <immClassesFile3>NoRootMom3_imm_classes.xml</immClassesFile3>
+        <momFile>NoRootMom1Invalid_mp.xml</momFile>
+        <momFile2>NoRootMom2Invalid_mp.xml</momFile2>
+        <momFile3>NoRootMom3Invalid_mp.xml</momFile3>
+
+        <cli_input_1>"show all ManagedElement=1,C1A=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show all ManagedElement=1,C2A=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ERROR: Specific element not found']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <cli_input_3>"configure" "ManagedElement=1,C1A=1" "C1B=1" "C3A=1" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1,C1A=1', 'C1B=1', 'ERROR: MO creation failed for classname: C3A , error code: ComFailure|ERROR: Failed to establish if Moc exists: ManagedElement=1,C1A=1,C1B=1,C3A=1 and Error Code: ComFailure|ERROR: std::exception', 'Invalid model detected for class C3A|Invalid model detected for class']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+        <cli_input_4>"configure" "ManagedElement=1,C2A=1" "C1B=1" "C3A=1" "commit" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1,C2A=1', 'C1B=1', 'ERROR: MO creation failed for classname: C3A , error code: ComFailure|ERROR: Failed to establish if Moc exists: ManagedElement=1,C2A=1,C1B=1,C3A=1 and Error Code: ComFailure|ERROR: std::exception', 'Invalid model detected for class C3A|Invalid model detected for class']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <cli_input_5>"show all ManagedElement=1,C1A=1" "exit"</cli_input_5>
+        <cli_expected_output_5>['C1A=1', 'C1B=1']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+
+        <cli_input_6>"show all ManagedElement=1,C2A=1" "exit"</cli_input_6>
+        <cli_expected_output_6>['C2A=1', 'C1B=1']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+
+        <imm_input_1>immfind | grep -i root</imm_input_1>
+        <imm_expected_output_1>['NoRootMom1c1AId=1', 'NoRootMom1c1BId=1', 'NoRootMom1c1BId=1,NoRootMom1c1AId=1', 'NoRootMom2c2AId=1']</imm_expected_output_1>
+
+        <imm_nonexpected_output_1>['error']</imm_nonexpected_output_1>
+
+        <immObjPattern>['root']</immObjPattern>
+	</config>
+</testcase>

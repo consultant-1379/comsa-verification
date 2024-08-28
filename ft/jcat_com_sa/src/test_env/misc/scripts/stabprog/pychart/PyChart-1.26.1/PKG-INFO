@@ -1,0 +1,14 @@
+Metadata-Version: 1.0
+Name: PyChart
+Version: 1.26.1
+Summary: Python Chart Generator
+Home-page: http://www.hpl.hp.com/personal/Yasushi_Saito/pychart
+Author: Yasushi Saito
+Author-email: ysaito@hpl.hp.com
+License: GPL
+Description: 
+        Pychart is a Python library for creating high-quality
+        charts in Postscript, PDF, and PNG.
+        It produces line plots, bar plots, range-fill plots, and pie
+        charts.
+Platform: UNKNOWN

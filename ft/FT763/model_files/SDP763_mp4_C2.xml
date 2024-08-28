@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpTestClass">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpTestClass">
+            <mimName>ObjImpTestMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpTestMom" namespace="urn:com:ericsson:ecim:ObjImpTestMom::1.0" namespacePrefix="objimptestmom" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+    <class name="ObjImpTestClass">
+      <description>A test class</description>
+      <root/>
+      <attribute name="mAiD">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>                                                                                                                                                                          </attribute>
+
+      <attribute name="testRuntimeInt16">
+        <description>a test attribute</description>
+        <dataType>
+            <sequence>
+          <int16>
+                <defaultValue>17</defaultValue>
+          </int16>
+              <minLength>0</minLength>
+              <maxLength>10</maxLength>
+            </sequence>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeInt32">
+        <description>a test attribute</description>
+        <dataType>
+            <sequence>
+          <int32>
+                <defaultValue>18</defaultValue>
+          </int32>
+              <minLength>0</minLength>
+              <maxLength>10</maxLength>
+            </sequence>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint64">
+        <description>a test attribute</description>
+        <dataType>
+            <sequence>
+          <uint64>
+                 <defaultValue>19</defaultValue>
+          </uint64>
+              <minLength>0</minLength>
+              <maxLength>10</maxLength>
+            </sequence>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableInt16">
+        <description>a test attribute</description>
+        <dataType>
+            <sequence>
+          <int16/>
+              <minLength>0</minLength>
+              <maxLength>10</maxLength>
+            </sequence>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableInt32">
+        <description>a test attribute</description>
+        <dataType>
+            <sequence>
+          <int32/>
+              <minLength>0</minLength>
+              <maxLength>10</maxLength>
+            </sequence>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableUint64">
+        <description>a test attribute</description>
+        <dataType>
+            <sequence>
+          <uint64/>
+              <minLength>0</minLength>
+              <maxLength>10</maxLength>
+            </sequence>
+        </dataType>
+      </attribute>
+
+    </class>
+
+</mim>
+     
+</models>

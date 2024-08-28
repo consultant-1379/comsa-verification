@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CLI read configuration - read the entire configuration</id>
+        <tag>TC-CLI-003</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>CLI read configuration - read the entire configuration</description>
+	</info>	
+    <config>
+        <cli_input_1>"show all" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1','userLabel=','SystemFunctions=1','Fm=1','FmAlarmModel=coreMw','FmAlarmType=ComSaAmfComponentCleanupFailed','majorType=','minorType=','moClasses=','specificProblem=','eventType=','probableCause=','isStateful=true','additionalText=','FmAlarmType=ComSaAmfComponentInstantiationFailed','FmAlarmType=ComSaAmfSiUnassigned','FmAlarmType=ComSaProxyStatusOfAComponentChangedToUnproxied','FmAlarmModel=CW','FmAlarmType=ComSaCLMClusterNodeUnavailable']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>        
+	</config>  
+</testcase>

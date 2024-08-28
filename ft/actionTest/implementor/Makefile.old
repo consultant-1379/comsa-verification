@@ -1,0 +1,34 @@
+# IMPORTANT:
+# It is mandatory to source the .../ft/sourceme.tcsh file before building the test component
+
+
+export DX_SYSROOT_X86_64=$(CMW_TOOLS)/lotc4.0_api
+
+PROG = actionTestAppl
+
+SRCS = src/actionTestAppl.cpp src/implementor/CCBProcessor.cpp src/implementor/Implementor.cpp src/utils/immutil.cpp src/utils/trace.cpp src/utils/dump.cpp src/utils/saname_utils.cc
+OBJS=$(SRCS:.c=.o)
+
+COM_SA_DEP ?= $(COMSA_REPO_PATH)/dependencies
+SAF_INCL ?= -I$(COM_SA_DEP)/core_mw_api/inc
+SAF_LIB ?= -L$(COM_SA_DEP)/core_mw_api/lib/$(ARCHITECTURE)-suse-linux
+CC = $(CMW_TOOLS)/LSB_BUILD_ENV/compilers/bin/x86_64-dx-linux-gnu-g++
+CFLAGS_GLOBAL = $(CFLAGS)
+INCLUDES = -I. -Isrc/implementor -Isrc/utils -I$(COMSA_DEV_DIR)/src/generic/incl $(SAF_INCL)
+CFLAGS = -g -O2 -Wall -fPIC
+LIBDIR= $(SAF_LIB)
+LDFLAGS = -lrt -lSaImmOi -lSaImmOm -lopensaf_core -Wl,--allow-shlib-undefined
+
+all: $(PROG)
+
+$(PROG): $(OBJS)
+	${CC} ${CFLAGS} ${INCLUDES} -o $@ ${SRCS} ${LIBDIR} ${LIBDIR}/opensaf ${LDFLAGS}
+
+.c.o:
+	${CC} ${CFLAGS} ${INCLUDES} -c $<
+
+depend:
+	makedepend ${INCLUDES} ${SRCS}
+
+clean:
+	rm -f *.o core *~ $(PROG) *.tgz

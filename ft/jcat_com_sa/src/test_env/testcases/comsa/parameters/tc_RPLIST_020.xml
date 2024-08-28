@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>MR-37637 RP List: Create Alarms, observe RP List stored in IMM and in files, survives COM restart</id>
+		<tag>TC-RPLIST-020</tag>
+		<version>P1A01</version>
+		<testcase>rpListImm</testcase>
+		<class>RPListImm</class>
+		<method>RPListImm</method>
+		<description>Create Alarms, observe RP List stored in IMM and in files, survives COM restart</description>
+	</info>
+	<config>
+		<reqCmwVersion>R10A01</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComSaVersion>R7A05</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<ntfsendMsg1>ntfsend -T 0x4000 -e 16384 -c 193,12960,1 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -s 5 -a "</ntfsendMsg1>
+		<ntfsendMsg1a>ntfsend -T 0x4000 -e 16384 -c 193,12960,1 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -s 0 -a "</ntfsendMsg1a>
+		<ntfsendMsg2>ntfsend -T 0x4000 -e 16384 -c 18568,2,3 -n "fmAlarmTypeId=ComSaAmfComponentCleanupFailed,fmAlarmModelId=coreMw,fmId=1" -s 5 -a "</ntfsendMsg2>
+		<ntfsendMsg2a>ntfsend -T 0x4000 -e 16384 -c 18568,2,3 -n "fmAlarmTypeId=ComSaAmfComponentCleanupFailed,fmAlarmModelId=coreMw,fmId=1" -s 0 -a "</ntfsendMsg2a>
+		<ntfsendMsg3>ntfsend -T 0x4000 -e 16384 -c 18568,2,2 -n "fmAlarmTypeId=ComSaAmfComponentInstantiationFailed,fmAlarmModelId=coreMw,fmId=1" -s 5 -a "</ntfsendMsg3>
+		<ntfsendMsg3a>ntfsend -T 0x4000 -e 16384 -c 18568,2,2 -n "fmAlarmTypeId=ComSaAmfComponentInstantiationFailed,fmAlarmModelId=coreMw,fmId=1" -s 0 -a "</ntfsendMsg3a>
+		<ntfsendMsg4>ntfsend -T 0x4000 -e 16384 -c 18568,2,5 -n "fmAlarmTypeId=ComSaAmfSiUnassigned,fmAlarmModelId=coreMw,fmId=1" -s 5 -a "</ntfsendMsg4>
+		<ntfsendMsg4a>ntfsend -T 0x4000 -e 16384 -c 18568,2,5 -n "fmAlarmTypeId=ComSaAmfSiUnassigned,fmAlarmModelId=coreMw,fmId=1" -s 0 -a "</ntfsendMsg4a>
+		<ntfsendMsg5>ntfsend -T 0x4000 -e 16384 -c 18568,2,6 -n "fmAlarmTypeId=ComSaProxyStatusOfAComponentChangedToUnproxied,fmAlarmModelId=coreMw,fmId=1" -s 5 -a "</ntfsendMsg5>
+		<ntfsendMsg5a>ntfsend -T 0x4000 -e 16384 -c 18568,2,6 -n "fmAlarmTypeId=ComSaProxyStatusOfAComponentChangedToUnproxied,fmAlarmModelId=coreMw,fmId=1" -s 0 -a "</ntfsendMsg5a>
+
+		<cli_input_1>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_1>
+		<!-- cli_expected_output_1>['sumCritical=5', 'totalActive=5', 'FmAlarm=1', 'FmAlarm=2', 'FmAlarm=3', 'FmAlarm=4', 'FmAlarm=5']</cli_expected_output_1 -->
+		<cli_expected_output_1>['sumCritical=5', 'totalActive=5']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+	</config>
+</testcase>

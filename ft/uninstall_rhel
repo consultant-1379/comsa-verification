@@ -1,0 +1,153 @@
+#!/bin/bash
+#
+# Copyright (C) 2010 by Ericsson AB
+# S - 125 26  STOCKHOLM
+# SWEDEN, tel int + 46 10 719 0000
+#
+# The copyright to the computer program herein is the property of
+# Ericsson AB. The program may be used and/or copied only with the
+# written permission from Ericsson AB, or in accordance with the terms
+# and conditions stipulated in the agreement/contract under which the
+# program has been supplied.
+#
+# All rights reserved.
+## Uninstallation script for CoreMW.
+## Support uninstalling CoreMW on LDEwS and RHEL system.
+##
+## The script will do the following:
+##  - Remove all coremw related rpms except for linux (in a non EA agnostic way)
+##  - Remove all coremw related directories
+##  - Remove all opensaf related directories
+##
+## Options: -h      Shows this help
+##          -f      Force a uninstallation, does not care if some nodes are disconnected
+
+while getopts "hf" opt; do
+    case $opt in
+    f)
+        FORCE=1
+    ;;
+    h)
+        grep '^##' $0 | cut -c3-
+        exit 0
+    ;;
+    ?)
+        echo "Invalid option: -$OPTARG, try -h" >&2
+        exit 1
+    ;;
+    esac
+done
+
+die() {
+    #logger -s -t CMW -p user.err "$prg: ERROR: $@"
+    echo "Error: $1. Exiting!"
+    exit 1
+}
+
+# check exit status for critical commands
+verifyExitStatus()
+{
+    # $1 exitstatus
+    # $2 output of command
+    # $3 description of command
+    if [ $1 -ne 0 ] ; then
+        echo "  CRITICAL: $3 returned non-zero ($1) - $2"
+        echo "Aborting script! exitCode: $1"
+        exit $1
+    fi
+}
+
+# Get number of nodes in cluster
+MAX_NODE_ID=`cmwea tipcaddress-get --max | sed 's/.*,.*,//'`
+
+# Check that all nodes are up before allowing to continue
+# At the moment, compare with the number of additional TIPC nodes in the cluster
+# TIPC addresses should be 1.1.<x> and one for each of the other nodes
+ONLINE_NODES=`tipc-config -n | grep "<1.1." | grep up | wc -l`
+
+if test $FORCE ;then
+    echo "*** FORCING UNINSTALL, some nodes might not be properly cleaned ***"
+else
+    test $[ONLINE_NODES +1] -lt ${MAX_NODE_ID} && die "All nodes not up, Exiting"
+fi
+
+# Set CMWEA_REPO_PATH if we are uninstalling CMW on RHEL
+RHEL=0
+if [ -e /etc/sysconfig/lde-cmwea ]; then
+    . /etc/sysconfig/lde-cmwea
+    if [ "$CMWEA_REPO_PATH" = "" ]; then
+        echo "ERROR: CMWEA_REPO_PATH not set"
+        exit 1
+    else
+        RHEL=1
+        rpm_dir=$CMWEA_REPO_PATH/Packages
+        node_rpms=/tmp/node_rpms
+    fi
+fi
+
+# Iterate over all present nodes
+for (( i=1; i <= $MAX_NODE_ID; i++ )); do
+    node_hostname=`cmwea hostname-get 1,1,$i`
+    verifyExitStatus $? $node_hostname "cmwea cmwea hostname-get"
+    if [ $RHEL -eq 1 ]; then
+        cmwea rpm-list $node_hostname > $node_rpms
+        for rpm in $(ls $rpm_dir) ; do
+            rpm -qp --quiet $rpm_dir/$rpm 2>/dev/null && installed_rpm=`rpm -qp $rpm_dir/$rpm` || continue
+            if `grep -q $installed_rpm $node_rpms`; then
+                cmwea rpm-config-delete $installed_rpm $node_hostname
+            fi
+        done
+    else
+        rpms=`cmwea rpm-list $node_hostname`
+        # Remove all rpms; the OS and "^VIP-" rpms will not be removed
+        for rpm in $rpms; do
+            ret=$(echo $rpm | egrep "^VIP-|linux")
+            if [ "$ret" == "" ]; then
+                cmwea rpm-config-delete $rpm $node_hostname
+            fi
+        done
+    fi
+done
+
+# Remove coremw directories
+location=`cmwea storage-location-get`
+rm -rf $location/coremw
+rm -rf $location/coremw_appdata
+rm -rf /var/log/opensaf
+
+# Remove signal files
+rm -f /home/.cmw_restore_signal
+rm -f /home/.cmw_insetup_mutex_signal
+
+# Remove all coremw related rpm's, tmp dir and lde snapshot dir (for uninstallation on RHEL)
+if [ $RHEL -eq 1 ]; then
+    rm -rf $rpm_dir/*
+    rm -rf $node_rpms
+    rm -rf /var/lib/lde/*
+    rm -rf /tmp/*
+# Remove related dirs on the remaining nodes
+    for (( i=2; i <= $MAX_NODE_ID; i++ )); do
+        node_hostname=`cmwea hostname-get 1,1,$i`
+        ssh $node_hostname rm -rf /var/log/opensaf
+        ssh $node_hostname rm -rf /var/lib/lde/*
+        ssh $node_hostname rm -rf /tmp/*
+    done
+# Remove all coremw related rpm's (for uninstallation on LDEwS)
+else
+    rm -rf /cluster/rpms/core*
+    rm -rf /cluster/rpms/CORE*
+    rm -rf /cluster/rpms/open*
+fi
+
+# Remove all coremw related directories
+spiv=`cmwea spi-revision-get`
+if [[ $spiv == "1.2" || `grep "usr/lib/cmwea/spi-revision-get" /boot/patch/files` ]]; then
+    confd=`cmwea config-location-get`
+    softd=`cmwea software-location-get`
+    otherd=`cmwea no-backup-location-get`
+    cleard=`cmwea clear-location-get`
+    rm -rf $confd/coremw
+    rm -rf $softd/coremw
+    rm -rf $otherd/coremw
+    rm -rf $cleard/coremw
+fi

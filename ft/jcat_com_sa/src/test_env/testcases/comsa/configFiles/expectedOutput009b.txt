@@ -1,0 +1,1 @@
+['urn:ietf:params:netconf:base:1.0', 'urn:ietf:params:netconf:capability:writable-running:1.0', 'urn:ietf:params:netconf:capability:rollback-on-error:1.0', 'urn:ietf:params:netconf:capability:notification:1.0', 'ok/', 'CmwTest xmlns="urn:com:ericsson:ecim:cmwtestmom"', '<cmwTestId>1</cmwTestId>', 'myStructAttr struct="TestStruct"', 'attr1', '89']

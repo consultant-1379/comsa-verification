@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>PDF counter UC2 - Run test with old CoreMW</id>
+        <tag>TC-MR24791-001</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr24791</testcase>
+        <class>pdfcounter</class>
+        <method>pdfcounter</method>
+        <description>This testcase support PDF counter test with old CoreMW</description>
+        </info>
+    <config>
+        <reqComSaVersion>R5A11</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <backupName>backupMR24791</backupName>
+        <storedBackupFilesLocation>/home/backupfileMR24791/</storedBackupFilesLocation>
+
+        <comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+        <comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+        <cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+        <loctBackupLocation>/cluster/snapshot/</loctBackupLocation>
+
+        <serviceInstanceName>ComSa</serviceInstanceName>
+        <amfNodePattern>Cmw</amfNodePattern>
+
+    </config>
+</testcase>
+

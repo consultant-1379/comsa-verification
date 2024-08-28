@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>Long DN: Enable</id>
+		<tag>TC-MR35347-000</tag>
+		<version>P1A01</version>
+		<testcase>functionTestMr35347</testcase>
+		<class>functionTestMr35347</class>
+		<method>functionTestMr35347</method>
+		<description>Long DN: Enable</description>
+	</info>
+	<config>
+	</config>
+</testcase>

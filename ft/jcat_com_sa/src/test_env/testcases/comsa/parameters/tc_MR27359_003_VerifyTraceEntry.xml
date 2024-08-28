@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Verify trace entry</id>
+        <tag>TC-MR27359-003</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr27359</testcase>
+        <class>FTMr27359</class>
+        <method>FTMr27359</method>
+        <description>Install Trace EA and Trace CC</description>
+        </info>
+    <config>
+  		<domainTest>True</domainTest>
+		<enableComSaTrace>True</enableComSaTrace>
+		<doSwitchover>True</doSwitchover>
+		<createInitBackupWithTrace>True</createInitBackupWithTrace>
+    </config>  
+</testcase>

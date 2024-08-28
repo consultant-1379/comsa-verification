@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" xmlns:xs="http://www.w3.org/2001/
+XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.
+saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+<class name="ObjImpComplexClassSv">
+      <category>SA_CONFIG</category>
+      <rdn>
+        <name>objImpComplexClassSvId</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_INITIALIZED</flag>
+      </rdn>
+      <attr>
+        <name>TestStructAttrSv</name>
+        <type>SA_NAME_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <default-value/>
+      </attr>
+</class>
+<class name="TestStructSv">
+      <category>SA_CONFIG</category>
+      <rdn>
+        <name>id</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_INITIALIZED</flag>
+      </rdn>
+      <attr>
+        <name>testWritableAttrUint8</name>
+        <type>SA_UINT32_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <default-value>0</default-value>
+      </attr>
+      <attr>
+        <name>testWritableAttrUint16</name>
+        <type>SA_UINT32_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <flag>SA_MULTI_VALUE</flag>
+        <default-value>0</default-value>
+      </attr>
+      <attr>
+        <name>testWritableAttrString</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <default-value>Failing is not an option for Writable String attribute in a struct</default-value>
+      </attr>
+      <attr>
+        <name>testWritableAttrBool</name>
+        <type>SA_INT32_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <default-value>0</default-value>
+      </attr>
+</class>
+</imm:IMM-contents>
+

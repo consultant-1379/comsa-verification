@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (c) 2012 Ericsson AB.
+  All rights reserved
+
+  DX ECIM Tool-chain generated this file on Aug 17, 2012 4:12:06 PM using
+    * coremw.m2m (2.3.1.201206201134)
+    * coremw.m2t (2.3.1.201206201134)
+    * coremw.dsl (2.3.1.201206201134)
+    * coremw.imm (2.3.1.201206201134)
+--><imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+    <object class="CmwTest">
+        <dn>cmwTestId=1</dn>
+        <attr>
+            <name>attr1</name>
+            <value>1</value>
+        </attr>
+        <attr>
+            <name>attr2</name>
+            <value>2</value>
+        </attr>
+    </object>
+<object class="ComSaTest">
+        <dn>comSaTestkey=1,cmwTestId=1</dn>
+        <attr>
+            <name>attrdefault2</name>
+            <value>4</value>
+        </attr>
+    </object>
+</imm:IMM-contents>
+
+

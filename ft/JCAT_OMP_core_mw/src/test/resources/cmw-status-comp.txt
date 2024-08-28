@@ -1,0 +1,272 @@
+safComp=AMFWDOG,safSu=PL-3,safSg=NoRed,safApp=OpenSAF
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=AMFWDOG,safSu=PL-4,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=AMFWDOG,safSu=SC-1,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=AMFWDOG,safSu=SC-2,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=CLM,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=CLM,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=CPD,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=CPD,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=CPND,safSu=PL-3,safSg=NoRed,safApp=OpenSAF
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=CPND,safSu=PL-4,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=CPND,safSu=SC-1,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=CPND,safSu=SC-2,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=ClusterMonitor,safSu=SC-1,safSg=2N,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=ClusterMonitor,safSu=SC-2,safSg=2N,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=Cmw,safSu=Cmw1,safSg=2N,safApp=ERIC-ComSa
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=Cmw,safSu=Cmw2,safSg=2N,safApp=ERIC-ComSa
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=DTS,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=DTS,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=EcimSwm,safSu=SC-1,safSg=2N,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=EcimSwm,safSu=SC-2,safSg=2N,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=FMS,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=FMS,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=IMMD,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=IMMD,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=IMMND,safSu=PL-3,safSg=NoRed,safApp=OpenSAF
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=IMMND,safSu=PL-4,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=IMMND,safSu=SC-1,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=IMMND,safSu=SC-2,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=LOG,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=LOG,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=MdfGCC,safSu=PL-3,safSg=NoRed,safApp=ERIC-CoreMW
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=MdfGCC,safSu=PL-4,safSg=NoRed,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=MdfGCC,safSu=SC-1,safSg=NoRed,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=MdfGCC,safSu=SC-2,safSg=NoRed,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=MdfImmCC,safSu=SC-1,safSg=2N,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=MdfImmCC,safSu=SC-2,safSg=2N,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=NTF,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=NTF,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=OSAlarmBridge,safSu=PL-3,safSg=NWayActive,safApp=ERIC-CoreMW
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=OSAlarmBridge,safSu=PL-4,safSg=NWayActive,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=OSAlarmBridge,safSu=SC-1,safSg=NWayActive,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=OSAlarmBridge,safSu=SC-2,safSg=NWayActive,safApp=ERIC-CoreMW
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=RDE,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=RDE,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=SMF,safSu=SC-1,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=SMF,safSu=SC-2,safSg=2N,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=SMFND,safSu=PL-3,safSg=NoRed,safApp=OpenSAF
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=SMFND,safSu=PL-4,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=SMFND,safSu=SC-1,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=SMFND,safSu=SC-2,safSg=NoRed,safApp=OpenSAF
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=ta_tapp_pl,safSu=PL-4,safSg=ta_tapp_pl,safApp=ta_global
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=ta_tapp_pl,safSu=PL-3,safSg=ta_tapp_pl,safApp=ta_global
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=DAS,safSu=DAS1,safSg=2N-DAS,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=DAS,safSu=DAS2,safSg=2N-DAS,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=COORD,safSu=COORD1,safSg=2N-COORD,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=COORD,safSu=COORD2,safSg=2N-COORD,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=AGENT,safSu=OAM1,safSg=NWay-OAM,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=INSTANCE,safSu=OAM1,safSg=NWay-OAM,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=AGENT,safSu=OAM2,safSg=NWay-OAM,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=INSTANCE,safSu=OAM2,safSg=NWay-OAM,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=AGENT,safSu=TRAFFIC3,safSg=NWay-TRAFFIC,safApp=ERIC-MMAS
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=INSTANCE,safSu=TRAFFIC3,safSg=NWay-TRAFFIC,safApp=ERIC-MMAS
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=AGENT,safSu=TRAFFIC4,safSg=NWay-TRAFFIC,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=INSTANCE,safSu=TRAFFIC4,safSg=NWay-TRAFFIC,safApp=ERIC-MMAS
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=ta_tgc_pl,safSu=PL-4,safSg=ta_tgc_pl,safApp=ta_global
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=ta_tgc_pl,safSu=PL-3,safSg=ta_tgc_pl,safApp=ta_global
+        OperState=DISABLED(2)
+        PresenceState=UNINSTANTIATED(1)
+        ReadinessState=OUT-OF-SERVICE(1)
+safComp=ta_tgc_sc,safSu=SC-2,safSg=ta_tgc_sc,safApp=ta_global
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)
+safComp=ta_tgc_sc,safSu=SC-1,safSg=ta_tgc_sc,safApp=ta_global
+        OperState=ENABLED(1)
+        PresenceState=INSTANTIATED(3)
+        ReadinessState=IN-SERVICE(2)

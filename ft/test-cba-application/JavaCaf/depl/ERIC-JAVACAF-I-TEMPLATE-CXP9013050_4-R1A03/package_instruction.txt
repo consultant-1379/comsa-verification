@@ -1,0 +1,43 @@
+---------------------------------------------------------------------
+    Packaging instruction for JavaCaf Installation Campaign SDP
+
+JavaCaf Version : R1A03
+Release Date 	: Wed Apr  6 18:40:20 EDT 2011
+---------------------------------------------------------------------
+
+Prerequisite
+============
+
+The JavaCaf bundle-SDP must have been imported using the instructions in;
+Core MW Management, USER GUIDE, 2/1553-APR 901 0444/1
+
+Prepare a target specific install SDP
+=====================================
+
+Unpack the DEPLOYMENT TEMPLATE container (and since you are reading
+this file you probably have done that already). 
+
+The ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03 contains a campaign SDP
+that installs JavaCaf on the System Controllers and a script to generate
+a campaign SDP for any cluster size.
+
+ ./generatecampaign generate ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03.sdp [SC=1] [PL=#]
+
+The "SC=1" parameter must only be used for single-node clusters.
+For example;
+
+ ./generatecampaign generate ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03.sdp PL=8
+
+for a 10 node cluster. A target specific SDP is generated;
+
+ ERIC-JAVACAF-I-CXP9013050_4-R1A03_SCx2_PLx8.sdp
+
+
+Import and execute the install campaign
+=======================================
+
+The campaign SDP prepared in the previos step is imported and
+executed.
+
+Follow the instructions in;
+Core MW Management, USER GUIDE, 2/1553-APR 901 0444/1

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configuration Using Netconf - Creating and deleting a new object</id>
+        <tag>TC-NCONF-006</tag>	
+        <version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>Creating and deleting a new object</description>
+	</info>	
+    <config>    
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <helloFile>Hello.xml</helloFile>
+        <actionFile>['CreatingANewObject.xml']</actionFile>
+        <actionFile2>['check006.xml']</actionFile2>
+        <actionFile3>['DeletingAnObject.xml']</actionFile3>
+        <actionFile4>['check006.xml']</actionFile4>
+        <closeFile>Close.xml</closeFile> 
+        <logFile>logFile.txt</logFile>
+    	<respFile>expectedOutput006a.txt</respFile>
+    	<respFile2>expectedOutput006b.txt</respFile2>
+    	<respFile3>expectedOutput006a.txt</respFile3>
+    	<respFile4>expectedOutput006d.txt</respFile4>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+    	<forbiddenContent>['theNewUserLabel']</forbiddenContent>
+	</config>  
+</testcase>

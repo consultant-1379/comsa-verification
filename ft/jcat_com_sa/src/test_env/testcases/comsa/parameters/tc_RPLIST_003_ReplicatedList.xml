@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Replicated list - Checking the test results from the log and restoring the system</id>
+        <tag>TC-RPLIST-003</tag>
+        <version>P1A01</version>
+        <testcase>replicatedList</testcase>
+        <class>Replicatedlist</class>
+        <method>Replicatedlist</method>
+        <description>Replicated list - Checking the test results from the log and restoring the system</description>
+    </info>
+    <config>
+        <comSaRPMofficialPrefix>COM_SA</comSaRPMofficialPrefix>
+        <comSaRPMorigPrefix>ComSa</comSaRPMorigPrefix>
+    </config>
+</testcase>

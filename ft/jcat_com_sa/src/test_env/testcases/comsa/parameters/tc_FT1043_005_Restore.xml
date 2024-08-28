@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>FT for SDP 1043 - restoring the cluster</id>
+        <tag>TC-FT1043-005</tag>	
+        <version>P1A01</version>
+		<testcase>restoreFT1043</testcase>
+		<class>FTSdp1043Restore</class>
+		<method>FTSdp1043Restore</method>
+		<description>FT for SDP 1043 - restoring the cluster</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

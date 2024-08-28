@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<project name="JCAT_OMP_extensions" default="package" basedir=".">
+	<property name="src.main" value="src/main" />
+
+	<property name="src.main.java" value="${src.main}/java" />
+	<property name="src.main.python" value="${src.main}/python" />
+	<property name="src.main.scripts" value="${src.main}/scripts" />
+	<property name="src.main.lib" value="${src.main}/lib" />
+	<property name="src.main.resources" value="${src.main}/resources" />
+
+	<property name="target.main" value="target/main" />
+	<property name="target.main.classes" value="${target.main}/classes" />
+	<property name="target.main.jar" value="${target.main}/jar" />
+	<property name="target.main.scripts" value="${target.main}/scripts" />
+	<property name="target.main.python" value="${target.main}/python" />
+	<property name="target.main.resources" value="${target.main}/resources" />
+	<property name="target.main.lib" value="${target.main}/lib" />
+
+	<property name="src.test" value="src/test" />
+	<property name="src.test.java" value="${src.test}/java" />
+	<property name="src.test.python" value="${src.test}/python" />
+
+	<property name="target" value="target"/>
+	<property name="target.test" value="target/test" />
+	<property name="target.test.classes" value="${target.test}/classes" />
+	<property name="target.test.jar" value="${target.test}/jar" />
+	<property name="target.test.python" value="${target.test}/python" />
+
+	<property name="target.main.tempinstall" value="${target.main}/${ant.project.name}" />
+
+	<property name="install" value="install" />
+
+	
+	<property name="version" value="1.0" />
+
+	<property environment="env" />
+	<property name="JCAT_FW" value="${env.JCAT_FW}" />
+	<property name="JCAT_EXTENSIONS" value="${env.JCAT_EXTENSIONS}" />
+	<property name="JAVA_HOME" value="${env.JAVA_HOME}"/>
+
+    <property name="identity" value="./IDENTITY"/>
+	
+	<target name="validate">
+	</target>
+
+	<target name="generate-sources" depends="validate">
+	</target>
+
+	<target name="process-sources" depends="generate-sources">
+	</target>
+
+	<target name="generate-resources" depends="process-sources">
+	</target>
+
+	<target name="process-resources" depends="generate-resources">
+	</target>
+
+	<target name="compile" depends="process-resources">
+		<mkdir dir="${target.main.classes}" />
+		<javac debug="true" srcdir="${src.main.java}"
+			   destdir="${target.main.classes}" deprecation="true">
+	        <compilerarg value="-Xlint"/>
+			<classpath>
+				<fileset dir="${src.main.lib}">
+					<include name="**/*.jar" />
+				</fileset>
+				<fileset dir="${JCAT_FW}/jar">
+					<include name="**/*.jar" />
+				</fileset>
+				<fileset dir="${JCAT_FW}/lib">
+					<include name="**/*.jar" />
+				</fileset>
+				<fileset dir="${JCAT_EXTENSIONS}/jar">
+					<include name="**/*.jar" />
+				</fileset>
+				<fileset dir="${JCAT_EXTENSIONS}/lib">
+					<include name="**/*.jar" />
+				</fileset>
+                                <fileset dir="${JAVA_HOME}/lib">
+                                        <include name="**/*.jar" />
+                                </fileset>
+			</classpath>
+		</javac>
+		<mkdir dir="${target.main.resources}" />
+		<copy todir="${target.main.resources}">
+			<fileset dir="${src.main.resources}">
+			    <exclude name="CVS"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="process-classes" depends="compile">
+	</target>
+
+	<target name="generate-test-sources" depends="process-classes">
+	</target>
+
+	<target name="process-test-sources" depends="generate-test-sources">
+	</target>
+
+	<target name="generate-test-resources" depends="process-test-sources">
+	</target>
+
+	<target name="process-test-resources" depends="generate-test-resources">
+	</target>
+
+	<target name="test-compile" depends="process-test-resources">
+		<mkdir dir="${target.test.classes}" />
+	</target>
+
+	<target name="process-test-classes" depends="test-compile">
+	</target>
+
+	<target name="test" depends="process-test-classes">
+	</target>
+
+	<target name="prepare-package" depends="test">
+	</target>
+
+	<target name="package" depends="prepare-package">
+		<mkdir dir="${target.main.jar}" />
+		<jar destfile="${target.main.jar}/${ant.project.name}.jar">
+			<fileset dir="${target.main.classes}" />
+			<fileset dir="${target.main.resources}"/>
+		</jar>
+		<mkdir dir="${target.main.python}" />
+		<copy todir="${target.main.python}">
+			<fileset dir="${src.main.python}">
+			    <exclude name="CVS"/>
+			</fileset>
+		</copy>
+        <chmod dir="${target.main.python}" perm="755" 
+               includes="**/*.py"/>
+		<mkdir dir="${target.main.scripts}" />
+		<copy todir="${target.main.scripts}">
+			<fileset dir="${src.main.scripts}">
+                <exclude name="CVS"/>
+			</fileset>
+		</copy>
+		<chmod dir="${target.main.scripts}" perm="755" 
+		       includes="**/*"/>
+		<mkdir dir="${target.main.lib}" />
+		<copy todir="${target.main.lib}">
+			  <fileset dir="${src.main.lib}">
+			    <exclude name="CVS"/>
+		      </fileset>
+		</copy>
+        <chmod dir="${target.main.lib}" perm="755" 
+              includes="**/*"/>
+
+		<mkdir dir="${target.test.jar}" />
+		<jar destfile="${target.test.jar}/${ant.project.name}Test.jar">
+			<fileset dir="${target.test.classes}" />
+		</jar>
+		<mkdir dir="${target.test.python}" />
+		<copy todir="${target.test.python}">
+			<fileset dir="${src.test.python}">
+                <exclude name="CVS"/>
+			    </fileset>
+		</copy>
+        <chmod dir="${target.test.python}" perm="755" 
+               includes="**/*.py"/>
+		
+        <jar destfile="${target.main.jar}/${ant.project.name}Src.jar">
+            <fileset dir="${src.main.java}" />
+        </jar>
+
+	</target>
+
+	<target name="integration-test" depends="package">
+	</target>
+
+	<target name="verify" depends="integration-test">
+	</target>
+
+	<target name="install" depends="verify">
+		<mkdir dir="${install}" />
+        <copy todir="${target.main}">
+            <fileset file="${identity}" />
+        </copy>
+		<tar destfile="${install}/${ant.project.name}.tar" defaultexcludes="yes">
+			<tarfileset prefix="${ant.project.name}/" dir="${basedir}">
+				<include name="${target.main}/jar/**/*.jar" />
+                <include name="${target.main}/python/**/*.py" />
+                <include name="${target.main}/lib/**" />
+                <include name="${target.main}/IDENTITY" />
+            </tarfileset>
+            <tarfileset prefix="${ant.project.name}/" dir="${basedir}" filemode="755">
+                <include name="${target.main}/scripts/**"/>
+                <exclude name="${target.main}/scripts/.fool_cvs_that_this_directory_isnt_empty" />
+            </tarfileset>
+				
+		</tar>
+	</target>
+
+	<target name="deploy" depends="install">
+	</target>
+
+	<target name="clean">
+		<delete dir="${target.main.classes}" />
+		<delete dir="${target.main.resources}" />
+		<delete dir="${target.main.python}" />
+		<delete dir="${target.main.jar}" />
+		<delete dir="${target.main.lib}" />
+		<delete dir="${target.main.scripts}" />
+		<delete dir="${target.test.classes}" />
+		<delete dir="${target.test.python}" />
+		<delete dir="${target.test.jar}" />
+		<delete dir="${install}" />
+		<delete dir="${target}"/>
+	</target>
+
+</project>

@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>se.ericsson.jcat.omp</groupId>
+		<artifactId>jcat_omp_parent</artifactId>
+		<version>R1A12</version>
+	</parent>
+
+	<artifactId>jcat_omp_extensions</artifactId>
+	<version>R2A37-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>JCAT_OMP_extensions</name>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>se.ericsson.jcat</groupId>
+			<artifactId>jcat-fw</artifactId>
+			<version>R3A08</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>se.ericsson.jcat</groupId>
+			<artifactId>jcat-extensions</artifactId>
+			<version>R3A08</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>se.ericsson.commonlibrary</groupId>
+			<artifactId>library-broker</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+	
+        <dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>se.ericsson.rda.snmp.schema</groupId>
+			<artifactId>schema-netconf</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.snmp4j</groupId>
+			<artifactId>snmp4j</artifactId>
+			<version>1.11</version>
+		</dependency>
+		
+		<dependency>
+      		<groupId>com.ericsson.commonlibrary</groupId>
+      		<artifactId>remote-cli</artifactId>
+      		<version>1.2.3</version>
+	    </dependency>
+	    
+	</dependencies>
+	<scm>
+		<connection>scm:svn:https://eforge.ericsson.se/svn/repos/jcat-omp-ext/JCAT_OMP_extensions/trunk</connection>
+		<developerConnection>scm:svn:https://eforge.ericsson.se/svn/repos/jcat-omp-ext/JCAT_OMP_extensions/trunk</developerConnection>
+		<url>https://eforge.ericsson.se/svn/repos/jcat-omp-ext/JCAT_OMP_extensions/trunk</url>
+	</scm>
+</project>

@@ -1,0 +1,1275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/_N6vMMGYNEeKn97j3H8U24g/59" xmlns:Default="http:///schemas/Default/_fNm3AAqoEd6-N_NOT9vsCA/2" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/_Jui_gI2UEeKQksDq40d9rA/677" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/_N6vMMGYNEeKn97j3H8U24g/59 pathmap://COREMW_PROFILE/CoreMW_Profile.epx#_N6xocGYNEeKn97j3H8U24g?CoreMW%20Profile/CoreMWProfile? http:///schemas/Default/_fNm3AAqoEd6-N_NOT9vsCA/2 pathmap://UML2_MSL_PROFILES/Default.epx#_fNwoAAqoEd6-N_NOT9vsCA?Default/Default? http:///schemas/ECIMBaseProfile/_Jui_gI2UEeKQksDq40d9rA/677 pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.epx#_Jui_gY2UEeKQksDq40d9rA?ECIM%20Base%20Profile/ECIMBaseProfile?">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="Sdp872ActionTestModel" clientDependency="_OS1OUIXLEd-lToFzlKoOsA">
+    <eAnnotations xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:id="_Dgu90CL0EeCLftsa96O-NA" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:id="_DgwzACL0EeCLftsa96O-NA" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+      <details xmi:id="_Jf4TESU0EeCmr6bBk5jWaw" key="com.ibm.xtools.modeling.soa.ml.uireduction.activity" value="1"/>
+    </eAnnotations>
+    <ownedComment xmi:id="_aNFkgCL1EeCLftsa96O-NA" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;br /></body>
+    </ownedComment>
+    <packageImport xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_iT7qACCSEd-Egr3-YAWs7Q?EcimDataType?"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.emx#_5vlRYnhQEd-OM9oMWC6jJQ?ECIM%20Core%20MW%20Guidelines?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_KelrUCL1EeCLftsa96O-NA" name="Sdp872ActiontestMom">
+      <ownedComment xmi:id="_ar-f8CL1EeCLftsa96O-NA">
+        <body>qe</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Ke5NUCL1EeCLftsa96O-NA" name="Sdp617ActiontestRoot">
+        <ownedComment xmi:id="_Ke-F0SL1EeCLftsa96O-NA">
+          <body>A root class</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_KfN9cCL1EeCLftsa96O-NA" name="sdp617ActiontestRootId" isReadOnly="true">
+          <ownedComment xmi:id="_KfRn0CL1EeCLftsa96O-NA">
+            <body>qwe</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_qvw5USPJEeCoF-oaOUAtug" name="x" visibility="public" type="_ACiXkCPDEeCoF-oaOUAtug" aggregation="composite" association="_qvw5UCPJEeCoF-oaOUAtug">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qvxgYSPJEeCoF-oaOUAtug" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qvxgYCPJEeCoF-oaOUAtug" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_N8vTgCPBEeCoF-oaOUAtug" name="" memberEnd="_N8yW0CPBEeCoF-oaOUAtug _N8zk8SPBEeCoF-oaOUAtug">
+        <ownedEnd xmi:id="_N8zk8SPBEeCoF-oaOUAtug" name="" visibility="public" type="_Ke5NUCL1EeCLftsa96O-NA" aggregation="composite" association="_N8vTgCPBEeCoF-oaOUAtug">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N80MACPBEeCoF-oaOUAtug" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N8zk8iPBEeCoF-oaOUAtug" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_N8yW0CPBEeCoF-oaOUAtug" name="otherMoc" visibility="public" association="_N8vTgCPBEeCoF-oaOUAtug">
+          <type xmi:type="uml:Class" href="uml/ComTop.emx#_d6nEkJmMEd-RhrgDerFWug?ComTop/ComTop/ManagedElement?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N8zk8CPBEeCoF-oaOUAtug" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N8y94CPBEeCoF-oaOUAtug" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ACiXkCPDEeCoF-oaOUAtug" name="ActionTest">
+        <ownedComment xmi:id="_ADWP4SPDEeCoF-oaOUAtug">
+          <body>Action test</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_ADxGoCPDEeCoF-oaOUAtug" name="actionTestId" isReadOnly="true">
+          <ownedComment xmi:id="_DfMNgKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_LwOGsCPDEeCoF-oaOUAtug" name="simpleAction">
+          <ownedComment xmi:id="_LwS_MCPDEeCoF-oaOUAtug">
+            <body>Simple action with no parameters</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_WgKbMCPDEeCoF-oaOUAtug" name="returnType" direction="return">
+            <ownedComment xmi:id="_BMekAKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_628O0CSmEeCmr6bBk5jWaw" name="setReturnValue">
+          <ownedComment xmi:id="_63AgQiSmEeCmr6bBk5jWaw">
+            <body>The return value in COM SA is set to the first parameter provided in the method</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_Es_G4CSnEeCmr6bBk5jWaw" name="value">
+            <ownedComment xmi:id="_EtDYUCSnEeCmr6bBk5jWaw">
+              <body>The return value in COM SA will be set to this value</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_GjA0YCSnEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Nmmy8CSnEeCmr6bBk5jWaw" name="noReturn">
+          <ownedComment xmi:id="_NmqdUiSnEeCmr6bBk5jWaw">
+            <body>A method with no return type specified</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_08yvICSnEeCmr6bBk5jWaw" name="setFileName">
+          <ownedComment xmi:id="_083AkSSnEeCmr6bBk5jWaw">
+            <body>Sets the filename of the output file from actionTestAppl.
+All parameters and their content will be dump to that file.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_79LosCSnEeCmr6bBk5jWaw" name="fileName">
+            <ownedComment xmi:id="_79PTESSnEeCmr6bBk5jWaw">
+              <body>Filename of the dump file. The file will be prefixed with /tmp/actiontest_</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_-ZbosCSnEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <ownedComment xmi:id="_CcmIEKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_f-PmsCSpEeCmr6bBk5jWaw" name="testIntParams">
+          <ownedComment xmi:id="_f-TREiSpEeCmr6bBk5jWaw">
+            <body>Testing integer parameters</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_hnh4sCSpEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mmOAQCSpEeCmr6bBk5jWaw" name="paramInt8">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_8QXW0CCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt8?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_raN6wCSpEeCmr6bBk5jWaw" name="paramInt16">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_t6-AQCSpEeCmr6bBk5jWaw" name="paramInt32">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_6B-1YCSpEeCmr6bBk5jWaw" name="paramInt64">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-maBICCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt64?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_8tCGYCSpEeCmr6bBk5jWaw" name="paramUint8">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxXDECCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt8?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_Ac64gCSqEeCmr6bBk5jWaw" name="paramUint16">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxWcACCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt16?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_Cr4DYCSqEeCmr6bBk5jWaw" name="paramUint32">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxVN4CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt32?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_EqEOYCSqEeCmr6bBk5jWaw" name="paramUint64">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxV08CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt64?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_2F_yoCVGEeCmr6bBk5jWaw" name="testParamOrder">
+          <ownedComment xmi:id="_2GErISVGEeCmr6bBk5jWaw">
+            <body>Testing order of parameters in com sa</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_37fUoCVGEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_7TaSsCVGEeCmr6bBk5jWaw" name="param1">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_-K-VsCVGEeCmr6bBk5jWaw" name="param2">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="__0QnsCVGEeCmr6bBk5jWaw" name="param3">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_EQ6ZMCVHEeCmr6bBk5jWaw" name="testString">
+          <ownedComment xmi:id="_Q0mvcKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_HvKowCVHEeCmr6bBk5jWaw" name="param1">
+            <ownedComment xmi:id="_Ot4TgKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_M6qdQCVHEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <ownedComment xmi:id="_Pi53AKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_02_zcCVHEeCmr6bBk5jWaw" name="testBool">
+          <ownedComment xmi:id="_-lPcAKb-EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_2yXT8CVHEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_5BWUACVHEeCmr6bBk5jWaw" name="paramBool">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_N2Kp8CVMEeCmr6bBk5jWaw" name="paramBool2">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_buaLICVXEeCmr6bBk5jWaw" name="testDerived">
+          <ownedComment xmi:id="_JM8agKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_dtwMsCVXEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <ownedComment xmi:id="_HuMkkKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_kR09sCVXEeCmr6bBk5jWaw" name="pNum" type="_MQ3fECVXEeCmr6bBk5jWaw">
+            <ownedComment xmi:id="_Fs73cKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+          </ownedParameter>
+          <ownedParameter xmi:id="_l-2gMCVXEeCmr6bBk5jWaw" name="pString" type="_ZBOMICVXEeCmr6bBk5jWaw">
+            <ownedComment xmi:id="_GyIk8Kb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_LHb8YCVYEeCmr6bBk5jWaw" name="testEnumParam">
+          <ownedComment xmi:id="_KScqAKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MWP44CVYEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_Oxz8YCVYEeCmr6bBk5jWaw" name="param1" type="_AUvO0CVYEeCmr6bBk5jWaw"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_kw7fECVYEeCmr6bBk5jWaw" name="testStruct">
+          <ownedComment xmi:id="_SnJEEKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_nwzJgCVYEeCmr6bBk5jWaw" name="p1" type="_X4yH8CVYEeCmr6bBk5jWaw">
+            <ownedComment xmi:id="_TuAlgKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+          </ownedParameter>
+          <ownedParameter xmi:id="_Za96ICVdEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <ownedComment xmi:id="_UtLjgKb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_x2iUICetEeCmr6bBk5jWaw" name="testClass">
+          <ownedComment xmi:id="_9r4LEKb-EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_zhRXoCetEeCmr6bBk5jWaw" name="returnType" direction="return">
+            <ownedComment xmi:id="_64IREKb-EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_A9HRsCeuEeCmr6bBk5jWaw" name="pRootMoClass" type="_Ke5NUCL1EeCLftsa96O-NA">
+            <ownedComment xmi:id="_8SEfgKb-EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+          </ownedParameter>
+          <ownedParameter xmi:id="_P9SFQCeuEeCmr6bBk5jWaw" name="pMoClass" type="_ACiXkCPDEeCoF-oaOUAtug">
+            <ownedComment xmi:id="_2kBXkKb-EeK6n8bgcUPuKg">
+              <body>action test&#xD;
+</body>
+            </ownedComment>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_4Jh4ACe0EeCmr6bBk5jWaw" name="testEventType">
+          <ownedComment xmi:id="_LjLSEKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_55hO8Ce0EeCmr6bBk5jWaw" name="returnType" direction="return">
+            <ownedComment xmi:id="_NjBp8Kb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_qrg-QCe1EeCmr6bBk5jWaw" name="pEvent">
+            <ownedComment xmi:id="_MiyU8Kb_EeK6n8bgcUPuKg">
+              <body>test action</body>
+            </ownedComment>
+            <type xmi:type="uml:Enumeration" href="uml/ComFm.emx#_IniOEGZ_Ed-VkJjlpEntLQ?ComFm/ComFm/EventType?"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_XItloCe4EeCmr6bBk5jWaw" name="testArray">
+          <ownedComment xmi:id="__39BEKb-EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_YtzUICe4EeCmr6bBk5jWaw" name="returnType" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_a8eyMCe4EeCmr6bBk5jWaw" name="array">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dcLu0Ce4EeCmr6bBk5jWaw" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dcLHwCe4EeCmr6bBk5jWaw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_dOuZoKyYEeKnJ9RzwnXBxw" name="testReturnSingleInt" visibility="public">
+          <ownedComment xmi:id="_dUOksayYEeKnJ9RzwnXBxw">
+            <body>return single int</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_jYcw8KyYEeKnJ9RzwnXBxw" name="p1">
+            <ownedComment xmi:id="_jYsokKyYEeKnJ9RzwnXBxw">
+              <body>int param</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jY5c4KyYEeKnJ9RzwnXBxw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jY410ayYEeKnJ9RzwnXBxw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_orCE4KyYEeKnJ9RzwnXBxw" name="returnType" direction="return">
+            <ownedComment xmi:id="_orSjkKyYEeKnJ9RzwnXBxw">
+              <body>return type int32</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_orZ4UayYEeKnJ9RzwnXBxw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_orZ4UKyYEeKnJ9RzwnXBxw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_PDEWwKyZEeKnJ9RzwnXBxw" name="testReturnSingleString" visibility="public">
+          <ownedComment xmi:id="_PDQkAayZEeKnJ9RzwnXBxw">
+            <body>return single string</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_T-nqwKyZEeKnJ9RzwnXBxw" name="inputString">
+            <ownedComment xmi:id="_T-z4AKyZEeKnJ9RzwnXBxw">
+              <body>input string</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T_AFQKyZEeKnJ9RzwnXBxw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T-_eMKyZEeKnJ9RzwnXBxw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_YZ90sKyZEeKnJ9RzwnXBxw" name="returnType" direction="return">
+            <ownedComment xmi:id="_YaBfEayZEeKnJ9RzwnXBxw">
+              <body>return param of type string</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YaFJcayZEeKnJ9RzwnXBxw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YaFJcKyZEeKnJ9RzwnXBxw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_EV06gKylEeK-kM-rKg1V6A" name="testReturnMultiInt" visibility="public">
+          <ownedComment xmi:id="_EWH1caylEeK-kM-rKg1V6A">
+            <body>return multiple integers</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_QYA6AKylEeK-kM-rKg1V6A" name="returnType" direction="return">
+            <ownedComment xmi:id="_QYQxoaylEeK-kM-rKg1V6A">
+              <body>return param int</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BlRhgLCiEeKEXvbL2cpGMw" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GXHf4LCiEeKEXvbL2cpGMw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_DR-KUK4lEeKkSq5oE3RBsA" name="testReturnStruct" visibility="public">
+          <ownedComment xmi:id="_DSOB8a4lEeKkSq5oE3RBsA">
+            <body>testing structure as returned parameter from admin operation</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_PTvTEK4lEeKkSq5oE3RBsA" name="returnType" type="_TpqYMKu5EeKX0Ie1c9SjOA" direction="return">
+            <ownedComment xmi:id="_PT8ucK4lEeKkSq5oE3RBsA">
+              <body>struct of one int and one string to be returned from admin operation</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUIUoa4lEeKkSq5oE3RBsA" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUIUoK4lEeKkSq5oE3RBsA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_QFKdELCjEeKEXvbL2cpGMw" name="testReturnStruct02" visibility="public">
+          <ownedComment xmi:id="_QFcJ4bCjEeKEXvbL2cpGMw">
+            <body>test admin op that is returning a structure with two elements one array of zero or more strings and the other array of one or more INTs</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_ayDdkLCjEeKEXvbL2cpGMw" name="returnType" type="_klrwQLCiEeKEXvbL2cpGMw" direction="return">
+            <ownedComment xmi:id="_ayTVMbCjEeKEXvbL2cpGMw">
+              <body>returning struct of arrays - one of strings, the other of INTz</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aycfIbCjEeKEXvbL2cpGMw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aycfILCjEeKEXvbL2cpGMw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_eT_ckLFOEeKEXvbL2cpGMw" name="testReturnStructAllTypes" visibility="public">
+          <ownedComment xmi:id="_eUOGEbFOEeKEXvbL2cpGMw">
+            <body>test action that returns a structure with elements of all possible simple types</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_4yjMwLFTEeK7oeQz_xMj7g" name="returnType" type="_52o5QLFOEeKEXvbL2cpGMw" direction="return">
+            <ownedComment xmi:id="_4zH0gbFTEeK7oeQz_xMj7g">
+              <body>return a structure with many Ecim types</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4zLe4rFTEeK7oeQz_xMj7g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4zLe4bFTEeK7oeQz_xMj7g" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_iy9AQLLEEeK2z5-wICbQ6g" name="testReturnSingleBool" visibility="public">
+          <ownedComment xmi:id="_ods8kLLEEeK2z5-wICbQ6g">
+            <body>returning a single BOOL parameter</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_C-D10LLFEeK2z5-wICbQ6g" name="inParamBool">
+            <ownedComment xmi:id="_C-PcAbLFEeK2z5-wICbQ6g">
+              <body>input BOOL param</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C-X-4LLFEeK2z5-wICbQ6g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C-XX0LLFEeK2z5-wICbQ6g" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_J1g10LLFEeK2z5-wICbQ6g" name="returnType" direction="return">
+            <ownedComment xmi:id="_J1x7kLLFEeK2z5-wICbQ6g">
+              <body>returned bool param</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J1-I0LLFEeK2z5-wICbQ6g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J19hwbLFEeK2z5-wICbQ6g" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Xwh_MLLFEeK2z5-wICbQ6g" name="testReturnMultiBool" visibility="public">
+          <ownedComment xmi:id="_XwsXQbLFEeK2z5-wICbQ6g">
+            <body>test returning multiple BOOL values</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_421RsLLFEeK2z5-wICbQ6g" name="returnType" direction="return">
+            <ownedComment xmi:id="_43FwYLLFEeK2z5-wICbQ6g">
+              <body>one or more BOOL returned parameters</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_43WPELLFEeK2z5-wICbQ6g" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_43VoALLFEeK2z5-wICbQ6g" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_1wLVoLXtEeK3I4d3r0IU_A" name="testReturnMultiIntVarNum" visibility="public">
+          <ownedComment xmi:id="_13_N0LXtEeK3I4d3r0IU_A">
+            <body>Return variable number of integer values. The number is determinet bay the input parameter.&#xD;
+&#xD;
+This can be useful to test what is the maximum number of return parameters that can be provided by the OI</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_YclDQLXuEeK3I4d3r0IU_A" name="dataCount">
+            <ownedComment xmi:id="_Ycx3kbXuEeK3I4d3r0IU_A">
+              <body>input parameter. determines how many output parameters to be returned (of type int32)</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Yc7okLXuEeK3I4d3r0IU_A" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Yc7BgbXuEeK3I4d3r0IU_A" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_h4I-wLXuEeK3I4d3r0IU_A" name="returnType" direction="return">
+            <ownedComment xmi:id="_h4Y2YbXuEeK3I4d3r0IU_A">
+              <body>return one or more int32 params</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h4j1grXuEeK3I4d3r0IU_A" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h4j1gbXuEeK3I4d3r0IU_A" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_FFpA4Lb4EeKqvapzH0-73A" name="testReturnNothing" visibility="public">
+          <ownedComment xmi:id="_FGHiALb4EeKqvapzH0-73A">
+            <body>take input but return nothing</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MlYv8Lb4EeKqvapzH0-73A" name="inputInt">
+            <ownedComment xmi:id="_Mlig8Lb4EeKqvapzH0-73A">
+              <body>input param</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MlqcwLb4EeKqvapzH0-73A" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Mlp1sbb4EeKqvapzH0-73A" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_hRwRULb4EeKqvapzH0-73A" name="testReturnNoInput" visibility="public">
+          <ownedComment xmi:id="_hR73gbb4EeKqvapzH0-73A">
+            <body>action to return INT but take no input</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_nbSbYLb4EeKqvapzH0-73A" name="returnType" direction="return">
+            <ownedComment xmi:id="_nbfPsbb4EeKqvapzH0-73A">
+              <body>return INT</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nbl9Ybb4EeKqvapzH0-73A" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nbl9YLb4EeKqvapzH0-73A" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_oIkNQLhaEeK-QNhFRpCUqg" name="testReturnMultiStruct" visibility="public">
+          <ownedComment xmi:id="_oUizwbhaEeK-QNhFRpCUqg">
+            <body>test action that returns more than one struct type</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_ANCS4LhbEeK-QNhFRpCUqg" name="returnType" type="_TpqYMKu5EeKX0Ie1c9SjOA" direction="return">
+            <ownedComment xmi:id="_ANLc0LhbEeK-QNhFRpCUqg">
+              <body>return structure of type TestStruct02 (integer and string). Return one or more structure elements</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ANSxkrhbEeK-QNhFRpCUqg" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ANSxkbhbEeK-QNhFRpCUqg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_-b1eMLheEeK-QNhFRpCUqg" name="testReturnMultiStruct02" visibility="public">
+          <ownedComment xmi:id="_-cF84bheEeK-QNhFRpCUqg">
+            <body>return multiple instances of structure with multivalue elements</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_SQmCILhfEeK-QNhFRpCUqg" name="returnType" type="_klrwQLCiEeKEXvbL2cpGMw" direction="return">
+            <ownedComment xmi:id="_SQyPYbhfEeK-QNhFRpCUqg">
+              <body>return ore or more instances of structure of type TestStruct02. It has multivalue string and multivalue int as members.</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SQ4WAbhfEeK-QNhFRpCUqg" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SQ4WALhfEeK-QNhFRpCUqg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_vymewLhwEeK-QNhFRpCUqg" name="testReturnMultiInt02" visibility="public">
+          <ownedComment xmi:id="_vyz6IbhwEeK-QNhFRpCUqg">
+            <body>test for mixed order of returned parameters</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_-jMlQLhwEeK-QNhFRpCUqg" name="returnType" direction="return">
+            <ownedComment xmi:id="_-jQ2sbhwEeK-QNhFRpCUqg">
+              <body>return array of int</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-jVIILhwEeK-QNhFRpCUqg" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-jUhEbhwEeK-QNhFRpCUqg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Z3yrkMH4EeKW1ND5Bjv9Aw" name="testReturnNegInt" visibility="public">
+          <ownedComment xmi:id="_Z6VpQMH4EeKW1ND5Bjv9Aw">
+            <body>Negative test case, expects returned INT but the OI will return string</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_jKLc8MH4EeKW1ND5Bjv9Aw" name="returnType" direction="return">
+            <ownedComment xmi:id="_jKXqMMH4EeKW1ND5Bjv9Aw">
+              <body>int32</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jKfmAcH4EeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jKfmAMH4EeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_yjWmYMH4EeKW1ND5Bjv9Aw" name="testReturnNegString" visibility="public">
+          <ownedComment xmi:id="_yjctAcH4EeKW1ND5Bjv9Aw">
+            <body>expecting string, but OI will return int</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_gkGgoMH6EeKW1ND5Bjv9Aw" name="returnType" direction="return">
+            <ownedComment xmi:id="_gkSG0MH6EeKW1ND5Bjv9Aw">
+              <body>string</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gkdtAMH6EeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gkdF8MH6EeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_WqDu0MH5EeKW1ND5Bjv9Aw" name="testReturnNegRef" visibility="public">
+          <ownedComment xmi:id="_WqP8EcH5EeKW1ND5Bjv9Aw">
+            <body>expecting reference but getting int</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_e67G4MH7EeKW1ND5Bjv9Aw" name="returnType" direction="return">
+            <ownedComment xmi:id="_e7Fe8cH7EeKW1ND5Bjv9Aw">
+              <body>reference</body>
+            </ownedComment>
+            <type xmi:type="uml:Class" href="uml/ECIM_CommonLibrary.emx#_xu6e8JaXEeC11vgiYYrb4A?ECIM_CommonLibrary/ECIM_CommonLibrary/EcimManagedObject?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_e7OB0MH7EeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_e7NawcH7EeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_iQBFUMH5EeKW1ND5Bjv9Aw" name="testReturnNegStruct" visibility="public">
+          <ownedComment xmi:id="_iQNSkMH5EeKW1ND5Bjv9Aw">
+            <body>expecting struct but getting int</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_loV2kMH6EeKW1ND5Bjv9Aw" name="returnType" type="_X4yH8CVYEeCmr6bBk5jWaw" direction="return">
+            <ownedComment xmi:id="_lojR8MH6EeKW1ND5Bjv9Aw">
+              <body>struct</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lou4IMH6EeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_louREcH6EeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_qd5swMH5EeKW1ND5Bjv9Aw" name="testReturnNegInt02" visibility="public">
+          <ownedComment xmi:id="_qeHvMcH5EeKW1ND5Bjv9Aw">
+            <body>expecting single int, but getting multi int</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_b0TJoMH6EeKW1ND5Bjv9Aw" name="returnType" direction="return">
+            <ownedComment xmi:id="_b0cTkcH6EeKW1ND5Bjv9Aw">
+              <body>expecting single, getting many</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b0mEkMH6EeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_b0ldgcH6EeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_vFAawMH5EeKW1ND5Bjv9Aw" name="testReturnNegStruct02" visibility="public">
+          <ownedComment xmi:id="_0_W5UMH5EeKW1ND5Bjv9Aw">
+            <body>expecting single struct but getting multiple struct elements</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_G-3VIMKlEeKW1ND5Bjv9Aw" name="returnType" type="_TpqYMKu5EeKX0Ie1c9SjOA" direction="return">
+            <ownedComment xmi:id="_G_C7UMKlEeKW1ND5Bjv9Aw">
+              <body>TestSstruct01</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G_N6cMKlEeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G_NTYcKlEeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_8TLFMMH5EeKW1ND5Bjv9Aw" name="testReturnNegBool" visibility="public">
+          <ownedComment xmi:id="_8TUPIcH5EeKW1ND5Bjv9Aw">
+            <body>expecting bool but getting string</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_GlXGsMH6EeKW1ND5Bjv9Aw" name="returnType" direction="return">
+            <ownedComment xmi:id="_Glg3sMH6EeKW1ND5Bjv9Aw">
+              <body>bool</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GlpaksH6EeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GlpakcH6EeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_CHo-MMH6EeKW1ND5Bjv9Aw" name="testReturnNegEnum" visibility="public">
+          <ownedComment xmi:id="_CH2ZkMH6EeKW1ND5Bjv9Aw">
+            <body>expecting enum but getting int</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L57-sMH6EeKW1ND5Bjv9Aw" name="returnType" type="_AUvO0CVYEeCmr6bBk5jWaw" direction="return">
+            <ownedComment xmi:id="_L6Hk4MH6EeKW1ND5Bjv9Aw">
+              <body>enum</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L6OSkMH6EeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L6NrgcH6EeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_71OvgMH6EeKW1ND5Bjv9Aw" name="testReturnNegInt03" visibility="public">
+          <ownedComment xmi:id="_71a8wMH6EeKW1ND5Bjv9Aw">
+            <body>expect two ints, but getting only one</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_AoFagMH7EeKW1ND5Bjv9Aw" name="returnType" direction="return">
+            <ownedComment xmi:id="_AoRnwMH7EeKW1ND5Bjv9Aw">
+              <body>expecting 2 int32</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AobYwcH7EeKW1ND5Bjv9Aw" value="2"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AobYwMH7EeKW1ND5Bjv9Aw" value="2"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_LOhC4MKZEeKW1ND5Bjv9Aw" name="testReturnNegStruct03" visibility="public">
+          <ownedComment xmi:id="_LOt3MMKZEeKW1ND5Bjv9Aw">
+            <body>array of structs out of range, expecting 2 struct elements but would receive only one.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="__ze9cMKtEeKW1ND5Bjv9Aw" name="returnType" type="_TpqYMKu5EeKX0Ie1c9SjOA" direction="return">
+            <ownedComment xmi:id="__zrxwMKtEeKW1ND5Bjv9Aw">
+              <body>expecting 2 will get 1 struct element</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__z07ssKtEeKW1ND5Bjv9Aw" value="2"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__z07scKtEeKW1ND5Bjv9Aw" value="2"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_yUozcMNBEeKW1ND5Bjv9Aw" name="testReturnNegParamName" visibility="public">
+          <ownedComment xmi:id="_yU4EAcNBEeKW1ND5Bjv9Aw">
+            <body>return an invalid param name</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_4yr08MNBEeKW1ND5Bjv9Aw" name="returnType" direction="return">
+            <ownedComment xmi:id="_4y4pQcNBEeKW1ND5Bjv9Aw">
+              <body>int</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxVN4CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8gPYMNLEeKW1ND5Bjv9Aw" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4zDoYMNBEeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_iKr34MNCEeKW1ND5Bjv9Aw" name="testReturnNegParamName02" visibility="public">
+          <ownedComment xmi:id="_iK56UcNCEeKW1ND5Bjv9Aw">
+            <body>struct to be returned with invalid name (s)</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_wFK1wMNCEeKW1ND5Bjv9Aw" name="returnType" type="_TpqYMKu5EeKX0Ie1c9SjOA" direction="return">
+            <ownedComment xmi:id="_wFV04cNCEeKW1ND5Bjv9Aw">
+              <body>to be used with invalid name(s) for negative testing</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wFdwscNCEeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wFdwsMNCEeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_V6dVMMNqEeKW1ND5Bjv9Aw" name="testCaseNum">
+            <ownedComment xmi:id="_V6iNsMNqEeKW1ND5Bjv9Aw">
+              <body>Test case number [1..N]&#xD;
+&#xD;
+based on this number an invalid output parameter name is provided by the OI:&#xD;
+&#xD;
+       And there are many cases of INVALID paramName(s):&#xD;
+        - case I1:  1_par1, 12_par1    (parameter name can not start with a digit, must be a letter)&#xD;
+        - case I2:  1par1, 123par1     (parameter name can not start with a digit, or is this valid if after the number there is a letter?)&#xD;
+        - case I3:  par1_1memb         (structure member name can not start with a digit, must be a letter)&#xD;
+        - case I4:  par1_1_2           (after the first number another number is not allowed, must be alphanumeric)&#xD;
+        - case I5:  par1_memb1_1_2     (after the number for a member multivalue another number is not allowed, or maybe is OK?)&#xD;
+        - case I6:  par1_1_memb1_1_2   (after the number for a member multivalue another number is not allowed, or maybe is OK?)&#xD;
+		- case I7:  par1_1_memb1_memb2 (structure elements can not be structures themselves.&#xD;
+                                         Alternatively 'memb1_memb2' could be a valid member name, &#xD;
+										 but this will complicate the algorithm to handle names with underscore allowed)&#xD;
+		- case I8:  _par1              (a structure name can not start with underscore)&#xD;
+		- case I9:  par1_memb1_        (a structure member name can not end with underscore)&#xD;
+		- case I10: par1__memb1        (double underscore is not allowed anywhere in the name)&#xD;
+		- case I11: par1_memb1__1      (double underscore is not allowed anywhere in the name)&#xD;
+		- case I12: par1__1_memb1      (double underscore is not allowed anywhere in the name)&#xD;
+		- case I13: par1_1__memb1      (double underscore is not allowed anywhere in the name)&#xD;
+		- case I14: par1_1_memb1__     (double underscore is not allowed anywhere in the name)&#xD;
+		- case I15: par1_1_memb1__1    (double underscore is not allowed anywhere in the name)</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxVN4CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt32?"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V6mfIcNqEeKW1ND5Bjv9Aw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V6mfIMNqEeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_wqlY4MOjEeKW1ND5Bjv9Aw" name="testReturnOptStructMemb" visibility="public">
+          <ownedComment xmi:id="_wq0CYcOjEeKW1ND5Bjv9Aw">
+            <body>Return a struct with some data members missing (not provided by the OI)</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_4xdZYMOjEeKW1ND5Bjv9Aw" name="returnType" type="_klrwQLCiEeKEXvbL2cpGMw" direction="return">
+            <ownedComment xmi:id="_4xrb0MOjEeKW1ND5Bjv9Aw">
+              <body>the stringArrayMember may be ommitted</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QHx4MMOnEeKW1ND5Bjv9Aw" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OcHnoMOnEeKW1ND5Bjv9Aw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_qvw5UCPJEeCoF-oaOUAtug" name="" memberEnd="_qvw5USPJEeCoF-oaOUAtug _qvxgYiPJEeCoF-oaOUAtug">
+        <ownedEnd xmi:id="_qvxgYiPJEeCoF-oaOUAtug" name="y" visibility="public" type="_Ke5NUCL1EeCLftsa96O-NA" association="_qvw5UCPJEeCoF-oaOUAtug">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qvyHcSPJEeCoF-oaOUAtug" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qvyHcCPJEeCoF-oaOUAtug" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_MQ3fECVXEeCmr6bBk5jWaw" name="DerNumericType">
+        <ownedComment xmi:id="_cfmW8Kb_EeK6n8bgcUPuKg">
+          <body>test action</body>
+        </ownedComment>
+        <generalization xmi:id="_MRLBECVXEeCmr6bBk5jWaw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_ZBOMICVXEeCmr6bBk5jWaw" name="DerStringType">
+        <ownedComment xmi:id="_duoV4Kb_EeK6n8bgcUPuKg">
+          <body>test action</body>
+        </ownedComment>
+        <generalization xmi:id="_ZBkxcCVXEeCmr6bBk5jWaw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_AUvO0CVYEeCmr6bBk5jWaw" name="EnumType">
+        <ownedComment xmi:id="_ZuEqgKb_EeK6n8bgcUPuKg">
+          <body>test action</body>
+        </ownedComment>
+        <ownedLiteral xmi:id="_AYtv4CVYEeCmr6bBk5jWaw" name="E1" classifier="_AUvO0CVYEeCmr6bBk5jWaw">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_CYUQICVYEeCmr6bBk5jWaw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_EbV30CVYEeCmr6bBk5jWaw" name="E2" classifier="_AUvO0CVYEeCmr6bBk5jWaw">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_EbawUSVYEeCmr6bBk5jWaw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_X4yH8CVYEeCmr6bBk5jWaw" name="StructType">
+        <ownedComment xmi:id="_Vs8XYKb_EeK6n8bgcUPuKg">
+          <body>test action</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_X5pDkCVYEeCmr6bBk5jWaw" name="alpha">
+          <ownedComment xmi:id="_WneF8Kb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_avqOcCVYEeCmr6bBk5jWaw" name="beta">
+          <ownedComment xmi:id="_Xk0fAKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_dW0d8CVYEeCmr6bBk5jWaw" name="charlie">
+          <ownedComment xmi:id="_YgF0cKb_EeK6n8bgcUPuKg">
+            <body>test action</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_TpqYMKu5EeKX0Ie1c9SjOA" name="TestStruct01">
+        <ownedComment xmi:id="_TwjqYau5EeKX0Ie1c9SjOA">
+          <body>Test structure to be used as return parameter from admin operation for SDP872</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_TwupgKu5EeKX0Ie1c9SjOA" name="stringMemb" visibility="public">
+          <ownedComment xmi:id="_Tw3zcau5EeKX0Ie1c9SjOA">
+            <body>String data member of the structure</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TxA9YKu5EeKX0Ie1c9SjOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TxAWUau5EeKX0Ie1c9SjOA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_QM1yYKvBEeKX0Ie1c9SjOA" name="intMember" visibility="public">
+          <ownedComment xmi:id="_QNIGQKvBEeKX0Ie1c9SjOA">
+            <body>int member</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QNOz8avBEeKX0Ie1c9SjOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QNOz8KvBEeKX0Ie1c9SjOA" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_klrwQLCiEeKEXvbL2cpGMw" name="TestStruct02">
+        <ownedComment xmi:id="_kmJDQbCiEeKEXvbL2cpGMw">
+          <body>A structure with two elements, one array of strings, the other array of INTs</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_kmQ_ELCiEeKEXvbL2cpGMw" name="stringArrayMember" visibility="public">
+          <ownedComment xmi:id="_kmWeorCiEeKEXvbL2cpGMw">
+            <body>array of strings with zero or more elements</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kmb-MrCiEeKEXvbL2cpGMw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kmb-MbCiEeKEXvbL2cpGMw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_x5B1oLCiEeKEXvbL2cpGMw" name="intArrayMember" visibility="public">
+          <ownedComment xmi:id="_x5VXoLCiEeKEXvbL2cpGMw">
+            <body>array of integers with one or more elements</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x5koMLCiEeKEXvbL2cpGMw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x5kBIbCiEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_52o5QLFOEeKEXvbL2cpGMw" name="TestStructAllTypes">
+        <ownedComment xmi:id="_521tkbFOEeKEXvbL2cpGMw">
+          <body>a structure with members of all possible types</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_528bQbFOEeKEXvbL2cpGMw" name="memberBool" visibility="public">
+          <ownedComment xmi:id="_53Ch4bFOEeKEXvbL2cpGMw">
+            <body>EcimBoolean</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_1guPACCSEd-Egr3-YAWs7Q?EcimDataType/EcimBoolean?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_53dYobFOEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_53dYoLFOEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_FK4NoLFPEeKEXvbL2cpGMw" name="memberInt16" visibility="public">
+          <ownedComment xmi:id="_FK_iYLFPEeKEXvbL2cpGMw">
+            <body>EcimInt16</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-Z9gkCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt16?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FLDz0rFPEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FLDz0bFPEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_LKyhoLFPEeKEXvbL2cpGMw" name="memberInt32" visibility="public">
+          <ownedComment xmi:id="_LLFckbFPEeKEXvbL2cpGMw">
+            <body>EcimInt32</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-kmDQCCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt32?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LLN_cbFPEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LLN_cLFPEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Qw1kILFPEeKEXvbL2cpGMw" name="memberInt64" visibility="public">
+          <ownedComment xmi:id="_QxENoLFPEeKEXvbL2cpGMw">
+            <body>EcimInt64</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_-maBICCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt64?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QxMJcrFPEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QxMJcbFPEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_X75coLFPEeKEXvbL2cpGMw" name="memberInt8" visibility="public">
+          <ownedComment xmi:id="_X8GQ8bFPEeKEXvbL2cpGMw">
+            <body>EcimInt8</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_8QXW0CCSEd-Egr3-YAWs7Q?EcimDataType/EcimInt8?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X8Oz0LFPEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X8OMwbFPEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_g2bHoLFPEeKEXvbL2cpGMw" name="memberString" visibility="public">
+          <ownedComment xmi:id="_g2pxIbFPEeKEXvbL2cpGMw">
+            <body>EcimString</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g21-YrFPEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g21-YbFPEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_oD2XoLFPEeKEXvbL2cpGMw" name="memberUint16" visibility="public">
+          <ownedComment xmi:id="_oEDzAbFPEeKEXvbL2cpGMw">
+            <body>EcimUint16</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxWcACCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt16?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oETDkLFPEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oEScgbFPEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_u5TMgLFPEeKEXvbL2cpGMw" name="memberUint32" visibility="public">
+          <ownedComment xmi:id="_u5YFAbFPEeKEXvbL2cpGMw">
+            <body>EcimUint32</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxVN4CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt32?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u5bvYrFPEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u5bvYbFPEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_SMRx8LFQEeKEXvbL2cpGMw" name="memberUint64" visibility="public">
+          <ownedComment xmi:id="_SMhCgLFQEeKEXvbL2cpGMw">
+            <body>EcimUint64</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxV08CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt64?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SMnwMLFQEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SMnJIbFQEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_lxs5YLFQEeKEXvbL2cpGMw" name="memberUint8" visibility="public">
+          <ownedComment xmi:id="_lx8J8LFQEeKEXvbL2cpGMw">
+            <body>EcimUint8</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxXDECCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt8?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lyCQkrFQEeKEXvbL2cpGMw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lyCQkbFQEeKEXvbL2cpGMw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_jyyOQLFTEeK7oeQz_xMj7g" name="memberDerivedInt" visibility="public" type="_MQ3fECVXEeCmr6bBk5jWaw">
+          <ownedComment xmi:id="_j3iLYLFTEeK7oeQz_xMj7g">
+            <body>Ecim Derived Int</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j3oSALFTEeK7oeQz_xMj7g" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j3nq8bFTEeK7oeQz_xMj7g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_qgUdQLFTEeK7oeQz_xMj7g" name="memberDerivedString" visibility="public" type="_ZBOMICVXEeCmr6bBk5jWaw">
+          <ownedComment xmi:id="_qgljAbFTEeK7oeQz_xMj7g">
+            <body>Ecim Derived String</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qgxJMrFTEeK7oeQz_xMj7g" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qgxJMbFTEeK7oeQz_xMj7g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_akIHQLIMEeK_W9-Ehc4fWg" name="memberEnum" visibility="public" type="_AUvO0CVYEeCmr6bBk5jWaw">
+          <ownedComment xmi:id="_akTtcbIMEeK_W9-Ehc4fWg">
+            <body>EcimEnumeration type</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_akdecLIMEeK_W9-Ehc4fWg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_akc3YbIMEeK_W9-Ehc4fWg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_UbvP4LIQEeKQUYxbPL5W5g" name="memberReference" visibility="public">
+          <ownedComment xmi:id="_UcJfkLIQEeKQUYxbPL5W5g">
+            <body>EcimmanagedObject to test reference type</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="uml/ECIM_CommonLibrary.emx#_xu6e8JaXEeC11vgiYYrb4A?ECIM_CommonLibrary/ECIM_CommonLibrary/EcimManagedObject?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UcPmMLIQEeKQUYxbPL5W5g" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UcOYEbIQEeKQUYxbPL5W5g" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Default.epx#_fNwoAAqoEd6-N_NOT9vsCA?Default/Default?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_MSL_PROFILES/Default.epx#_a_S3wNWLEdiy4IqP8whjFA?Default?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_UeIAJNCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:id="_UeIAJdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_IrdAUMmBEdqBcN1R6EvWUw?Deployment/Deployment?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_vjbuwOvHEdiDX5bji0iVSA?Deployment?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_0tSnQIW5Ed-FBpQGdJXi3g">
+      <eAnnotations xmi:id="_0tT1YIW5Ed-FBpQGdJXi3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.epx#_Jui_gY2UEeKQksDq40d9rA?ECIM%20Base%20Profile/ECIMBaseProfile?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.epx#_cUcakNQkEd63X4o72aQidQ?ECIM%20Base%20Profile?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_Di3EwCL0EeCLftsa96O-NA">
+      <eAnnotations xmi:id="_Di6IECL0EeCLftsa96O-NA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.epx#_N6xocGYNEeKn97j3H8U24g?CoreMW%20Profile/CoreMWProfile?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://COREMW_PROFILE/CoreMW_Profile.epx#_Br2_QBSXEd-ZjqYFUyJzOw?CoreMW%20Profile?"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_0tUccIW5Ed-FBpQGdJXi3g" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_KeuOMCL1EeCLftsa96O-NA" hideGroupName="" specification="" base_Package="_KelrUCL1EeCLftsa96O-NA" author="" contact="" date="" docNo="" revision="" version="1" release="1" organization="" ecimMomName="" ecimMomVersion="1" ecimMomRelease="0"/>
+  <ECIMBaseProfile:EcimRootMoClass xmi:id="_Ke-F0CL1EeCLftsa96O-NA" hideGroupName="" specification="" base_Class="_Ke5NUCL1EeCLftsa96O-NA"/>
+  <Default:Documentation xmi:id="_KfCXQCL1EeCLftsa96O-NA" base_Comment="_Ke-F0SL1EeCLftsa96O-NA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_KfRAwCL1EeCLftsa96O-NA" hideGroupName="" specification="" base_Property="_KfN9cCL1EeCLftsa96O-NA"/>
+  <Default:Documentation xmi:id="_KfUEECL1EeCLftsa96O-NA" base_Comment="_KfRn0CL1EeCLftsa96O-NA"/>
+  <Default:Documentation xmi:id="_aNJ18CL1EeCLftsa96O-NA" base_Comment="_aNFkgCL1EeCLftsa96O-NA"/>
+  <Default:Documentation xmi:id="_asCxYCL1EeCLftsa96O-NA" base_Comment="_ar-f8CL1EeCLftsa96O-NA"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_OEzqYCPBEeCoF-oaOUAtug" hideGroupName="" specification="" base_Association="_N8vTgCPBEeCoF-oaOUAtug"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_ADWP4CPDEeCoF-oaOUAtug" hideGroupName="" specification="" base_Class="_ACiXkCPDEeCoF-oaOUAtug"/>
+  <Default:Documentation xmi:id="_ADbIYCPDEeCoF-oaOUAtug" base_Comment="_ADWP4SPDEeCoF-oaOUAtug"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_AD1YECPDEeCoF-oaOUAtug" hideGroupName="" specification="" base_Property="_ADxGoCPDEeCoF-oaOUAtug"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_LwSYICPDEeCoF-oaOUAtug" hideGroupName="" specification="" base_Operation="_LwOGsCPDEeCoF-oaOUAtug"/>
+  <CoreMWProfile:CmwAction xmi:id="_LwSYISPDEeCoF-oaOUAtug" base_Operation="_LwOGsCPDEeCoF-oaOUAtug" admOpId="10"/>
+  <Default:Documentation xmi:id="_LwWpkCPDEeCoF-oaOUAtug" base_Comment="_LwS_MCPDEeCoF-oaOUAtug"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_WgPTsCPDEeCoF-oaOUAtug" hideGroupName="" specification="" base_Parameter="_WgKbMCPDEeCoF-oaOUAtug"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_qxAPcCPJEeCoF-oaOUAtug" hideGroupName="" specification="" base_Association="_qvw5UCPJEeCoF-oaOUAtug"/>
+  <CoreMWProfile:CmwAction xmi:id="_63AgQCSmEeCmr6bBk5jWaw" base_Operation="_628O0CSmEeCmr6bBk5jWaw" admOpId="999"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_63AgQSSmEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_628O0CSmEeCmr6bBk5jWaw"/>
+  <Default:Documentation xmi:id="_63EKoCSmEeCmr6bBk5jWaw" base_Comment="_63AgQiSmEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_EtCxQCSnEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_Es_G4CSnEeCmr6bBk5jWaw"/>
+  <Default:Documentation xmi:id="_EtHCsCSnEeCmr6bBk5jWaw" base_Comment="_EtDYUCSnEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_GjEewCSnEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_GjA0YCSnEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_NmqdUCSnEeCmr6bBk5jWaw" base_Operation="_Nmmy8CSnEeCmr6bBk5jWaw" admOpId="12"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_NmqdUSSnEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_Nmmy8CSnEeCmr6bBk5jWaw"/>
+  <Default:Documentation xmi:id="_NmuHsCSnEeCmr6bBk5jWaw" base_Comment="_NmqdUiSnEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_082ZgCSnEeCmr6bBk5jWaw" base_Operation="_08yvICSnEeCmr6bBk5jWaw" admOpId="1000"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_083AkCSnEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_08yvICSnEeCmr6bBk5jWaw"/>
+  <Default:Documentation xmi:id="_086q8CSnEeCmr6bBk5jWaw" base_Comment="_083AkSSnEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_79PTECSnEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_79LosCSnEeCmr6bBk5jWaw"/>
+  <Default:Documentation xmi:id="_79S9cCSnEeCmr6bBk5jWaw" base_Comment="_79PTESSnEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_-ZfTECSnEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_-ZbosCSnEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_f-TRECSpEeCmr6bBk5jWaw" base_Operation="_f-PmsCSpEeCmr6bBk5jWaw" admOpId="21"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_f-TRESSpEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_f-PmsCSpEeCmr6bBk5jWaw"/>
+  <Default:Documentation xmi:id="_f-XigCSpEeCmr6bBk5jWaw" base_Comment="_f-TREiSpEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_hnmKICSpEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_hnh4sCSpEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_mmRqoCSpEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_mmOAQCSpEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_raRlICSpEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_raN6wCSpEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_t7BqoCSpEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_t6-AQCSpEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_6CCfwCSpEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_6B-1YCSpEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_8tFwwCSpEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_8tCGYCSpEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Ac-i4CSqEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_Ac64gCSqEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Cr8U0CSqEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_Cr4DYCSqEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_EqH4wCSqEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_EqEOYCSqEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_2GEEECVGEeCmr6bBk5jWaw" base_Operation="_2F_yoCVGEeCmr6bBk5jWaw" admOpId="22"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_2GErICVGEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_2F_yoCVGEeCmr6bBk5jWaw"/>
+  <Default:Documentation xmi:id="_2GI8kCVGEeCmr6bBk5jWaw" base_Comment="_2GErISVGEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_37iX8CVGEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_37fUoCVGEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_7TekICVGEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_7TaSsCVGEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_-LBZACVGEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_-K-VsCVGEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="__0TrACVGEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="__0QnsCVGEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_EQ_RsCVHEeCmr6bBk5jWaw" base_Operation="_EQ6ZMCVHEeCmr6bBk5jWaw" admOpId="23"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_EQ_RsSVHEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_EQ6ZMCVHEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HvO6MCVHEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_HvKowCVHEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_M6uusCVHEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_M6qdQCVHEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_03Er8CVHEeCmr6bBk5jWaw" base_Operation="_02_zcCVHEeCmr6bBk5jWaw" admOpId="24"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_03Er8SVHEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_02_zcCVHEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_2yczgCVHEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_2yXT8CVHEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_5BalcCVHEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_5BWUACVHEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_N2O7YCVMEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_N2Kp8CVMEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_MQ8XkCVXEeCmr6bBk5jWaw" hideGroupName="" specification="" range="1..10" base_DataType="_MQ3fECVXEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_ZBSdkCVXEeCmr6bBk5jWaw" hideGroupName="" specification="" length="1..10" pattern="" base_DataType="_ZBOMICVXEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_bueckCVXEeCmr6bBk5jWaw" base_Operation="_buaLICVXEeCmr6bBk5jWaw" admOpId="25"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_bufDoCVXEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_buaLICVXEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_dt0eICVXEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_dtwMsCVXEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_kR5PICVXEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_kR09sCVXEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_l-6xoCVXEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_l-2gMCVXEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_AUzgQCVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Enumeration="_AUvO0CVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_AYwzMCVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_EnumerationLiteral="_AYtv4CVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_EbawUCVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_EnumerationLiteral="_EbV30CVYEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_LHgN0CVYEeCmr6bBk5jWaw" base_Operation="_LHb8YCVYEeCmr6bBk5jWaw" admOpId="26"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_LHgN0SVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_LHb8YCVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_MWUxYCVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_MWP44CVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Ox4N0CVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_Oxz8YCVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_X42ZYCVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Class="_X4yH8CVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_X5st8CVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Property="_X5pDkCVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_avuf4CVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Property="_avqOcCVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_dW5WcCVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Property="_dW0d8CVYEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_kw_wgCVYEeCmr6bBk5jWaw" base_Operation="_kw7fECVYEeCmr6bBk5jWaw" admOpId="27"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_kw_wgSVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_kw7fECVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_nw4CACVYEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_nwzJgCVYEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_ZbAWYCVdEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_Za96ICVdEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_x2l-gCetEeCmr6bBk5jWaw" base_Operation="_x2iUICetEeCmr6bBk5jWaw" admOpId="28"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_x2l-gSetEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_x2iUICetEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_zhVCACetEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_zhRXoCetEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_A9K8ECeuEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_A9HRsCeuEeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_P9WWsCeuEeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_P9SFQCeuEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_4JliYCe0EeCmr6bBk5jWaw" base_Operation="_4Jh4ACe0EeCmr6bBk5jWaw" admOpId="29"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_4JliYSe0EeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_4Jh4ACe0EeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_55lgYCe0EeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_55hO8Ce0EeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_qrjagCe1EeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_qrg-QCe1EeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwAction xmi:id="_XIx3ECe4EeCmr6bBk5jWaw" base_Operation="_XItloCe4EeCmr6bBk5jWaw" admOpId="30"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_XIx3ESe4EeCmr6bBk5jWaw" hideGroupName="" specification="" base_Operation="_XItloCe4EeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Yt3lkCe4EeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_YtzUICe4EeCmr6bBk5jWaw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_a8ickCe4EeCmr6bBk5jWaw" hideGroupName="" specification="" base_Parameter="_a8eyMCe4EeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwMom xmi:id="_keluIKb8EeK6n8bgcUPuKg" base_Package="_KelrUCL1EeCLftsa96O-NA"/>
+  <CoreMWProfile:CmwClass xmi:id="_kfCaEKb8EeK6n8bgcUPuKg" base_Class="_Ke5NUCL1EeCLftsa96O-NA"/>
+  <CoreMWProfile:CmwClass xmi:id="_kfDBIKb8EeK6n8bgcUPuKg" base_Class="_ACiXkCPDEeCoF-oaOUAtug"/>
+  <CoreMWProfile:CmwStruct xmi:id="_kfEPQKb8EeK6n8bgcUPuKg" base_Class="_X4yH8CVYEeCmr6bBk5jWaw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_kfFdYKb8EeK6n8bgcUPuKg" base_Property="_X5pDkCVYEeCmr6bBk5jWaw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_kfGEcKb8EeK6n8bgcUPuKg" base_Property="_avqOcCVYEeCmr6bBk5jWaw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_kfGrgKb8EeK6n8bgcUPuKg" base_Property="_dW0d8CVYEeCmr6bBk5jWaw" isConfigurable="true"/>
+  <Default:Documentation xmi:id="_2kkKIKb-EeK6n8bgcUPuKg" base_Comment="_2kBXkKb-EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_64VFYKb-EeK6n8bgcUPuKg" base_Comment="_64IREKb-EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_8SQFsKb-EeK6n8bgcUPuKg" base_Comment="_8SEfgKb-EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_9sDxQKb-EeK6n8bgcUPuKg" base_Comment="_9r4LEKb-EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_-lZNAKb-EeK6n8bgcUPuKg" base_Comment="_-lPcAKb-EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="__4JOUKb-EeK6n8bgcUPuKg" base_Comment="__39BEKb-EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_BMkqoKb_EeK6n8bgcUPuKg" base_Comment="_BMekAKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_Ccy8YKb_EeK6n8bgcUPuKg" base_Comment="_CcmIEKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_DftK4Kb_EeK6n8bgcUPuKg" base_Comment="_DfMNgKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_FtAI4Kb_EeK6n8bgcUPuKg" base_Comment="_Fs73cKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_GyRH0Kb_EeK6n8bgcUPuKg" base_Comment="_GyIk8Kb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_HuYx0Kb_EeK6n8bgcUPuKg" base_Comment="_HuMkkKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_JNInwKb_EeK6n8bgcUPuKg" base_Comment="_JM8agKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_KSo3QKb_EeK6n8bgcUPuKg" base_Comment="_KScqAKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_LjVqIKb_EeK6n8bgcUPuKg" base_Comment="_LjLSEKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_Mi8F8Kb_EeK6n8bgcUPuKg" base_Comment="_MiyU8Kb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_NjGicKb_EeK6n8bgcUPuKg" base_Comment="_NjBp8Kb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_OuFH0Kb_EeK6n8bgcUPuKg" base_Comment="_Ot4TgKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_PjGrUKb_EeK6n8bgcUPuKg" base_Comment="_Pi53AKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_Q0urQKb_EeK6n8bgcUPuKg" base_Comment="_Q0mvcKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_SnV4YKb_EeK6n8bgcUPuKg" base_Comment="_SnJEEKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_TuMLsKb_EeK6n8bgcUPuKg" base_Comment="_TuAlgKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_UtY-4Kb_EeK6n8bgcUPuKg" base_Comment="_UtLjgKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_VtAo0Kb_EeK6n8bgcUPuKg" base_Comment="_Vs8XYKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_WnhwUKb_EeK6n8bgcUPuKg" base_Comment="_WneF8Kb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_XlBTUKb_EeK6n8bgcUPuKg" base_Comment="_Xk0fAKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_YgSBsKb_EeK6n8bgcUPuKg" base_Comment="_YgF0cKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_ZuRe0Kb_EeK6n8bgcUPuKg" base_Comment="_ZuEqgKb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_cfqBUKb_EeK6n8bgcUPuKg" base_Comment="_cfmW8Kb_EeK6n8bgcUPuKg"/>
+  <Default:Documentation xmi:id="_duvqoKb_EeK6n8bgcUPuKg" base_Comment="_duoV4Kb_EeK6n8bgcUPuKg"/>
+  <CoreMWProfile:CmwStruct xmi:id="_Twc8sKu5EeKX0Ie1c9SjOA" base_Class="_TpqYMKu5EeKX0Ie1c9SjOA"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_TwjqYKu5EeKX0Ie1c9SjOA" hideGroupName="" specification="" statusInformation="" base_Class="_TpqYMKu5EeKX0Ie1c9SjOA"/>
+  <Default:Documentation xmi:id="_TwtbYKu5EeKX0Ie1c9SjOA" base_Comment="_TwjqYau5EeKX0Ie1c9SjOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Tw3MYKu5EeKX0Ie1c9SjOA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_TwupgKu5EeKX0Ie1c9SjOA"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_Tw3zcKu5EeKX0Ie1c9SjOA" base_Property="_TwupgKu5EeKX0Ie1c9SjOA" isConfigurable="true"/>
+  <Default:Documentation xmi:id="_TxAWUKu5EeKX0Ie1c9SjOA" base_Comment="_Tw3zcau5EeKX0Ie1c9SjOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_QNGREKvBEeKX0Ie1c9SjOA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_QM1yYKvBEeKX0Ie1c9SjOA"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_QNHfMKvBEeKX0Ie1c9SjOA" base_Property="_QM1yYKvBEeKX0Ie1c9SjOA" isConfigurable="true"/>
+  <Default:Documentation xmi:id="_QNOM4KvBEeKX0Ie1c9SjOA" base_Comment="_QNIGQKvBEeKX0Ie1c9SjOA"/>
+  <CoreMWProfile:CmwAction xmi:id="_dUEzsKyYEeKnJ9RzwnXBxw" base_Operation="_dOuZoKyYEeKnJ9RzwnXBxw" admOpId="40"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_dUOksKyYEeKnJ9RzwnXBxw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_dOuZoKyYEeKnJ9RzwnXBxw"/>
+  <Default:Documentation xmi:id="_dUUEQKyYEeKnJ9RzwnXBxw" base_Comment="_dUOksayYEeKnJ9RzwnXBxw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_jYsBgKyYEeKnJ9RzwnXBxw" hideGroupName="" specification="" statusInformation="" base_Parameter="_jYcw8KyYEeKnJ9RzwnXBxw"/>
+  <Default:Documentation xmi:id="_jY410KyYEeKnJ9RzwnXBxw" base_Comment="_jYsokKyYEeKnJ9RzwnXBxw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_orR8gKyYEeKnJ9RzwnXBxw" hideGroupName="" specification="" statusInformation="" base_Parameter="_orCE4KyYEeKnJ9RzwnXBxw"/>
+  <Default:Documentation xmi:id="_orZRQKyYEeKnJ9RzwnXBxw" base_Comment="_orSjkKyYEeKnJ9RzwnXBxw"/>
+  <CoreMWProfile:CmwAction xmi:id="_PDP88KyZEeKnJ9RzwnXBxw" base_Operation="_PDEWwKyZEeKnJ9RzwnXBxw" admOpId="41"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_PDQkAKyZEeKnJ9RzwnXBxw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_PDEWwKyZEeKnJ9RzwnXBxw"/>
+  <Default:Documentation xmi:id="_PDWqoKyZEeKnJ9RzwnXBxw" base_Comment="_PDQkAayZEeKnJ9RzwnXBxw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_T-zQ8KyZEeKnJ9RzwnXBxw" hideGroupName="" specification="" statusInformation="" base_Parameter="_T-nqwKyZEeKnJ9RzwnXBxw"/>
+  <Default:Documentation xmi:id="_T--3IKyZEeKnJ9RzwnXBxw" base_Comment="_T-z4AKyZEeKnJ9RzwnXBxw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_YaBfEKyZEeKnJ9RzwnXBxw" hideGroupName="" specification="" statusInformation="" base_Parameter="_YZ90sKyZEeKnJ9RzwnXBxw"/>
+  <Default:Documentation xmi:id="_YaEiYKyZEeKnJ9RzwnXBxw" base_Comment="_YaBfEayZEeKnJ9RzwnXBxw"/>
+  <CoreMWProfile:CmwAction xmi:id="_EWHOYKylEeK-kM-rKg1V6A" base_Operation="_EV06gKylEeK-kM-rKg1V6A" admOpId="44"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_EWH1cKylEeK-kM-rKg1V6A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_EV06gKylEeK-kM-rKg1V6A"/>
+  <Default:Documentation xmi:id="_EWOjIKylEeK-kM-rKg1V6A" base_Comment="_EWH1caylEeK-kM-rKg1V6A"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_QYQxoKylEeK-kM-rKg1V6A" hideGroupName="" specification="" statusInformation="" base_Parameter="_QYA6AKylEeK-kM-rKg1V6A"/>
+  <Default:Documentation xmi:id="_QYYGYKylEeK-kM-rKg1V6A" base_Comment="_QYQxoaylEeK-kM-rKg1V6A"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_DSLlsK4lEeKkSq5oE3RBsA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_DR-KUK4lEeKkSq5oE3RBsA"/>
+  <CoreMWProfile:CmwAction xmi:id="_DSOB8K4lEeKkSq5oE3RBsA" base_Operation="_DR-KUK4lEeKkSq5oE3RBsA" admOpId="42"/>
+  <Default:Documentation xmi:id="_DScEYK4lEeKkSq5oE3RBsA" base_Comment="_DSOB8a4lEeKkSq5oE3RBsA"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_PT8HYK4lEeKkSq5oE3RBsA" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_PTvTEK4lEeKkSq5oE3RBsA"/>
+  <Default:Documentation xmi:id="_PUHtkK4lEeKkSq5oE3RBsA" base_Comment="_PT8ucK4lEeKkSq5oE3RBsA"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_kmH1ILCiEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" base_Class="_klrwQLCiEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStruct xmi:id="_kmJDQLCiEeKEXvbL2cpGMw" base_Class="_klrwQLCiEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_kmQYALCiEeKEXvbL2cpGMw" base_Comment="_kmJDQbCiEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_kmWeoLCiEeKEXvbL2cpGMw" base_Property="_kmQ_ELCiEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_kmWeobCiEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_kmQ_ELCiEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_kmb-MLCiEeKEXvbL2cpGMw" base_Comment="_kmWeorCiEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_x5TicLCiEeKEXvbL2cpGMw" base_Property="_x5B1oLCiEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_x5UwkLCiEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_x5B1oLCiEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_x5kBILCiEeKEXvbL2cpGMw" base_Comment="_x5VXoLCiEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwAction xmi:id="_QFa7wLCjEeKEXvbL2cpGMw" base_Operation="_QFKdELCjEeKEXvbL2cpGMw" admOpId="43"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_QFcJ4LCjEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_QFKdELCjEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_QFqMULCjEeKEXvbL2cpGMw" base_Comment="_QFcJ4bCjEeKEXvbL2cpGMw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_ayTVMLCjEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_ayDdkLCjEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_ayb4ELCjEeKEXvbL2cpGMw" base_Comment="_ayTVMbCjEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwAction xmi:id="_eUNfALFOEeKEXvbL2cpGMw" base_Operation="_eT_ckLFOEeKEXvbL2cpGMw" admOpId="45"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_eUOGELFOEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_eT_ckLFOEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_eUX3ELFOEeKEXvbL2cpGMw" base_Comment="_eUOGEbFOEeKEXvbL2cpGMw"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_521GgLFOEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" base_Class="_52o5QLFOEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStruct xmi:id="_521tkLFOEeKEXvbL2cpGMw" base_Class="_52o5QLFOEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_528bQLFOEeKEXvbL2cpGMw" base_Comment="_521tkbFOEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_53B60LFOEeKEXvbL2cpGMw" base_Property="_528bQbFOEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_53Ch4LFOEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_528bQbFOEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_53IBcLFOEeKEXvbL2cpGMw" base_Comment="_53Ch4bFOEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_FK-UQLFPEeKEXvbL2cpGMw" base_Property="_FK4NoLFPEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_FK-7ULFPEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_FK4NoLFPEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_FLDz0LFPEeKEXvbL2cpGMw" base_Comment="_FK_iYLFPEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_LK-u4LFPEeKEXvbL2cpGMw" base_Property="_LKyhoLFPEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_LLFckLFPEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_LKyhoLFPEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_LLNYYLFPEeKEXvbL2cpGMw" base_Comment="_LLFckbFPEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_QxCYcLFPEeKEXvbL2cpGMw" base_Property="_Qw1kILFPEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_QxDmkLFPEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Qw1kILFPEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_QxMJcLFPEeKEXvbL2cpGMw" base_Comment="_QxENoLFPEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_X8FC0LFPEeKEXvbL2cpGMw" base_Property="_X75coLFPEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_X8GQ8LFPEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_X75coLFPEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_X8OMwLFPEeKEXvbL2cpGMw" base_Comment="_X8GQ8bFPEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_g2ojALFPEeKEXvbL2cpGMw" base_Property="_g2bHoLFPEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_g2pxILFPEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_g2bHoLFPEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_g21-YLFPEeKEXvbL2cpGMw" base_Comment="_g2pxIbFPEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_oEDL8LFPEeKEXvbL2cpGMw" base_Property="_oD2XoLFPEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_oEDzALFPEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_oD2XoLFPEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_oEScgLFPEeKEXvbL2cpGMw" base_Comment="_oEDzAbFPEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_u5Xd8LFPEeKEXvbL2cpGMw" base_Property="_u5TMgLFPEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_u5YFALFPEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_u5TMgLFPEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_u5bvYLFPEeKEXvbL2cpGMw" base_Comment="_u5YFAbFPEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_SMfNULFQEeKEXvbL2cpGMw" base_Property="_SMRx8LFQEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SMgbcLFQEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_SMRx8LFQEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_SMnJILFQEeKEXvbL2cpGMw" base_Comment="_SMhCgLFQEeKEXvbL2cpGMw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_lx6UwLFQEeKEXvbL2cpGMw" base_Property="_lxs5YLFQEeKEXvbL2cpGMw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_lx7i4LFQEeKEXvbL2cpGMw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_lxs5YLFQEeKEXvbL2cpGMw"/>
+  <Default:Documentation xmi:id="_lyCQkLFQEeKEXvbL2cpGMw" base_Comment="_lx8J8LFQEeKEXvbL2cpGMw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_j3gWMLFTEeK7oeQz_xMj7g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_jyyOQLFTEeK7oeQz_xMj7g"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_j3hkULFTEeK7oeQz_xMj7g" base_Property="_jyyOQLFTEeK7oeQz_xMj7g" isConfigurable="true"/>
+  <Default:Documentation xmi:id="_j3nq8LFTEeK7oeQz_xMj7g" base_Comment="_j3iLYLFTEeK7oeQz_xMj7g"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_qgkU4LFTEeK7oeQz_xMj7g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_qgUdQLFTEeK7oeQz_xMj7g"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_qgljALFTEeK7oeQz_xMj7g" base_Property="_qgUdQLFTEeK7oeQz_xMj7g" isConfigurable="true"/>
+  <Default:Documentation xmi:id="_qgxJMLFTEeK7oeQz_xMj7g" base_Comment="_qgljAbFTEeK7oeQz_xMj7g"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_4zH0gLFTEeK7oeQz_xMj7g" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_4yjMwLFTEeK7oeQz_xMj7g"/>
+  <Default:Documentation xmi:id="_4zLe4LFTEeK7oeQz_xMj7g" base_Comment="_4zH0gbFTEeK7oeQz_xMj7g"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_akTGYLIMEeK_W9-Ehc4fWg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_akIHQLIMEeK_W9-Ehc4fWg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_akTtcLIMEeK_W9-Ehc4fWg" base_Property="_akIHQLIMEeK_W9-Ehc4fWg" isConfigurable="true"/>
+  <Default:Documentation xmi:id="_akc3YLIMEeK_W9-Ehc4fWg" base_Comment="_akTtcbIMEeK_W9-Ehc4fWg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_UcGcQLIQEeKQUYxbPL5W5g" base_Property="_UbvP4LIQEeKQUYxbPL5W5g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_UcI4gLIQEeKQUYxbPL5W5g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_UbvP4LIQEeKQUYxbPL5W5g"/>
+  <Default:Documentation xmi:id="_UcOYELIQEeKQUYxbPL5W5g" base_Comment="_UcJfkLIQEeKQUYxbPL5W5g"/>
+  <CoreMWProfile:CmwAction xmi:id="_i5UG8LLEEeK2z5-wICbQ6g" base_Operation="_iy9AQLLEEeK2z5-wICbQ6g" admOpId="46"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_i5YYYLLEEeK2z5-wICbQ6g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_iy9AQLLEEeK2z5-wICbQ6g"/>
+  <Default:Documentation xmi:id="_od8NILLEEeK2z5-wICbQ6g" base_Comment="_ods8kLLEEeK2z5-wICbQ6g"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_C-PcALLFEeK2z5-wICbQ6g" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_C-D10LLFEeK2z5-wICbQ6g"/>
+  <Default:Documentation xmi:id="_C-WwwLLFEeK2z5-wICbQ6g" base_Comment="_C-PcAbLFEeK2z5-wICbQ6g"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_J1xUgLLFEeK2z5-wICbQ6g" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_J1g10LLFEeK2z5-wICbQ6g"/>
+  <Default:Documentation xmi:id="_J19hwLLFEeK2z5-wICbQ6g" base_Comment="_J1x7kLLFEeK2z5-wICbQ6g"/>
+  <CoreMWProfile:CmwAction xmi:id="_XwrwMLLFEeK2z5-wICbQ6g" base_Operation="_Xwh_MLLFEeK2z5-wICbQ6g" admOpId="47"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_XwsXQLLFEeK2z5-wICbQ6g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_Xwh_MLLFEeK2z5-wICbQ6g"/>
+  <Default:Documentation xmi:id="_Xw06ILLFEeK2z5-wICbQ6g" base_Comment="_XwsXQbLFEeK2z5-wICbQ6g"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_43FJULLFEeK2z5-wICbQ6g" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_421RsLLFEeK2z5-wICbQ6g"/>
+  <Default:Documentation xmi:id="_43VA8LLFEeK2z5-wICbQ6g" base_Comment="_43FwYLLFEeK2z5-wICbQ6g"/>
+  <CoreMWProfile:CmwAction xmi:id="_13v9QLXtEeK3I4d3r0IU_A" base_Operation="_1wLVoLXtEeK3I4d3r0IU_A" admOpId="48"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_13-mwLXtEeK3I4d3r0IU_A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_1wLVoLXtEeK3I4d3r0IU_A"/>
+  <Default:Documentation xmi:id="_14KM8LXtEeK3I4d3r0IU_A" base_Comment="_13_N0LXtEeK3I4d3r0IU_A"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Ycx3kLXuEeK3I4d3r0IU_A" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_YclDQLXuEeK3I4d3r0IU_A"/>
+  <Default:Documentation xmi:id="_Yc7BgLXuEeK3I4d3r0IU_A" base_Comment="_Ycx3kbXuEeK3I4d3r0IU_A"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_h4Y2YLXuEeK3I4d3r0IU_A" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_h4I-wLXuEeK3I4d3r0IU_A"/>
+  <Default:Documentation xmi:id="_h4j1gLXuEeK3I4d3r0IU_A" base_Comment="_h4Y2YbXuEeK3I4d3r0IU_A"/>
+  <CoreMWProfile:CmwAction xmi:id="_FGFs0Lb4EeKqvapzH0-73A" base_Operation="_FFpA4Lb4EeKqvapzH0-73A" admOpId="49"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_FGG68Lb4EeKqvapzH0-73A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_FFpA4Lb4EeKqvapzH0-73A"/>
+  <Default:Documentation xmi:id="_FGMagLb4EeKqvapzH0-73A" base_Comment="_FGHiALb4EeKqvapzH0-73A"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Mlh54Lb4EeKqvapzH0-73A" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_MlYv8Lb4EeKqvapzH0-73A"/>
+  <Default:Documentation xmi:id="_Mlp1sLb4EeKqvapzH0-73A" base_Comment="_Mlig8Lb4EeKqvapzH0-73A"/>
+  <CoreMWProfile:CmwAction xmi:id="_hR7QcLb4EeKqvapzH0-73A" base_Operation="_hRwRULb4EeKqvapzH0-73A" admOpId="50"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_hR73gLb4EeKqvapzH0-73A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_hRwRULb4EeKqvapzH0-73A"/>
+  <Default:Documentation xmi:id="_hSFogLb4EeKqvapzH0-73A" base_Comment="_hR73gbb4EeKqvapzH0-73A"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_nbfPsLb4EeKqvapzH0-73A" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_nbSbYLb4EeKqvapzH0-73A"/>
+  <Default:Documentation xmi:id="_nblWULb4EeKqvapzH0-73A" base_Comment="_nbfPsbb4EeKqvapzH0-73A"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_oUS8ILhaEeK-QNhFRpCUqg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_oIkNQLhaEeK-QNhFRpCUqg"/>
+  <CoreMWProfile:CmwAction xmi:id="_oUizwLhaEeK-QNhFRpCUqg" base_Operation="_oIkNQLhaEeK-QNhFRpCUqg" admOpId="51"/>
+  <Default:Documentation xmi:id="_oUw2MLhaEeK-QNhFRpCUqg" base_Comment="_oUizwbhaEeK-QNhFRpCUqg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_ANK1wLhbEeK-QNhFRpCUqg" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_ANCS4LhbEeK-QNhFRpCUqg"/>
+  <Default:Documentation xmi:id="_ANSxkLhbEeK-QNhFRpCUqg" base_Comment="_ANLc0LhbEeK-QNhFRpCUqg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_-cFV0LheEeK-QNhFRpCUqg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_-b1eMLheEeK-QNhFRpCUqg"/>
+  <CoreMWProfile:CmwAction xmi:id="_-cF84LheEeK-QNhFRpCUqg" base_Operation="_-b1eMLheEeK-QNhFRpCUqg" admOpId="52"/>
+  <Default:Documentation xmi:id="_-cN4sLheEeK-QNhFRpCUqg" base_Comment="_-cF84bheEeK-QNhFRpCUqg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_SQyPYLhfEeK-QNhFRpCUqg" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_SQmCILhfEeK-QNhFRpCUqg"/>
+  <Default:Documentation xmi:id="_SQ3u8LhfEeK-QNhFRpCUqg" base_Comment="_SQyPYbhfEeK-QNhFRpCUqg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_vyzTELhwEeK-QNhFRpCUqg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_vymewLhwEeK-QNhFRpCUqg"/>
+  <CoreMWProfile:CmwAction xmi:id="_vyz6ILhwEeK-QNhFRpCUqg" base_Operation="_vymewLhwEeK-QNhFRpCUqg" admOpId="53"/>
+  <Default:Documentation xmi:id="_vy9EELhwEeK-QNhFRpCUqg" base_Comment="_vyz6IbhwEeK-QNhFRpCUqg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_-jQ2sLhwEeK-QNhFRpCUqg" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_-jMlQLhwEeK-QNhFRpCUqg"/>
+  <Default:Documentation xmi:id="_-jUhELhwEeK-QNhFRpCUqg" base_Comment="_-jQ2sbhwEeK-QNhFRpCUqg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_Z6T0EMH4EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_Z3yrkMH4EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_Z6VCMMH4EeKW1ND5Bjv9Aw" base_Operation="_Z3yrkMH4EeKW1ND5Bjv9Aw" admOpId="60"/>
+  <Default:Documentation xmi:id="_Z6goYMH4EeKW1ND5Bjv9Aw" base_Comment="_Z6VpQMH4EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_jKXDIMH4EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_jKLc8MH4EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_jKe-8MH4EeKW1ND5Bjv9Aw" base_Comment="_jKXqMMH4EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_yjcF8MH4EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_yjWmYMH4EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_yjctAMH4EeKW1ND5Bjv9Aw" base_Operation="_yjWmYMH4EeKW1ND5Bjv9Aw" admOpId="61"/>
+  <Default:Documentation xmi:id="_yjhlgMH4EeKW1ND5Bjv9Aw" base_Comment="_yjctAcH4EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_WqOt8MH5EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_WqDu0MH5EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_WqP8EMH5EeKW1ND5Bjv9Aw" base_Operation="_WqDu0MH5EeKW1ND5Bjv9Aw" admOpId="62"/>
+  <Default:Documentation xmi:id="_WqYe8MH5EeKW1ND5Bjv9Aw" base_Comment="_WqP8EcH5EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_iQMEcMH5EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_iQBFUMH5EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_iQMrgMH5EeKW1ND5Bjv9Aw" base_Operation="_iQBFUMH5EeKW1ND5Bjv9Aw" admOpId="63"/>
+  <Default:Documentation xmi:id="_iQRkAMH5EeKW1ND5Bjv9Aw" base_Comment="_iQNSkMH5EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_qeGhEMH5EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_qd5swMH5EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_qeHvMMH5EeKW1ND5Bjv9Aw" base_Operation="_qd5swMH5EeKW1ND5Bjv9Aw" admOpId="64"/>
+  <Default:Documentation xmi:id="_qeSuUMH5EeKW1ND5Bjv9Aw" base_Comment="_qeHvMcH5EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_vFIWkMH5EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_vFAawMH5EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_vFI9oMH5EeKW1ND5Bjv9Aw" base_Operation="_vFAawMH5EeKW1ND5Bjv9Aw" admOpId="65"/>
+  <Default:Documentation xmi:id="_0_fcMMH5EeKW1ND5Bjv9Aw" base_Comment="_0_W5UMH5EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_8TToEMH5EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_8TLFMMH5EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_8TUPIMH5EeKW1ND5Bjv9Aw" base_Operation="_8TLFMMH5EeKW1ND5Bjv9Aw" admOpId="66"/>
+  <Default:Documentation xmi:id="_8TZHoMH5EeKW1ND5Bjv9Aw" base_Comment="_8TUPIcH5EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_CH1LcMH6EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_CHo-MMH6EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_CH1ygMH6EeKW1ND5Bjv9Aw" base_Operation="_CHo-MMH6EeKW1ND5Bjv9Aw" admOpId="67"/>
+  <Default:Documentation xmi:id="_CH8gMMH6EeKW1ND5Bjv9Aw" base_Comment="_CH2ZkMH6EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_GlgQoMH6EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_GlXGsMH6EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_GlpakMH6EeKW1ND5Bjv9Aw" base_Comment="_Glg3sMH6EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_L6G90MH6EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_L57-sMH6EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_L6NrgMH6EeKW1ND5Bjv9Aw" base_Comment="_L6Hk4MH6EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_b0cTkMH6EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_b0TJoMH6EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_b0ldgMH6EeKW1ND5Bjv9Aw" base_Comment="_b0cTkcH6EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_gkRfwMH6EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_gkGgoMH6EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_gkce4MH6EeKW1ND5Bjv9Aw" base_Comment="_gkSG0MH6EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_loiq4MH6EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_loV2kMH6EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_louREMH6EeKW1ND5Bjv9Aw" base_Comment="_lojR8MH6EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_71aVsMH6EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_71OvgMH6EeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_71aVscH6EeKW1ND5Bjv9Aw" base_Operation="_71OvgMH6EeKW1ND5Bjv9Aw" admOpId="68"/>
+  <Default:Documentation xmi:id="_71hDYMH6EeKW1ND5Bjv9Aw" base_Comment="_71a8wMH6EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_AoRAsMH7EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_AoFagMH7EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_AoaxsMH7EeKW1ND5Bjv9Aw" base_Comment="_AoRnwMH7EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_e7Fe8MH7EeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_e67G4MH7EeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_e7NawMH7EeKW1ND5Bjv9Aw" base_Comment="_e7Fe8cH7EeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_LOspEMKZEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_LOhC4MKZEeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_LOtQIMKZEeKW1ND5Bjv9Aw" base_Operation="_LOhC4MKZEeKW1ND5Bjv9Aw" admOpId="69"/>
+  <Default:Documentation xmi:id="_LOz90MKZEeKW1ND5Bjv9Aw" base_Comment="_LOt3MMKZEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_G_CUQMKlEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_G-3VIMKlEeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_G_NTYMKlEeKW1ND5Bjv9Aw" base_Comment="_G_C7UMKlEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="__zrKsMKtEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="__ze9cMKtEeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="__z07sMKtEeKW1ND5Bjv9Aw" base_Comment="__zrxwMKtEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_yU214MNBEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_yUozcMNBEeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_yU4EAMNBEeKW1ND5Bjv9Aw" base_Operation="_yUozcMNBEeKW1ND5Bjv9Aw" admOpId="70"/>
+  <Default:Documentation xmi:id="_yVDqMMNBEeKW1ND5Bjv9Aw" base_Comment="_yU4EAcNBEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_4y4pQMNBEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_4yr08MNBEeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_4zDBUMNBEeKW1ND5Bjv9Aw" base_Comment="_4y4pQcNBEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_iK5TQMNCEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_iKr34MNCEeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_iK56UMNCEeKW1ND5Bjv9Aw" base_Operation="_iKr34MNCEeKW1ND5Bjv9Aw" admOpId="71"/>
+  <Default:Documentation xmi:id="_iLAA8MNCEeKW1ND5Bjv9Aw" base_Comment="_iK56UcNCEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_wFV04MNCEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_wFK1wMNCEeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_wFdJoMNCEeKW1ND5Bjv9Aw" base_Comment="_wFV04cNCEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_V6hmoMNqEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_V6dVMMNqEeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_V6l4EMNqEeKW1ND5Bjv9Aw" base_Comment="_V6iNsMNqEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_wqzbUMOjEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_wqlY4MOjEeKW1ND5Bjv9Aw"/>
+  <CoreMWProfile:CmwAction xmi:id="_wq0CYMOjEeKW1ND5Bjv9Aw" base_Operation="_wqlY4MOjEeKW1ND5Bjv9Aw" admOpId="54"/>
+  <Default:Documentation xmi:id="_wq_okMOjEeKW1ND5Bjv9Aw" base_Comment="_wq0CYcOjEeKW1ND5Bjv9Aw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_4xq0wMOjEeKW1ND5Bjv9Aw" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_4xdZYMOjEeKW1ND5Bjv9Aw"/>
+  <Default:Documentation xmi:id="_4xxicMOjEeKW1ND5Bjv9Aw" base_Comment="_4xrb0MOjEeKW1ND5Bjv9Aw"/>
+</xmi:XMI>

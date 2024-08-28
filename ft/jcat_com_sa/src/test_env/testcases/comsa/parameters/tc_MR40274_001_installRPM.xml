@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MR40274 CBA offline installable RPM</id>
+        <tag>TC-MR40274-001</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr40274</testcase>
+        <class>InstallRPM</class>
+        <method>InstallRPM</method>
+        <description>This testcase will install only RPM on SLES 12 without LDE - cbaserv01/02</description>
+        </info>
+    <config>
+        <reqComSaVersion>R8A01</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+    </config>
+</testcase>

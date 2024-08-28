@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2013 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Jul 17, 2013 12:58:45 PM using:
+	* com.ericsson.ecim.m2m 2.7.0.qualifier
+	* com.ericsson.ecim.dsl 2.7.0.qualifier
+	* com.ericsson.ecim.edm 2.7.0.qualifier
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>F</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="XMom" namespace="urn:com:ericsson:ecim:XMom" namespacePrefix="xmom" organization="" release="1" revision="" version="1">
+        <description>Docs...</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <class name="RootX">
+            <description>Docs</description>
+            <root/>
+            <attribute name="rootXId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="abstractRef">
+                <description>Docs...</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="" contact="" correction="0" date="" docNo="" name="YMom" namespace="urn:com:ericsson:ecim:YMom" namespacePrefix="ymom" organization="" release="1" revision="" version="1">
+        <description>Docs...</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <class name="RootY">
+            <description>Docs...</description>
+            <root/>
+            <attribute name="rootYId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="" contact="" correction="0" date="" docNo="" name="AMom" namespace="urn:com:ericsson:ecim:AMom" namespacePrefix="amom" organization="" release="1" revision="" version="1">
+        <description>Docs...</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <class name="RootA">
+            <description>Docs...</description>
+            <root/>
+            <attribute name="rootAId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="ClassA">
+            <description>Docs...</description>
+            <attribute name="classAId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="RootA_to_ClassA">
+            <containment>
+                <parent>
+                    <hasClass name="RootA">
+                        <mimName>AMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="ClassA">
+                        <mimName>AMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </mim>
+    <mim author="" contact="" correction="0" date="" docNo="" name="BMom" namespace="urn:com:ericsson:ecim:BMom" namespacePrefix="bmom" organization="" release="1" revision="" version="1">
+        <description>Docs...</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <class name="RootB">
+            <description>Docs</description>
+            <root/>
+            <attribute name="rootBId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="" contact="" correction="0" date="" docNo="" name="CMom" namespace="urn:com:ericsson:ecim:CMom" namespacePrefix="cmom" organization="" release="1" revision="" version="1">
+        <description>Docs...</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <class name="RootC">
+            <description>Docs...</description>
+            <root/>
+            <attribute name="rootCId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="ClassC">
+            <description>Docs...</description>
+            <attribute name="classCId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="RootC_to_ClassC">
+            <containment>
+                <parent>
+                    <hasClass name="RootC">
+                        <mimName>CMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="ClassC">
+                        <mimName>CMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </mim>
+    <mim author="" contact="" correction="0" date="" docNo="" name="DMom" namespace="urn:com:ericsson:ecim:DMom" namespacePrefix="dmom" organization="" release="1" revision="" version="1">
+        <description>Docs...</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <class name="RootD">
+            <description>Docs...</description>
+            <root/>
+            <attribute name="rootDId">
+                <description>Docs...</description>
+                <mandatory/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="ManagedElement_to_RootX">
+            <domainExtension domain="IMM">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ManagedElement">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RootX">
+                        <mimName>XMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="ManagedElement_to_RootY">
+            <domainExtension domain="IMM">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ManagedElement">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RootY">
+                        <mimName>YMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="RootX_to_RootA">
+            <domainExtension domain="IMM">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="RootX">
+                        <mimName>XMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RootA">
+                        <mimName>AMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="RootY_to_RootA">
+            <domainExtension domain="IMM">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="RootY">
+                        <mimName>YMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RootA">
+                        <mimName>AMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="ClassA_to_RootB">
+            <domainExtension domain="IMM">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ClassA">
+                        <mimName>AMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RootB">
+                        <mimName>BMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="RootX_to_RootC">
+            <domainExtension domain="IMM">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="RootX">
+                        <mimName>XMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RootC">
+                        <mimName>CMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="ClassC_to_RootD">
+            <domainExtension domain="IMM">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ClassC">
+                        <mimName>CMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RootD">
+                        <mimName>DMom</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    
+</models>

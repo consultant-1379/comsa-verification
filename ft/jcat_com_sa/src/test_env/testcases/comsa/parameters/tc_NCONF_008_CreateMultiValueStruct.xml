@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configuration Using Netconf - Creating Multivalue Struct</id>
+        <tag>TC-NCONF-008</tag>	
+        <version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>Creating Multivalue Struct</description>
+	</info>	
+    <config>    
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<useExternalModels>yes</useExternalModels>
+    	<modelFilePathOnTarget>/home/netconfTest/</modelFilePathOnTarget>
+    	<modelFileType>763</modelFileType>    	
+    	<momFile>SDP763_mp5.xml</momFile>
+    	<immClassesFile>SDP763_imm_classes5.xml</immClassesFile>    	
+    	
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <helloFile>Hello.xml</helloFile>
+
+        <actionFile>['CreateMultivalueStruct.xml']</actionFile>
+        <actionFile2>['check008.xml']</actionFile2>
+        <actionFile3>['removingMultivalueStruct.xml']</actionFile3>
+        <actionFile4>['check008b.xml']</actionFile4>
+        <closeFile>Close.xml</closeFile> 
+        <logFile>logFile.txt</logFile>
+    	<respFile>expectedOutput008a.txt</respFile>
+    	<respFile2>expectedOutput008b.txt</respFile2>
+    	<respFile3>expectedOutput008a.txt</respFile3>
+    	<respFile4>expectedOutput008d.txt</respFile4>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+
+    	<forbiddenContent>['ObjImpComplexClass', 'objImpComplexClassId', 'TestStruct']</forbiddenContent>
+	</config>  
+</testcase>

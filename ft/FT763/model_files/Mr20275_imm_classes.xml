@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" xmlns:xs="http://www.w3.org/2001/
+XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.
+saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+<class name="ObjectMr20275">
+      <category>SA_CONFIG</category>
+      <rdn>
+        <name>ObjectMr20275Id</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_INITIALIZED</flag>
+      </rdn>
+      <attr>
+        <name>TestStructAttr</name>
+        <type>SA_NAME_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+      </attr>
+</class>
+<class name="TestStruct">
+      <category>SA_CONFIG</category>
+      <rdn>
+        <name>id</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_INITIALIZED</flag>
+      </rdn>
+      <attr>
+        <name>name</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+      </attr>
+      <attr>
+        <name>testWritableAttrUint8</name>
+        <type>SA_UINT32_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <default-value>0</default-value>
+      </attr>
+      <attr>
+        <name>testWritableAttrString</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <default-value>Failing is not an option for Writable String attribute in a struct</default-value>
+      </attr>
+      <attr>
+        <name>testWritableAttrBool</name>
+        <type>SA_INT32_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <default-value>0</default-value>
+      </attr>
+</class>
+</imm:IMM-contents>
+

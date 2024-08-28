@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Check the AlarmLogs and AlertLogs are existed in the NBI and internal root directories</id>
+        <tag>TC-HT92302-001</tag>
+        <version>P1A01</version>
+        <testcase>alarms</testcase>
+        <class>Alarms</class>
+        <method>Alarms</method>
+        <description>Check the AlarmLogs and AlertLogs are existed in the NBI and internal root directories</description>
+        </info>
+    <config>
+
+        <checkAlarmLogsAlertLogs>True</checkAlarmLogsAlertLogs>
+        <numOfFolder>2</numOfFolder>
+        <userDefinedPath>/var/tmp/fileM</userDefinedPath>
+
+    </config>
+</testcase>
+

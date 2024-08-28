@@ -1,0 +1,136 @@
+#!/usr/bin/env expect
+#
+
+#
+# Sends a preformatted message to the user
+#
+proc doblurb {msg} {
+    msguser "\r"
+    msguser "###########################################################################"
+    msguser "$msg"
+    msguser "###########################################################################"
+    msguser "\r"
+}
+
+#
+# Create a timestamp
+# Returns the timestamp
+#
+proc timestamp {} {
+    set comptime [clock format [clock seconds] -format "%b %d %H:%M:%S"]
+    return $comptime
+}
+
+
+#
+# Send a message to the user
+#
+proc msguser {message} {
+    send_user "\[ [timestamp] \] EXPECT $message"
+    send_user "\n"
+}
+
+# Sends a start message to the user
+#
+proc dostart {msg} {
+    doblurb $msg
+}
+#
+# Handle exit
+# Takes two values, the message which is displayed to the user, and the exit value.
+#
+proc doexit {message value} {
+    if {$value == 0} {
+	doblurb $message
+    } else {
+	doblurb "!!!!!!!! $message !!!!!!!!"
+    } 
+    
+    # Removing these since I (micjybg) believe they are overkill (no pun intended)
+    # close
+    # wait
+    exit $value
+}
+
+#
+# Get the exit status
+#
+proc getexitstatus { } {
+    upvar spawn_id spawn_id
+    set timeout -1
+    
+    send -- "echo $?"
+    expect -exact "echo $?"
+    send -- "\r"
+    expect -exact "\r"
+    expect -re "(.)\r"
+    set exitstatus $expect_out(1,string)
+
+    waitforprompt "SC_2.+#" 30
+
+    return $exitstatus
+}
+
+#
+# Logon via ssh
+# Takes three arguments, the ip, the username and the password.
+#
+proc ssh_login {ip user password} {
+    upvar spawn_id spawn_id
+    set timeout 10
+    match_max 100000
+    spawn ssh $user@$ip
+    login_expect $password
+    expect "*# $" { }
+}
+
+#
+#Logoff a ssh session
+#
+proc logoff {} {
+    upvar spawn_id spawn_id
+    send -- "exit\r"
+    expect {
+	"closed" { exp_continue }
+	eof {}
+	-re "(%|#|\\\$ $)" {}
+    }
+}
+
+#
+#Answer ssh-certificate question and matches ssh-login prompt for password
+#
+proc login_expect {password} {
+    upvar spawn_id spawn_id	
+    set timeout 60
+    expect {
+	timeout	{ doexit "Timeout" 1 }
+	eof { doexit "EOF" 1}
+	"yes/no" { send "yes\r" ; exp_continue }
+	"assword: $" {send -- "$password\r"}
+    }
+}
+
+#
+# Wait s seconds for prompt pattern
+# Takes two arguments, the prompt (regex) pattern and the number of seconds to wait before timeout.
+#
+proc waitforprompt { prompt s } {
+    upvar spawn_id spawn_id
+    set timeout $s
+    timestamp    
+    expect { 
+	
+	## cd and ls command
+	"No such file or directory" {doexit "" 1}
+	
+	##Timeout
+	timeout	{doexit "Timeout" 1}
+	
+	##EOF
+	eof { doexit "EOF" 1 }
+	
+	##Match regex prompt
+	-re "$prompt" {}
+    }
+}

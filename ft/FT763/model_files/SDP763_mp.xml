@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpTestClass">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpTestClass">
+            <mimName>ObjImpTestMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpTestMom" namespace="urn:com:ericsson:ecim:ObjImpTestMom::1.0" namespacePrefix="objimptestmom" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+    <enum name="AdmState">
+                        <enumMember name="LOCKED">
+                                <value>0</value>
+                        </enumMember>
+                        <enumMember name="UNLOCKED">
+                                <value>1</value>
+                        </enumMember>
+                        <enumMember name="SHUTTING_DOWN">
+                                <value>2</value>
+                        </enumMember>
+    </enum>
+    <class name="ObjImpTestClass">
+      <description>A test class</description>
+      <root/>
+      <attribute name="objImpTestClassId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>                                                                                                                                                                          </attribute>
+
+      <attribute name="testRuntimeInt8">
+        <description>a test attribute</description>
+        <dataType>
+          <int8>
+                        <defaultValue>11</defaultValue>
+          </int8>
+        </dataType>
+      </attribute>
+      
+      <attribute name="testRuntimeInt16">
+        <description>a test attribute</description>
+        <dataType>
+          <int16>
+               <defaultValue>12</defaultValue>
+          </int16>
+        </dataType>
+      </attribute>
+      
+      <attribute name="testRuntimeInt32">
+        <description>a test attribute</description>
+        <dataType>
+          <int32>
+               <defaultValue>13</defaultValue>
+          </int32>
+        </dataType>
+      </attribute>
+      
+      <attribute name="testRuntimeInt64">
+        <description>a test attribute</description>
+        <dataType>
+          <int64>
+               <defaultValue>14</defaultValue>
+          </int64>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint8">
+        <description>a test attribute</description>
+        <dataType>
+          <uint8>
+               <defaultValue>15</defaultValue>
+          </uint8>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint16">
+        <description>a test attribute</description>
+        <dataType>
+          <uint16>
+                <defaultValue>16</defaultValue>
+          </uint16>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint32">
+        <description>a test attribute</description>
+        <dataType>
+          <uint32>
+                <defaultValue>17</defaultValue>
+          </uint32>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint64">
+        <description>a test attribute</description>
+        <dataType>
+          <uint64>
+                <defaultValue>18</defaultValue>
+          </uint64>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeString">
+        <description>a test attribute</description>
+        <dataType>
+          <string>
+                <defaultValue/>
+          </string>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeBool">
+        <description>a test attribute</description>
+        <dataType>
+          <boolean>
+                 <defaultValue>false</defaultValue>
+          </boolean>
+        </dataType>
+      </attribute>
+
+     <attribute name="testRuntimeEnum">
+       <description>a test attribute</description>
+         <dataType>
+           <enumRef name="AdmState">
+           </enumRef>
+         </dataType>
+     </attribute>
+
+      <attribute name="testWritableInt8">
+        <description>a test attribute</description>
+          <dataType>
+            <int8>
+                 <defaultValue>21</defaultValue>
+            </int8>                                                                                                                                                                              </dataType>
+      </attribute>                                                                                                                                                                                             
+      <attribute name="testWritableInt16">
+        <description>a test attribute</description>
+        <dataType>
+          <int16>
+               <defaultValue>22</defaultValue>
+          </int16>
+        </dataType>
+      </attribute>                                                                                                                                                                                             
+      <attribute name="testWritableInt32">
+        <description>a test attribute</description>
+        <dataType>
+          <int32>
+               <defaultValue>23</defaultValue>
+          </int32>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableInt64">
+        <description>a test attribute</description>
+        <dataType>
+          <int64>
+               <defaultValue>24</defaultValue>
+          </int64>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableUint8">
+        <description>a test attribute</description>
+        <dataType>
+          <uint8>
+               <defaultValue>25</defaultValue>
+          </uint8>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableUint16">
+        <description>a test attribute</description>
+        <dataType>
+          <uint16>
+                <defaultValue>26</defaultValue>
+          </uint16>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableUint32">
+        <description>a test attribute</description>
+        <dataType>
+          <uint32>
+                <defaultValue>27</defaultValue>
+          </uint32>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableUint64">
+        <description>a test attribute</description>
+        <dataType>
+          <uint64>
+                <defaultValue>28</defaultValue>
+          </uint64>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableString">
+        <description>a test attribute</description>
+        <dataType>
+          <string>
+                <defaultValue/>
+          </string>
+        </dataType>
+      </attribute>
+
+      <attribute name="testWritableBool">
+        <description>a test attribute</description>
+        <dataType>
+          <boolean>
+                 <defaultValue>false</defaultValue>
+          </boolean>
+        </dataType>
+      </attribute>
+
+     <attribute name="testWritableEnum">
+       <description>a test attribute</description>
+         <dataType>
+           <enumRef name="AdmState">
+             <defaultValue>LOCKED</defaultValue>
+           </enumRef>
+         </dataType>
+     </attribute>
+    </class>
+
+    <class name="ActionTest">
+      <description>Action test</description>
+      <action name="testParamOrder">
+        <description>Testing order of parameters in com sa</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="22"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="param2">
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="param3">
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+      </action>
+
+      <action name="unRegister">
+        <description>Trigger MAFOI to unregister the given objects and classes</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="23"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="text">
+          <in/>
+          <dataType>
+            <string/>
+          </dataType>
+        </parameter>
+      </action>
+
+      <attribute name="actionTestId">
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+
+    <relationship name="ObjImpTestClass_to_ActionTest">
+      <containment>
+        <parent>
+          <hasClass name="ObjImpTestClass">
+            <mimName>ObjImpTestMom</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ActionTest">
+            <mimName>ActiontestMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</mim>
+     
+</models>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MR20275 FT - Delete an object that is registered to MAFOI with failing validation</id>
+        <tag>TC-MR20275-002</tag>
+        <version>P1A01</version>
+        <testcase>functionTestSdp763</testcase>
+        <class>FTSdp763</class>
+        <method>FTSdp763</method>
+        <description>MR20275 FT - Delete an object that is registered to MAFOI with failing validation</description>
+    </info>
+    <config>
+        <reqComSaVersion>R6A01</reqComSaVersion>
+        <reqComVersion>R2A12</reqComVersion>
+        <reqCmwVersion>R9A03</reqCmwVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <reqComRelease>2</reqComRelease>
+        <reqCmwRelease>1</reqCmwRelease>
+        <modelfile_mp>SDP763_mp.xml</modelfile_mp>
+        <modelfile_imm_classes>SDP763_imm_classes.xml</modelfile_imm_classes>
+        <modelfile_imm_objects>SDP763_imm_objects.xml</modelfile_imm_objects>
+
+        <setup_NEGATIVE_CASE_SETTING>#define SKIP_ERROR</setup_NEGATIVE_CASE_SETTING>
+        <setup_RETURN_VALUES>#define returnValueConfig returnValues.createMo = ComOk; returnValues.setMo = ComOk; returnValues.getMo = ComOk; returnValues.action = ComOk; returnValues.prepare = ComFailure; returnValues.abort = ComOk;</setup_RETURN_VALUES>
+        <setup_MAF_RETURN_VALUES>#define maf_returnValueConfig returnValues.createMo = MafOk; returnValues.setMo = MafOk; returnValues.getMo = MafOk; returnValues.action = MafOk; returnValues.prepare = MafFailure; returnValues.abort = MafOk;</setup_MAF_RETURN_VALUES>
+        <setup_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1\"</setup_REG1>
+        <setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+
+        <expected_init_log_1>com: MAFOiComponent: mafLCMinit(): Component started</expected_init_log_1>
+        <expected_init_log_2>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: DN: ManagedElement=1,ObjImpTestClass=1 Permission: YES</expected_init_log_2>
+        <expected_init_log_3>com: MAFOiComponent: maf_start(): returning MafOk</expected_init_log_3>
+
+        <cli_input_1>"show ManagedElement=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ObjImpTestClass=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'COM Closed connection']</cli_nonexpected_output_1>
+
+        <cli_input_2>"configure" "ManagedElement=1" "no ObjImpTestClass=1" "validate" "commit" "exit" </cli_input_2>
+        <cli_expected_output_2>['error', 'Transaction validation failed!']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['Transaction is valid!', 'COM Closed connection']</cli_nonexpected_output_2>
+
+        <cli_input_3>"show ManagedElement=1" "exit"</cli_input_3>
+        <cli_expected_output_3>['ObjImpTestClass=1']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'COM Closed connection']</cli_nonexpected_output_3>
+
+        <expected_test_log_1>com: MAFOiComponent: TR::join() entered</expected_test_log_1>
+        <expected_test_log_2>com: MAFOiComponent: TR::registerParticipant()</expected_test_log_2>
+        <expected_test_log_3>com: MAFOiComponent: MO::maf_deleteMo(): dn ManagedElement=1,ObjImpTestClass=1</expected_test_log_3>
+        <expected_test_log_4>com: MAFOiComponent: TR::validate()</expected_test_log_4>
+        <expected_test_log_5>com: MAFOiComponent: TR::prepare()</expected_test_log_5>
+        <expected_test_log_6>com: MAFOiComponent: TR::prepare(): returning (-1)</expected_test_log_6>
+        <expected_test_log_7>com: MAFOiComponent: TR::abort()</expected_test_log_7>
+        <expected_test_log_8>com: MAFOiComponent: TR::finish()</expected_test_log_8>
+
+
+        <teardown_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1\"</teardown_REG1>
+        <teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+    </config>
+</testcase>

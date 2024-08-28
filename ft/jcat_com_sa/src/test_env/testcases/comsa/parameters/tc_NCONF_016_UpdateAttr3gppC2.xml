@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configuration Using Netconf - Changing an attribute in a struct, key attribute case 2</id>
+        <tag>TC-NCONF-016</tag>	
+        <version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>Changing an attribute in a struct, key attribute case 2</description>
+	</info>	
+    <config>    
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<useExternalModels>yes</useExternalModels>
+    	<modelFilePathOnTarget>/home/netconfTest/</modelFilePathOnTarget>
+    	<modelFileType>CDT</modelFileType>    	
+    	<momFile>mp_C2.xml</momFile>
+    	<immClassesFile>imm_C2.xml</immClassesFile>
+
+    	<immObjPattern>["cmwtest"]</immObjPattern>
+    	
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <helloFile>Hello.xml</helloFile>
+
+        <actionFile>['CreateObjPrefixedMomC2.xml', 'ChangingAttrPrefixedMomC2.xml']</actionFile>
+        <actionFile2>['check014.xml']</actionFile2>
+        <actionFile3>['ChangingAttrPrefixedMom2C2.xml']</actionFile3>
+        <actionFile4>['check014.xml']</actionFile4>
+        <actionFile5>['removingStructWPrefixedMomC2.xml']</actionFile5>
+        <actionFile6>['check008b.xml']</actionFile6>
+        <closeFile>Close.xml</closeFile> 
+        <logFile>logFile.txt</logFile>
+    	<respFile>expectedOutput008a.txt</respFile>
+    	<respFile2>expectedOutput016b.txt</respFile2>
+    	<respFile3>expectedOutput008a.txt</respFile3>
+    	<respFile4>expectedOutput016d.txt</respFile4>
+    	<respFile5>expectedOutput008a.txt</respFile5>
+    	<respFile6>expectedOutput008a.txt</respFile6>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+
+    	<forbiddenContent>['CmwTest', 'maID', 'myStructAttr', 'attr1', '89', '196']</forbiddenContent>
+	</config>  
+</testcase>

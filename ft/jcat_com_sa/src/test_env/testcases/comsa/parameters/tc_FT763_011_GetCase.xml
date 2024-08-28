@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP763 FT - Register object instance case: Get different type of attributes under an object that is registered to MAFOI with permission Yes</id>
+		<tag>TC-FT763-011</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>SDP763 FT - Register object instance case: Get different type of attributes under an object that is registered to MAFOI with permission Yes</description>
+	</info>
+	<config>
+		<reqComSaVersion>R2A04</reqComSaVersion>
+		<reqComVersion>R2A12</reqComVersion>
+		<reqCmwVersion>R3A09</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<modelfile_mp>SDP763_mp.xml</modelfile_mp>
+		<modelfile_imm_classes>SDP763_imm_classes.xml</modelfile_imm_classes>
+		<modelfile_imm_objects>SDP763_imm_objects.xml</modelfile_imm_objects>
+
+		<setup_RETURN_VALUES>#define returnValueConfig returnValues.createMo = ComFailure; returnValues.deleteMo = ComFailure; returnValues.setMo = ComFailure; returnValues.action = ComFailure;</setup_RETURN_VALUES>
+		<setup_MAF_RETURN_VALUES>#define maf_returnValueConfig returnValues.createMo = MafFailure; returnValues.deleteMo = MafFailure; returnValues.setMo = MafFailure;; returnValues.action = MafFailure;</setup_MAF_RETURN_VALUES>
+		<setup_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+
+		<attribute1>#define ATTR1 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeInt8\"</attribute1>
+		<attribute1_type>#define ATTR1_TYPE ComOamSpiMoAttributeType_3_INT8</attribute1_type>
+		<attribute1_type_maf>#define ATTR1_TYPE MafOamSpiMoAttributeType_3_INT8</attribute1_type_maf>
+		<attribute1_value>#define ATTR1_VALUE \"111\"</attribute1_value>
+
+		<attribute2>#define ATTR2 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeInt16\"</attribute2>
+		<attribute2_type>#define ATTR2_TYPE ComOamSpiMoAttributeType_3_INT16</attribute2_type>
+		<attribute2_type_maf>#define ATTR2_TYPE MafOamSpiMoAttributeType_3_INT16</attribute2_type_maf>
+		<attribute2_value>#define ATTR2_VALUE \"222\"</attribute2_value>
+
+		<attribute3>#define ATTR3 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeInt32\"</attribute3>
+		<attribute3_type>#define ATTR3_TYPE ComOamSpiMoAttributeType_3_INT32</attribute3_type>
+		<attribute3_type_maf>#define ATTR3_TYPE MafOamSpiMoAttributeType_3_INT32</attribute3_type_maf>
+		<attribute3_value>#define ATTR3_VALUE \"333\"</attribute3_value>
+
+		<attribute4>#define ATTR4 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeInt64\"</attribute4>
+		<attribute4_type>#define ATTR4_TYPE ComOamSpiMoAttributeType_3_INT64</attribute4_type>
+		<attribute4_type_maf>#define ATTR4_TYPE MafOamSpiMoAttributeType_3_INT64</attribute4_type_maf>
+		<attribute4_value>#define ATTR4_VALUE \"444\"</attribute4_value>
+
+		<attribute5>#define ATTR5 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeUint8\"</attribute5>
+		<attribute5_type>#define ATTR5_TYPE ComOamSpiMoAttributeType_3_UINT8</attribute5_type>
+		<attribute5_type_maf>#define ATTR5_TYPE MafOamSpiMoAttributeType_3_UINT8</attribute5_type_maf>
+		<attribute5_value>#define ATTR5_VALUE \"555\"</attribute5_value>
+
+		<attribute6>#define ATTR6 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeUint16\"</attribute6>
+		<attribute6_type>#define ATTR6_TYPE ComOamSpiMoAttributeType_3_UINT16</attribute6_type>
+		<attribute6_type_maf>#define ATTR6_TYPE MafOamSpiMoAttributeType_3_UINT16</attribute6_type_maf>
+		<attribute6_value>#define ATTR6_VALUE \"666\"</attribute6_value>
+
+		<attribute7>#define ATTR7 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeUint32\"</attribute7>
+		<attribute7_type>#define ATTR7_TYPE ComOamSpiMoAttributeType_3_UINT32</attribute7_type>
+		<attribute7_type_maf>#define ATTR7_TYPE MafOamSpiMoAttributeType_3_UINT32</attribute7_type_maf>
+		<attribute7_value>#define ATTR7_VALUE \"777\"</attribute7_value>
+
+		<attribute8>#define ATTR8 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeUint64\"</attribute8>
+		<attribute8_type>#define ATTR8_TYPE ComOamSpiMoAttributeType_3_UINT64</attribute8_type>
+		<attribute8_type_maf>#define ATTR8_TYPE MafOamSpiMoAttributeType_3_UINT64</attribute8_type_maf>
+		<attribute8_value>#define ATTR8_VALUE \"888\"</attribute8_value>
+
+		<attribute9>#define ATTR9 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeString\"</attribute9>
+		<attribute9_type>#define ATTR9_TYPE ComOamSpiMoAttributeType_3_STRING</attribute9_type>
+		<attribute9_type_maf>#define ATTR9_TYPE MafOamSpiMoAttributeType_3_STRING</attribute9_type_maf>
+		<attribute9_value>#define ATTR9_VALUE \"Runtime String is NEVER RELAXING\"</attribute9_value>
+
+		<attribute10>#define ATTR10 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeBool\"</attribute10>
+		<attribute10_type>#define ATTR10_TYPE ComOamSpiMoAttributeType_3_BOOL</attribute10_type>
+		<attribute10_type_maf>#define ATTR10_TYPE MafOamSpiMoAttributeType_3_BOOL</attribute10_type_maf>
+		<attribute10_value>#define ATTR10_VALUE \"1\"</attribute10_value>
+
+		<attribute11>#define ATTR11 \"ManagedElement=1,ObjImpTestClass=1,testRuntimeEnum\"</attribute11>
+		<attribute11_type>#define ATTR11_TYPE ComOamSpiMoAttributeType_3_ENUM</attribute11_type>
+		<attribute11_type_maf>#define ATTR11_TYPE MafOamSpiMoAttributeType_3_ENUM</attribute11_type_maf>
+		<attribute11_value>#define ATTR11_VALUE \"1\"</attribute11_value>
+
+		<expected_init_log_1>com: MAFOiComponent: mafLCMinit(): Component started</expected_init_log_1>
+		<expected_init_log_2>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: DN: ManagedElement=1,ObjImpTestClass=1 Permission: YES</expected_init_log_2>
+		<expected_init_log_3>com: MAFOiComponent: maf_start(): returning MafOk</expected_init_log_3>
+
+		<cli_input_1>"show ManagedElement=1,ObjImpTestClass=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['testRuntimeInt8=111','testRuntimeInt16=222','testRuntimeInt32=333','testRuntimeInt64=444','testRuntimeUint8=43','testRuntimeUint16=666','testRuntimeUint32=777','testRuntimeUint64=888','testRuntimeString="Runtime String is NEVER RELAXING"','testRuntimeBool=true', 'testRuntimeEnum=UNLOCKED']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'COM Closed connection']</cli_nonexpected_output_1>
+
+		<expected_test_log_1>com: MAFOiComponent: TR::join() entered</expected_test_log_1>
+		<expected_test_log_2>com: MAFOiComponent: TR::registerParticipant()</expected_test_log_2>
+		<expected_test_log_3>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeInt8</expected_test_log_3>
+		<expected_test_log_4>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeInt16</expected_test_log_4>
+		<expected_test_log_5>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeInt32</expected_test_log_5>
+		<expected_test_log_6>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeInt64</expected_test_log_6>
+		<expected_test_log_7>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeUint8</expected_test_log_7>
+		<expected_test_log_8>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeUint16</expected_test_log_8>
+		<expected_test_log_9>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeUint32</expected_test_log_9>
+		<expected_test_log_10>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeUint64</expected_test_log_10>
+		<expected_test_log_11>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeString</expected_test_log_11>
+		<expected_test_log_12>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeBool</expected_test_log_12>
+		<expected_test_log_13>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpTestClass=1 attributeName testRuntimeEnum</expected_test_log_13>
+		<expected_test_log_14>com: MAFOiComponent: TR::prepare()</expected_test_log_14>
+		<expected_test_log_15>com: MAFOiComponent: TR::commit()</expected_test_log_15>
+		<expected_test_log_16>com: MAFOiComponent: TR::finish()</expected_test_log_16>
+
+		<teardown_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1\"</teardown_REG1>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+	</config>
+</testcase>

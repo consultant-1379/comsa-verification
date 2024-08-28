@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>HR76134 - Error messages are misleading when missing value in MO</id>
+        <tag>TC-MISC-023</tag>
+        <version>R3G02</version>
+        <testcase>cliConfigurationTestCase</testcase>
+        <class>CLIconfiguration</class>
+        <method>CLIconfiguration</method>
+        <description>HR76134 - Error messages are misleading when missing value in MO</description>
+    </info>
+    <config>
+
+        <cli_input_1>"show ManagedElement=1,SystemFunctions=1,SecM=1,UserManagement,LdapAuthenticationMethod=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ERROR: Specific element not found|ERROR: \'UserManagement\' is incomplete']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show ManagedElement=1,SystemFunctions=1,SecM=1,UserManagement,LdapAuthenticationMethod=1,Ldap=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ERROR: Specific element not found|ERROR: \'UserManagement\' is incomplete']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <cli_input_3>"configure" "ManagedElement=1,SystemFunctions=1,SecM=1,UserManagement,LdapAuthenticationMethod=1" "show" "end" "exit"</cli_input_3>
+        <cli_expected_output_3>['ERROR: Can not instantiate system created object|ERROR: \'UserManagement\' is incomplete', 'ManagedElement=1']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+        <cli_input_4>"configure" "ManagedElement=1,SystemFunctions=1,SecM=1,UserManagement,LdapAuthenticationMethod=1" "show" "Ldap=1" "end" "exit"</cli_input_4>
+        <cli_expected_output_4>['ERROR: Can not instantiate system created object|ERROR: \'UserManagement\' is incomplete', 'ManagedElement=1', 'ERROR: Command not found.']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <cli_input_5>"configure" "ManagedElement=1,SystemFunctions=1,SecM=1,UserManagement,LdapAuthenticationMethod=1" "show" "show Ldap=1" "end" "exit"</cli_input_5>
+        <cli_expected_output_5>['ERROR: Can not instantiate system created object|ERROR: \'UserManagement\' is incomplete', 'ManagedElement=1', 'ERROR: Command not found.|ERROR: Unknown identifier: \'Ldap\'']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+
+    </config>
+</testcase>

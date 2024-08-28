@@ -1,0 +1,13 @@
+ definitely lost 
+operator new[](unsigned long) (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+MafModelRepositoryService::MomIf2Impl::getModelFeatures(char const***) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/internal_services/model_repository/interface_impl_2/MomIf2Impl.cc:579)
+MafReturnT mafMrIfMomGetModelFeatures<MafOamSpiMrMomHandle_4T>(MafOamSpiMrMomHandle_4T, char const***) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/internal_services/model_repository/interface_impl_2/MomIf2Impl.cc:422)
+???
+???
+???
+???
+Maf::SpiComponent<MafMgmtSpiComponent_2>::start(MafStateChangeReason) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/SpiComponent.cc:212)
+Maf::ComponentManager::Component::start(MafStateChangeReason) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/ComponentManager.cc:41)
+Maf::ComponentManager::start(std::list<Maf::ComponentManager::Component, std::allocator<Maf::ComponentManager::Component> >&, MafStateChangeReason) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/ComponentManager.cc:722)
+Maf::ComponentManager::startComponents(bool, MafStateChangeReason) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/ComponentManager.cc:754)
+Maf::ComponentManager::setState(void*, MafMwSpiHaMode, MafStateChangeReason) (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/ComponentManager.cc:983)

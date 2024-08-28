@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>COMSA BFU - Restore the cluster sfter the testing</id>
+		<tag>TC-BFUCL5MISC-002</tag>
+		<version>P1A01</version>
+		<testcase>setupForBfuCL5</testcase>
+		<class>SetupForBfuCL5</class>
+		<method>SetupForBfuCL5</method>
+		<description>This testcase restores the cluster to the original state as it was before the BFU CL5 suite</description>
+	</info>
+	<config>
+		<upgradeType>bfucl5</upgradeType>
+		<BfuCL5_reqCmwRelease>1</BfuCL5_reqCmwRelease>
+		<BfuCL5_reqCmwVersion>R6A12</BfuCL5_reqCmwVersion>
+		<BfuCL5_reqComRelease>2</BfuCL5_reqComRelease>
+		<BfuCL5_reqComVersion>R7A08</BfuCL5_reqComVersion>
+		<storedBackupFilesLocation>/home/backupfile_bfucl5/</storedBackupFilesLocation>
+		<comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+		<comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+		<cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+		<lotcBackupLocation>/cluster/snapshot/</lotcBackupLocation>
+	</config>
+</testcase>

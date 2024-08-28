@@ -1,0 +1,12 @@
+ definitely lost 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+pmsv_pm_ipc_initialize (/home/xliisuo/coremw4/output/src/osafpm/libs/pmsv/../../../../../src/osafpm/libs/pmsv/pm_ipc.c:653)
+pmsv_consumer_shm_agent_init (/home/xliisuo/coremw4/output/src/osafpm/libs/pmsv/../../../../../src/osafpm/libs/pmsv/pm_shm_consumer.c:718)
+saPmCInitialize (/home/xliisuo/coremw4/output/src/osafpm/libs/pma/../../../../../src/osafpm/libs/pma/pma_consumer_api.c:465)
+PmConsumerInterface::initialize(void**, SaVersionT*, SaPmfJobTypeT, SaPmCJobDataOrganizationT, SaPmCSubscribeInfoT*) (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/pmt_sa/src/PmConsumerInterface.cxx:193)
+PmtSa::PmRunnable::startSubscription() (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/pmt_sa/src/PmRunnable.cxx:271)
+PmtSa::PmRunnable::handlePmInternalMessage() (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/pmt_sa/src/PmRunnable.cxx:403)
+PmtSa::PmRunnable::pmtSelectLoop() (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/pmt_sa/src/PmRunnable.cxx:147)
+PmtSa::PmThreadType<PmtSa::PmRunnable>::objectWrapper(void*) (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/pmt_sa/src/PmThreadTemplate.hxx:184)
+start_thread (in /lib64/libpthread-2.11.3.so)
+clone (in /lib64/libc-2.11.3.so)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Code Coverage for Unit test</id>
+        <tag>TC-COV-UNIT</tag>
+        <version>P1A01</version>
+        <testcase>codeCoverage</testcase>
+        <class>CodeCoverage</class>
+        <method>CodeCoverage</method>
+        <description>Code Coverage for Unit test</description>
+    </info>
+    <config>
+    </config>
+</testcase>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="SAI-AIS-IMM-XSD-A.01.01.xsd">
+  <object class="CmwPmPmJob">
+    <dn>pmJobId=ThresJob1,CmwPmpmId=1</dn>
+    <attr>
+      <name>requestedJobState</name>
+      <value>2</value>
+    </attr>
+    <attr>
+      <name>granularityPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>reportingPeriod</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobPriority</name>
+      <value>3</value>
+    </attr>
+    <attr>
+      <name>jobType</name>
+      <value>2</value>
+    </attr>
+  </object>
+  <object class="CmwPmMeasurementReader">
+    <dn>measurementReaderId=MRt3,pmJobId=ThresJob1,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementSpecification</name>
+<value>id=1,measurementReaderId=MRt3,pmJobId=ThresJob1,CmwPmpmId=1</value>
+    </attr>
+  </object>
+  <object class="CmwPmMeasurementSpecification">
+    <dn>id=1,measurementReaderId=MRt3,pmJobId=ThresJob1,CmwPmpmId=1</dn>
+    <attr>
+      <name>measurementTypeRef</name>
+<value>measurementTypeId=CcMT-1,pmGroupId=CcGroup1,CmwPmpmId=1</value>
+    </attr>
+  </object>
+  <object class="CmwPmPmThresholdMonitoring">    <dn>pmThresholdMonitoringId=TM1-Warning,measurementReaderId=MRt3,pmJobId=ThresJob1,CmwPmpmId=1</dn>
+    <attr>
+      <name>thresholdHigh</name>
+      <value>44</value>
+    </attr>
+    <attr>
+      <name>thresholdLow</name>
+      <value>35</value>
+    </attr>
+    <attr>
+      <name>thresholdSeverity</name>
+      <value>6</value>
+    </attr>
+  </object>
+  <object class="CmwPmPmThresholdMonitoring">    <dn>pmThresholdMonitoringId=TM4-Major,measurementReaderId=MRt3,pmJobId=ThresJob1,CmwPmpmId=1</dn>
+    <attr>
+      <name>thresholdHigh</name>
+      <value>54</value>
+    </attr>
+    <attr>
+      <name>thresholdLow</name>
+      <value>45</value>
+    </attr>
+    <attr>
+      <name>thresholdSeverity</name>
+      <value>4</value>
+    </attr>
+  </object>
+  <object class="CmwPmPmThresholdMonitoring">    <dn>pmThresholdMonitoringId=TM3-Critical,measurementReaderId=MRt3,pmJobId=ThresJob1,CmwPmpmId=1</dn>
+    <attr>
+      <name>thresholdHigh</name>
+      <value>65</value>
+    </attr>
+    <attr>
+      <name>thresholdLow</name>
+      <value>55</value>
+    </attr>
+    <attr>
+      <name>thresholdSeverity</name>
+      <value>3</value>
+    </attr>
+  </object>
+</imm:IMM-contents>

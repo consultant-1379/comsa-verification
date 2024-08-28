@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COM SA MIM Tool - Switchover</id>
+        <tag>TC-MIM-005</tag>	
+        <version>P1A01</version>
+		<testcase>mimToolTestCase</testcase>
+		<class>MimTool</class>
+		<method>MimTool</method>
+		<description>COM SA MIM Tool - Switchover</description>
+	</info>	
+    <config>
+        <expectedComSA_debug>Received handshake from the AMF callback</expectedComSA_debug>
+	</config>  
+</testcase>

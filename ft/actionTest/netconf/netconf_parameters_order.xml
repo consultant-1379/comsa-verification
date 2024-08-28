@@ -1,0 +1,29 @@
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+  </capabilities>
+</hello>
+]]>]]>
+<?xml version="1.0" encoding="utf-8"?>
+<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <action xmlns="urn:com:ericsson:ecim:1.0">
+    <data>
+      <ManagedElement xmlns="urn:com:ericsson:ecim:ComTop">
+        <managedElementId>1</managedElementId>
+        <Sdp617ActiontestRoot xmlns="urn:com:ericsson:ecim:Sdp617ActiontestMom::1.0">
+          <sdp617ActiontestRootId>1</sdp617ActiontestRootId>          
+	      <ActionTest>
+             <actionTestId>1</actionTestId>
+               <testParamOrder>
+			   <param1>1563</param1>
+			   <param2>11345</param2>
+			   <param3>212</param3>
+			   </testParamOrder>
+          </ActionTest>
+		</Sdp617ActiontestRoot>
+      </ManagedElement>
+    </data>
+  </action>
+</rpc>
+]]>]]>
+

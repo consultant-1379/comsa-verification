@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP763 FT - Register Class case: Create the root object and an object below which has a struct attribute - exclusive key attr case - classes registered to MAFOI with permission Yes</id>
+		<tag>TC-FT763-052</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>SDP763 FT - Register Class case: Create the root object and an object below which has a struct attribute - exclusive key attr case - classes registered to MAFOI with permission Yes</description>
+	</info>
+	<config>
+		<reqComSaVersion>R2A04</reqComSaVersion>
+		<reqComVersion>R2A12</reqComVersion>
+		<reqCmwVersion>R3A09</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<modelfile_mp>SDP763_mp15_C2.xml</modelfile_mp>
+		<modelfile_imm_classes>SDP763_imm_classes15_C2.xml</modelfile_imm_classes>
+
+		<pathToConfigFiles>/test_env/testcases/comsa/configFiles/</pathToConfigFiles>
+		<cli_tester_script>cli_tester</cli_tester_script>
+
+		<setup_obj_instance>NO</setup_obj_instance>
+
+		<setup_REG1>#define REG1 \"/ManagedElement/ObjImpComplexClass.MAID\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+
+		<setup_REG2>#define REG2 \"/ManagedElement/ObjImpComplexClass.MAID/TestClassOne.MAIID\"</setup_REG2>
+		<setup_REG2_PERMISSION>#define REG2_PERMISSION \"YES\"</setup_REG2_PERMISSION>
+
+		<expected_init_log_1>com: MAFOiComponent: mafLCMinit(): Component started</expected_init_log_1>
+		<expected_init_log_2>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: MOC: /ManagedElement/ObjImpComplexClass.MAID Permission: YES</expected_init_log_2>
+		<expected_init_log_3>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: MOC: /ManagedElement/ObjImpComplexClass.MAID/TestClassOne.MAIID Permission: YES</expected_init_log_3>
+		<expected_init_log_4>com: MAFOiComponent: maf_start(): returning MafOk</expected_init_log_4>
+
+		<cli_input_1>"configure" "ManagedElement=1" "ObjImpComplexClass=1" "TestClassOne=1" "TestStructAttr=one" "testWritableAttrUint8=13" "testWritableAttrString=\"one\"" "testWritableAttrBool=true" "up" "TestStructAttr=two" "testWritableAttrUint8=23" "testWritableAttrString=\"two\"" "testWritableAttrBool=true" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['configure']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'COM Closed connection']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show ManagedElement=1,ObjImpComplexClass=1,TestClassOne=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['show', 'ObjImpComplexClass=1', 'TestClassOne=1', 'TestStructAttr="one"', 'testWritableAttrUint8=13', 'testWritableAttrString="one"', 'testWritableAttrBool=true', 'TestStructAttr="two"', 'testWritableAttrUint8=23', 'testWritableAttrString="two"']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['error', 'COM Closed connection']</cli_nonexpected_output_2>
+
+		<cli_input_3>"configure" "ManagedElement=1" "ObjImpComplexClass=1" "TestClassOne=1" "TestStructAttr=one" "testWritableAttrUint8=15" "up" "TestStructAttr=two" "testWritableAttrUint8=35" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['configure']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'COM Closed connection']</cli_nonexpected_output_3>
+
+		<cli_input_4>"show ManagedElement=1,ObjImpComplexClass=1,TestClassOne=1" "exit"</cli_input_4>
+		<cli_expected_output_4>['show', 'ObjImpComplexClass=1', 'TestClassOne=1', 'TestStructAttr="one"', 'testWritableAttrUint8=15', 'testWritableAttrString="one"', 'testWritableAttrBool=true', 'TestStructAttr="two"', 'testWritableAttrUint8=35', 'testWritableAttrString="two"']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['error', 'COM Closed connection', 'testWritableAttrUint8=11', 'testWritableAttrUint8=22', 'testWritableAttrUint8=13', 'testWritableAttrUint8=23']</cli_nonexpected_output_4>
+
+		<cli_input_5>"configure" "ManagedElement=1" "no ObjImpComplexClass=1" "commit" "exit"</cli_input_5>
+		<cli_expected_output_5>['configure']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['error', 'COM Closed connection']</cli_nonexpected_output_5>
+
+		<cli_input_6>"show ManagedElement=1,ObjImpComplexClass=1" "exit"</cli_input_6>
+		<cli_expected_output_6>['ERROR: Specific element not found']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['COM Closed connection']</cli_nonexpected_output_6>
+
+		<expected_test_log_1>com: MAFOiComponent: TR::join() entered</expected_test_log_1>
+		<expected_test_log_2>com: MAFOiComponent: TR::registerParticipant()</expected_test_log_2>
+
+		<expected_test_log_3>com: MAFOiComponent: MO::maf_createMo(): parentDn ManagedElement=1 className ObjImpComplexClass keyAttributeName MAID keyAttributeValue MAID=1</expected_test_log_3>
+		<expected_test_log_4>com: MAFOiComponent: MO::maf_createMo(): parentDn ManagedElement=1,ObjImpComplexClass.MAID=1 className TestClassOne keyAttributeName MAIID keyAttributeValue MAIID=1</expected_test_log_4>
+		<expected_test_log_5>com: MAFOiComponent: MO::maf_setMoAttribute(): dn ManagedElement=1,ObjImpComplexClass.MAID=1,TestClassOne.MAIID=1 attributeName TestStructAttr</expected_test_log_5>
+
+		<expected_test_log_6>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]: {name STRING = one, testWritableAttrBool BOOL = 1, testWritableAttrString STRING = one, testWritableAttrUint8 UINT8 = 13</expected_test_log_6>
+		<expected_test_log_7>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[1\]: {name STRING = two, testWritableAttrBool BOOL = 1, testWritableAttrString STRING = two, testWritableAttrUint8 UINT8 = 23</expected_test_log_7>
+		<expected_test_log_8>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]: {name STRING = two, testWritableAttrUint8 UINT8 = 35, testWritableAttrString STRING = two, testWritableAttrBool BOOL = 1</expected_test_log_8>
+		<expected_test_log_9>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[1\]: {name STRING = one, testWritableAttrUint8 UINT8 = 15, testWritableAttrString STRING = one, testWritableAttrBool BOOL = 1</expected_test_log_9>
+		<expected_test_log_10>com: MAFOiComponent: MO::maf_deleteMo(): dn ManagedElement=1,ObjImpComplexClass.MAID=1</expected_test_log_10>
+		<expected_test_log_11>com: MAFOiComponent: MO::maf_deleteMo(): dn ManagedElement=1,ObjImpComplexClass.MAID=1,TestClassOne.MAIID=1</expected_test_log_11>
+
+		<expected_test_log_12>com: MAFOiComponent: TR::prepare()</expected_test_log_12>
+		<expected_test_log_13>com: MAFOiComponent: TR::commit()</expected_test_log_13>
+		<expected_test_log_14>com: MAFOiComponent: TR::finish()</expected_test_log_14>
+
+		<teardown_REG1>#define REG1 \"/ManagedElement/ObjImpComplexClass.MAID\"</teardown_REG1>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+
+		<teardown_REG2>#define REG2 \"/ManagedElement/ObjImpComplexClass.MAID/TestClassOne.MAIID\"</teardown_REG2>
+		<teardown_REG2_PERMISSION>#define REG2_PERMISSION \"YES\"</teardown_REG2_PERMISSION>
+	</config>
+</testcase>

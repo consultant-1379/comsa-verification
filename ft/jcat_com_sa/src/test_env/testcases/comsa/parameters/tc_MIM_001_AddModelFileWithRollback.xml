@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COM SA MIM Tool - Add model file(s) with rollback</id>
+        <tag>TC-MIM-001</tag>	
+        <version>P1A01</version>
+		<testcase>mimToolTestCase</testcase>
+		<class>MimTool</class>
+		<method>MimTool</method>
+		<description>COM SA MIM Tool - Add model file(s) with rollback</description>
+	</info>	
+    <config>
+        <mimToolParams1>add</mimToolParams1>
+        <expectedResponses1>["Starting new session", "Updated session file with new entry", "Operation completed"]</expectedResponses1>
+        <diffResult1>no</diffResult1>
+        <appendSdpBundleName1>yes</appendSdpBundleName1>
+        <appendExtraArgs1>yes</appendExtraArgs1>
+        <extraArgs1> MW_OAM 1 1</extraArgs1>
+        
+        <mimToolParams2>rollback</mimToolParams2>
+        <expectedResponses2>["Rolling back"]</expectedResponses2>
+        <diffResult2>no</diffResult2>
+        <appendSdpBundleName2>no</appendSdpBundleName2>
+        <appendExtraArgs2>no</appendExtraArgs2>
+        <extraArgs2> </extraArgs2>
+	</config>  
+</testcase>

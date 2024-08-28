@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP1724 FT - COM-SA forwards CM notifications for runtime attributes. Prefixed MOM, key attribute case 2</id>
+        <tag>TC-FT1724-016</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp1724</testcase>
+		<class>FTSdp1724</class>
+		<method>FTSdp1724</method>
+		<description>SDP1724 FT - COM-SA forwards CM notifications for runtime attributes. Prefixed MOM, key attribute case 2</description>
+	</info>
+    <config>
+    	<modelfile_mp1>CmNtfRt_AttrSvStr_Pref_C2_mp.xml</modelfile_mp1>
+    	<modelfile_imm_classes1>CmNtfRt_AttrSvStr_Pref_C2_imm_classes.xml</modelfile_imm_classes1>
+
+        <test_consumer_1>testConsumer1.so</test_consumer_1>
+
+		<testCons1Regexp1>.*</testCons1Regexp1>
+     
+			<!-- Create UC1a: Parent object created with a reference to a not existing struct object. Expect MoCreated -->
+     	<testOIarg1>-d -C -c ObjImpComplexMomSvObjImpComplexClassSv -k ObjImpComplexMomSvkeyAttrSv -r ObjImpComplexMomSvkeyAttrSv=1 -a TestStructAttrSv -v id=TestStructAttrSv_0,ObjImpComplexMomSvkeyAttrSv=1 -s 3 -n FT1724testOI</testOIarg1>
+			<!-- Create UC1b: Struct object created with a value provided for the member attribute. Expect AttributeValueChange for parent -->
+     	<testOIarg2>-d -C -c ObjImpComplexMomSvTestStructSv -k id -r id=TestStructAttrSv_0 -p ObjImpComplexMomSvkeyAttrSv=1 -a testRuntimeAttrInt32 -v 2 -s 3 -n FT1724testOI</testOIarg2>
+
+			<!-- Modify UC1b & Preparation for Modify UC2: Additional struct object created with a value provided for the member attribute. No CM event because the struct object is not referenced in any parent object -->
+     	<testOIarg3>-d -C -c ObjImpComplexMomSvTestStructSv -k id -r id=TestStructAttrSv_1 -p ObjImpComplexMomSvkeyAttrSv=1 -a testRuntimeAttrInt32 -v 6 -s 3 -n FT1724testOI</testOIarg3>
+     	
+			<!-- Modify UC1a: Struct object modified. Reference points to the current object. Expect AttributeValueChange -->
+     	<testOIarg4>-d -M -k id -r id=TestStructAttrSv_0,ObjImpComplexMomSvkeyAttrSv=1 -a testRuntimeAttrInt32 -v 3 -s 3 -n FT1724testOI</testOIarg4>
+
+			<!-- Modify UC2: Parent object is modified to point to new existing struct object. Expect AttributeValueChange with new value -->
+     	<testOIarg6>-d -M -k id -r ObjImpComplexMomSvkeyAttrSv=1 -a TestStructAttrSv -v id=TestStructAttrSv_1,ObjImpComplexMomSvkeyAttrSv=1 -s 3 -n FT1724testOI</testOIarg6>
+
+			<!-- Delete UC1: Parent object deleted. One CM event (MoDeleted) expected -->
+     	<testOIarg7>-d -D -r ObjImpComplexMomSvkeyAttrSv=1 -s 3 -n FT1724testOI</testOIarg7>
+
+			<!-- Create UC1 -->
+     	<testOIarg9>-d -C -c ObjImpComplexMomSvObjImpComplexClassSv -k ObjImpComplexMomSvkeyAttrSv -r ObjImpComplexMomSvkeyAttrSv=2 -a TestStructAttrSv -v id=TestStructAttrSv_0,ObjImpComplexMomSvkeyAttrSv=2 -s 3 -n FT1724testOI</testOIarg9>
+     	<testOIarg10>-d -C -c ObjImpComplexMomSvTestStructSv -k id -r id=TestStructAttrSv_0 -p ObjImpComplexMomSvkeyAttrSv=2 -a testRuntimeAttrInt32 -v 5 -s 3 -n FT1724testOI</testOIarg10>
+			<!-- Modify UC3: Parent object modified to point to not existing struct objects. Send CM event type modified with no value -->
+     	<testOIarg11>-d -M -k ObjImpComplexMomSvkeyAttrSv -r ObjImpComplexMomSvkeyAttrSv=2 -a TestStructAttrSv -v id=TestStructAttrSv_0,ObjImpComplexMomSvkeyAttrSv=3 -s 3 -n FT1724testOI</testOIarg11>
+			<!-- Delete UC2a: Struct object deleted. Expected to send no CM event -->
+     	<testOIarg12>-d -D -r id=TestStructAttrSv_0,ObjImpComplexMomSvkeyAttrSv=2 -s 3 -n FT1724testOI</testOIarg12>
+     	
+			<!-- Modify UC4: Parent object modified so that it has an unset struct attribute. Send CM event of type attribute value change for parent object -->
+     	<testOIarg13>-d -M -k ObjImpComplexMomSvkeyAttrSv -r ObjImpComplexMomSvkeyAttrSv=2 -a TestStructAttrSv -v EMPTY_STRUCT -s 3 -n FT1724testOI</testOIarg13>
+     	
+			<!-- Delete UC2b: Parent object deleted. Send CM event of type deleted -->
+     	<testOIarg14>-d -D -r ObjImpComplexMomSvkeyAttrSv=2 -s 3 -n FT1724testOI</testOIarg14>
+     	
+
+     	<testOIarg_tearDown1>-d -D -r ObjImpComplexMomSvkeyAttrSv=1 -s 3 -n FT1724testOI</testOIarg_tearDown1>
+     	<testOIarg_tearDown2>-d -D -r ObjImpComplexMomSvkeyAttrSv=2 -s 3 -n FT1724testOI</testOIarg_tearDown2>
+
+			<!-- sessions 1-7 -->
+		<searchPatterns1>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=1 eventType: MoCreated attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 0 eventTime: ']</searchPatterns1> 
+		<searchPatterns2>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=1 eventType: AttributeValueChange attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 memberName: testRuntimeAttrInt32 memberValue: attrType: INT32 nrOfValues: 1 values: 2 eventTime: ']</searchPatterns2> 
+		<searchPatterns3>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=1 eventType: AttributeValueChange attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 memberName: testRuntimeAttrInt32 memberValue: attrType: INT32 nrOfValues: 1 values: 3 eventTime: ']</searchPatterns3>
+        <searchPatterns4>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=1 eventType: MoDeleted attributes: eventTime: ']</searchPatterns4>
+			<!-- seesion 6 -->
+		<searchPatterns9>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=1 eventType: AttributeValueChange attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 memberName: testRuntimeAttrInt32 memberValue: attrType: INT32 nrOfValues: 1 values: 6 eventTime: ']</searchPatterns9>
+
+			<!-- sessions 9-13 -->
+		<searchPatterns5>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=2 eventType: MoCreated attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 0 eventTime: ']</searchPatterns5>
+        <searchPatterns6>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=2 eventType: AttributeValueChange attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 memberName: testRuntimeAttrInt32 memberValue: attrType: INT32 nrOfValues: 1 values: 5 eventTime: ']</searchPatterns6>
+		<searchPatterns7>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=2 eventType: AttributeValueChange attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 0 eventTime: ']</searchPatterns7>
+			<!-- we expect searchPatterns7 to match for both session Modify UC3 and Modify UC4 -->
+		<searchPatterns7Matches>2</searchPatterns7Matches>
+		<searchPatterns8>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=2 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</searchPatterns8> 
+
+			<!-- there should be no "," in the dn after ObjImpComplexClassSv.keyAttrSv=1 -->
+		<unexpectedPattern1>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation', 'dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=1,']</unexpectedPattern1> 
+			<!-- session 2 (Create UC1b): eventType should not be MoCreated, but AtrributeValueChange -->
+		<unexpectedPattern2>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=1 eventType: MoCreated attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 memberName: testRuntimeAttrInt32 memberValue: attrType: INT32 nrOfValues: 1 values: 2 eventTime: ']</unexpectedPattern2>
+			<!-- session 10 (Create UC1b): eventType should not be MoCreated, but AtrributeValueChange -->
+		<unexpectedPattern3>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation dn: ManagedElement=1,ObjImpComplexClassSv.keyAttrSv=2 eventType: MoCreated attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 memberName: testRuntimeAttrInt32 memberValue: attrType: INT32 nrOfValues: 1 values: 5 eventTime: ']</unexpectedPattern3>
+	</config>
+</testcase>

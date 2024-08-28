@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Reboot the Active System Controller</id>
+        <tag>TC-AVL-004</tag>	
+        <version>P1A01</version>
+		<testcase>rebootActiveSysControllerTestCase</testcase>
+		<class>RebootActiveController</class>
+		<method>RebootActiveController</method>
+		<description>Reboot the Active System Controller</description>
+	</info>	
+    <config>
+<!--
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+-->
+	</config>  
+</testcase>

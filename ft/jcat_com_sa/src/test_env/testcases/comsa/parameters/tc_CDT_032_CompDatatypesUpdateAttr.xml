@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Complex Datatypes - Update an attribute value - prefixed MOM, key attribute with random upper_lower case characters</id>
+        <tag>TC-CDT-032</tag>	
+        <version>P1A01</version>
+		<testcase>compDataTypesTestCase</testcase>
+		<class>CompDatatypes</class>
+		<method>CompDatatypes</method>
+		<description>Complex Datatypes - Update an attribute value - prefixed MOM, key attribute with random upper_lower case characters</description>
+	</info>	
+    <config>
+    	<reqComSaMajorVersion>3</reqComSaMajorVersion>
+        <pathToConfigFiles>/test_env/testcases/comsa/configFiles/</pathToConfigFiles>
+    	<cli_tester_script>cli_tester</cli_tester_script>
+    	<modelfile_imm>imm_mom_C1.xml</modelfile_imm>
+    	<modelfile_mp>mp_mom_C1.xml</modelfile_mp>
+    	
+    	<cli_input_1>"configure" "ManagedElement=1" "CmwTest=1" "myStructAttr" "attr1=12" "up" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1', 'CmwTest=1', 'myStructAttr', 'attr1=12']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"show ManagedElement=1, CmwTest=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ManagedElement=1', 'CmwTest=1', 'myStructAttr', 'attr1=12']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+        
+    	<cli_input_3>"configure" "ManagedElement=1" "CmwTest=1" "myStructAttr" "show" "attr1=76" "up" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'CmwTest=1', 'myStructAttr', 'attr1=12', 'attr1=76']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+        <cli_input_4>"show ManagedElement=1, CmwTest=1" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'CmwTest=1', 'myStructAttr', 'attr1=76']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+        
+        <cli_input_5>"configure" "ManagedElement=1" "no CmwTest=1" "commit" "exit"</cli_input_5>
+        <cli_expected_output_5>['ManagedElement=1', 'no CmwTest=1', 'commit']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+        
+        <cli_input_6>"show ManagedElement=1, CmwTest=1" "exit"</cli_input_6>
+        <cli_expected_output_6>['ERROR: Specific element not found']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+	</config>  
+</testcase>

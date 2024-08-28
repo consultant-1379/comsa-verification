@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<testConfig>
+ 
+	<testNodes>[]</testNodes>
+	<testNodesTypes>[]</testNodesTypes>
+	<testNodesNames>[]</testNodesNames>
+	<controllers>[]</controllers>
+	<payloads>[]</payloads>	
+	<vipEnabledBlades>[(2,3),(2,4)]</vipEnabledBlades>    
+	<switches>['Neyland 24T','Neyland 24T']</switches>
+	<configCode>''</configCode>     
+  
+	
+	<testAppEnabledBlades>
+	    <sc>[]</sc>
+	    <pl>[]</pl>
+	    <all>[]</all>
+	    <onesc>[(2,1)]</onesc>
+		<onepl>[(2,3)]</onepl>
+	</testAppEnabledBlades>  
+		
+	<testCoordEnabledBlades>
+	    <sc>[(2,1),(2,2)]</sc>
+	    <pl>[(2,3),(2,4)]</pl>
+	    <all>[(2,1),(2,2)]</all>
+	    <onesc>[(2,1)]</onesc>
+	    <onepl>[(2,3)]</onepl>
+	</testCoordEnabledBlades>
+		
+	<testGenEnabledBlades>
+	    <sc>[(2,1),(2,2)]</sc>
+	    <pl>[]</pl>
+	    <all>[(2,3),(2,4)]</all>
+	    <onesc>[(2,1)]</onesc>
+	    <onepl>[(2,3)]</onepl>
+	</testGenEnabledBlades>    
+		    
+	<testInstanceConfiguration>	
+	    <sc>
+	       <load>20</load>
+	       <profile>normal</profile>
+	    </sc>  	    
+	    <pl>
+	       <load>40</load>
+	       <profile>normal</profile>
+	    </pl>	       
+	    <all>
+	       <load>0</load>
+	       <profile>normal</profile>
+	    </all>	      
+	    <onesc>
+	       <load>0</load>
+	       <profile>normal</profile>
+	    </onesc>	      
+	    <onepl>
+	       <load>0</load>
+	       <profile>normal</profile> 
+	    </onepl>	    
+	</testInstanceConfiguration>	
+</testConfig>	
+	
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="var" path="JCAT_EXTENSIONS/jar/JCatExtensions.jar"/>
+	<classpathentry kind="var" path="JCAT_FW/jar/JCatFw.jar"/>
+	<classpathentry kind="var" path="JCAT_FW/lib/junit.jar"/>
+	<classpathentry kind="var" path="JCAT_FW/lib/jython.jar"/>
+	<classpathentry kind="var" path="JCAT_FW/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/JCAT_OMP_extensions/target/main/jar/JCAT_OMP_extensions.jar" sourcepath="/JCAT_OMP_extensions/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="src/main/lib/schema_cmw_campaign.jar"/>
+	<classpathentry kind="output" path=".classes"/>
+</classpath>

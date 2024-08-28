@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>MR29443 FT - Application raises an Alarm with additionalInfo with COM 3.3 PRA</id>
+		<tag>TC-MR29443-002</tag>
+		<version>P1A01</version>
+		<testcase>functionTestMr29443</testcase>
+		<class>FTMr29443</class>
+		<method>FTMr29443</method>
+		<description>MR29443 FT - Application raises an Alarm with additionalInfo with COM 3.3 PRA</description>
+	</info>
+	<config>
+		<reqComSaVersion>R5A11</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<ntfsendMsg>ntfsend -T 0x4000 -e 16384 -c 193,12960,1 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -z "tc2_addinfo1;tc2_addinfo2" -s 5 -a "</ntfsendMsg>
+		<ntfsendMsg2>ntfsend -T 0x4000 -e 16384 -c 193,12960,1 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -z "tc2_addinfo1;tc2_addinfo2" -s 0 -a "</ntfsendMsg2>
+
+		<expectedDN>ManagedElement=1,SystemFunctions=1,Fm=1,FmAlarmModel=CW,FmAlarmType=ComSaCLMClusterNodeUnavailable;</expectedDN>
+		<expectedMajorType>193;</expectedMajorType>
+		<expectedMinorType>849346561;</expectedMinorType>
+		<expectedAlarmMsg>COM SA, CLM Cluster Node Unavailable;</expectedAlarmMsg>
+
+		<cli_input_1>"show all ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['activeSeverity=CRITICAL','majorType=193','minorType=849346561','source="ManagedElement=1,SystemFunctions=1,Fm=1,FmAlarmModel=CW,FmAlarmType=ComSaCLMClusterNodeUnavailable"']</cli_expected_output_1>
+		<cli_nonexpected_output_1>[ 'COM Closed connection','value="tc2_addInfo1"','value="tc2_addInfo2"']</cli_nonexpected_output_1>
+
+		<backupName>backupMR29443</backupName>
+		<storedBackupFilesLocation>/home/backupfileMR29443/</storedBackupFilesLocation>
+
+		<comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+		<comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+		<cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+		<loctBackupLocation>/cluster/snapshot/</loctBackupLocation>
+
+	</config>
+</testcase>
+

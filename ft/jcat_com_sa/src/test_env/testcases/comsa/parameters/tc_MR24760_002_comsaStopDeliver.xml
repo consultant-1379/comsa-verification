@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Check the model with cmw3.3sh9</id>
+        <tag>TC-MR24760-002</tag>
+        <version>P1A01</version>
+                <testcase>backupAndInstallOfCmwComComsaMR24760</testcase>
+                <class>backupAndInstallOfCmwComComsa</class>
+                <method>backupAndInstallOfCmwComComsa</method>
+                <description>This testcase create a backup of the system first then install CMW3.3SH9, COM3.3SH3, COMSA. Check if CMW delivered the model then restore to the old system</description>
+        </info>
+    <config>
+        <reqComSaVersion>R4A09</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <backupName>backupMR24760testcase</backupName>
+        <tmpdirMR24760>/home/tmpdirMR24760/</tmpdirMR24760>
+        <storedBackupFilesLocation>/home/backupfileMR24670/</storedBackupFilesLocation>
+
+        <pathToModelConfigFile>/storage/system/config/com-apr9010443/etc/model/model_file_list.cfg</pathToModelConfigFile>
+
+        <comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+        <comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+        <cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+        <loctBackupLocation>/cluster/snapshot/</loctBackupLocation>
+
+        <cli_input_1>"show ManagedElement=1,SystemFunctions=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['Fm=1', 'Pm=1', 'SwM=1', 'SwInventory=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['FmAlarmModel=CW', 'FmAlarmModel=FileManagement', 'FmAlarmModel=MDF', 'FmAlarmModel=SwM' , 'FmAlarmModel=coreMw' ]</cli_expected_output_2>
+        <cli_nonexpected_output_2>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+    </config>
+</testcase>

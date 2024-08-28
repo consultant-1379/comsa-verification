@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP1724 FT - COM-SA forwards a Discarded Notification</id>
+        <tag>TC-FT1724-021</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp1724</testcase>
+		<class>FTSdp1724</class>
+		<method>FTSdp1724</method>
+		<description>SDP1724 FT - COM-SA forwards a Discarded Notification</description>
+	</info>
+    <config>
+    
+        <test_consumer_1>testConsumer1.so</test_consumer_1>
+		<testCons1Regexp1>.*</testCons1Regexp1>
+    
+        <ntfsendMsg1>ntfsend -T 0x3000  -c 32993,8,0</ntfsendMsg1>
+    	
+		<searchPatterns1>['com: testConsumer1', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ResourceOperation', 'eventType: Overflow ', 'eventTime:']</searchPatterns1>
+    
+	</config>
+</testcase>

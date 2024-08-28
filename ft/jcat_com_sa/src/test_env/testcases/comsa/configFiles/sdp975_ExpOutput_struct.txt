@@ -1,0 +1,1 @@
+['urn:ietf:params:xml:ns:netconf:base:1.0', 'urn:ietf:params:netconf:capability:writable-running:1.0', 'urn:ietf:params:netconf:capability:rollback-on-error:1.0', 'urn:ietf:params:netconf:capability:notification:1.0', 'true', 'ok/']

@@ -1,0 +1,276 @@
+#!/vobs/tsp_saf/tools/Python/linux/bin/python
+#coding=iso-8859-1
+###############################################################################
+#
+# © Ericsson AB 2006 All rights reserved.
+# The information in this document is the property of Ericsson.
+# Except as specifically authorized in writing by Ericsson,
+# the receiver of this document shall keep the information contained herein
+# confidential and shall protect the same in whole or in part from disclosure
+# and dissemination to third parties.
+# Disclosure and disseminations to the receivers employees shall only be made
+# on a strict need to know basis.
+#
+###############################################################################
+
+import string
+import os
+import sys
+import time
+import re
+import getopt
+
+#########COMMON USED RESOURCES##########
+
+from se.ericsson.jcat.omp.util import Ssh2sessionUtil
+from se.ericsson.jcat.fw.utils.Ssh2Session import SshPromptType
+
+from java.lang import System
+from org.apache.log4j import Logger
+from org.apache.log4j import Level
+
+import omp.tf.dataprovider.sshlibdata as sshdata
+
+###############################################################################
+# Jython Sftp implementation
+###############################################################################
+
+data = sshdata.sshlibdata()
+
+def setData(datap):
+    global data
+    data = datap
+
+class cSCP :
+    timeFact = 1000
+    # Construction
+    def __init__(self, timeout) :
+        self.timeout = timeout
+        self.sshImplLogger = Logger.getLogger('_ssh_lib_cSCP')
+        logLevel = System.getProperty("jcat.logging")
+        self.sshImplLogger.setLevel(Level.toLevel(logLevel))
+    
+    def __connectSut(self, strIpAddr, sshPort, strUsr, strPwd):
+        mySsh2sessionUtil = Ssh2sessionUtil("SFTP Util")
+        mySsh2sessionUtil.startSafShell(strIpAddr, sshPort, strUsr, strPwd, self.timeout*self.timeFact, 0)
+        return mySsh2sessionUtil
+    
+    def close(self):
+        return True
+
+    def copyFileRemoteFrom(self, strIpAddr, strIpAddrPort, strUsr, strPwd, file, destination)  :
+        IpAddrPort = int(strIpAddrPort)
+        self.sshImplLogger.debug("Copying file from %s." % strIpAddr)
+        
+        mySsh2sessionUtil = self.__connectSut(strIpAddr, IpAddrPort, strUsr, strPwd)
+        success = mySsh2sessionUtil.getSafShell().ftpGet(file, destination)
+        mySsh2sessionUtil.getSafShell().closeSshShell()
+        mySsh2sessionUtil.closeSession()
+        if(success):
+            self.sshImplLogger.debug('File success fully copied from '+strIpAddr)
+            return ('SUCCESS','File success fully copied from '+strIpAddr)
+        else:
+            self.sshImplLogger.error('Can\'t connect to '+ strIpAddr+ "!!")
+            return ('ERROR', 'Can\'t connect to '+ strIpAddr+ "!!")
+        
+
+    def copyFileRemoteTo(self, strIpAddr, strIpAddrPort, strUsr, strPwd, file, destination)  :
+        IpAddrPort = int(strIpAddrPort)
+        self.sshImplLogger.debug("Copying file to %s." % strIpAddr)
+        mySsh2sessionUtil = self.__connectSut(strIpAddr, IpAddrPort, strUsr, strPwd)
+        ###################################################################
+        # change to use scp instead of sftp here, since sftp is very slow with
+        # R9C network setup of port forwarding solution (only by code, if you run manual sftp, it is fast.).
+        # We've heard from some components that scp can lead to corrupted blocks
+        # occasionally a few years ago, not sure if we still see this issue now.
+        # if we still see scp corrupted blocks, then go for other solution then.
+        ###################################################################
+        success = mySsh2sessionUtil.getSafShell().scpPut(file, destination)
+        mySsh2sessionUtil.getSafShell().closeSshShell()
+        mySsh2sessionUtil.closeSession()
+        if(success):
+            self.sshImplLogger.debug('File success fully copied to '+strIpAddr)
+            return ('SUCCESS','File success fully copied to '+strIpAddr)
+        else:
+            self.sshImplLogger.error('Can\'t connect to '+ strIpAddr+ "!!")
+            return ('ERROR', 'Can\'t connect to '+ strIpAddr+ "!!")
+
+        
+###############################################################################
+# Jython Ssh implementation
+###############################################################################
+
+class cSSH :
+    timeFact = 1000
+    # Construction
+    def __init__(self, timeOut = 30) :
+        self.timeOut = timeOut
+        self.sshImplLogger = Logger.getLogger('_ssh_lib_cSSH')
+        logLevel = System.getProperty("jcat.logging")
+        self.sshImplLogger.setLevel(Level.toLevel(logLevel))
+
+    def resetInternalConnectionCommand(self):
+        self.ssh2sessionUtil.resetInternalConnectionConnand()
+
+    def openSystemController(self, strIpAddr, strIpAddrPort, strUsr, strPwd, attempts=1, timeout = 30)  :
+        self.strIpAddr = strIpAddr
+        self.strUsr = strUsr
+        self.strPwd = strPwd
+        IpAddrPort = int(strIpAddrPort)
+        
+        self.sshImplLogger.debug("Try to Log in to node %s via Ssh2sessionUtil -startSafShell" % (strIpAddr))
+        self.ssh2sessionUtil = Ssh2sessionUtil("Saf Shell SUT")
+        success = self.ssh2sessionUtil.startSafShell(strIpAddr, IpAddrPort , strUsr, strPwd, timeout*self.timeFact, attempts)
+        if(success):
+            self.sshImplLogger.debug("Logged in to node %s " % (strIpAddr))
+            return ('SUCCESS','SystemController @'+strIpAddr+ ' connected!!')
+        else:
+            self.sshImplLogger.warn("Can\'t connect to "+ strIpAddr+ "!!")
+            return ('ERROR', "Can\'t connect to "+ strIpAddr + "!!")
+    
+    def connectToBlade(self, strIpAddr, timeout=5):
+        command = Ssh2sessionUtil.getInternalConnectionCommand() + ' %s' % strIpAddr
+        self.sshImplLogger.debug("Logging in to node %s " % (strIpAddr))
+        
+        try:
+            result = self.ssh2sessionUtil.getSafShell().sendCommand(command, timeout*self.timeFact)
+            if(result != None and re.search(Ssh2sessionUtil.getInternalConnectionCommand() + ": command not found" ,result)):
+                self.sshImplLogger.info(Ssh2sessionUtil.getInternalConnectionCommand() + ' command not found!')
+                self.ssh2sessionUtil.resetInternalConnectionCommand()
+                command = Ssh2sessionUtil.getInternalConnectionCommand() + ' %s' % strIpAddr
+                result = self.ssh2sessionUtil.getSafShell().sendCommand(command, timeout*self.timeFact)
+            if(result != None and not re.search("No route to host" ,result)):
+                self.sshImplLogger.debug('Blade @'+strIpAddr+ ' connected!!')
+                return ('SUCCESS','Blade @'+strIpAddr+ ' connected!!')
+            
+        except :
+            self.sshImplLogger.error("Can't connect to "+ strIpAddr+ "!!")
+            
+        return ('ERROR', "Can't connect to "+ strIpAddr+ "!!!!")
+
+    def disconnectFromBlade(self)  :
+#        pattern = targetData['ctrlBladePattern']
+        self.sshImplLogger.debug("Disconnecting from blade.")
+        success = self.ssh2sessionUtil.closeSession()
+        if(success):
+            self.sshImplLogger.debug("Blade disconnected!!.")
+            return ('SUCCESS','Blade disconnected!!') 
+        else:
+            self.sshImplLogger.error("Can't disconnect from blade!!")
+            return ('ERROR', "Can't disconnect from blade!!")
+
+
+    def createTunnel(self, externalAddress, internalAddress, localPort, destinationPort,  timeout = 20):
+        ''' Create tunnels (bind adresses) to an internal node.'''
+        self.ssh2sessionUtil = Ssh2sessionUtil("Saf Forwarding SUT")
+        username = data.getUsername()
+        password = data.getPassword()
+        self.sshImplLogger.debug('Creating tunnel to '+ externalAddress)
+        success = self.ssh2sessionUtil.startSafShell(externalAddress, 22, username, password, timeout*self.timeFact, 0)
+        if not success:
+            self.sshImplLogger.error('Can\'t connect to '+ externalAddress+ "!!")
+            return ['ERROR', 'Can\'t connect to '+ externalAddress+ "!!"]
+        try:
+            self.ssh2sessionUtil.createLocalTunnel(localPort, internalAddress, destinationPort)
+        except:
+            self.sshImplLogger.error('Failed to create Tunnel to: '+ externalAddress+ '!!')
+            return ['ERROR', 'Failed to create Tunnel to: '+ externalAddress+ '!!']
+        self.sshImplLogger.debug('Created tunnel to '+ externalAddress+ '!!')
+        return ['SUCCESS','Created Tunnel to: '+ externalAddress+ '!!']
+
+
+    def useTunnel(self,localPort, request,  timeout = 20):
+        ''' Create tunnels (bind adresses) to an internal node.'''
+        self.sshImplLogger.info("useTunnel method called. Method not implemented") 
+        
+    def getMatchedPrompt(self):
+        self.sshImplLogger.debug("enter getMatchedPrompt method.")
+        
+        mySsh2sessionUtil = self.ssh2sessionUtil
+        self.sshImplLogger.debug("u%s" % mySsh2sessionUtil)
+
+        myShell = mySsh2sessionUtil.getSafShell()
+        self.sshImplLogger.debug("m%s" % myShell)
+
+        prompt = myShell.getMatchedPrompt();
+        self.sshImplLogger.debug("p%s" % prompt)
+
+        return prompt
+        self.sshImplLogger.debug("leave getMatchedPrompt method.")
+    
+    def senceive(self, strCmd) :
+        self.sshImplLogger.debug("enter senceive method.")
+        if (len(strCmd) == 72):
+            strCmd = strCmd + ' '
+        
+        mySsh2sessionUtil = self.ssh2sessionUtil
+        myShell = mySsh2sessionUtil.getSafShell()
+        
+        self.sshImplLogger.debug("senceive method: sendcommand started.")
+        self.sshImplLogger.debug("strCmd = %s" % strCmd)
+        try:
+            result = myShell.sendCommand(strCmd, self.timeOut*self.timeFact, "#", SshPromptType.ALTERNATIVE)
+            if len(result) == 0:
+                 self.sshImplLogger.warn("Result of command (senceive): an empty response.")
+            else:
+                 self.sshImplLogger.debug("Result of command (senceive):-->%s<--" % result )
+            self.sshImplLogger.debug("senceive method: sendcommand ended.")
+            
+            if(result != None):
+                #enavnac: Temporary fix 
+                #remove the entire block(except the commented return statement at the end) after the jcat community fixes the extra-patterns issue)
+                if (len(strCmd) >= 72):
+                    extraPattern=strCmd[72::] # we store the command from the 73rd character to a new string
+                    resultPattern=result[:len(extraPattern):] 
+                    if (extraPattern==resultPattern): # check if we got the extraPattern in the result
+                        result=result[(len(extraPattern)+1)::] # if yes we remove the extrapattern
+                self.sshImplLogger.debug("leave senceive method.")
+                return ['SUCCESS', result]
+        except:    
+            self.sshImplLogger.error('Error sending data!!')
+            self.sshImplLogger.debug("leave senceive method.")
+            return ['ERROR', 'Error sending data!!']
+
+    def receive(self) :
+        self.sshImplLogger.info("receive() method called. Method not implemented")
+
+    def Send (self, strCmd ):
+        return self.senceive(strCmd)
+
+    def interact(self) :
+        self.sshImplLogger.info("interact() method called. Method not implemented!!")
+        
+
+    def Close(self) :
+        return self.close()
+        
+    def close(self) :
+        try:
+            self.sshImplLogger.debug('cSSH.close - We will close the ssh handle')
+            result = self.ssh2sessionUtil.closeSession()
+            if(result):
+                self.sshImplLogger.debug('ssh handle closed!!')
+                return ('SUCCESS', ' ssh handle closed!!')
+        finally:
+            self.ssh2sessionUtil = None
+        self.sshImplLogger.debug('Error closing ssh handle!!')    
+        return ('ERROR', 'Error closing ssh handle!!')
+
+    def setTimeOut (self, timeOut):
+        try:
+            timeOut=int(timeOut)
+            self.sshImplLogger.debug("Changing timeout from: %d  to: %d" % (self.timeOut, timeOut))
+            self.timeOut = timeOut
+            self.sshImplLogger.debug("Timeout changed from: %d  to: %d" % (self.timeOut, timeOut))
+            return ('SUCCESS', 'Timeout changed')
+        except :
+            self.sshImplLogger.debug('New timeout could not be set')
+            return ('ERROR', 'New timeout could not be set')   
+
+    def getTimeOut (self):
+        try:
+            self.sshImplLogger.debug("Returning timeout: %d" % (self.timeOut))
+            return ('SUCCESS', int(self.timeOut))
+        except :
+            self.sshImplLogger.error('Could not return timeout')
+            return ('ERROR', 'Could not return timeout')    

@@ -1,0 +1,51 @@
+#!/bin/bash
+extradn=0
+missingdn=0
+missmatches=0
+scanned=0
+
+function checkdn()
+{
+#check if DNs exist
+local dn=$1
+let scanned++
+dn_hash=`echo $dn | md5sum | cut -d " " -f1`
+if [ -f "imm_snapshot/dn_${dn_hash}" ]; then
+  immlist $dn | sort -u > ${dn_hash}.new
+  diff ${dn_hash}.new imm_snapshot/dn_${dn_hash} > /dev/null
+  if [ $? -ne 0 ]; then
+    echo "DN missmatch of $dn"
+    let missmatches++
+    diff ${dn_hash}.new imm_snapshot/dn_${dn_hash} 
+  fi
+  \rm ${dn_hash}.new
+else 
+  echo "Found new DN. $dn"
+  let extradn++
+fi
+}
+# TEST: Add extra DN that will be removed
+immcfg -c CmwSysConfig CmwSysConfigId=2
+
+immfind | sed 's:\\:\\\\:g' > immfind_dns
+\rm -rf immfind_dns_md5 > /dev/null
+while read dn_read; do
+  checkdn $dn_read
+  echo $check_dn | md5sum | cut -d " " -f1 >> immfind_dns_md5
+done < immfind_dns
+
+# Calculate which DNs existed in snapshot that does not exist in current IMM
+while read prev_dn; do
+  grep 
+done < ls imm_snapshot 
+
+
+#Missing DNS not implemeneted" 
+echo ""
+echo "Comparison summary"
+echo "------------------"
+echo "Scanned DNs: $scanned"
+echo "Extra DNs: $extradn"
+echo "Missmatch DNs: $missmatches"
+echo "Missing DNs: $missingdn"
+immcfg -d CmwSysConfigId=2

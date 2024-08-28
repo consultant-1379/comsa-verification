@@ -1,0 +1,1 @@
+['urn:ietf:params:netconf:capability:rollback-on-error:1.0', 'Snmp xmlns="urn:com:ericsson:ecim:ComSnmp"', 'HostAndPort', 'ok/']

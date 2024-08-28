@@ -1,0 +1,53 @@
+#!/usr/bin/expect 
+
+proc timeStamp {} {
+  global tcl_version
+  if {$tcl_version >= 7.5} {
+    # "clock" command requires Tcl v7.5 or greater
+    # internal routine a little faster than making a system call
+    set stamp [clock format [clock seconds] -format %Y-%m-%d,%T]
+  } else {
+    # fall back to standard UNIX system call
+    set stamp [exec /bin/date +%Y-%m-%d,%T]
+  }
+  return $stamp
+}
+
+if {$argc < 1} {
+    puts ""
+    puts "  connect_to_serial address port logfile"
+    puts ""
+    puts "    e.g. connecto_to_serial 134.138.66.5 7010"
+    exit 1
+}
+
+set addr [lindex $argv 0]
+set port [lindex $argv 1]
+log_user 0
+
+while {1} {
+  set timeout 4
+  spawn -noecho telnet $addr $port
+  expect {
+      "Login" {
+          send "root\n" 
+          exp_continue
+      }
+      "Password" {
+          send "dbps\n"
+          exp_continue
+      }
+      "Entering server port" {
+	  set timeout -1
+          puts "[timeStamp]: Connected"
+	  expect {
+	  	"\n" {
+	    	puts "[timeStamp]: [string trim $expect_out(buffer) \r\n]"
+		exp_continue
+                }
+	  }
+      }
+   }
+   puts "[timeStamp]: Connection closed, retrying"
+   sleep 1
+}

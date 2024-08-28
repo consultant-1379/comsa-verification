@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Failover tests for ComSa</id>
+        <tag>TC-AVL-003</tag>	
+        <version>P1A01</version>
+		<testcase>failoverTestCase</testcase>
+		<class>Failover</class>
+		<method>Failover</method>
+		<description>Failover tests for ComSa</description>
+	</info>	
+    <config>
+    <!--
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+    -->
+	</config>  
+</testcase>

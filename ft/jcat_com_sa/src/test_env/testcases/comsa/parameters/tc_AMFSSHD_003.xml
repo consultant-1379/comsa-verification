@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SSHD crashes and verify it will is restarted by AMF</id>
+		<tag>TC-AMFSSHD-003</tag>
+		<version>P1A01</version>
+		<testcase>amfHandleSshd</testcase>
+		<class>amfHandleSshd</class>
+		<method>amfHandleSshd</method>
+		<description>Simulating SSHD crash and confirm OAM SSHD will restart again</description>
+	</info>
+	<config>
+		<reqCmwVersion>R10A16</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComVersion>R2A09</reqComVersion>
+		<reqComRelease>5</reqComRelease>
+		<reqComSaVersion>R7A09</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+	</config>
+</testcase>

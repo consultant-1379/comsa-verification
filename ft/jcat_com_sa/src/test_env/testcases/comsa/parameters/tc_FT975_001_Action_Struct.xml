@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP975 - Testing Action with struct and multivalue parametrers</id>
+        <tag>TC-FT975-001</tag>	
+        <version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>SDP975 - Testing Action with struct and multivalue parametrers</description>
+	</info>	
+    <config>
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+    	<useExternalModels>yes</useExternalModels>
+    	<modelFilePathOnTarget>/home/netconfTest/</modelFilePathOnTarget>
+    	<modelFileType>975</modelFileType>    	
+    	<momFile>Sdp617ActiontestMom_mp.xml</momFile>
+    	<immClassesFile>Sdp617ActiontestMom_imm_classes.xml</immClassesFile>    	
+
+        <helloFile>Hello.xml</helloFile>
+        <actionFile>['tc_nc_action_struct.xml']</actionFile>
+        <actionFile2>['tc_nc_action_multivalues.xml']</actionFile2>
+        <actionFile3>['tc_nc_action_struct_multivalues.xml']</actionFile3>
+        <actionFile4>['tc_nc_action_multivalues_struct.xml']</actionFile4>
+        <closeFile>Close.xml</closeFile>
+        <logFile>logFile.txt</logFile>
+    	<respFile>sdp975_ExpOutput_struct.txt</respFile>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+
+    	<forbiddenContent>['SnmpTargetV2C']</forbiddenContent>
+	</config>  
+</testcase>

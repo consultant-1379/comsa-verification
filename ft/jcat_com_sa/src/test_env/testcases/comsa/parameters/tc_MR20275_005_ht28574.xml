@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>MR20275 FT- commit an empty ccb</id>
+		<tag>TC-MR20275-005</tag>
+		<version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>MR20275 FT- commit an empty ccb</description>
+	</info>
+	<config>
+		<reqComSaVersion>R7A01</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+
+		<configFile>com_sa_trace.conf</configFile>
+		<enableComSaTrace>True</enableComSaTrace>
+
+		<cli_input_1>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"configure" "ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1" "SnmpTargetV1=1" "address=1" "community=2" "up" "no SnmpTargetV1=1" "commit" "exit"</cli_input_2>
+		<cli_expected_output_2>['ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1', 'no SnmpTargetV1=1', 'commit']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<cli_input_3>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "exit"</cli_input_3>
+		<cli_expected_output_3>['ERROR: Specific element not found']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+		<expectedComSA_syslog_1>com: COM_SA OamSAImmBridge::OamSAValidate</expectedComSA_syslog_1>
+		<expectedComSA_syslog_2>com: COM_SA OamSAImmBridge::OamSAPrepare</expectedComSA_syslog_2>
+		<unexpectedComSA_syslog_1>COM_SA saImmOmCcbValidate</unexpectedComSA_syslog_1>
+
+	</config>
+</testcase>

@@ -1,0 +1,13 @@
+ definitely lost 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+strdup (in /lib64/libc-2.11.3.so)
+parseLogFileName_forAlarmsAndAlerts (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/log/ComSALogService.c:748)
+parseAlarmAndAlertConfig (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/log/ComSALogService.c:854)
+loadAlarmAndAlertConfig (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/log/ComSALogService.c:913)
+AlarmAndAlertLogServiceOpen (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/log/ComSALogService.c:1025)
+maf_amf_csi_set_callback (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/ac/ComSAAc.c:1517)
+ava_hdl_cbk_rec_prc (/home/xliisuo/coremw4/output/opensaf/osaf/libs/agents/saf/amfa/../../../../../../../opensaf/osaf/libs/agents/saf/amfa/ava_hdl.c:651)
+ava_hdl_cbk_dispatch (/home/xliisuo/coremw4/output/opensaf/osaf/libs/agents/saf/amfa/../../../../../../../opensaf/osaf/libs/agents/saf/amfa/ava_hdl.c:448)
+saAmfDispatch (/home/xliisuo/coremw4/output/opensaf/osaf/libs/agents/saf/amfa/../../../../../../../opensaf/osaf/libs/agents/saf/amfa/ava_api.c:261)
+dispatch_amf (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/ac/ComSAAc.c:1374)
+poll_execute (/home/comsaci/ci_v2/comsa_build/comsa-source/src/../src/generic/ac/SelectTimer.c:556)

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Setting IP Address of SNMP Trap Receiver</id>
+        <tag>TC-CPI-001</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>Setting IP Address of SNMP Trap Receiver</description>
+	</info>	
+    <config>
+    	<cli_input_1>"configure" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "show verbose" "abort" "exit"</cli_input_1>
+        <cli_expected_output_1>['address', 'administrativeState', 'community', 'isMibWritable', 'operationalState', 'port']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"configure" "" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "address=1.2.3.4" "community=public" "show" "commit" "exit"</cli_input_2>
+        <cli_expected_output_2>['address="1.2.3.4"', 'community="public"']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>              
+        
+        <cli_input_3>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "exit"</cli_input_3>
+        <cli_expected_output_3>['SnmpTargetV1=1', 'address="1.2.3.4"', 'community="public"']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+        <cli_input_4>"configure" "" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "no SnmpTargetV1=1" "commit" "exit"</cli_input_4>
+        <cli_expected_output_4>['SnmpTargetV1=1']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>              
+
+        <cli_input_5>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "exit"</cli_input_5>
+        <cli_expected_output_5>['agentAddress', 'operationalState=ENABLED']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['SnmpTargetV1=1', 'error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+	</config>  
+</testcase>

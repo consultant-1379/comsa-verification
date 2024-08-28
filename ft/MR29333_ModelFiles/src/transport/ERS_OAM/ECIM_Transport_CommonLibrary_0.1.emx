@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/_aV4mkJV_EeOXLdCiDAqSAg/73" xmlns:Default="http:///schemas/Default/_fNm3AAqoEd6-N_NOT9vsCA/2" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/_KJG3sLg2EeOrW-AQzP3ptQ/747" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/_aV4mkJV_EeOXLdCiDAqSAg/73 pathmap://COREMW_PROFILE/CoreMW_Profile.epx#_aV7C0JV_EeOXLdCiDAqSAg?CoreMW%20Profile/CoreMWProfile? http:///schemas/Default/_fNm3AAqoEd6-N_NOT9vsCA/2 pathmap://UML2_MSL_PROFILES/Default.epx#_fNwoAAqoEd6-N_NOT9vsCA?Default/Default? http:///schemas/ECIMBaseProfile/_KJG3sLg2EeOrW-AQzP3ptQ/747 pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.epx#_KJPakLg2EeOrW-AQzP3ptQ?ECIM%20Base%20Profile/ECIMBaseProfile?">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="ECIM_Transport_CommonLibrary" clientDependency="_ZEOocLMuEeObe7hvG8i5gQ">
+    <eAnnotations xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:id="_ssfGgRVBEeGWfsxmoyV2wg" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:id="_ssfGghVBEeGWfsxmoyV2wg" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:id="_HaHmwBVCEeGWfsxmoyV2wg">
+      <body>ECIM Transport Common Library for common data types within ECIM Transport</body>
+    </ownedComment>
+    <packageImport xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_iT7qACCSEd-Egr3-YAWs7Q?EcimDataType?"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_ww5-MBVBEeGWfsxmoyV2wg" name="ECIM_Transport_CommonLibrary">
+      <ownedComment xmi:id="_ww5-MRVBEeGWfsxmoyV2wg">
+        <body>ECIM Transport Common Library is a common ECIM Transport model fragment where MOM entities used by 2+ ECIM Transport fragments are stored. </body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_3z4o8AAdEeGkgtphA2feBQ" name="InterfaceIndex">
+        <ownedComment xmi:id="_30DoEQAdEeGkgtphA2feBQ">
+          <body>A unique value, greater than zero, for each interface or interface sub-layer in the managed system. &#xD;
+&#xD;
+It is  recommended that values are assigned contiguously starting from 1.  The value for each interface sub-layer must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization. Range: 1..2147483647.</body>
+        </ownedComment>
+        <generalization xmi:id="_30OnMAAdEeGkgtphA2feBQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxVN4CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt32?"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_QXMOYAAYEeGkgtphA2feBQ" name="TimeTicks">
+        <ownedComment xmi:id="_QXWmcQAYEeGkgtphA2feBQ">
+          <body>hundredths of seconds since an epoch.&#xD;
+&#xD;
+Range: 0..4294967295&#xD;
+</body>
+        </ownedComment>
+        <generalization xmi:id="_QXiMoAAYEeGkgtphA2feBQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxVN4CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt32?"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_ww5-UhVBEeGWfsxmoyV2wg" name="Ipv6AddressStr">
+        <ownedComment xmi:id="_ogxzoFzVEeGlyNnLsMAiNA">
+          <body>IPv6 address string, controlled by a regular expression.&#xD;
+&#xD;
+Address should be specified in colon separated hexadecimal notation as described in RFC 4291 section 2.2 items 1 and 2.&#xD;
+IPv6 addresses shall have a length range of 3-39 characters.&#xD;
+Valid characters: 0123456789abcdefABCDEF:&#xD;
+&#xD;
+Regex:&#xD;
+(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*$)|(^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*$)&#xD;
+&#xD;
+Examples: FF01::101, 2001:DB8:0:0:8:800:200C:417A</body>
+        </ownedComment>
+        <generalization xmi:id="_ww5-VBVBEeGWfsxmoyV2wg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2UW_sBVBEeGWfsxmoyV2wg" name="Ipv4UnicastAddressStr">
+        <ownedComment xmi:id="_Fqf70FzWEeGlyNnLsMAiNA">
+          <body>IPv4 address string, controlled by a regular expression.&#xD;
+&#xD;
+Address should be specified in dotted-quad decimal notation in accordance with RFC791.&#xD;
+IPv4 address within range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters. &#xD;
+Valid characters: 0123456789.&#xD;
+&#xD;
+Regex:&#xD;
+(^(0?0?[1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|0?[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))&#xD;
+&#xD;
+Examples: 1.1.1.1, 01.001.255.255 </body>
+        </ownedComment>
+        <generalization xmi:id="_2UW_shVBEeGWfsxmoyV2wg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_teIvYAAYEeGkgtphA2feBQ" name="TimeStamp">
+        <ownedComment xmi:id="_teTugAAYEeGkgtphA2feBQ">
+          <body>The value of the sysUpTime object (hundredths of seconds since an epoch) at which a specific occurrence happened.  &#xD;
+&#xD;
+The specific occurrence must be defined in the description of any object defined using this type.&#xD;
+&#xD;
+If sysUpTime is reset to zero as a result of a re-initialization of the network management (sub)system, then the values of all TimeStamp objects are also reset. However, after approximately 497 days without a re-initialization, the sysUpTime object will reach 2^^32-1 and then increment around to zero; in this case, existing values of TimeStamp objects do not change.  This can lead to ambiguities in the value of TimeStamp objects. &#xD;
+&#xD;
+Range: 0..4294967295</body>
+        </ownedComment>
+        <generalization xmi:id="_teetoAAYEeGkgtphA2feBQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_DxVN4CCTEd-Egr3-YAWs7Q?EcimDataType/EcimUInt32?"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_qXDiIBXvEeGFUMpUG07l-g" name="RouterIdStr">
+        <ownedComment xmi:id="_xklhAFzWEeGlyNnLsMAiNA">
+          <body>Regular expression representing an IPv4 address used as a router Id.&#xD;
+&#xD;
+Address should be specified in dotted-quad decimal notation in accordance with RFC791.&#xD;
+IPv4 address within range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters. &#xD;
+Valid characters: 0123456789.&#xD;
+&#xD;
+Regex:&#xD;
+(^(0?0?[1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|0?[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))&#xD;
+&#xD;
+Examples: 1.1.1.1, 01.001.255.255 </body>
+        </ownedComment>
+        <generalization xmi:id="_qXDiIhXvEeGFUMpUG07l-g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.emx#_7LZ54CCSEd-Egr3-YAWs7Q?EcimDataType/EcimString?"/>
+        </generalization>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_ZEOocLMuEeObe7hvG8i5gQ" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.emx#_5vlRYnhQEd-OM9oMWC6jJQ?ECIM%20Core%20MW%20Guidelines?"/>
+    </packagedElement>
+    <profileApplication xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Default.epx#_fNwoAAqoEd6-N_NOT9vsCA?Default/Default?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_MSL_PROFILES/Default.epx#_a_S3wNWLEdiy4IqP8whjFA?Default?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_UeIAJNCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:id="_UeIAJdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_IrdAUMmBEdqBcN1R6EvWUw?Deployment/Deployment?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_vjbuwOvHEdiDX5bji0iVSA?Deployment?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_sta6oBVBEeGWfsxmoyV2wg">
+      <eAnnotations xmi:id="_sta6oRVBEeGWfsxmoyV2wg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.epx#_KJPakLg2EeOrW-AQzP3ptQ?ECIM%20Base%20Profile/ECIMBaseProfile?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.epx#_cUcakNQkEd63X4o72aQidQ?ECIM%20Base%20Profile?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_Yx6wcLMuEeObe7hvG8i5gQ">
+      <eAnnotations xmi:id="_Yx6wcbMuEeObe7hvG8i5gQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.epx#_aV7C0JV_EeOXLdCiDAqSAg?CoreMW%20Profile/CoreMWProfile?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://COREMW_PROFILE/CoreMW_Profile.epx#_Br2_QBSXEd-ZjqYFUyJzOw?CoreMW%20Profile?"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_stbhsBVBEeGWfsxmoyV2wg" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" createdBy="EUS/ZZT/BHAA Vladica Stanisic"/>
+  <Default:Documentation xmi:id="_HaLRIBVCEeGWfsxmoyV2wg" base_Comment="_HaHmwBVCEeGWfsxmoyV2wg"/>
+  <ECIMBaseProfile:EcimLibrary xmi:id="_wxBS8BVBEeGWfsxmoyV2wg" hideGroupName="" specification="" statusInformation="" base_Package="_ww5-MBVBEeGWfsxmoyV2wg" version="1" release="0" organization="" ecimLibraryName="ECIM_Transport_CommonLibrary" ecimLibraryVersion="1" ecimLibraryRelease="0"/>
+  <Default:Documentation xmi:id="_wxBS8RVBEeGWfsxmoyV2wg" base_Comment="_ww5-MRVBEeGWfsxmoyV2wg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_wxChExVBEeGWfsxmoyV2wg" hideGroupName="" specification="" length="1..253" pattern="(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*$)|(^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*$)" base_DataType="_ww5-UhVBEeGWfsxmoyV2wg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_2UXmwBVBEeGWfsxmoyV2wg" hideGroupName="" specification="" length="1..253" pattern="(^(0?0?[1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|0?[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))" base_DataType="_2UW_sBVBEeGWfsxmoyV2wg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_i1tZMhVCEeGWfsxmoyV2wg" hideGroupName="" specification="SNMPv2-TC" statusInformation="" range="0..4294967295" base_DataType="_teIvYAAYEeGkgtphA2feBQ"/>
+  <Default:Documentation xmi:id="_i1tZMxVCEeGWfsxmoyV2wg" base_Comment="_teTugAAYEeGkgtphA2feBQ"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_qcQLMBXvEeGFUMpUG07l-g" hideGroupName="" specification="" length="1..253" pattern="(^(0?0?[1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|0?[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))" base_DataType="_qXDiIBXvEeGFUMpUG07l-g"/>
+  <Default:Documentation xmi:id="_og9Z0FzVEeGlyNnLsMAiNA" base_Comment="_ogxzoFzVEeGlyNnLsMAiNA"/>
+  <Default:Documentation xmi:id="_Fqq68FzWEeGlyNnLsMAiNA" base_Comment="_Fqf70FzWEeGlyNnLsMAiNA"/>
+  <Default:Documentation xmi:id="_xkyVUFzWEeGlyNnLsMAiNA" base_Comment="_xklhAFzWEeGlyNnLsMAiNA"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_QXWmcAAYEeGkgtphA2feBQ" hideGroupName="" specification="SNMPv2-SMI" statusInformation="" range="0..4294967295" base_DataType="_QXMOYAAYEeGkgtphA2feBQ"/>
+  <Default:Documentation xmi:id="_QXg-gAAYEeGkgtphA2feBQ" base_Comment="_QXWmcQAYEeGkgtphA2feBQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_30DoEAAdEeGkgtphA2feBQ" hideGroupName="" specification="rfc2863" statusInformation="" range="1..2147483647" base_DataType="_3z4o8AAdEeGkgtphA2feBQ"/>
+  <Default:Documentation xmi:id="_30OAIAAdEeGkgtphA2feBQ" base_Comment="_30DoEQAdEeGkgtphA2feBQ"/>
+  <CoreMWProfile:CmwModel xmi:id="_Y5W1MLMuEeObe7hvG8i5gQ" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+</xmi:XMI>

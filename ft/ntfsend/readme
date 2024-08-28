@@ -1,0 +1,9 @@
+Purpose:
+
+Currently "ntfsend" command don't support to send Alarm attaching AdditionInfo and InfoId. So that "ntfclient.h" and "ntfsend.c" are modified from opensaf source code to add "-z" and "-x" option for sending AdditionInfo and InfoId, respectively. In case Opensaf update and support this. We can continue use ntfsend command provided from Opensaf.
+
+Note: The "-x" option for sending the InfoId intends for testing the MR38690.
+
+Usage:
+
+ntfsend -T 0x4000 -e 16384 -c 193,12960,1 -n "fmAlarmTypeId=ComSaCLMClusterNodeUnavailable,fmAlarmModelId=CW,fmId=1" -z "tc2_addinfo1;tc2_addinfo2" -x "199;99" -s 5 -a "COM SA, CLM Cluster Node Unavailable;"

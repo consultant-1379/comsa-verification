@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2014 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Apr 8, 2014 3:46:54 PM using:
+	* com.ericsson.ecim.m2m 2.10.0.201404011339
+	* com.ericsson.ecim.dsl 2.10.0.201404011339
+	* com.ericsson.ecim.edm 2.10.0.201404011339
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>G</dtdVersion>
+  <momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+  </momMetaData>
+  <mim author="" contact="" correction="1" date="" docNo="" name="NoRootMom1" namespace="urn:com:ericsson:ecim:NoRootMom1" namespacePrefix="norootmom1" organization="" release="1" revision="" version="1">
+    <description>doc</description>
+    <domainExtension domain="ECIM">
+      <extension name="immNamespace" value="MOM_NAME"/>
+    </domainExtension>
+    <class name="C1A">
+      <description>doc</description>
+      <attribute name="c1AId">
+        <description>doc</description>
+        <mandatory/>
+        <noNotification/>
+        <restricted/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="userLabel">
+        <description>doc</description>
+        <domainExtension domain="ECIM">
+          <extension name="isNillable" value="true"/>
+        </domainExtension>
+        <isNillable/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <class name="C1B">
+      <description>doc</description>
+      <attribute name="c1BId">
+        <description>doc</description>
+        <mandatory/>
+        <noNotification/>
+        <restricted/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="userLabel">
+        <description>doc</description>
+        <domainExtension domain="ECIM">
+          <extension name="isNillable" value="true"/>
+        </domainExtension>
+        <isNillable/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <relationship name="C1A_to_C1B">
+      <containment>
+        <parent>
+          <hasClass name="C1A">
+            <mimName>NoRootMom1</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="C1B">
+            <mimName>NoRootMom1</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </mim>
+  <interMim>
+    <relationship name="ManagedElement_to_C1A">
+      <domainExtension domain="CoreMW">
+        <extension name="splitImmDn" value="true"/>
+      </domainExtension>
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ECIM_Top</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="C1A">
+            <mimName>NoRootMom1</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </interMim>
+  <interMim>
+    <relationship name="C2A_to_C1B">
+      <domainExtension domain="CoreMW">
+        <extension name="splitImmDn" value="false"/>
+      </domainExtension>
+      <containment>
+        <parent>
+          <hasClass name="C2A">
+            <mimName>NoRootMom2</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="C1B">
+            <mimName>NoRootMom1</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </interMim>
+</models>

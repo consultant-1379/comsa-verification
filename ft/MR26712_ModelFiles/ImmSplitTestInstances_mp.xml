@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2013 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Jul 17, 2013 12:58:45 PM using:
+	* com.ericsson.ecim.m2m 2.7.0.qualifier
+	* com.ericsson.ecim.dsl 2.7.0.qualifier
+	* com.ericsson.ecim.edm 2.7.0.qualifier
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>F</dtdVersion>
+  <momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+  </momMetaData>
+  <mib correction="0" name="ImmSplitTestInstances" release="1" version="1">
+    <object parentDn="ManagedElement=1,RootX=1,RootC=1,ClassC=1">
+      <hasClass name="RootD">
+        <mimName>DMom</mimName>
+      </hasClass>
+      <slot name="rootDId">
+        <value>1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1,RootA=A2,ClassA=A2-2">
+      <hasClass name="RootB">
+        <mimName>BMom</mimName>
+      </hasClass>
+      <slot name="rootBId">
+        <value>B4</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1">
+      <hasClass name="RootA">
+        <mimName>AMom</mimName>
+      </hasClass>
+      <slot name="rootAId">
+        <value>A2</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootX=1">
+      <hasClass name="RootC">
+        <mimName>CMom</mimName>
+      </hasClass>
+      <slot name="rootCId">
+        <value>1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1,RootA=A1,ClassA=A1-1">
+      <hasClass name="RootB">
+        <mimName>BMom</mimName>
+      </hasClass>
+      <slot name="rootBId">
+        <value>B2</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1,RootA=A2">
+      <hasClass name="ClassA">
+        <mimName>AMom</mimName>
+      </hasClass>
+      <slot name="classAId">
+        <value>A2-1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1,RootA=A1">
+      <hasClass name="ClassA">
+        <mimName>AMom</mimName>
+      </hasClass>
+      <slot name="classAId">
+        <value>A1-1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1">
+      <hasClass name="RootY">
+        <mimName>YMom</mimName>
+      </hasClass>
+      <slot name="rootYId">
+        <value>1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1,RootA=A1,ClassA=A1-1">
+      <hasClass name="RootB">
+        <mimName>BMom</mimName>
+      </hasClass>
+      <slot name="rootBId">
+        <value>B1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootX=1,RootC=1">
+      <hasClass name="ClassC">
+        <mimName>CMom</mimName>
+      </hasClass>
+      <slot name="classCId">
+        <value>1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1">
+      <hasClass name="RootX">
+        <mimName>XMom</mimName>
+      </hasClass>
+      <slot name="rootXId">
+        <value>1</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1,RootA=A2">
+      <hasClass name="ClassA">
+        <mimName>AMom</mimName>
+      </hasClass>
+      <slot name="classAId">
+        <value>A2-2</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1,RootA=A2,ClassA=A2-1">
+      <hasClass name="RootB">
+        <mimName>BMom</mimName>
+      </hasClass>
+      <slot name="rootBId">
+        <value>B3</value>
+      </slot>
+    </object>
+    <object parentDn="ManagedElement=1,RootY=1">
+      <hasClass name="RootA">
+        <mimName>AMom</mimName>
+      </hasClass>
+      <slot name="rootAId">
+        <value>A1</value>
+      </slot>
+    </object>
+  </mib>
+</models>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"Create objects of class that has two parents using CLI and check the objects in IMM"</id>
+        <tag>TC-MR26712-001</tag>
+        <version>P1A01</version>
+                <testcase>functionTestMr26712</testcase>
+                <class>functiontestMR26712</class>
+                <method>functiontestMR26712</method>
+                <description>"Create objects of class that has two parents using CLI and check the objects in IMM"</description>
+        </info>
+    <config>
+        <useExternalModels>yes</useExternalModels>
+        <immClassesFile>XMom_imm_classes.xml</immClassesFile>
+        <immClassesFile2>YMom_imm_classes.xml</immClassesFile2>
+        <immClassesFile3>AMom_imm_classes.xml</immClassesFile3>
+        <momFile>ImmSplitTestModel_mp.xml</momFile>
+
+        <cli_input_1>"show ManagedElement=1,RootX=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['rootXId=\"1\"', 'closed connection']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show ManagedElement=1,RootY=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ERROR: Specific element not found']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['rootYId=\"1\"', 'closed connection']</cli_nonexpected_output_2>
+
+        <cli_input_3>"configure" "ManagedElement=1,RootX=1" "RootA=1" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'RootX=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+        <cli_input_4>"configure" "ManagedElement=1,RootY=1" "RootA=1" "commit" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'RootY=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <cli_input_5>"show all ManagedElement=1,RootX=1" "exit"</cli_input_5>
+        <cli_expected_output_5>['RootX=1', 'RootA=1']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['ERROR: Specific element not found']</cli_nonexpected_output_5>
+
+        <cli_input_6>"show all ManagedElement=1,RootY=1" "exit"</cli_input_6>
+        <cli_expected_output_6>['RootY=1', 'RootA=1']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['ERROR: Specific element not found']</cli_nonexpected_output_6>
+
+        <cli_input_7>"show all verbose ManagedElement=1,RootX=1" "exit"</cli_input_7>
+        <cli_expected_output_7>['RootX=1', 'RootA=1', 'rootXId=\"1\"','rootAId=\"1\"']</cli_expected_output_7>
+        <cli_nonexpected_output_7>['ERROR: Specific element not found']</cli_nonexpected_output_7>
+
+        <cli_input_8>"show all verbose ManagedElement=1,RootY=1" "exit"</cli_input_8>
+        <cli_expected_output_8>['RootY=1', 'RootA=1', 'rootYId=\"1\"', 'rootAId=\"1\"']</cli_expected_output_8>
+        <cli_nonexpected_output_8>['ERROR: Specific element not found']</cli_nonexpected_output_8>
+
+        <imm_input_1>immfind | grep -i root</imm_input_1>
+        <imm_expected_output_1>['AMomrootAId=1,XMomrootXId=1', 'AMomrootAId=1,YMomrootYId=1', 'XMomrootXId=1', 'YMomrootYId=1']</imm_expected_output_1>
+        <imm_nonexpected_output_1>['ERROR']</imm_nonexpected_output_1>
+
+        <immObjPattern>['root']</immObjPattern>
+        </config>
+</testcase>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MISC - Auto-Installation Script for CMW, COM COM_SA</id>
+        <tag>TC-MISC-012</tag>	
+        <version>P1A01</version>
+		<testcase>AutoInstallationOfCmwComComsa</testcase>
+		<class>AutoInstallationOfCmwComComsa</class>
+		<method>AutoInstallationOfCmwComComsa</method>
+		<description>MISC - Automatic Installation for the Components</description>
+	</info>	
+    <config>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+	</config>  
+</testcase>

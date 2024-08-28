@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CLI read configuration - read top level</id>
+        <tag>TC-CLI-001</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>CLI read configuration - read top level</description>
+	</info>	
+    <config>
+        <cli_input_1>"show" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+	</config>  
+</testcase>

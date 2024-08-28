@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpEmptyClass">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpEmptyClass">
+            <mimName>ObjImpEmptyMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpEmptyMom" namespace="urn:com:ericsson:ecim:ObjImpEmptyMom::1.0" namespacePrefix="objimpemptymom" organization="" release="1" revision="" version="1">
+<description>desc</description>
+<class name="ObjImpEmptyClass">
+      <description>A test class</description>
+      <root/>
+      <attribute name="objImpEmptyClassId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+    </class>
+
+<class name="TestClassOne">
+      <description>A test class</description>
+      <attribute name="testClassOneId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+    </class>
+
+<class name="TestClassTwo">
+      <description>A test class</description>
+      <attribute name="testClassTwoId">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+    </class>
+
+    <relationship name="ObjImpEmptyClass_to_TestClassOne">
+            <containment>
+                <parent>
+                    <hasClass name="ObjImpEmptyClass">
+                        <mimName>ObjImpEmptyMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TestClassOne">
+                        <mimName>ObjImpEmptyMom</mimName>
+                    </hasClass>
+                </child>
+            </containment>
+        </relationship>
+
+    <relationship name="TestClassOne_to_TestClassTwo">
+            <containment>
+                <parent>
+                    <hasClass name="TestClassOne">
+                        <mimName>ObjImpEmptyMom</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TestClassTwo">
+                        <mimName>ObjImpEmptyMom</mimName>
+                    </hasClass>
+                </child>
+            </containment>
+        </relationship>
+
+</mim>
+     
+</models>

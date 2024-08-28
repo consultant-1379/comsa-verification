@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CLI change configuration - creating a new object but aborting the operation</id>
+        <tag>TC-CLI-007</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>CLI change configuration - creating a new object but aborting the operation</description>
+	</info>	
+    <config>
+    	<cli_input_1>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"configure" "ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1" "SnmpTargetV1=1" "show" "abort" "exit"</cli_input_2>
+        <cli_expected_output_2>['ManagedElement=1,SystemFunctions=1,SysM=1', 'Snmp=1', 'show', 'abort', 'SnmpTargetV1=1']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+        
+        <cli_input_3>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1" "exit"</cli_input_3>
+        <cli_expected_output_3>['ERROR: Specific element not found|ERROR: \'SnmpTargetV1\' is incomplete']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>        
+	</config>  
+</testcase>

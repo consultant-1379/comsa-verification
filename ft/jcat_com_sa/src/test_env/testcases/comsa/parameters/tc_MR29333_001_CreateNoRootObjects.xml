@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>"Import models with no EcimRootMoClass and multiple EcimContribution children, using the latest COM that supports MAF MR SPI v3"</id>
+		<tag>TC-MR29333-001</tag>
+		<version>P1A01</version>
+		<testcase>functionTestMr29333</testcase>
+		<class>functiontestMR29333</class>
+		<method>functiontestMR29333</method>
+		<description>"Import models with no EcimRootMoClass and multiple EcimContribution children, using the latest COM that supports MAF MR SPI v3"</description>
+	</info>
+	<config>
+		<reqComSaVersion>R5A11</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<useExternalModels>yes</useExternalModels>
+		<immClassesFile>NoRootMom1_imm_classes.xml</immClassesFile>
+		<immClassesFile2>NoRootMom2_imm_classes.xml</immClassesFile2>
+		<immClassesFile3>NoRootMom3_imm_classes.xml</immClassesFile3>
+		<momFile>NoRootMom1_mp.xml</momFile>
+		<momFile2>NoRootMom2_mp.xml</momFile2>
+		<momFile3>NoRootMom3_mp.xml</momFile3>
+
+		<cli_input_1>"show ManagedElement=1,C1A=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['c1AId=\"1\"', 'closed connection']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show ManagedElement=1,C2A=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['ERROR: Specific element not found']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['c2AId=\"1\"', 'closed connection']</cli_nonexpected_output_2>
+
+		<cli_input_3>"configure" "ManagedElement=1,C1A=1" "C1B=1" "C3A=1" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['ManagedElement=1', 'C1A=1', 'C1B=1', 'C3A=1', 'commit', 'exit']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1,C2A=1" "C1B=1" "C3A=1" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['ManagedElement=1', 'C2A=1', 'C1B=1', 'C3A=1','commit', 'exit']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+		<cli_input_5>"configure" "ManagedElement=1,C2A=1" "C2B=1" "C3B=1" "commit" "exit"</cli_input_5>
+		<cli_expected_output_5>['ManagedElement=1', 'C2A=1', 'C2B=1', 'C3B=1','commit', 'exit']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+
+		<cli_input_6>"configure" "ManagedElement=1,C2A=1" "C1B=1" "userLabel=C1B_userLabel" "commit" "show" "exit"</cli_input_6>
+		<cli_expected_output_6>['ManagedElement=1', 'C2A=1', 'C1B=1', 'userLabel=C1B_userLabel', 'commit', 'C1B=1', 'userLabel=C1B_userLabel', 'C3A=1', 'exit']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['error', 'closed connection', 'Connection to COM failed', '[Read error code']</cli_nonexpected_output_6>
+
+		<cli_input_7>"show all ManagedElement=1,C1A=1" "exit"</cli_input_7>
+		<cli_expected_output_7>['C1A=1', 'C1B=1', 'C3A=1']</cli_expected_output_7>
+		<cli_nonexpected_output_7>['ERROR: Specific element not found']</cli_nonexpected_output_7>
+
+		<cli_input_8>"show all ManagedElement=1,C2A=1" "exit"</cli_input_8>
+		<cli_expected_output_8>['C2A=1', 'C2B=1', 'C3B=1', 'C1B=1', 'C3A=1']</cli_expected_output_8>
+		<cli_nonexpected_output_8>['ERROR: Specific element not found']</cli_nonexpected_output_8>
+
+		<imm_input_1>immfind | grep -i root</imm_input_1>
+		<imm_expected_output_1>['NoRootMom1c1AId=1', 'NoRootMom1c1BId=1,NoRootMom1c1AId=1', 'NoRootMom1c1BId=1,NoRootMom2c2AId=1', 'NoRootMom2c2AId=1', 'NoRootMom3c3AId=1,NoRootMom1c1BId=1,NoRootMom1c1AId=1', 'NoRootMom3c3AId=1,NoRootMom1c1BId=1,NoRootMom2c2AId=1', 'NoRootMom3c3BId=1,c2BId=1,NoRootMom2c2AId=1', 'c2BId=1,NoRootMom2c2AId=1']</imm_expected_output_1>
+		<imm_nonexpected_output_1>['ERROR']</imm_nonexpected_output_1>
+
+		<immObjPattern>['root']</immObjPattern>
+		</config>
+</testcase>

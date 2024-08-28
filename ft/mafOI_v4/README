@@ -1,0 +1,85 @@
+
+Building the test component:
+
+   Step 1: Create a view private file called "defines2.h" and fill in with the necessary(see later in this readme) configuration.
+   Step 2: In the source code directory simply build with command: "make"
+
+Note:
+
+   "defines.h" is an example configuration file for the test component. Makefile does not use this file as a source file.
+
+
+Configuring the test component:
+
+   Several examples given in "defines.h" file. Configurations can be picked up from these examples, from test automation, and also from this readme file.
+
+
+Test component configuration examples:
+
+   FT1724 test consumers (Function testing of SDP1724 - CM notifications from middleware)
+
+      -Build the testConsumer with the following "defines2.h" example:
+
+          #define COMPONENT_NAME "testConsumer1"
+          #define CM_EVENT_CONSUMER
+
+      -in this case the test consumer will use its name in the log records. E.g.: search the syslog for the following printout "testConsumer1".
+      -it will also register as a CM event consumer with a filter. That filter is read out from "/home/<test component name>.cfg" from the cluster, e.g.: "/home/testConsumer1.cfg"
+        See examples in test automation.
+      -it is possible to create and run more then 1 test consumer. For this, different "COMPONENT_NAME" must be used when building. After building each test consumer the binary output must be renamed, otherwise one build will overwrite
+      the previous one.
+
+      -example "defines2.h" contents for more test components:
+          build number 2:
+
+              #define COMPONENT_NAME "testConsumer2"
+              #define CM_EVENT_CONSUMER
+
+          build number 3:
+
+              #define COMPONENT_NAME "testConsumer3"
+              #define CM_EVENT_CONSUMER
+
+    FT556 test component (Function testing of SDP556 - Handle logging of alarms and alerts)
+
+      -Build the test component with the following "defines2.h" example:
+
+          #define COMPONENT_NAME "testComp556"
+          // the following setting is needed to get the Log service interface from COM/MAF portal and to use the Log service
+          #define LOGSERVICE
+          // the following setting is needed to enable the "log writing thread" at test component startup (which uses the Log service)
+          #define STARTUP_LOGWRITE
+
+    Log service overload testing component
+
+      -Build the test component with the following "defines2.h" example:
+
+          #define COMPONENT_NAME "testCompLogSpam"
+
+          // the following setting is needed to get the Log service interface from COM/MAF portal and to use the Log service
+          #define LOGSERVICE
+
+          // the following setting is needed to enable the "log spamming thread" at test component startup (which uses the Log service)
+          #define STARTUP_LOGSPAM
+
+          // number of "logWrites" executed
+          #define NR_OF_LOGSPAMS 20
+
+          #define STARTUP_LOGWRITE_DELAY 30
+
+    Trace service overload testing component
+
+      -Build the test component with the following "defines2.h" example:
+
+          #define COMPONENT_NAME "testCompTraceSpam"
+
+          // the following setting is needed to get the Trace service interface from COM/MAF portal and to use the Trace service
+          #define TRACESERVICE
+
+          // the following setting is needed to enable the "trace spamming thread" at test component startup (which uses the Trace service)
+          #define STARTUP_TRACESPAM
+
+          // number of "traceWrites" executed
+          #define NR_OF_TRACESPAMS 40
+
+          #define STARTUP_TRACEWRITE_DELAY 15

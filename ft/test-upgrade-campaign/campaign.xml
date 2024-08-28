@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<upgradeCampaign xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:noNamespaceSchemaLocation="file:///home/uablrek/SMF/SAI-AIS-SMF-UCS-A.01.01.04_modified.xsd" 
+ safSmfCampaign="safSmfCampaign=ERIC-ComSaUpgrade-P1A19_to_P1A20">
+  <campaignInfo>
+    <campaignPeriod/>
+  </campaignInfo>
+  <campaignInitialization>
+    <addToImm>
+      <amfEntityTypes>
+        <CompBaseType safCompType="safCompType=ERIC-ComSa-Cmw">
+          <CompType safVersion="safVersion=P1A20">
+            <providesCSType 
+              safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-ComSa-2N" 
+              saAmfCtCompCapability="4"/>
+            <compTypeDefaults saAmfCtCompCategory="1"
+              saAmfCtDefDisableRestart="0" 
+              saAmfCtDefClcCliTimeout="30000000000"
+              saAmfCtDefCallbackTimeout="30000000000" 
+              saAmfCtDefRecoveryOnError="2"/>
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="bin/com.sh">
+              <cmdArgv>start</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="bin/com.sh">
+              <cmdArgv>stop</cmdArgv>
+            </cleanupCmd>
+            <healthCheck safHealthcheckKey="safHealthcheckKey=COM_SA" 
+              saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000"/>
+            <swBundle saAmfCtSwBundle="safSmfBundle=ERIC-ComSa-CXP9017697_2-P1A20"/>
+          </CompType>
+        </CompBaseType>
+      </amfEntityTypes>
+    </addToImm>
+  </campaignInitialization>
+  <upgradeProcedure safSmfProcedure="safSmfProc=UpgradeComSa">
+    <outageInfo>
+      <acceptableServiceOutage>
+        <all/>
+      </acceptableServiceOutage>
+      <procedurePeriod saSmfProcPeriod="60000000000"/>
+    </outageInfo>
+    <procInitAction>
+      <immCCB ccbFlags="0">
+        <create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=1.0.0,safSuType=ERIC-ComSa-Cmw">
+          <attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET">
+            <value>safMemberCompType=safVersion=P1A20\,safCompType=ERIC-ComSa-Cmw</value>
+          </attribute>
+          <attribute name="saAmfSutMinNumComponents" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+        </create>
+      </immCCB>
+	</procInitAction>
+
+	<!-- load MIM models into COM -->
+
+    <procInitAction>
+      <doCliCommand command="$OSAFCAMPAIGNROOT/comsa-mim-tool" args="remove ERIC-ComSa-CXP9017697_2-P1A19" />
+      <undoCliCommand command="/bin/false"/>
+      <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+    </procInitAction>
+    <procInitAction>
+      <doCliCommand command="$OSAFCAMPAIGNROOT/comsa-mim-tool" args="add ERIC-ComSa-CXP9017697_2-P1A20" />
+      <undoCliCommand command="/bin/false"/>
+      <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+    </procInitAction>
+    <procInitAction>
+      <doCliCommand command="$OSAFCAMPAIGNROOT/comsa-mim-tool" args="commit" />
+      <undoCliCommand command="/bin/false"/>
+      <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+	</procInitAction>
+	<!--
+	<procInitAction>
+		<doCliCommand command="" args="" />
+		<undoCliCommand command="/bin/false" />
+		<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster" />
+	</procInitAction>
+	-->
+    <upgradeMethod>
+      <rollingUpgrade>
+        <upgradeScope>
+          <byTemplate>
+            <targetNodeTemplate objectDN="safAmfNodeGroup=SCs,safAmfCluster=myAmfCluster">
+              <activationUnitTemplate>
+                <type objectDN="safVersion=1.0.0,safSuType=ERIC-ComSa-Cmw"/>
+              </activationUnitTemplate>
+              <swRemove bundleDN="safSmfBundle=ERIC-ComSa-CXP9017697_2-P1A19"/>
+			  <swAdd bundleDN="safSmfBundle=ERIC-ComSa-CXP9017697_2-P1A20" pathnamePrefix="/opt/com"/>
+            </targetNodeTemplate>
+            <targetEntityTemplate>
+              <type objectDN="safVersion=1.0.0,safSuType=ERIC-ComSa-Cmw"/>
+              <modifyOperation objectRDN="safComp=Cmw" operation="SA_IMM_ATTR_VALUES_REPLACE">
+                <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+                  <value>safVersion=P1A20,safCompType=ERIC-ComSa-Cmw</value>
+                </attribute>
+              </modifyOperation>
+            </targetEntityTemplate>
+          </byTemplate>
+        </upgradeScope>
+        <upgradeStep saSmfStepRestartOption="1" saSmfStepMaxRetry="8"/>
+      </rollingUpgrade>
+    </upgradeMethod>
+  </upgradeProcedure>
+  <campaignWrapup>
+    <waitToCommit/>
+    <campWrapupAction>
+      <!-- This way to remove AmfEntityTypes is a work-around.  -->
+      <immCCB ccbFlags="0">
+        <delete objectDN="safMemberCompType=safVersion=1.0.0\,safCompType=ERIC-ComSa-Cmw,safVersion=1.0.0,safSuType=ERIC-ComSa-Cmw"/>
+        <delete objectDN="safHealthcheckKey=COM_SA,safVersion=1.0.0,safCompType=ERIC-ComSa-Cmw"/>
+        <delete objectDN="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-ComSa-2N,safVersion=1.0.0,safCompType=ERIC-ComSa-Cmw"/>
+      </immCCB>
+    </campWrapupAction>
+    <campWrapupAction>
+      <immCCB ccbFlags="0">
+        <delete objectDN="safVersion=1.0.0,safCompType=ERIC-ComSa-Cmw"/>
+      </immCCB>
+    </campWrapupAction>
+    <waitToAllowNewCampaign/>
+    <removeFromImm>
+      <!-- This the correct way to remove old AmfEntityTypes, but it doesn't work.
+      <amfEntityTypeDN objectDN="safMemberCompType=safVersion=P1A01\,safCompType=ERIC-ComSa-Cmw,safVersion=1.0.0,safSuType=ERIC-ComSa-Cmw"/>
+      <amfEntityTypeDN objectDN="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-ComSa-2N,safVersion=P1A01,safCompType=ERIC-ComSa-Cmw"/>
+      <amfEntityTypeDN objectDN="safHealthcheckKey=COM_SA,safVersion=P1A01,safCompType=ERIC-ComSa-Cmw"/>
+      <amfEntityTypeDN objectDN="safVersion=P1A01,safCompType=ERIC-ComSa-Cmw"/>
+      -->
+    </removeFromImm>
+  </campaignWrapup>
+</upgradeCampaign>

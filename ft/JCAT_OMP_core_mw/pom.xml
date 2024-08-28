@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<parent>
+		<groupId>se.ericsson.jcat.omp</groupId>
+		<artifactId>jcat_omp_parent</artifactId>
+		<version>R1A09</version>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>jcat_omp_core_mw</artifactId>
+	<version>R2B12-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>JCAT_OMP_core_mw</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>se.ericsson.jcat.omp</groupId>
+			<artifactId>jcat_omp_extensions</artifactId>
+			<version>R2A09</version>
+		</dependency>
+		 
+		<dependency>
+		  	<groupId>se.ericsson.rda.snmp.schema</groupId>
+		  	<artifactId>schema-cmw-campaign</artifactId>
+		  	<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+	<scm>
+		<url>https://eforge.ericsson.se/svn/repos/jcat-omp-ext/JCAT_OMP_core_mw/trunk</url>
+		<connection>scm:svn:https://eforge.ericsson.se/svn/repos/jcat-omp-ext/JCAT_OMP_core_mw/trunk</connection>
+		<developerConnection>scm:svn:https://eforge.ericsson.se/svn/repos/jcat-omp-ext/JCAT_OMP_core_mw/trunk</developerConnection>
+	</scm>
+</project>

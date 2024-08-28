@@ -1,0 +1,9 @@
+\rm -rf /var/log/shcov
+
+sed -i 's/^#!.*\/bin\/.*sh$/#!\/usr\/bin\/python \/home\/shcov\/shcov-5\/scripts\/shcov/g' /opt/coremw/bin/*
+sed -i 's/^#!.*\/bin\/.*sh$/#!\/usr\/bin\/python \/home\/shcov\/shcov-5\/scripts\/shcov/g' /opt/coremw/sbin/*
+sed -i 's/^#!.*\/bin\/.*sh$/#!\/usr\/bin\/python \/home\/shcov\/shcov-5\/scripts\/shcov/g' /opt/coremw/lib/*
+
+sed -i 's/#!\/usr\/bin\/python \/home\/shcov\/shcov-5\/scripts\/shcov/#!\/bin\/sh/g' /opt/coremw/bin/cmw-model-*
+
+echo "Coverage setup complete"

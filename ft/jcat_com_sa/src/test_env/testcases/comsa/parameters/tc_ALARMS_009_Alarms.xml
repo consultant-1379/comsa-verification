@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Alarms - Key Attributes Case_1</id>
+        <tag>TC-ALARMS-009</tag>    
+        <version>P1A01</version>
+        <testcase>alarms</testcase>
+        <class>Alarms</class>
+        <method>Alarms</method>
+        <description>Alarms - Key Attributes Case_1 </description>
+    </info>    
+    <config>
+        <useExternalModels>yes</useExternalModels>
+        
+        <momFile>SDP763_mp_C1.xml</momFile>
+        <immClassesFile>SDP763_imm_classes_C1.xml</immClassesFile>
+        <immObjectsFile>SDP763_imm_objects_C1.xml</immObjectsFile>
+        
+        <immObjPattern>["oBjimPTEsTclAsSiD=1"]</immObjPattern>
+       
+        <ntfsendMsg>ntfsend -T 0x4000 -e 16384 -c 18568,2,3 -n "oBjimPTEsTclAsSiD=1" -s 5 -a "</ntfsendMsg>
+        <ntfsendMsg2>ntfsend -T 0x4000 -e 16384 -c 18568,2,3 -n "oBjimPTEsTclAsSiD=1" -s 0 -a "</ntfsendMsg2>
+                                       
+      
+        <expectedDN>ManagedElement=1,ObjImpTestClass=1</expectedDN>
+        <expectedMajorType>18568;</expectedMajorType>
+        <expectedMinorType>131075;</expectedMinorType>
+        <expectedAlarmMsg>COM SA, AMF Component Cleanup Failed;</expectedAlarmMsg>
+            
+    </config>
+</testcase>

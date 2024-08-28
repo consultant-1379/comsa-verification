@@ -1,0 +1,85 @@
+
+Function test
+=============
+
+To be able to execute some kind of function test a "TestComponent" is
+loaded in COM. The TestComponent registers itself like any component
+and sets a dependency to the interfaces-under-test in the COM way. The
+TestComponent sets a timer on 3 sec. and then starts the test by
+calling the interface functions in the interfaces-under-test.
+
+Currently only the ReplicatedList service is tested by the
+TestComponent.
+
+
+Preparation
+-----------
+
+To include the TestComponent in the COM_SA library the COM_SA must be
+built with;
+
+  make clean
+  make ftest
+
+This will enable code-coverage in all compilations and will include
+the TestComponent in the SDP.
+
+
+Execution
+---------
+
+Install COM and the COM_SA on target (preferably a VirtualBox) with
+the installation campaign(s). The test will start automagically and
+the result can be viewed in the syslog.
+
+  grep _SA /var/log/messages
+  ...
+  May 19 18:56:02 SC-1 com: COM_SA comSATest_execute called...
+  May 19 18:56:02 SC-1 com: COM_SA BASIC TEST ...
+  May 19 18:56:03 SC-1 com: COM_SA ======== BASIC TEST PASSED ===========
+  May 19 18:56:03 SC-1 com: COM_SA ITEM DATA TEST ...
+  May 19 18:56:03 SC-1 com: COM_SA ======== ITEM DATA TEST PASSED ===========
+  May 19 18:56:03 SC-1 com: COM_SA ITEM ADD/REMOVE TEST ...
+  May 19 18:56:04 SC-1 com: COM_SA ======== ITEM ADD/REMOVE PASSED ===========
+  May 19 18:56:04 SC-1 com: COM_SA ======== ALL TESTS PASSED ===========
+
+Code coverage
+-------------
+
+To make the COM process write the coverage data it must be gracefully
+terminated. This can be done by sending a QUIT signel to the process;
+
+  ps awwwxxx | grep com
+  kill -s QUIT <com's pid>
+
+The coverage data will be generated on target on the same path where
+the object files were created, normally /tmp/COM_SA_RESULT-$USER/;
+
+  ls /tmp/COM_SA_RESULT-uablrek/
+     ComSAAccessMgm.gcda     ComSARlist.gcda         TestComponent.gcda 
+     ComSAAc.gcda            ComSATraceService.gcda  
+     ComSALogService.gcda    SelectTimer.gcda        
+
+These files must be copied back to the corresponding directory on the
+development machine (where the object files still resides). Use for
+instance "scp".
+
+Once the coverage data files are retrieved from target you can
+generate a coverage report in HTML with the "lcov" tool.
+
+Assuming "lcov" is installed on $LCOV;
+
+  cd /tmp/COM_SA_RESULT-$USER
+  $LCOV/bin/lcov  --directory . --capture --output-file app.info
+  mkdir html
+  cd html
+  $LCOV/bin/genhtml ../app.info
+
+Now you can view the HTML report locally with the URL;
+
+  file:///tmp/COM_SA_RESULT-<your_userid>/html/index
+
+
+
+
+Happy testing!

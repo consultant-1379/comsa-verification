@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CM action - calling testString in CLI and check the trace value in log</id>
+        <tag>TC-CM-011</tag>	
+        <version>P1A01</version>
+		<testcase>cmActionTestCaseNew</testcase>
+		<class>CMaction</class>
+		<method>CMaction</method>
+		<description>CM action - calling testString in CLI and check the trace value in log</description>
+	</info>	
+    <config>
+    	<number_of_steps>3</number_of_steps>
+
+		<cli_sessions_step1>2</cli_sessions_step1>
+		<trace_entries_read_step1>3</trace_entries_read_step1>
+		
+    	<cli_input_1>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testString abcd" "testString efgh" "commit" "exit"</cli_input_2>
+        <cli_expected_output_2>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1', 'testString abcd', 'testString efgh', 'true']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <expected_trace_value_1>\[TRACE\] Value = abcd</expected_trace_value_1>
+        <expected_trace_value_2>\[TRACE\] Value = efgh</expected_trace_value_2>
+        <expected_trace_value_3>\[TRACE\] ReturnParam=1</expected_trace_value_3>
+
+		<cli_sessions_step2>2</cli_sessions_step2>
+		<trace_entries_read_step2>8</trace_entries_read_step2>
+    	
+    	<cli_input_3>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+        <cli_input_4>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testIntParams 1 2 3 4 5 6 7 8" "testIntParams 9 8 7 6 5 4 3 2" "commit" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1', 'testIntParams 1 2 3 4 5 6 7 8', 'testIntParams 9 8 7 6 5 4 3 2', 'true']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <expected_trace_value_4>\[TRACE\] Value = 1</expected_trace_value_4>
+        <expected_trace_value_5>\[TRACE\] Value = 2</expected_trace_value_5>
+        <expected_trace_value_6>\[TRACE\] Value = 3</expected_trace_value_6>
+        <expected_trace_value_7>\[TRACE\] Value = 4</expected_trace_value_7>
+        <expected_trace_value_8>\[TRACE\] Value = 5</expected_trace_value_8>
+        <expected_trace_value_9>\[TRACE\] Value = 6</expected_trace_value_9>
+        <expected_trace_value_10>\[TRACE\] Value = 7</expected_trace_value_10>
+        <expected_trace_value_11>\[TRACE\] Value = 8</expected_trace_value_11>
+
+		<cli_sessions_step3>2</cli_sessions_step3>
+		<trace_entries_read_step3>3</trace_entries_read_step3>
+        
+    	<cli_input_5>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_5>
+        <cli_expected_output_5>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+        
+        <cli_input_6>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testDerived 1 abcd" "commit" "exit"</cli_input_6>
+        <cli_expected_output_6>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1', 'testDerived 1 abcd', 'true']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['error', 'fail', 'missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_6>
+        
+        <expected_trace_value_12>\[TRACE\] Value = 1</expected_trace_value_12>
+        <expected_trace_value_13>\[TRACE\] Value = abcd</expected_trace_value_13>
+        <expected_trace_value_14>\[TRACE\] ReturnParam=1</expected_trace_value_14>
+	</config>  
+</testcase>

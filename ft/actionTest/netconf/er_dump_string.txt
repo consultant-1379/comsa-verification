@@ -1,0 +1,1 @@
+param1 SA_IMM_ATTR_SASTRINGT This is a string

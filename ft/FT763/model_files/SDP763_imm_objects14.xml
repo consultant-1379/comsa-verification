@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <object class="TOPROOT13">
+        <dn>MAID3=1</dn>
+    </object>
+    <object class="TestClass13">
+        <dn>MAIID3=1,MAID3=1</dn>
+    </object>
+    <object class="TestClass23">
+        <dn>MAIIID3=22,MAIID3=1,MAID3=1</dn>
+    </object>
+</imm:IMM-contents>

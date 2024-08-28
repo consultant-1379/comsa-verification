@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>FT665 - Install Java CAF</id>
+        <tag>TC-FT665-005</tag>
+        <version>P1A01</version>
+		<testcase>miscInstallApplication</testcase>
+		<class>InstallApplication</class>
+		<method>InstallApplication</method>
+		<description>FT665 - Install Java CAF</description>
+	</info>	
+    <config>
+        <createBackup>False</createBackup>
+        <backupName>beforeJavaCaf</backupName>
+        <rtSdpPath>RT_SDP_PATH_IN_REPOSITORY</rtSdpPath>
+        <deplSdpPath>DEPLOYMENT_SDP_PATHIN_REPOSITORY</deplSdpPath>
+	</config>  
+</testcase>

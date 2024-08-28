@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configuration Using Netconf - Trying to read a non-existing object</id>
+        <tag>TC-NCONF-004</tag>	
+        <version>P1A01</version>
+		<testcase>configurationUsingNetconf</testcase>
+		<class>configNetconf</class>
+		<method>configNetconf</method>
+		<description>Trying to read a non-existing object</description>
+	</info>	
+    <config>
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <helloFile>Hello.xml</helloFile>
+        <actionFile>ReadingANonExistingObject.xml</actionFile>
+        <closeFile>Close.xml</closeFile> 
+        <logFile>logFile.txt</logFile>
+    	<respFile>expectedOutput004.txt</respFile>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+	</config>  
+</testcase>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Verify all trace entries</id>
+        <tag>TC-MR27359-004</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr27359</testcase>
+        <class>FTMr27359</class>
+        <method>FTMr27359</method>
+        <description>Verify all trace entries with special COM SA build</description>
+        </info>
+    <config>
+        <buildDebugComSA>True</buildDebugComSA>
+		<installTraceEA>True</installTraceEA>
+		<installTraceCC>True</installTraceCC>
+		<restoreBackupWithTrace>True</restoreBackupWithTrace>
+    </config>  
+</testcase>

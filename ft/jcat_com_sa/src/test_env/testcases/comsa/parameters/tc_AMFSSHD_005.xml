@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+        <info>
+                <id>Upgrade COM SA from older to SSHD capable and confirm that OAM SSHD can be configured</id>
+                <tag>TC-AMFSSHD-005</tag>
+                <version>P1A01</version>
+                <testcase>amfHandleSshd</testcase>
+                <class>amfHandleSshd</class>
+                <method>amfHandleSshd</method>
+                <description>Upgrade COM SA from older to SSHD capable and confirm that OAM SSHD can be configured</description>
+        </info>
+        <config>
+                <reqComSaMajorVersion>3</reqComSaMajorVersion>
+                <reqCmwVersion>R9A19</reqCmwVersion>
+                <reqCmwRelease>1</reqCmwRelease>
+                <reqComVersion>R2A06</reqComVersion>
+                <reqComRelease>5</reqComRelease>
+                <reqComSaVersion>R7A06</reqComSaVersion>
+                <reqComSaRelease>3</reqComSaRelease>
+                <storedBackupFilesLocation>/home/backupfile_mr29930bk/</storedBackupFilesLocation>
+                <comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+                <comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+                <cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+                <lotcBackupLocation>/cluster/snapshot/</lotcBackupLocation>
+        </config>
+</testcase>

@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2013 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Oct 14, 2013 1:43:33 PM using:
+	* com.ericsson.ecim.m2m 2.8.0.201310062253
+	* com.ericsson.ecim.dsl 2.8.0.201310062253
+	* com.ericsson.ecim.edm 2.8.0.201310062253
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>F</dtdVersion>
+  <momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+  </momMetaData>
+  <mim author="" contact="" correction="1" date="" docNo="" name="ActiontestMom" namespace="urn:com:ericsson:ecim:ActiontestMom" namespacePrefix="actiontestmom" organization="" release="1" revision="" version="1">
+    <description>qe</description>
+    <domainExtension domain="ECIM">
+      <extension name="immNamespace" value="NONE"/>
+    </domainExtension>
+    <struct name="TestStruct03">
+      <description>Structure used to test Floating-point</description>
+      <structMember name="stringMember">
+        <description>element string</description>
+        <string/>
+      </structMember>
+      <structMember name="floatMember">
+        <description>element float</description>
+        <double/>
+      </structMember>
+    </struct>
+    <struct name="TestStructAllTypes">
+      <description>a structure with members of all possible types</description>
+      <structMember name="memberBool">
+        <description>EcimBoolean</description>
+        <boolean/>
+      </structMember>
+      <structMember name="memberInt16">
+        <description>EcimInt16</description>
+        <int16/>
+      </structMember>
+      <structMember name="memberInt32">
+        <description>EcimInt32</description>
+        <int32/>
+      </structMember>
+      <structMember name="memberInt64">
+        <description>EcimInt64</description>
+        <int64/>
+      </structMember>
+      <structMember name="memberInt8">
+        <description>EcimInt8</description>
+        <int8/>
+      </structMember>
+      <structMember name="memberString">
+        <description>EcimString</description>
+        <string/>
+      </structMember>
+      <structMember name="memberUint16">
+        <description>EcimUint16</description>
+        <uint16/>
+      </structMember>
+      <structMember name="memberUint32">
+        <description>EcimUint32</description>
+        <uint32/>
+      </structMember>
+      <structMember name="memberUint64">
+        <description>EcimUint64</description>
+        <uint64/>
+      </structMember>
+      <structMember name="memberUint8">
+        <description>EcimUint8</description>
+        <uint8/>
+      </structMember>
+      <structMember name="memberDerivedInt">
+        <description>Ecim Derived Int</description>
+        <derivedDataTypeRef name="DerNumericType">
+          <mimName>ActiontestMom</mimName>
+        </derivedDataTypeRef>
+      </structMember>
+      <structMember name="memberDerivedString">
+        <description>Ecim Derived String</description>
+        <derivedDataTypeRef name="DerStringType">
+          <mimName>ActiontestMom</mimName>
+        </derivedDataTypeRef>
+      </structMember>
+      <structMember name="memberEnum">
+        <description>EcimEnumeration type</description>
+        <enumRef name="EnumType">
+          <mimName>ActiontestMom</mimName>
+        </enumRef>
+      </structMember>
+      <structMember name="memberReference">
+        <description>EcimmanagedObject to test reference type</description>
+        <moRef name="ManagedObject"/>
+      </structMember>
+      <structMember name="memberFloat">
+        <description>member floating-point</description>
+        <double/>
+      </structMember>
+    </struct>
+    <struct name="TestStruct01">
+      <description>Test structure to be used as return parameter from admin operation for SDP872</description>
+      <structMember name="stringMemb">
+        <description>String data member of the structure</description>
+        <string/>
+      </structMember>
+      <structMember name="intMember">
+        <description>int member</description>
+        <int32/>
+      </structMember>
+    </struct>
+    <struct name="StructType">
+      <description>test action</description>
+      <structMember name="alpha">
+        <description>test action</description>
+        <int16/>
+      </structMember>
+      <structMember name="beta">
+        <description>test action</description>
+        <string/>
+      </structMember>
+      <structMember name="charlie">
+        <description>test action</description>
+        <int16/>
+      </structMember>
+    </struct>
+    <struct name="StructFloat">
+      <description>.</description>
+      <structMember name="input1">
+        <description>type of Float</description>
+        <double/>
+      </structMember>
+      <structMember name="input2">
+        <description>String</description>
+        <string/>
+      </structMember>
+      <structMember name="input3">
+        <description>type of Float</description>
+        <double/>
+      </structMember>
+    </struct>
+    <struct name="TestStruct02">
+      <description>A structure with two elements, one array of strings, the other array of INTs</description>
+      <structMember name="stringArrayMember">
+        <description>array of strings with zero or more elements</description>
+        <sequence>
+          <string/>
+          <minLength>0</minLength>
+        </sequence>
+      </structMember>
+      <structMember name="intArrayMember">
+        <description>array of integers with one or more elements</description>
+        <sequence>
+          <int32/>
+          <minLength>1</minLength>
+        </sequence>
+      </structMember>
+    </struct>
+    <enum name="EnumType">
+      <description>test action</description>
+      <enumMember name="E1">
+        <value>1</value>
+      </enumMember>
+      <enumMember name="E2">
+        <value>2</value>
+      </enumMember>
+    </enum>
+    <derivedDataType name="DerStringType">
+      <description>test action</description>
+      <baseType>
+        <string>
+          <lengthRange>
+            <min>1</min>
+            <max>10</max>
+          </lengthRange>
+        </string>
+      </baseType>
+    </derivedDataType>
+    <derivedDataType name="DerNumericType">
+      <description>test action</description>
+      <baseType>
+        <int16>
+          <range>
+            <min>1</min>
+            <max>10</max>
+          </range>
+        </int16>
+      </baseType>
+    </derivedDataType>
+    <class name="Sdp617ActiontestRoot">
+      <description>A root class</description>
+      <root/>
+      <attribute name="sdp617ActiontestRootId">
+        <description>qwe</description>
+        <mandatory/>
+        <noNotification/>
+        <restricted/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <class name="ActionTest">
+      <description>Action test</description>
+      <action name="simpleAction">
+        <description>Simple action with no parameters</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="10"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+      </action>
+      <action name="setReturnValue">
+        <description>The return value in COM SA is set to the first parameter provided in the method</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="999"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="value">
+          <description>The return value in COM SA will be set to this value</description>
+          <in/>
+          <dataType>
+            <int32/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="noReturn">
+        <description>A method with no return type specified</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="12"/>
+        </domainExtension>
+        <returnType>
+          <void/>
+        </returnType>
+      </action>
+      <action name="setFileName">
+        <description>Sets the filename of the output file from actionTestAppl.
+All parameters and their content will be dump to that file.</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="1000"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="fileName">
+          <description>Filename of the dump file. The file will be prefixed with /tmp/actiontest_</description>
+          <in/>
+          <dataType>
+            <string/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testIntParams">
+        <description>Testing integer parameters</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="21"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="paramInt8">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <int8/>
+          </dataType>
+        </parameter>
+        <parameter name="paramInt16">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="paramInt32">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <int32/>
+          </dataType>
+        </parameter>
+        <parameter name="paramInt64">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <int64/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint8">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <uint8/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint16">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <uint16/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint32">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <uint32/>
+          </dataType>
+        </parameter>
+        <parameter name="paramUint64">
+          <description>1</description>
+          <in/>
+          <dataType>
+            <uint64/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testParamOrder">
+        <description>Testing order of parameters in com sa</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="22"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <description>param1</description>
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="param2">
+          <description>param2</description>
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+        <parameter name="param3">
+          <description>param3</description>
+          <in/>
+          <dataType>
+            <int16/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testString">
+        <description>test action</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="23"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <description>test action</description>
+          <in/>
+          <dataType>
+            <string/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testBool">
+        <description>test action</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="24"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="paramBool">
+          <description>bool</description>
+          <in/>
+          <dataType>
+            <boolean/>
+          </dataType>
+        </parameter>
+        <parameter name="paramBool2">
+          <description>bool</description>
+          <in/>
+          <dataType>
+            <boolean/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testDerived">
+        <description>test action</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="25"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="pNum">
+          <description>test action</description>
+          <in/>
+          <dataType>
+            <derivedDataTypeRef name="DerNumericType">
+              <mimName>ActiontestMom</mimName>
+            </derivedDataTypeRef>
+          </dataType>
+        </parameter>
+        <parameter name="pString">
+          <description>test action</description>
+          <in/>
+          <dataType>
+            <derivedDataTypeRef name="DerStringType">
+              <mimName>ActiontestMom</mimName>
+            </derivedDataTypeRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testEnumParam">
+        <description>test action</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="26"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <description>p</description>
+          <in/>
+          <dataType>
+            <enumRef name="EnumType">
+              <mimName>ActiontestMom</mimName>
+            </enumRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testStruct">
+        <description>test action</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="27"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="p1">
+          <description>test action</description>
+          <in/>
+          <dataType>
+            <structRef name="StructType">
+              <mimName>ActiontestMom</mimName>
+            </structRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testClass">
+        <description>test action</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="28"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="pRootMoClass">
+          <description>test action</description>
+          <in/>
+          <dataType>
+            <moRef name="Sdp617ActiontestRoot">
+              <mimName>ActiontestMom</mimName>
+            </moRef>
+          </dataType>
+        </parameter>
+        <parameter name="pMoClass">
+          <description>action test&#13;
+</description>
+          <in/>
+          <dataType>
+            <moRef name="ActionTest">
+              <mimName>ActiontestMom</mimName>
+            </moRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testArray">
+        <description>test action</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="30"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="array">
+          <description>array</description>
+          <in/>
+          <dataType>
+            <sequence>
+              <int16/>
+              <minLength>1</minLength>
+            </sequence>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnSingleInt">
+        <description>return single int</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="40"/>
+        </domainExtension>
+        <returnType>
+          <int32/>
+        </returnType>
+        <parameter name="p1">
+          <description>int param</description>
+          <in/>
+          <dataType>
+            <int32/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnSingleString">
+        <description>return single string</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="41"/>
+        </domainExtension>
+        <returnType>
+          <string/>
+        </returnType>
+        <parameter name="inputString">
+          <description>input string</description>
+          <in/>
+          <dataType>
+            <string/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnMultiInt">
+        <description>return multiple integers</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="44"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <int32/>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnStruct">
+        <description>testing structure as returned parameter from admin operation</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="42"/>
+        </domainExtension>
+        <returnType>
+          <structRef name="TestStruct01">
+            <mimName>ActiontestMom</mimName>
+          </structRef>
+        </returnType>
+      </action>
+      <action name="testReturnStruct02">
+        <description>test admin op that is returning a structure with two elements one array of zero or more strings and the other array of one or more INTs</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="43"/>
+        </domainExtension>
+        <returnType>
+          <structRef name="TestStruct02">
+            <mimName>ActiontestMom</mimName>
+          </structRef>
+        </returnType>
+      </action>
+      <action name="testReturnStructAllTypes">
+        <description>test action that returns a structure with elements of all possible simple types</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="45"/>
+        </domainExtension>
+        <returnType>
+          <structRef name="TestStructAllTypes">
+            <mimName>ActiontestMom</mimName>
+          </structRef>
+        </returnType>
+      </action>
+      <action name="testReturnSingleBool">
+        <description>returning a single BOOL parameter</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="46"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="inParamBool">
+          <description>input BOOL param</description>
+          <in/>
+          <dataType>
+            <boolean/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnMultiBool">
+        <description>test returning multiple BOOL values</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="47"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <boolean/>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnMultiIntVarNum">
+        <description>Return variable number of integer values. The number is determinet bay the input parameter.&#13;
+&#13;
+This can be useful to test what is the maximum number of return parameters that can be provided by the OI</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="48"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <int32/>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+        <parameter name="dataCount">
+          <description>input parameter. determines how many output parameters to be returned (of type int32)</description>
+          <in/>
+          <dataType>
+            <int32/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnNothing">
+        <description>take input but return nothing</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="49"/>
+        </domainExtension>
+        <returnType>
+          <void/>
+        </returnType>
+        <parameter name="inputInt">
+          <description>input param</description>
+          <in/>
+          <dataType>
+            <int32/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnNoInput">
+        <description>action to return INT but take no input</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="50"/>
+        </domainExtension>
+        <returnType>
+          <int32/>
+        </returnType>
+      </action>
+      <action name="testReturnMultiStruct">
+        <description>test action that returns more than one struct type</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="51"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <structRef name="TestStruct01">
+              <mimName>ActiontestMom</mimName>
+            </structRef>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnMultiStruct02">
+        <description>return multiple instances of structure with multivalue elements</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="52"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <structRef name="TestStruct02">
+              <mimName>ActiontestMom</mimName>
+            </structRef>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnMultiInt02">
+        <description>test for mixed order of returned parameters</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="53"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <int32/>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnNegInt">
+        <description>Negative test case, expects returned INT but the OI will return string</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="60"/>
+        </domainExtension>
+        <returnType>
+          <int32/>
+        </returnType>
+      </action>
+      <action name="testReturnNegString">
+        <description>expecting string, but OI will return int</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="61"/>
+        </domainExtension>
+        <returnType>
+          <string/>
+        </returnType>
+      </action>
+      <action name="testReturnNegRef">
+        <description>expecting reference but getting int</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="62"/>
+        </domainExtension>
+        <returnType>
+          <moRef name="ManagedObject"/>
+        </returnType>
+      </action>
+      <action name="testReturnNegStruct">
+        <description>expecting struct but getting int</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="63"/>
+        </domainExtension>
+        <returnType>
+          <structRef name="StructType">
+            <mimName>ActiontestMom</mimName>
+          </structRef>
+        </returnType>
+      </action>
+      <action name="testReturnNegInt02">
+        <description>expecting single int, but getting multi int</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="64"/>
+        </domainExtension>
+        <returnType>
+          <int32/>
+        </returnType>
+      </action>
+      <action name="testReturnNegStruct02">
+        <description>expecting single struct but getting multiple struct elements</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="65"/>
+        </domainExtension>
+        <returnType>
+          <structRef name="TestStruct01">
+            <mimName>ActiontestMom</mimName>
+          </structRef>
+        </returnType>
+      </action>
+      <action name="testReturnNegBool">
+        <description>expecting bool but getting string</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="66"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+      </action>
+      <action name="testReturnNegEnum">
+        <description>expecting enum but getting int</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="67"/>
+        </domainExtension>
+        <returnType>
+          <enumRef name="EnumType">
+            <mimName>ActiontestMom</mimName>
+          </enumRef>
+        </returnType>
+      </action>
+      <action name="testReturnNegInt03">
+        <description>expect two ints, but getting only one</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="68"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <int32/>
+            <minLength>2</minLength>
+            <maxLength>2</maxLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnNegStruct03">
+        <description>array of structs out of range, expecting 2 struct elements but would receive only one.</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="69"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <structRef name="TestStruct01">
+              <mimName>ActiontestMom</mimName>
+            </structRef>
+            <minLength>2</minLength>
+            <maxLength>2</maxLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnNegParamName">
+        <description>return an invalid param name</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="70"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <uint32/>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnNegParamName02">
+        <description>struct to be returned with invalid name (s)</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="71"/>
+        </domainExtension>
+        <returnType>
+          <structRef name="TestStruct01">
+            <mimName>ActiontestMom</mimName>
+          </structRef>
+        </returnType>
+        <parameter name="testCaseNum">
+          <description>Test case number [1..N]&#13;
+&#13;
+based on this number an invalid output parameter name is provided by the OI:&#13;
+&#13;
+       And there are many cases of INVALID paramName(s):&#13;
+        - case I1:  1_par1, 12_par1    (parameter name can not start with a digit, must be a letter)&#13;
+        - case I2:  1par1, 123par1     (parameter name can not start with a digit, or is this valid if after the number there is a letter?)&#13;
+        - case I3:  par1_1memb         (structure member name can not start with a digit, must be a letter)&#13;
+        - case I4:  par1_1_2           (after the first number another number is not allowed, must be alphanumeric)&#13;
+        - case I5:  par1_memb1_1_2     (after the number for a member multivalue another number is not allowed, or maybe is OK?)&#13;
+        - case I6:  par1_1_memb1_1_2   (after the number for a member multivalue another number is not allowed, or maybe is OK?)&#13;
+		- case I7:  par1_1_memb1_memb2 (structure elements can not be structures themselves.&#13;
+                                         Alternatively 'memb1_memb2' could be a valid member name, &#13;
+										 but this will complicate the algorithm to handle names with underscore allowed)&#13;
+		- case I8:  _par1              (a structure name can not start with underscore)&#13;
+		- case I9:  par1_memb1_        (a structure member name can not end with underscore)&#13;
+		- case I10: par1__memb1        (double underscore is not allowed anywhere in the name)&#13;
+		- case I11: par1_memb1__1      (double underscore is not allowed anywhere in the name)&#13;
+		- case I12: par1__1_memb1      (double underscore is not allowed anywhere in the name)&#13;
+		- case I13: par1_1__memb1      (double underscore is not allowed anywhere in the name)&#13;
+		- case I14: par1_1_memb1__     (double underscore is not allowed anywhere in the name)&#13;
+		- case I15: par1_1_memb1__1    (double underscore is not allowed anywhere in the name)</description>
+          <in/>
+          <dataType>
+            <uint32/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnOptStructMemb">
+        <description>Return a struct with some data members missing (not provided by the OI)</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="54"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <structRef name="TestStruct02">
+              <mimName>ActiontestMom</mimName>
+            </structRef>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnFloat">
+        <description>return single floating-point value</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="80"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <double/>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <action name="testReturnSingleFloat">
+        <description>Takes one input parameter of type EcimFloat and returns it back as result</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="81"/>
+        </domainExtension>
+        <returnType>
+          <double/>
+        </returnType>
+        <parameter name="inputFloat">
+          <description>input parameter of type EcimFloat</description>
+          <in/>
+          <dataType>
+            <double/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testArrayFloat">
+        <description>Takes one input array parameter of type EcimFloat and returns it back as result</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="82"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="param1">
+          <description>value</description>
+          <in/>
+          <dataType>
+            <double/>
+          </dataType>
+        </parameter>
+        <parameter name="param2">
+          <description>value</description>
+          <in/>
+          <dataType>
+            <double/>
+          </dataType>
+        </parameter>
+        <parameter name="param3">
+          <description>value</description>
+          <in/>
+          <dataType>
+            <double/>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnStructFloat">
+        <description>return structure floating-point value</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="85"/>
+        </domainExtension>
+        <returnType>
+          <structRef name="TestStruct03">
+            <mimName>ActiontestMom</mimName>
+          </structRef>
+        </returnType>
+      </action>
+      <action name="testStructFloat">
+        <description>Takes  input  stucture parameter of type EcimFloat and returns it back as result</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="83"/>
+        </domainExtension>
+        <returnType>
+          <boolean/>
+        </returnType>
+        <parameter name="inputstructure">
+          <description>.</description>
+          <in/>
+          <dataType>
+            <structRef name="StructFloat">
+              <mimName>ActiontestMom</mimName>
+            </structRef>
+          </dataType>
+        </parameter>
+      </action>
+      <action name="testReturnArrayFloat">
+        <description>No Input, return array of structure</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="84"/>
+        </domainExtension>
+        <returnType>
+          <sequence>
+            <structRef name="TestStruct03">
+              <mimName>ActiontestMom</mimName>
+            </structRef>
+            <minLength>1</minLength>
+          </sequence>
+        </returnType>
+      </action>
+      <attribute name="actionTestId">
+        <description>test action</description>
+        <mandatory/>
+        <noNotification/>
+        <restricted/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <relationship name="Sdp617ActiontestRoot_to_ActionTest">
+      <containment>
+        <parent>
+          <hasClass name="Sdp617ActiontestRoot">
+            <mimName>ActiontestMom</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ActionTest">
+            <mimName>ActiontestMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>1</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </mim>
+  <interMim>
+    <relationship name="ManagedElement_to_Sdp617ActiontestRoot">
+      <domainExtension domain="CoreMW">
+        <extension name="splitImmDn" value="true"/>
+      </domainExtension>
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="Sdp617ActiontestRoot">
+            <mimName>ActiontestMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>1</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </interMim>
+</models>

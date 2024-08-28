@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>FT665 - Create backup</id>
+        <tag>TC-FT665-001</tag>
+        <version>P1A01</version>
+		<testcase>miscCreateBackup</testcase>
+		<class>CreateBackup</class>
+		<method>CreateBackup</method>
+		<description>FT665 - Create backup</description>
+	</info>	
+    <config>
+    	<backupName>FT665InitialBackup</backupName>
+		<standardComSaBackup>True</standardComSaBackup>
+	</config>  
+</testcase>

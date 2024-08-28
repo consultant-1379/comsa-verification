@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>Long DN - SDP872 UC2 - Any return tpe from Action from an object registered to mafOI with permission Yes</id>
+		<tag>TC-MR35347-011</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>Long DN - SDP872 UC2 - Any return tpe from Action from an object registered to mafOI with permission Yes</description>
+	</info>
+	<config>
+		<reqComSaVersion>R6A07</reqComSaVersion>
+		<reqComVersion>R2A12</reqComVersion>
+		<reqCmwVersion>R10A01</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<longDn>True</longDn>
+		<modelfile_mp>Sdp872ActiontestMom_mp.xml</modelfile_mp>
+		<modelfile_imm_classes>Sdp872ActiontestMom_imm_classes.xml</modelfile_imm_classes>
+		<setup_action_obj>YES</setup_action_obj>
+
+		<setup_RETURN_VALUES>#define returnValueConfig returnValues.createMo = ComFailure; returnValues.deleteMo = ComFailure; returnValues.setMo = ComFailure; returnValues.getMo = ComFailure; returnValues.join = ComOk; returnValues.action = ComFailure;</setup_RETURN_VALUES>
+		<setup_REG1>#define REG1 \"ManagedElement=1,Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1,ActionTest=1\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+		<setup_REG2>#define COMPONENT_NAME \"testCompSdp872\"</setup_REG2>
+
+		<attribute1>#define SKIP_ERROR</attribute1>
+
+		<expected_init_log_1>com: testCompSdp872: mafLCMinit(): Component started</expected_init_log_1>
+		<expected_init_log_2>com: testCompSdp872: loadMocOrDnConfig(): registerAsOIToOamSA: DN: ManagedElement=1,Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1,ActionTest=1 Permission: YES</expected_init_log_2>
+		<expected_init_log_3>com: testCompSdp872: maf_start(): returning MafOk</expected_init_log_3>
+
+		<number_of_steps>5</number_of_steps>
+
+		<cli_sessions_step1>2</cli_sessions_step1>
+
+		<cli_input_1>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "show" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['ManagedElement=1', 'Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1', 'ActionTest=1']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "testReturnSingleInt 789" "commit" "exit"</cli_input_2>
+		<cli_expected_output_2>['32323232']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<cli_sessions_step2>2</cli_sessions_step2>
+
+		<cli_input_3>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "show" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['ManagedElement=1', 'Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1', 'ActionTest=1']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "testReturnSingleBool true" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['false']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+		<cli_sessions_step3>2</cli_sessions_step3>
+
+		<cli_input_5>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "show" "commit" "exit"</cli_input_5>
+		<cli_expected_output_5>['ManagedElement=1', 'Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1', 'ActionTest=1']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+
+		<cli_input_6>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "testReturnStructAllTypes" "commit" "exit"</cli_input_6>
+		<cli_expected_output_6>['memberBool=true', 'memberDerivedInt=-30969', 'memberDerivedString=@SDP872 testReturnStructAllTypes UC2: Struct Derived String member', 'memberEnum=E2', 'memberInt16=23456', 'memberInt32=1234567', 'memberInt64=123456789', 'memberInt8=123', 'memberReference=ManagedElement=1,Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1', 'memberString=@SDP872 testReturnStructAllTypes UC2: Struct String member', 'memberUint16=34567', 'memberUint32=2345678', 'memberUint64=234567890', 'memberUint8=234']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+
+		<cli_sessions_step4>2</cli_sessions_step4>
+
+		<cli_input_7>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "show" "commit" "exit"</cli_input_7>
+		<cli_expected_output_7>['ManagedElement=1', 'Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1', 'ActionTest=1']</cli_expected_output_7>
+		<cli_nonexpected_output_7>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_7>
+
+		<cli_input_8>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "testReturnNoInput" "commit" "exit"</cli_input_8>
+		<cli_expected_output_8>['64646464']</cli_expected_output_8>
+		<cli_nonexpected_output_8>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_8>
+
+		<cli_sessions_step5>2</cli_sessions_step5>
+
+		<cli_input_9>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "show" "commit" "exit"</cli_input_9>
+		<cli_expected_output_9>['ManagedElement=1', 'Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1', 'ActionTest=1']</cli_expected_output_9>
+		<cli_nonexpected_output_9>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_9>
+
+		<cli_input_10>"configure" "ManagedElement=1, Sdp617ActiontestRoot=This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_This_is_very_long_string_1, ActionTest=1" "testReturnMultiStruct02" "commit" "exit"</cli_input_10>
+		<cli_expected_output_10>['intArrayMember=12345678', 'intArrayMember=23456789', 'intArrayMember=34567890', 'intArrayMember=45678901', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct A String member 1', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct A String member 2', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct A String member 3', 'intArrayMember=13579', 'intArrayMember=24680', 'intArrayMember=35791', 'intArrayMember=46802', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct B String member 1', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct B String member 2', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct B String member 3', 'intArrayMember=97351', 'intArrayMember=86420', 'intArrayMember=75319', 'intArrayMember=64208', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct C String member 1', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct C String member 2', 'stringArrayMember=@SDP872 testReturnMultiStruct02 UC2: Struct C String member 3']</cli_expected_output_10>
+		<cli_nonexpected_output_10>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_10>
+
+	</config>
+</testcase>

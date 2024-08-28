@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>"Import complex models with no EcimRootMoClass based on ECIM-Transport model examples, using latest COM that supports MAF MR SPI v3"</id>
+		<tag>TC-MR29333-005</tag>
+		<version>P1A01</version>
+		<testcase>functionTestMr29333</testcase>
+		<class>functiontestMR29333</class>
+		<method>functiontestMR29333</method>
+		<description>"Import complex models with no EcimRootMoClass based on ECIM-Transport model examples, using latest COM that supports MAF MR SPI v3"</description>
+	</info>
+	<config>
+		<reqComSaVersion>R5A11</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<useExternalModels>yes</useExternalModels>
+		<immClassesFile>ECIM_T_L3_Host_imm_classes.xml</immClassesFile>
+		<immClassesFile2>ECIM_T_L3_Ipv4Address_imm_classes.xml</immClassesFile2>
+		<immClassesFile3>ECIM_T_L3_Ipv4Interface_imm_classes.xml</immClassesFile3>
+		<immClassesFile4>ECIM_T_L3_Ipv6Address_imm_classes.xml</immClassesFile4>
+		<immClassesFile5>ECIM_T_L3_Ipv6Interface_imm_classes.xml</immClassesFile5>
+		<immClassesFile6>ECIM_T_L3_Router_imm_classes.xml</immClassesFile6>
+		<immClassesFile7>ECIM_T_L3_VRF_imm_classes.xml</immClassesFile7>
+		<momFile>ECIM_Transport_IP_mp.xml</momFile>
+
+
+		<cli_input_1>"show ManagedElement=1,Transport=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['Transport=1']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"configure" "ManagedElement=1,Transport=1" "Host=1" "Ipv4Interface=1" "adminState=UNLOCKED" "Ipv4Address=192.168.13.111" "commit" "exit"</cli_input_2>
+		<cli_expected_output_2>['ManagedElement=1', 'Transport=1', 'Host=1', 'Ipv4Interface=1', 'adminState=UNLOCKED', 'Ipv4Address=192.168.13.111', 'commit', 'exit']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<cli_input_3>"configure" "ManagedElement=1,Transport=1" "Router=1" "Ipv4Interface=1" "adminState=UNLOCKED" "Ipv4Address=192.168.13.222" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['ManagedElement=1', 'Transport=1', 'Router=1', 'Ipv4Interface=1', 'adminState=UNLOCKED', 'Ipv4Address=192.168.13.222', 'commit', 'exit']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1,Transport=1" "Router=1" "VRF=1" "Ipv4Interface=2" "adminState=UNLOCKED" "Ipv4Address=192.168.13.144" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['ManagedElement=1', 'Transport=1', 'Router=1', 'VRF=1', 'Ipv4Interface=2', 'adminState=UNLOCKED', 'Ipv4Address=192.168.13.144', 'commit', 'exit']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed', '[Read error code']</cli_nonexpected_output_4>
+
+		<cli_input_5>"show all ManagedElement=1,Transport=1,Host=1" "exit"</cli_input_5>
+		<cli_expected_output_5>['Host=1', 'Ipv4Interface=1', 'adminState=UNLOCKED', 'Ipv4Address=192.168.13.111']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['ERROR: Specific element not found']</cli_nonexpected_output_5>
+
+		<cli_input_6>"show all ManagedElement=1,Transport=1,Router=1" "exit"</cli_input_6>
+		<cli_expected_output_6>['Router=1', 'Ipv4Interface=1', 'adminState=UNLOCKED', 'Ipv4Address=192.168.13.222', 'VRF=1', 'Ipv4Interface=2', 'adminState=UNLOCKED', 'Ipv4Address=192.168.13.144']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['ERROR: Specific element not found']</cli_nonexpected_output_6>
+
+		<immObjPattern>['ipv']</immObjPattern>
+		<immObjPattern2>['vrf']</immObjPattern2>
+		<immObjPattern3>['router']</immObjPattern3>
+		<immObjPattern4>['host']</immObjPattern4>
+	</config>
+</testcase>
+

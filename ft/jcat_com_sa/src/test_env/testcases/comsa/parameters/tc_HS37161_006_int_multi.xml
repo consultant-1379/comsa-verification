@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modified FT763 test case for HS37161 -->
+<testcase>
+	<info>
+		<id>HS37161 FT - runtime structure attribute with int8, int16, int32, int64 multi value members</id>
+		<tag>TC-HS37161-006</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>HS37161 FT - runtime structure attribute with int8, int16, int32, int64 multi members</description>
+	</info>
+	<config>
+		<reqComSaVersion>R4H01</reqComSaVersion>
+		<reqComVersion>R1J01</reqComVersion>
+		<reqCmwVersion>R7A01</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>3</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<modelfile_mp>HS37161_mp1.xml</modelfile_mp>
+		<modelfile_imm_classes>HS37161_imm_classes1.xml</modelfile_imm_classes>
+		<modelfile_imm_objects>HS37161_imm_objects.xml</modelfile_imm_objects>
+		<setup_RETURN_VALUES>#define returnValueConfig returnValues.createMo = ComFailure; returnValues.deleteMo = ComFailure; returnValues.action = ComFailure;</setup_RETURN_VALUES>
+		<setup_MAF_RETURN_VALUES>#define maf_returnValueConfig returnValues.createMo = MafFailure; returnValues.deleteMo = MafFailure; returnValues.action = MafFailure;</setup_MAF_RETURN_VALUES>
+		<setup_REG1>#define REG1 \"ManagedElement=1,ObjImpComplexClass=1\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+
+		<attribute1>#define ATTR1 \"ManagedElement=1,ObjImpComplexClass=1,TestStructAttr\"</attribute1>
+		<attribute1_type>#define ATTR1_TYPE ComOamSpiMoAttributeType_3_STRUCT</attribute1_type>
+		<attribute1_type_maf>#define ATTR1_TYPE MafOamSpiMoAttributeType_3_STRUCT</attribute1_type_maf>
+		<attribute1_value>#define ATTR1_VALUE \"{testRuntimeAttrInt8(INT8) = 51;52;53;54, testRuntimeAttrInt16(INT16) = 5151;5252;5353;5454, testRuntimeAttrInt32(INT32) = 51515151;52525252;53535353;54545454, testRuntimeAttrInt64(INT64) = 5151515151515151;5252525252525252;5353535353535353;5454545454545454}, {testRuntimeAttrInt8(INT8) = 31;32;33;34, testRuntimeAttrInt16(INT16) = 3131;3232;3333;3434, testRuntimeAttrInt32(INT32) = 31313131;32323232;33333333;34343434, testRuntimeAttrInt64(INT64) = 3131313131313131;3232323232323232;3333333333333333;3434343434343434}\"</attribute1_value>
+
+		<expected_init_log_1>com: MAFOiComponent: mafLCMinit(): Component started</expected_init_log_1>
+		<expected_init_log_2>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: DN: ManagedElement=1,ObjImpComplexClass=1 Permission: YES</expected_init_log_2>
+		<expected_init_log_3>com: MAFOiComponent: maf_start(): returning MafOk</expected_init_log_3>
+
+		<cli_input_1>"show ManagedElement=1,ObjImpComplexClass=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['TestStructAttr','testRuntimeAttrInt8','testRuntimeAttrInt16','testRuntimeAttrInt32','testRuntimeAttrInt64','51','52','53','54','5151','5252','5353','5454','51515151','52525252','53535353','54545454','5151515151515151','5252525252525252','5353535353535353','5454545454545454','31','32','33','34','3131','3232','3333','3434','31313131','32323232','33333333','34343434','3131313131313131','3232323232323232','3333333333333333','3434343434343434']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'COM Closed connection']</cli_nonexpected_output_1>
+
+		<expected_test_log_1>com: MAFOiComponent: TR::join() entered</expected_test_log_1>
+		<expected_test_log_2>com: MAFOiComponent: TR::registerParticipant()</expected_test_log_2>
+		<expected_test_log_3>com: MAFOiComponent: MO::maf_getMoAttribute(): dn ManagedElement=1,ObjImpComplexClass=1 attributeName TestStructAttr</expected_test_log_3>
+
+		<expected_test_log_15>com: MAFOiComponent: TR::prepare()</expected_test_log_15>
+		<expected_test_log_16>com: MAFOiComponent: TR::commit()</expected_test_log_16>
+		<expected_test_log_17>com: MAFOiComponent: TR::finish()</expected_test_log_17>
+
+		<teardown_REG1>#define REG1 \"ManagedElement=1,ObjImpComplexClass=1\"</teardown_REG1>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+	</config>
+</testcase>

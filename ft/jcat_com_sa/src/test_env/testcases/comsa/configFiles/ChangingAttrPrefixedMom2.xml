@@ -1,0 +1,19 @@
+<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:urn="urn:com:ericsson:ecim:ComTop" xmlns:urn1="urn:com:ericsson:ecim:ComSysM" xmlns:urn2="urn:com:ericsson:ecim:ComSnmp">
+   <edit-config>
+     <target>
+       <running/>
+     </target>
+     <config>
+       <urn:ManagedElement>
+         <urn:managedElementId>1</urn:managedElementId>
+		 <urn1:CmwTest>
+           <urn1:cmwTestId>1</urn1:cmwTestId>
+           <urn1:myStructAttr struct="TestStruct">
+             <urn1:attr1>196</urn1:attr1>
+           </urn1:myStructAttr>           
+         </urn1:CmwTest>
+       </urn:ManagedElement>
+     </config>
+   </edit-config>
+</rpc>
+]]>]]>

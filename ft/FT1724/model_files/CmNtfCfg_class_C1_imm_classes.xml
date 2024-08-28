@@ -1,0 +1,17 @@
+<class name="CmNtfCfgTest">
+  <category>SA_CONFIG</category>
+  <rdn>
+    <name>cmNtfCfgTestId</name>
+    <type>SA_STRING_T</type>
+    <category>SA_CONFIG</category>
+    <flag>SA_INITIALIZED</flag>
+  </rdn>
+  <attr>
+    <name>cmNtfCfgTestInt32</name>
+    <type>SA_INT32_T</type>
+    <category>SA_CONFIG</category>
+    <default-value>1</default-value>
+    <flag>SA_WRITABLE</flag>
+    <flag>SA_NOTIFY</flag>
+  </attr>
+</class>

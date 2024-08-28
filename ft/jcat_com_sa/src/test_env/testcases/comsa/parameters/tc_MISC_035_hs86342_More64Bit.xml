@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"HS86342 - Can't create a object with more 64 bit rdn length for others class"</id>
+        <tag>TC-MISC-035</tag>
+        <version>P1A01</version>
+        <testcase>cliConfigurationTestCase</testcase>
+        <class>CLIconfiguration</class>
+        <method>CLIconfiguration</method>
+        <description>"HS86342 - Can't create a object with more 64 bit rdn length for others class"</description>
+    </info>
+    <config>
+        <obsoleteComSaVersion>R6A09</obsoleteComSaVersion>
+        <obsoleteComSaRelease>3</obsoleteComSaRelease>
+
+        <cli_input_1>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=This_is_a_test_case_for_long_rdn_with_more_64_bit_rdn_length" "exit"</cli_input_1>
+        <cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"configure" "ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1" "SnmpTargetV1=This_is_a_test_case_for_long_rdn_with_more_64_bit_rdn_length" "address=1" "community=2" "commit" "exit"</cli_input_2>
+        <cli_expected_output_2>['ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1', 'SnmpTargetV1=This_is_a_test_case_for_long_rdn_with_more_64_bit_rdn_length', 'commit', 'ERROR: Transaction', 'failed']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+        <cli_input_3>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV1=This_is_a_test_case_for_long_rdn_with_more_64_bit_rdn_length" "exit"</cli_input_3>
+        <cli_expected_output_3>['ERROR: Specific element not found']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+    </config>
+</testcase>

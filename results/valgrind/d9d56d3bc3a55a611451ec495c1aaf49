@@ -1,0 +1,13 @@
+ definitely lost 
+operator new(unsigned long) (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+???
+???
+???
+???
+???
+call_init (in /lib64/ld-2.11.3.so)
+_dl_init (in /lib64/ld-2.11.3.so)
+dl_open_worker (in /lib64/ld-2.11.3.so)
+_dl_catch_error (in /lib64/ld-2.11.3.so)
+_dl_open (in /lib64/ld-2.11.3.so)
+dlopen_doit (in /lib64/libdl-2.11.3.so)

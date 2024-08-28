@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>COMSA_U2_upgrade_from_PRA_release_of_COM_SA_3.6</id>
+		<tag>TC-U2UPG-018</tag>
+		<version>P1A01</version>
+		<testcase>comsaBfu</testcase>
+		<class>UpgradeCOMSA</class>
+		<method>UpgradeCOMSA</method>
+		<description>This testcase restores the COM backup, installs COMSA 3.6 PRA and then upgrades to the current version</description>
+	</info>
+	<config>
+		<old_comsa>comsa3.6pra/</old_comsa>
+		<old_comsa_major_version>7</old_comsa_major_version>
+		<upgradeType>u2</upgradeType>
+		<upgradePRA>True</upgradePRA>
+	</config>
+</testcase>

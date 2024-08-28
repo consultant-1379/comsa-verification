@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COM-SA Uninstallation</id>
+        <tag>TC-MISC-018</tag>	
+        <version>P1A01</version>
+		<testcase>comSaUninstall</testcase>
+		<class>UninstallComSa</class>
+		<method>UninstallComSa</method>
+		<description>This testcase uninstalls COM-SA</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

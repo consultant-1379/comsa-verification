@@ -1,0 +1,76 @@
+#!/bin/bash
+
+usage_exit () {
+  echo "Usage: `basename $0` <NFS top directory> block|unblock|timeblock <secs>"
+  exit 1
+}
+
+error_exit () {
+  echo "Error: $@" >&2
+  exit 1
+}
+
+if [ $# -lt 2 -o "$1" = "--help" -o "$1" = "-h"  ]; then
+  usage_exit
+fi
+
+case "$2" in
+  block) ;;
+  unblock) ;;
+  timeblock)
+     test -z "$3" && usage_exit
+    ;;
+  *)
+    usage_exit
+    ;;
+esac
+
+block() {
+  fwcmd="iptables -A INPUT -p udp --sport $1 -j DROP"
+  echo "Locking NFS..."
+  eval $fwcmd
+}
+
+unblock() {
+  fwcmd="iptables -D INPUT -p udp --sport $port -j DROP"
+  echo "Unlocking NFS..."
+  eval $fwcmd
+}
+
+server=`mount | grep " $1 " | awk '{ print $1 }' | sed 's/:.*//' | tail -1`
+if [ -z "$server" ]; then
+  echo "Error: Could not find an NFS server exporting $1" >&2
+  exit 1
+else
+  echo "The NFS server $server is exporting $1"
+fi
+
+port=`rpcinfo  -p $server | grep " nfs$"  | grep udp | tail -1 | awk '{ print $4 }'`
+if [ -z "$port" ]; then
+  echo "Error: Could not figure out the NFS port for $server" >&2
+  exit 1
+else
+  echo "NFS service on $server is on port $port"
+fi
+
+case "$2" in
+block)
+  block $port
+  test $? -ne 0 && error_exit "iptables rule could not be set"
+  ;;
+unblock)
+  unblock $port
+  test $? -ne 0 && error_exit "iptables rule could not be cleared"
+  ;;
+timeblock)
+  block $port
+  test $? -ne 0 && error_exit "iptables rule could not be set"
+  echo "Waiting $3 seconds..."
+  sleep $3
+  unblock $port
+  test $? -ne 0 && error_exit "iptables rule could not be cleared"
+  ;;
+*)
+  usage_exit
+  ;;
+esac

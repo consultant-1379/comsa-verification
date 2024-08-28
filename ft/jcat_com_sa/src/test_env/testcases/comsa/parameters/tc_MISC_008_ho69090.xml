@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>HO69090</id>
+        <tag>TC-MISC-008</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>HO69090</description>
+	</info>	
+    <config>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+    	
+    	<useExternalModels>yes</useExternalModels>
+    	<momFile>SDP763_mp17.xml</momFile>
+    	<immClassesFile>SDP763_imm_classes17.xml</immClassesFile>
+    	<immObjectsFile>SDP763_imm_objects.xml</immObjectsFile>
+    	
+    	<cli_input_1>"configure" "ManagedElement=1, ObjImpTestClass=1" "testWritableString=134.138.83.72" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['testWritableString=134.138.83.72']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'failed', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <cli_input_2>"show ManagedElement=1, ObjImpTestClass=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ObjImpTestClass=1', 'testWritableString="134.138.83.72"']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+        
+        <immObjPattern>["imptest"]</immObjPattern>
+        
+	</config>  
+</testcase>

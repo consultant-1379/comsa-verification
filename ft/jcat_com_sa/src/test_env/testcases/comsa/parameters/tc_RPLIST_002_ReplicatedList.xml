@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Replicated list - Changing replicatedlist maxsize</id>
+        <tag>TC-RPLIST-002</tag>	
+        <version>P1A01</version>
+		<testcase>replicatedList</testcase>
+		<class>Replicatedlist</class>
+		<method>Replicatedlist</method>
+		<description>Replicated list - Changing replicatedlist maxsize</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

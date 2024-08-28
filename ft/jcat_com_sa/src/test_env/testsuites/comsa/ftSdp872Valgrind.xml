@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite>
+	<info>
+		<id>testsuite</id>
+		<version>P1A01</version>
+		<description>COMSA test suite</description>		
+	</info>
+    <defaultSuiteCheck>	
+	    <setup>
+	    	<hw>['system','switches','network']</hw>
+	    	<os>['lotc']</os>
+	    	<mw>['coreMw']</mw>
+	    	<appl>[]</appl>
+	    	<interfaces>['ctrl1','ctrl2']</interfaces>
+	    	<events>['dumps','address','log','actCtrl']</events>
+	    	<info>['amf-state node']</info>
+	    	<cleanup>['swm_lock']</cleanup> 
+	    </setup>
+	    <runtest>
+	    	<hw>['system','switches','network']</hw>
+	    	<os>['lotc']</os>
+	    	<mw>['coreMw']</mw>
+	    	<appl>[]</appl>
+	    	<interfaces>['ctrl1','ctrl2']</interfaces>
+	    	<events>['dumps','address','log']</events>
+	    	<info>['amf-state node']</info>
+	    	<cleanup>['swm_lock']</cleanup> 
+	    </runtest>
+	    <teardown>
+	    	<hw>['system','switches','network']</hw>
+	    	<os>['lotc']</os>
+	    	<mw>['coreMw']</mw>
+	    	<appl>[]</appl>
+	    	<interfaces>['ctrl1','ctrl2']</interfaces>
+	    	<events>['dumps','address','log']</events>
+	    	<info>['amf-state node']</info>
+	    	<cleanup>['swm_lock']</cleanup> 
+	    </teardown>
+	</defaultSuiteCheck>
+    <timingParams>
+    	<nodeRepTime>420</nodeRepTime>
+    	<clusterRepTime>780</clusterRepTime>  	
+    </timingParams>
+    <safcomponents>
+    	<mw>['CPD','CPND','DTS','EDS','FMS','GLD','GLND','IMMD','IMMND','LOG','MQD','MQND','NTF','PL_tspsaf_eam_Comp','RDE','SC_tspsaf_eam_Comp']</mw>
+    	<ntfsubscrib>['ntfSubscribeApp']</ntfsubscrib>
+    	<testapp>['ta_tapp_all','ta_tapp_onepl','ta_tapp_onesc','ta_tapp_pl','ta_tapp_sc','ta_tgc_all','ta_tgc_onepl','ta_tgc_onesc','ta_tgc_pl','ta_tgc_sc','ta_tgen_all','ta_tgen_onepl','ta_tgen_onesc','ta_tgen_sc']</testapp>  	
+    </safcomponents>
+    <memoryCheck>True</memoryCheck>
+	<testcase1>
+		<tag>TC-MISC-005</tag>	
+		<config>tc_MISC_005_setSuRestartMax1000.xml</config>
+		<useDefaultSuiteCheck>True</useDefaultSuiteCheck>
+		<assertOnError>true</assertOnError>
+	</testcase1>
+	<testcase2>
+		<tag>TC-FT872-001</tag>
+		<config>tc_FT872_001_UC1_Action_AnyReturnType.xml</config>
+		<useDefaultSuiteCheck>True</useDefaultSuiteCheck>
+		<assertOnError>true</assertOnError>
+	</testcase2>
+	<testcase3>
+		<tag>TC-FT872-002</tag>
+		<config>tc_FT872_002_UC2_Action_AnyReturnType.xml</config>
+		<useDefaultSuiteCheck>True</useDefaultSuiteCheck>
+		<assertOnError>true</assertOnError>
+	</testcase3>
+    <testcase4>
+    	<tag>TC-FT872-003</tag>
+        <config>tc_FT872_003_Action_ReturnAnyType_UC1_Netconf.xml</config>
+        <useDefaultSuiteCheck>True</useDefaultSuiteCheck>
+        <assertOnError>true</assertOnError>
+    </testcase4>
+	<testcase5>
+		<tag>TC-MISC-006</tag>	
+		<config>tc_MISC_006_setSuRestartMaxDefault.xml</config>
+		<useDefaultSuiteCheck>True</useDefaultSuiteCheck>
+		<assertOnError>true</assertOnError>
+	</testcase5>
+</testsuite>

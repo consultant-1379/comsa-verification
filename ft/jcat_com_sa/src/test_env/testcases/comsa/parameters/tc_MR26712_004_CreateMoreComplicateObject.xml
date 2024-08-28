@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"Create objects with more complex parent-child relationships"</id>
+        <tag>TC-MR26712-004</tag>	
+                <testcase>functionTestMr26712</testcase>
+                <class>functiontestMR26712</class>
+                <method>functiontestMR26712</method>
+		<description>"Create objects with more complex parent-child relationships"</description>
+	</info>	
+    <config>
+        <useExternalModels>yes</useExternalModels>
+        <immClassesFile>XMom_imm_classes.xml</immClassesFile>
+        <immClassesFile2>YMom_imm_classes.xml</immClassesFile2>
+        <immClassesFile3>AMom_imm_classes.xml</immClassesFile3>
+        <immClassesFile4>BMom_imm_classes.xml</immClassesFile4>
+        <immClassesFile5>CMom_imm_classes.xml</immClassesFile5>
+        <immClassesFile6>DMom_imm_classes.xml</immClassesFile6>
+        <momFile>ImmSplitTestModel_mp.xml</momFile>
+
+        <cli_input_1>"show all ManagedElement=1,RootX=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show all ManagedElement=1,RootY=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ERROR: Specific element not found']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+        
+        <cli_input_3>"configure" "ManagedElement=1,RootX=1" "RootA=Z1" "ClassA=F1" "RootB=G1" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['ManagedElement=1', 'RootX=1', 'RootA=Z1', 'ClassA=F1', 'RootB=G1', 'commit', 'exit']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+        <cli_input_4>"configure" "ManagedElement=1,RootY=1" "RootA=Z2" "ClassA=F2" "RootB=G2" "commit" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'RootY=1', 'RootA=Z2', 'ClassA=F2', 'RootB=G2', 'commit', 'exit']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+        
+        <cli_input_5>"configure" "ManagedElement=1,RootX=1" "RootC=V1" "ClassC=H1" "RootD=K1" "commit" "exit"</cli_input_5>
+        <cli_expected_output_5>['ManagedElement=1', 'RootX=1', 'RootC=V1', 'ClassC=H1', 'RootD=K1', 'commit', 'exit']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+        
+        <cli_input_6>"show all ManagedElement=1,RootX=1" "exit"</cli_input_6>
+        <cli_expected_output_6>['RootX=1', 'RootA=Z1', 'ClassA=F1', 'RootB=G1', 'RootC=V1', 'ClassC=H1', 'RootD=K1']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+
+        <cli_input_7>"show all ManagedElement=1,RootY=1" "exit"</cli_input_7>
+        <cli_expected_output_7>['RootY=1', 'RootA=Z2', 'ClassA=F2', 'RootB=G2']</cli_expected_output_7>
+        <cli_nonexpected_output_7>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_7>
+
+        <cli_input_10>"show all verbose ManagedElement=1,RootX=1" "exit"</cli_input_10>
+        <cli_expected_output_10>['RootX=1', 'rootXId=\"1\"', 'RootA=Z1', 'rootAId=\"Z1\"', 'ClassA=F1', 'classAId=\"F1\"', 'RootB=G1', 'rootBId=\"G1\"', 'RootC=V1', 'rootCId=\"V1\"', 'ClassC=H1', 'classCId=\"H1\"', 'RootD=K1', 'rootDId=\"K1\"']</cli_expected_output_10>
+        <cli_nonexpected_output_10>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_10>
+
+        <cli_input_11>"show all verbose ManagedElement=1,RootY=1" "exit"</cli_input_11>
+        <cli_expected_output_11>['RootY=1', 'rootYId=\"1\"', 'RootA=Z2', 'rootAId=\"Z2\"', 'ClassA=F2', 'classAId=\"F2\"', 'RootB=G2', 'rootBId=\"G2\"']</cli_expected_output_11>
+        <cli_nonexpected_output_11>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_11>
+	
+        <imm_input_1>immfind | grep -i root</imm_input_1>
+        <imm_expected_output_1>['AMomrootAId=Z1,XMomrootXId=1', 'AMomrootAId=Z2,YMomrootYId=1', 'BMomrootBId=G1,classAId=F1,AMomrootAId=Z1,XMomrootXId=1', 'BMomrootBId=G2,classAId=F2,AMomrootAId=Z2,YMomrootYId=1', 'CMomrootCId=V1', 'DMomrootDId=K1', 'XMomrootXId=1', 'YMomrootYId=1', 'classAId=F1,AMomrootAId=Z1,XMomrootXId=1', 'classAId=F2,AMomrootAId=Z2,YMomrootYId=1', 'classCId=H1,CMomrootCId=V1']</imm_expected_output_1>
+        <imm_nonexpected_output_1>['error']</imm_nonexpected_output_1>
+
+        <immObjPattern>['root']</immObjPattern>
+	</config>  
+</testcase>

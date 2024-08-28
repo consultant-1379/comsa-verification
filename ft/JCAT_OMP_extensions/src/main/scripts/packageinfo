@@ -1,0 +1,115 @@
+#! /bin/bash
+
+# Copyright (c) 2007, Ericsson AB
+
+
+#*****************************************************
+#                        usage
+#*****************************************************
+usage () {
+    echo "USAGE : packageinfo <packagefile>"
+    echo ""
+    echo "        prints info from the package identity file"
+    return 1
+}
+
+getetfinfo () {
+    local etffile=$1
+
+    eval `grep "<swBundle" $etffile | sed 's/^.*<swBundle[ ]*name="safSmfBundle=\([^">]*\).*/PACKAGE_INFO=\1 /'`
+}
+
+getidinfo () {
+    local idfile=$1
+
+    if [ ! -f $TMP_PACKAGE_DIR/IDENTITY ] ; then
+        chmod 755 $idfile
+        sed 's/ //g' $idfile > $TMP_PACKAGE_DIR/IDENTITY
+    fi
+
+    unset PACKAGE_NAME
+    unset PACKAGE_ID
+    unset PACKAGE_VERSION
+    unset PACKAGE_TYPE
+
+    # Source the variables in the IDENTITY file
+    . $TMP_PACKAGE_DIR/IDENTITY
+
+    PACKAGE_INFO=$PACKAGE_NAME-$PACKAGE_ID-$PACKAGE_VERSION
+}
+
+printinfo () {
+    local PACKAGE=$1
+
+    # Unpack the package in temp directory
+    mkdir -p $TMP_PACKAGE_DIR
+    rm -f $TMP_PACKAGE_DIR/* &> /dev/null
+    EXTENSION=`echo "$PACKAGE" | cut -d'.' -f2`
+    if [ "$EXTENSION" == "tar" ]; then
+        tar xf $PACKAGE -C $TMP_PACKAGE_DIR &> /dev/null
+	getidinfo $TMP_PACKAGE_DIR/*IDENTITY
+        echo "PACKAGE INFO: $PACKAGE_INFO"
+
+        mkdir -p $TMP_PACKAGE_DIR/TMP
+        rm -rf $TMP_PACKAGE_DIR/TMP/* &> /dev/null
+        mv $TMP_PACKAGE_DIR/*.sdp $TMP_PACKAGE_DIR/TMP/.  &> /dev/null
+        mv $TMP_PACKAGE_DIR/*.cxp $TMP_PACKAGE_DIR/TMP/.  &> /dev/null
+        /home/tspsaf/bin/packageinfo --containing $TMP_PACKAGE_DIR/TMP/* 
+        return     
+    else
+        tar zxf $PACKAGE -C $TMP_PACKAGE_DIR &> /dev/null
+    fi 
+    
+    unset PACKAGE_INFO
+   
+    if [ -f $TMP_PACKAGE_DIR/ETF.xml ] ; then
+	getetfinfo $TMP_PACKAGE_DIR/ETF.xml
+    else
+	if [ -f $TMP_PACKAGE_DIR/*IDENTITY ] ; then
+	    getidinfo $TMP_PACKAGE_DIR/*IDENTITY
+	else
+	    echo "$PACKAGE does not contain an ETF or IDENTITY file"
+	    return 1
+	fi
+    fi
+
+    #echo "Package Info ($PACKAGE) :"
+    if [ "$CONTAINING" == "FALSE" ] ; then
+        echo "PACKAGE INFO: $PACKAGE_INFO"
+    else
+        echo "    CONTAINING: $PACKAGE_INFO"
+    fi    
+    #rm -rf $TMP_PACKAGE_DIR
+    return 0
+}
+
+
+if [ "$#" -lt 1 ]; then
+    usage
+    exit 1
+fi
+
+TMP_PACKAGE_DIR=/tmp/TMP_PACKAGE
+
+if [ "$1" == "--containing" ]; then
+    CONTAINING="TRUE"
+    shift
+else
+    CONTAINING="FALSE"
+fi
+
+while [ "$#" -gt 0 ]; do
+    PACKAGE=$1
+    shift
+
+    if [ ! -f $PACKAGE ]; then
+	echo "Package file $PACKAGE not found"
+	continue
+    fi
+
+    printinfo $PACKAGE
+
+done
+	
+
+

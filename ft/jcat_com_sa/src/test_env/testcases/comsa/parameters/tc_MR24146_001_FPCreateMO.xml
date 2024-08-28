@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>"MR24146: Floating point "</id>
+		<tag>TC-MR24146-001</tag>
+		<version>P1A01</version>
+				<testcase>functionTestMr24146</testcase>
+				<class>functiontestMR24146</class>
+				<method>functiontestMR24146</method>
+				<description>"Create objects of class that has attribute of type EcimFloat "</description>
+		</info>
+	<config>
+		<useExternalModels>yes</useExternalModels>
+		<immClassesFile>XMom_imm_classes.xml</immClassesFile>
+		<immClassesFile2>YMom_imm_classes.xml</immClassesFile2>
+		<immClassesFile3>AMom_imm_classes.xml</immClassesFile3>
+		<momFile>FloatingPointTestModel_mp.xml</momFile>
+
+		<cli_input_1>"configure" "ManagedElement=1,RootY=1" "RootA=1" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['ManagedElement=1', 'RootY=1', 'RootA=1', 'commit', 'exit']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show verbose ManagedElement=1,RootY=1,RootA=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['RootA', 'AMomrootAId=\"1\"', 'RootY', 'rootYId=\"1\"', 'myFloatingPointAttribute=\"3.14159\"', 'myFloatingPointAttribute2', 'empty']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<cli_input_3>"configure" "ManagedElement=1,RootY=1" "RootA=1" "myFloatingPointAttribute=1.1111" "myFloatingPointAttribute2=2.2222" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['ManagedElement=1', 'RootY=1', 'RootA=1', 'myFloatingPointAttribute=1.1111', 'myFloatingPointAttribute2=2.2222', 'commit']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_3>
+
+		<cli_input_4>"show verbose ManagedElement=1,RootY=1,RootA=1" "exit"</cli_input_4>
+		<cli_expected_output_4>['RootA', 'AMomrootAId=\"1\"', 'RootY', 'rootYId=\"1\"' 'myFloatingPointAttribute=\"1.1111\"', 'myFloatingPointAttribute=\"2.2222\"']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+		<cli_input_5>"configure" "ManagedElement=1,RootY=1" "no RootA=1" "commit" "exit"</cli_input_5>
+		<cli_expected_output_5>['ManagedElement=1', 'RootY=1', 'no RootA=1', 'commit']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_5>
+
+		</config>
+</testcase>

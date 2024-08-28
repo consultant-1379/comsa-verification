@@ -1,0 +1,17 @@
+<class name="ObjImpTestMomCmNtfRtTest">
+  <category>SA_RUNTIME</category>
+  <rdn>
+    <name>ObjImpTestMomkeyAttr</name>
+    <type>SA_STRING_T</type>
+    <category>SA_RUNTIME</category>
+    <flag>SA_CACHED</flag>
+    <flag>SA_NOTIFY</flag>
+  </rdn>
+  <attr>
+    <name>cmNtfRtTestInt32</name>
+    <type>SA_INT32_T</type>
+    <category>SA_RUNTIME</category>
+    <flag>SA_CACHED</flag>
+    <flag>SA_NOTIFY</flag>
+  </attr>
+</class>

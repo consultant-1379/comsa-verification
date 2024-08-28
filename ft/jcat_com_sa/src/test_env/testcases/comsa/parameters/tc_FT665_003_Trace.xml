@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>FT665 - Check trace services</id>
+        <tag>TC-FT665-003</tag>
+        <version>P1A01</version>
+		<testcase>functionTestSdp665_Trace</testcase>
+		<class>FT665_Trace</class>
+		<method>FT665_Trace</method>
+		<description>FT665 - Check trace services</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

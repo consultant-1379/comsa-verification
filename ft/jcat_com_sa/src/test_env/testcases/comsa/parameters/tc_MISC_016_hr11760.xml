@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CLI change configuration - Commit with the long RDN</id>
+        <tag>TC-MISC-016</tag>
+        <version>P1A01</version>
+                <testcase>cliConfigurationTestCase</testcase>
+                <class>CLIconfiguration</class>
+                <method>CLIconfiguration</method>
+                <description>HR11760</description>
+        </info>
+    <config>
+        <cli_input_1>"configure" "ManagedElement=1,SystemFunctions=1,SysM=1" "NtpServer=dkajshduqweoqwiueaposjdlasjbnfqwiueoiawjaladjsdhkasdkask$%@" "serverAddress=1.1.1.1" "administrativeState=UNLOCKED" "up" "commit" "end" "exit" </cli_input_1>
+		<!-- After implementing MR-20275: 'Validate CM changes' COM might provide different error message depending on which
+			 Transactional Resource SPI is registered (v2 or v1) this message can be either
+			 'ERROR: Transaction commit failed and Uncommited changes have been lost' for TR SPI v1
+			 or it can be
+			 'ERROR: Transaction not committed due to validation errors. Transaction validation failed with error code: ComFailure ' for TR SPI v2.
+			 The common ground for these two cases is 'ERROR'		-->
+        <cli_expected_output_1>['ERROR']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        </config>
+</testcase>

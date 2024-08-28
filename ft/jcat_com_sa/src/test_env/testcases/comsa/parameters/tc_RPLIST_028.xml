@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+	  <id>MR-37637 RP List: Raise 5000 Alarms at rate ~35 alarms per second and measure the delay until the correct number of alarms is reported in CLI</id>
+		<tag>TC-RPLIST-028</tag>
+		<version>P1A01</version>
+		<testcase>rpListImm</testcase>
+		<class>RPListImm</class>
+		<method>RPListImm</method>
+		<description>MR-37637 RP List: Raise 5000 Alarms at rate ~35 alarms per second and measure the delay until the correct number of alarms is reported in CLI</description>
+	</info>
+	<config>
+		<reqCmwVersion>R10A01</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComSaVersion>R5A01</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<totalAlarms>5000</totalAlarms>
+		<cliTimeout>1200</cliTimeout>
+		<sendAlarmsTimeout>6000</sendAlarmsTimeout>
+		<alarmsTestScript>raise-n-alarms.sh</alarmsTestScript>
+		<alarmsClearScript>clear-n-alarms.sh</alarmsClearScript>
+	</config>
+</testcase>

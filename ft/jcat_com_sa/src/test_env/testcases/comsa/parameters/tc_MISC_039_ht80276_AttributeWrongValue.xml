@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Complex_Datatypes-the_value_of_attribute_refer_to_wrong_dn</id>
+        <tag>TC-MISC-039</tag>
+        <version>P1A01</version>
+        <testcase>compDataTypesTestCase</testcase>
+        <class>CompDatatypes</class>
+        <method>CompDatatypes</method>
+        <description>Complex Datatypes - the value of attribute refer to wrong dn</description>
+    </info>
+    <config>
+        <reqComSaMajorVersion>3</reqComSaMajorVersion>
+        <runSetUp>True</runSetUp>
+        <runTearDown>True</runTearDown>
+        <modelfile_imm>imm_ht80276_C1.xml</modelfile_imm>
+        <modelfile_mp>mp_ht80276.xml</modelfile_mp>
+
+        <cli_input_1>"show all verbose ManagedElement=1, CmwTest=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ManagedElement=1', 'CmwTest=1', 'error code', 'myStructAttr', 'ComFailure|-1']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['attr1', 'attr2', 'attr3', 'attr4']</cli_nonexpected_output_1>
+    </config>
+</testcase>

@@ -1,0 +1,4 @@
+configure
+ManagedElement=1
+end
+exit

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP875 UC1 - Testing ErrorString returned to action() when an IMM admin operation fails (NBI and Log)</id>
+		<tag>TC-FT875-001</tag>
+		<version>P1A01</version>
+		<testcase>cmActionTestCaseNew</testcase>
+		<class>CMaction</class>
+		<method>CMaction</method>
+		<description>SDP875 UC1 - Testing ErrorString returned to action() when an IMM admin operation fails (NBI and Log)</description>
+	</info>
+	<config>
+		<number_of_steps>3</number_of_steps>
+
+		<cli_sessions_step1>2</cli_sessions_step1>
+		<trace_entries_read_step1>9</trace_entries_read_step1>
+
+		<cli_input_1>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testErrString \"@CoMNbi@forced ERROR: This is only for test purpose using NBI\"" "commit" "exit"</cli_input_2>
+		<cli_expected_output_2>['ERROR: Call command failed, error code: ComFailure', 'Messages from transaction participants:', 'forced ERROR: This is only for test purpose using NBI']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<expected_trace_value_1>\[TRACE\] Dispatching from IMM.</expected_trace_value_1>
+		<expected_trace_value_2>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_2>
+		<expected_trace_value_3>\[TRACE\] operationId=31</expected_trace_value_3>
+		<expected_trace_value_4>\[TRACE\] Parameters:</expected_trace_value_4>
+		<expected_trace_value_5>\[TRACE\] Name = errorText</expected_trace_value_5>
+		<expected_trace_value_6>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_6>
+		<expected_trace_value_7>["\[TRACE\] Value = ", "@CoMNbi@forced ERROR: This is only for test purpose using NBI"]</expected_trace_value_7>
+		<expected_trace_value_8>["\[TRACE\] ErrorText is: ", "@CoMNbi@forced ERROR: This is only for test purpose using NBI"]</expected_trace_value_8>
+		<expected_trace_value_9>\[TRACE\] ReturnParam=28</expected_trace_value_9>
+
+		<cli_sessions_step2>2</cli_sessions_step2>
+		<trace_entries_read_step2>9</trace_entries_read_step2>
+
+		<cli_input_3>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testErrString \"@CoMLog@forced ERROR: This is only for test purpose using LOG\"" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['ERROR: Call command failed, error code: ComFailure']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['missing', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+		<expected_trace_value_10>\[TRACE\] Dispatching from IMM.</expected_trace_value_10>
+		<expected_trace_value_11>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_11>
+		<expected_trace_value_12>\[TRACE\] operationId=31</expected_trace_value_12>
+		<expected_trace_value_13>\[TRACE\] Parameters:</expected_trace_value_13>
+		<expected_trace_value_14>\[TRACE\] Name = errorText</expected_trace_value_14>
+		<expected_trace_value_15>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_15>
+		<expected_trace_value_16>["\[TRACE\] Value = ", "@CoMLog@forced ERROR: This is only for test purpose using LOG"]</expected_trace_value_16>
+		<expected_trace_value_17>["\[TRACE\] ErrorText is: ", "@CoMLog@forced ERROR: This is only for test purpose using LOG"]</expected_trace_value_17>
+		<expected_trace_value_18>\[TRACE\] ReturnParam=28</expected_trace_value_18>
+
+		<cli_sessions_step3>2</cli_sessions_step3>
+		<trace_entries_read_step3>9</trace_entries_read_step3>
+
+		<cli_input_5>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "show" "commit" "exit"</cli_input_5>
+		<cli_expected_output_5>['ManagedElement=1', 'Sdp617ActiontestRoot=1', 'ActionTest=1']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>
+
+		<cli_input_6>"configure" "ManagedElement=1, Sdp617ActiontestRoot=1, ActionTest=1" "testErrString \"forced ERROR: Error message with no prefix\"" "commit" "exit"</cli_input_6>
+		<cli_expected_output_6>['ERROR: Call command failed, error code: ComFailure']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['missing', 'closed connection', 'Connection to COM failed', 'ComValidationFailed']</cli_nonexpected_output_6>
+
+		<expected_trace_value_19>\[TRACE\] Dispatching from IMM.</expected_trace_value_19>
+		<expected_trace_value_20>\[TRACE\] ActionAppl SaImmOiAdminOperationCallbackT_2</expected_trace_value_20>
+		<expected_trace_value_21>\[TRACE\] operationId=31</expected_trace_value_21>
+		<expected_trace_value_22>\[TRACE\] Parameters:</expected_trace_value_22>
+		<expected_trace_value_23>\[TRACE\] Name = errorText</expected_trace_value_23>
+		<expected_trace_value_24>\[TRACE\] Type = SA_IMM_ATTR_SASTRINGT</expected_trace_value_24>
+		<expected_trace_value_25>["\[TRACE\] Value = ", "forced ERROR: Error message with no prefix"]</expected_trace_value_25>
+		<expected_trace_value_26>["\[TRACE\] ErrorText is: ", "forced ERROR: Error message with no prefix"]</expected_trace_value_26>
+		<expected_trace_value_27>\[TRACE\] ReturnParam=28</expected_trace_value_27>
+
+	</config>
+</testcase>

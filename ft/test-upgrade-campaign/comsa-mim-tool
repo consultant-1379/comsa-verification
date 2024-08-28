@@ -1,0 +1,225 @@
+#! /bin/sh
+##
+## comsa-mim-tool --
+##
+##   Handles COM model files. Basically a wrapper around "com_mim_tool"
+##   to remove the forced usage of absolute paths, instead Bundle names are
+##   used.
+##
+##   Bundles's containing COM model files must include the file;
+##
+##     "com-model.config"
+##
+##   This must in turn contain paths relative to the Bundle directory.
+##   The specified files will be added in order to COM using the command;
+##
+##     com_mim_tool --addModelFile <Bundle-dir/file-path>
+##
+##   (or --removeModelFile for a remove operation).
+##
+##   This handling is analogous with the IMM-model handling in CoreMW.
+##
+## Commands;
+##
+
+prg=$(basename $0)
+dir=$(dirname $0); dir=$(cd $dir; pwd)
+tmp=$(mktemp -td ${prg}_XXXXXX)
+
+
+
+die() {
+    #echo "ERROR: $*" >&2
+    logger -s -t COM_SA -p user.err "ERROR ($prg): $@"
+    rm -rf $tmp
+    exit 1
+}
+help() {
+    grep '^##' $0 | cut -c3-
+    rm -rf $tmp
+    exit 0
+}
+test -n "$1" || help
+
+# Get the persistent storage location
+storage=$(cmwea storage-location-get)/coremw ||\
+    die "Can't get storage-location"
+
+# Set root path for COM in CBA env, used by com-mim-tool to locate models
+# do we need to export COMPATH?
+COMPATH=/home/com
+repository=$storage/repository
+com_mim_tool=/opt/com/bin/${com_mim_tool:-com_mim_tool}
+cfgfile=com-model.config
+
+logger -t COM_SA -p user.info "Invoked [$prg $@]"
+
+##   add <SDP-name> <Model Handler Component name> 
+##     Add all model-files in the specified SDP to the model handler.
+##
+##     <SDP-name> is the SDP bundle name.
+##     <Model Handler Component Name> (optional) is the name of a component implementing certain COM SPI's
+##      and that shall be responsible for the model. If not given the default is used.
+##      During installation the com_sa component will install a model handler "MW_OAM" 
+##      that is the default if no model handler is specified.
+##
+##      Example 
+##         comsa-mim-tool add ERIC-ComSa-CXP9017697_2-R1A01
+##
+##
+cmd_add() {
+    test -n "$1" || die "No SDP specified"
+    local opthandler=${2:+"--modelHandler=$2"}
+
+    d=$repository/$1
+    test -r $d/$cfgfile || return 0
+    for n in $(grep -v '^#' $d/$cfgfile); do
+	f=$d/$n
+	test -r $f || die "Not readable [$f]"
+	$com_mim_tool --addModelFile=$f $opthandler || die "Failed to add [$f]"
+    done
+}
+
+##   remove <SDP-name> <Model Handler Component name>
+##     Remove all model-files in the specified SDP and from the model handler.
+##
+##     <SDP-name> is the SDP bundle name.
+##     <Model Handler Component Name> (optional) is the name of a component implementing certain COM SPI's
+##      and that shall be responsible for the model.
+##
+##      Example
+##        comsa-mim-tool remove ERIC-ComSa-CXP9017697_2-R1A01
+##
+cmd_remove() {
+    test -n "$1" || die "No SDP specified"
+    sdp=$1
+    local opthandler=${2:+"--modelHandler=$2"}
+ 
+    d=$repository/$1
+    test -r $d/$cfgfile || return 0
+    for n in $(grep -v '^#' $d/$cfgfile); do
+	f=$d/$n
+	test -r $f || die "Not readable [$f]"
+	$com_mim_tool --removeModelFile=$f $opthandler || die "Failed to remove [$f]"
+    done
+}
+
+##   commit
+##     Commit the add/remove operations.
+##
+##     Example
+##        comsa-mim-tool commit
+##
+cmd_commit() {
+    $com_mim_tool --commit
+}
+
+##   rollback
+##     Discard any add/remove operations that has not yet been commited.
+##
+##     Example
+##        comsa-mim-tool rollback
+##
+cmd_rollback() {
+    $com_mim_tool --rollback
+}
+
+
+#  This is a helper function that will restart both com_sa su instances 
+#  It takes a while to run on a system since the amf-state csiass takes time to finish
+#  since we list all csiass, but I didnt know how to make the key for csiass
+#  also between restarting the instances we wait until we find an active com_sa SU.
+#
+switchover_comsa() {
+   activesu=""
+   standbysu=""
+   sulist=`amf-state su | grep "safApp=ERIC-ComSa"`
+   for su in $sulist
+   do
+     sustate=`amf-state su adm "$su"| tail -1 | sed "s/\t//" | cut -d"=" -f2`
+     hastate=`amf-state csiass | sed 's/\\\,/,/g' | grep -A 1 "$su" | tail -1 | sed "s/\t//" | cut -d"=" -f2`
+     #echo "su=$su"
+     #echo "state=$sustate"
+     #echo "hastate=$hastate"
+     if [ "$sustate" = "UNLOCKED(1)" ]; then
+        if [ "$hastate" = "ACTIVE(1)" ]; then
+           activesu="$su"
+        fi
+        if [ "$hastate" = "STANDBY(2)" ]; then
+           standbysu="$su"
+        fi
+     fi
+   done
+
+   # Restart the two SU for ComSa
+   # but we wait for a stable system inbetween restarts
+   if [ -n "$activesu" -a -n "$standbysu" ]; then
+      amf-adm restart "$activesu"
+      wait_for_active_comsa
+      amf-adm restart "$standbysu"
+   fi
+}
+
+# This is a helper function that will wait for the ComSa SU to become active again.
+# It will loop 10 times looking for an active ComSa, sleeping 5 second between each loop
+#
+wait_for_active_comsa() {
+   activesu=""
+   maxLoops=10
+   while [ -z "$activesu" -a $maxLoops -gt 0 ]
+   do
+      sulist=`amf-state su | grep "safApp=ERIC-ComSa"`
+      for su in $sulist
+      do
+        sustate=`amf-state su adm "$su"| tail -1 | sed "s/\t//" | cut -d"=" -f2`
+        hastate=`amf-state csiass | sed 's/\\\,/,/g' | grep -A 1 "$su" | tail -1 | sed "s/\t//" | cut -d"=" -f2`
+        #echo "su=$su"
+        #echo "state=$sustate"
+        #echo "hastate=$hastate"
+        if [ "$sustate" = "UNLOCKED(1)" ]; then
+           if [ "$hastate" = "ACTIVE(1)" ]; then
+              activesu=$su
+           fi
+        fi
+      done
+      maxLoops=`expr $maxLoops - 1`
+      sleep 5
+   done
+   if [ -z "$activesu" ]; then
+      # error, we did not find an active su
+      return 1;
+   fi
+   return 0;
+}
+
+
+
+##   com_switchover
+##     When model file configuration has been updated and commited COM needs to reload the changes to make them active.
+##     This command will alter the HA state for the currently active ERIC-ComSa component from ACTIVE to INACTIVE and back to ACTIVE again.
+##     This will trigger COM to reload the model files.
+##     This command takes a while to run (about 60 seconds on a 10 blade system)
+##
+##     Please note that if a new model handler has been added/removed then COM need to be fully restarted manually.     
+##     But applications should normally not need to add a new model handler.
+##
+##     Example
+##        comsa-mim-tool com_switchover
+##
+cmd_com_switchover() {
+   switchover_comsa
+}
+
+
+# Get the command
+cmd=$1
+shift
+grep -q "^cmd_$cmd()" $0 || die "Invalid command [$cmd]"
+
+# Execute command
+trap "die Interrupted" INT TERM
+mkdir -p $tmp
+cmd_$cmd "$@"
+status=$?
+rm -rf $tmp
+exit $status

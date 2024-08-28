@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>pmtSA</id>
+        <tag>TC-PMTSA-001</tag>    
+        <version>P1A01</version>
+		<testcase>pmtSA</testcase>
+		<class>pmtSa</class>
+		<method>pmtSa</method>
+		<description>PMT_SA - Testing</description>
+	</info>	
+    <config>
+    	<reqCmwVersion>R5A01</reqCmwVersion>
+    	<reqCmwRelease>1</reqCmwRelease>
+    	
+        <serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+
+        <job_description>['myJob', 'protoGroup', 'ONE_MIN', 'ONE_MIN', 'HIGH', 'MISSING_MOIDS', 'MR1', 'MR2', 'MR3', 'MR4', 'MR5', 'MR6']</job_description>
+        <measTypes>['CC', 'CC-I', 'Gauge', 'FTG', 'DER', 'SI']</measTypes>
+    	
+        <cli_input_1>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['Fm=1','FmAlarmModel=CW','FmAlarmModel=FileManagement','FmAlarmModel=MDF','FmAlarmModel=SwM','FmAlarmModel=coreMw']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+    	
+        <cli_input_2>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['Fm=1','FmAlarmModel=CW','FmAlarmModel=FileManagement','FmAlarmModel=MDF','FmAlarmModel=SwM','FmAlarmModel=coreMw']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>        
+        
+        <cli_input_3>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_3>
+        <cli_expected_output_3>['activeSeverity=WARNING', 'measurementTypeId=CcMT-1,pmGroupId=CcGroup1,CmwPmpmId=1', 'source="ManagedElement=1,SystemFunctions=1,Pm=1,PmJob=ThresJob1,MeasurementReader=MRt3:AnyCounterName"', 'majorType=193', 'minorType=849346562', 'probableCause=418']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+        
+        <cli_input_4>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_4>
+        <cli_expected_output_4>['Fm=1','FmAlarmModel=CW','FmAlarmModel=FileManagement','FmAlarmModel=MDF','FmAlarmModel=SwM','FmAlarmModel=coreMw']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+    	
+        <cli_input_5>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_5>
+        <cli_expected_output_5>['activeSeverity']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_5>        
+        
+        <cli_input_6>"show ManagedElement=1,SystemFunctions=1,Fm=1" "exit"</cli_input_6>
+        <cli_expected_output_6>['Fm=1','FmAlarmModel=CW','FmAlarmModel=FileManagement','FmAlarmModel=MDF','FmAlarmModel=SwM','FmAlarmModel=coreMw']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['error', 'COM Closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+	</config>  
+</testcase>

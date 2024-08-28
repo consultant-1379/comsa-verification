@@ -1,0 +1,4 @@
+node 1 control SC-1
+node 2 control SC-2
+node 3 payload PL-3
+node 4 payload PL-4

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configuration Using Netconf - Setting SNMP Target</id>
+        <tag>TC-NCONF-007</tag>	
+        <version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>Setting SNMP Target</description>
+	</info>	
+    <config>
+    	<scriptFile>execCommandScript.sh</scriptFile>
+    	<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+        <helloFile>Hello.xml</helloFile>
+
+        <actionFile>['CreatingSnmpTarget.xml']</actionFile>
+        <actionFile2>['check007.xml']</actionFile2>
+        <actionFile3>['removingSnmpTarget.xml']</actionFile3>
+        <actionFile4>['check007b.xml']</actionFile4>
+        <closeFile>Close.xml</closeFile> 
+        <logFile>logFile.txt</logFile>
+    	<respFile>expectedOutput007a.txt</respFile>
+    	<respFile2>expectedOutput007b.txt</respFile2>
+    	<respFile3>expectedOutput007a.txt</respFile3>
+    	<respFile4>expectedOutput007d.txt</respFile4>
+    	<serviceInstanceName>ComSa</serviceInstanceName>
+    	<amfNodePattern>Cmw</amfNodePattern>
+
+    	<forbiddenContent>['SnmpTargetV2C']</forbiddenContent>
+	</config>  
+</testcase>

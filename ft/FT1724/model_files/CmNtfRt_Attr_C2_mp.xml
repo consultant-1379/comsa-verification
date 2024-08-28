@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpTestClass">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpTestClass">
+            <mimName>ObjImpTestMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpTestMom" namespace="urn:com:ericsson:ecim:ObjImpTestMom::1.0" namespacePrefix="objimptestmom" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+    <enum name="AdmState">
+                        <enumMember name="LOCKED">
+                                <value>0</value>
+                        </enumMember>
+                        <enumMember name="UNLOCKED">
+                                <value>1</value>
+                        </enumMember>
+                        <enumMember name="SHUTTING_DOWN">
+                                <value>2</value>
+                        </enumMember>
+    </enum>
+
+    <class name="ObjImpTestClass">
+      <description>A test class</description>
+      <root/>
+      <attribute name="keyAttr">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>                                                                                                                                                                          </attribute>
+
+
+      <attribute name="testRuntimeInt8">
+        <description>a test attribute</description>
+        <dataType>
+          <int8>
+          </int8>
+        </dataType>
+      </attribute>
+      
+      <attribute name="testRuntimeInt16">
+        <description>a test attribute</description>
+        <dataType>
+          <int16>
+          </int16>
+        </dataType>
+      </attribute>
+      
+      <attribute name="testRuntimeInt32">
+        <description>a test attribute</description>
+        <dataType>
+          <int32>
+          </int32>
+        </dataType>
+      </attribute>
+      
+      <attribute name="testRuntimeInt64">
+        <description>a test attribute</description>
+        <dataType>
+          <int64>
+          </int64>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint8">
+        <description>a test attribute</description>
+        <dataType>
+          <uint8>
+          </uint8>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint16">
+        <description>a test attribute</description>
+        <dataType>
+          <uint16>
+          </uint16>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint32">
+        <description>a test attribute</description>
+        <dataType>
+          <uint32>
+          </uint32>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeUint64">
+        <description>a test attribute</description>
+        <dataType>
+          <uint64>
+          </uint64>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeString">
+        <description>a test attribute</description>
+        <dataType>
+          <string>
+          </string>
+        </dataType>
+      </attribute>
+
+      <attribute name="testRuntimeBool">
+        <description>a test attribute</description>
+        <dataType>
+          <boolean>
+          </boolean>
+        </dataType>
+      </attribute>
+
+     <attribute name="testRuntimeEnum">
+       <description>a test attribute</description>
+         <dataType>
+           <enumRef name="AdmState">
+           </enumRef>
+         </dataType>
+     </attribute>
+
+    </class>
+
+</mim>
+     
+</models>

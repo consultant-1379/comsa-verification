@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjImpComplexClassSv">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjImpComplexClassSv">
+            <mimName>ObjImpComplexMomSv</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpComplexMomSv" namespace="urn:com:ericsson:ecim:ObjImpComplexMomSv::1.0" namespacePrefix="objimpcomplexmomsv" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+    
+    <struct name="TestStructSv">
+      <description>define a struct</description>
+      <structMember name="testWritableAttrUint8">
+        <uint8>
+          <defaultValue>0</defaultValue>
+        </uint8>
+      </structMember>
+      <structMember name="testWritableAttrUint16">
+        <description>Uint16Multivalue</description>
+        <sequence>
+          <uint16>
+            <defaultValue>0</defaultValue>
+          </uint16>
+          <minLength>0</minLength>
+          <maxLength>5</maxLength>
+        </sequence>
+      </structMember>
+      <structMember name="testWritableAttrString">
+        <string/>
+      </structMember>
+      <structMember name="testWritableAttrBool">
+        <boolean>
+          <defaultValue>false</defaultValue>
+        </boolean>
+      </structMember>
+    </struct>
+
+    <class name="ObjImpComplexClassSv">
+      <description>A test class</description>
+      <root/>
+      <attribute name="keyAttrSv">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+      <attribute name="TestStructAttrSv">
+        <dataType>
+          <structRef name="TestStructSv">
+            <mimName>ObjImpComplexMomSv</mimName>
+            <mimVersion>1</mimVersion>
+          </structRef>
+        </dataType>
+      </attribute>
+    </class>
+    
+</mim>
+     
+</models>

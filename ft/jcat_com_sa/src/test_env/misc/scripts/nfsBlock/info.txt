@@ -1,0 +1,12 @@
+The nfs_block script is used for stopping and starting the
+ 
+2 NFS service on LOTC based system.
+ 
+3  
+4 Usage: nfs_block <NFS top directory> block|unblock|timeblock <secs>
+ 
+5  
+6 example, stop the nfs server during a period of 10 sec:
+ 
+7 ./nfs_block /cluster timeblock 10
+ 

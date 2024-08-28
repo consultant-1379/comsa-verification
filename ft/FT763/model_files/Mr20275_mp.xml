@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+	<createdBy>
+		<signature>eaparob</signature>
+	</createdBy>
+	<approvedBy>
+		<signature>eaparob</signature>
+	</approvedBy>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_ObjectMr20275">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="ObjectMr20275">
+            <mimName>ObjImpComplexMom</mimName>
+          </hasClass>
+        </child>
+      </containment>
+    </relationship>
+</interMim>
+<mim author="eaparob" contact="" date="2011-11-17" docNo="" name="ObjImpComplexMom" namespace="urn:com:ericsson:ecim:ObjImpComplexMom::1.0" namespacePrefix="objimpcomplexmom" organization="" release="1" revision="" version="1">
+    <description>desc</description>
+
+    <struct name="TestStruct">
+      <description>define a struct</description>
+      <structMember name="name">
+               <description>Name of the country</description>
+               <domainExtension domain="ECIM"><extension name="isKey" value="true"/></domainExtension>
+          <string>
+          </string>
+      </structMember>
+      <structMember name="testWritableAttrUint8">
+        <uint8>
+          <defaultValue>0</defaultValue>
+        </uint8>
+      </structMember>
+      <structMember name="testWritableAttrString">
+        <string>
+          <defaultValue/>
+        </string>
+      </structMember>
+      <structMember name="testWritableAttrBool">
+        <boolean>
+          <defaultValue>false</defaultValue>
+        </boolean>
+      </structMember>
+    </struct>
+
+    <class name="ObjectMr20275">
+      <description>A test class</description>
+      <root/>
+      <attribute name="ObjectMr20275Id">
+        <description>id</description>
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+                <string/>
+        </dataType>
+      </attribute>
+      <attribute name="TestStructAttr">
+        <dataType>
+	  <sequence>
+            <structRef name="TestStruct">
+              <mimName>ObjImpComplexMom</mimName>
+              <mimVersion>1</mimVersion>
+            </structRef>
+	  </sequence>
+        </dataType>
+      </attribute>
+    </class>
+
+</mim>
+
+</models>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP763 FT - Register class case: Create an object that is registered to MAFOI with permission Yes</id>
+		<tag>TC-FT763-027</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>SDP763 FT - Register class case: Create an object that is registered to MAFOI with permission Yes</description>
+	</info>
+	<config>
+		<reqComSaVersion>R2A04</reqComSaVersion>
+		<reqComVersion>R2A12</reqComVersion>
+		<reqCmwVersion>R3A09</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<setup_RETURN_VALUES>#define returnValueConfig returnValues.setMo = ComFailure; returnValues.action = ComFailure;</setup_RETURN_VALUES>
+		<setup_MAF_RETURN_VALUES>#define maf_returnValueConfig returnValues.setMo = MafFailure; returnValues.action = MafFailure;</setup_MAF_RETURN_VALUES>
+
+		<modelfile_mp>SDP763_mp7.xml</modelfile_mp>
+		<modelfile_imm_classes>SDP763_imm_classes6.xml</modelfile_imm_classes>
+
+		<setup_REG1>#define REG1 \"/ManagedElement/ObjImpEmptyClass\"</setup_REG1>
+		<setup_REG2>#define REG2 \"/ManagedElement/ObjImpEmptyClass/TestClassOne\"</setup_REG2>
+		<setup_REG3>#define REG3 \"/ManagedElement/ObjImpEmptyClass/TestClassOne/TestClassTwo\"</setup_REG3>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+		<setup_REG2_PERMISSION>#define REG2_PERMISSION \"YES\"</setup_REG2_PERMISSION>
+		<setup_REG3_PERMISSION>#define REG3_PERMISSION \"YES\"</setup_REG3_PERMISSION>
+
+		<expected_init_log_1>com: MAFOiComponent: mafLCMinit(): Component started</expected_init_log_1>
+		<expected_init_log_2>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: MOC: /ManagedElement/ObjImpEmptyClass Permission: YES</expected_init_log_2>
+		<expected_init_log_3>com: MAFOiComponent: maf_start(): returning MafOk</expected_init_log_3>
+
+		<cli_input_1>"show ManagedElement=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['show']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['ObjImpEmptyClass', 'failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"configure" "ManagedElement=1" "ObjImpEmptyClass=1" "TestClassOne=1" "TestClassTwo=1" "commit" "exit"</cli_input_2>
+		<cli_expected_output_2>['configure', 'ManagedElement=1', 'ObjImpEmptyClass=1', 'TestClassOne=1', 'TestClassTwo=1']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['error', 'COM Closed connection', 'failed']</cli_nonexpected_output_2>
+
+		<cli_input_3>"show ManagedElement=1, ObjImpEmptyClass=1, TestClassOne=1, TestClassTwo=1" "exit"</cli_input_3>
+		<cli_expected_output_3>['TestClassTwo=1']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'COM Closed connection', 'failed']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1" "no ObjImpEmptyClass=1" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['configure']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['error', 'COM Closed connection', 'failed']</cli_nonexpected_output_4>
+
+		<cli_input_5>"show ManagedElement=1" "exit"</cli_input_5>
+		<cli_expected_output_5>['show']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['ObjImpEmptyClass', 'COM Closed connection', ]</cli_nonexpected_output_5>
+
+		<expected_test_log_1>com: MAFOiComponent: TR::join() entered</expected_test_log_1>
+		<expected_test_log_2>com: MAFOiComponent: TR::registerParticipant()</expected_test_log_2>
+		<expected_test_log_3>com: MAFOiComponent: MO::maf_createMo(): parentDn ManagedElement=1 className ObjImpEmptyClass keyAttributeName objImpEmptyClassId keyAttributeValue objImpEmptyClassId=1</expected_test_log_3>
+		<expected_test_log_4>com: MAFOiComponent: MO::maf_createMo(): parentDn ManagedElement=1,ObjImpEmptyClass=1 className TestClassOne keyAttributeName testClassOneId keyAttributeValue testClassOneId=1</expected_test_log_4>
+		<expected_test_log_5>com: MAFOiComponent: MO::maf_createMo(): parentDn ManagedElement=1,ObjImpEmptyClass=1,TestClassOne=1 className TestClassTwo keyAttributeName testClassTwoId keyAttributeValue testClassTwoId=1</expected_test_log_5>
+		<expected_test_log_6>com: MAFOiComponent: MO::maf_deleteMo() entered</expected_test_log_6>
+		<expected_test_log_7>com: MAFOiComponent: MO::maf_deleteMo(): dn ManagedElement=1,ObjImpEmptyClass=1</expected_test_log_7>
+		<expected_test_log_8>com: MAFOiComponent: TR::prepare() entered</expected_test_log_8>
+		<expected_test_log_9>com: MAFOiComponent: TR::commit()</expected_test_log_9>
+		<expected_test_log_10>com: MAFOiComponent: TR::finish()</expected_test_log_10>
+
+
+		<teardown_REG1>#define REG1 \"/ManagedElement/ObjImpEmptyClass\"</teardown_REG1>
+		<teardown_REG2>#define REG2 \"/ManagedElement/ObjImpEmptyClass/TestClassOne\"</teardown_REG2>
+		<teardown_REG3>#define REG3 \"/ManagedElement/ObjImpEmptyClass/TestClassOne/TestClassTwo\"</teardown_REG3>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+		<teardown_REG2_PERMISSION>#define REG2_PERMISSION \"YES\"</teardown_REG2_PERMISSION>
+		<teardown_REG3_PERMISSION>#define REG3_PERMISSION \"YES\"</teardown_REG3_PERMISSION>
+	</config>
+</testcase>

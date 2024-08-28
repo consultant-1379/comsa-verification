@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>CLI - Border value testing for UINT8</id>
+        <tag>TC-CLI-024</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp1724</testcase>
+		<class>FTSdp1724</class>
+		<method>FTSdp1724</method>
+		<description>CLI - Border value testing for UINT8</description>
+	</info>
+    <config>
+    	<modelfile_mp1>CmNtfCfg_Attr_C1_mp.xml</modelfile_mp1>
+    	<modelfile_imm_classes1>CmNtfCfg_Attr_C1_imm_classes.xml</modelfile_imm_classes1>
+
+    	<cli_input_1>"configure" "ManagedElement=1" "ObjImpTestClass=1" "testWritableUint8=0" "commit" "exit"</cli_input_1>
+        <cli_expected_output_1>['configure', '0']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_1>
+
+    	<cli_input_2>"show ManagedElement=1,ObjImpTestClass=1,testWritableUint8" "exit"</cli_input_2>
+        <cli_expected_output_2>['testWritableUint8=0']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_2>
+
+    	<cli_input_3>"configure" "ManagedElement=1" "ObjImpTestClass=1" "testWritableUint8=-1" "commit" "exit"</cli_input_3>
+        <cli_expected_output_3>['configure', 'ERROR: Invalid value', '-1']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['COM Closed connection']</cli_nonexpected_output_3>
+
+    	<cli_input_4>"show ManagedElement=1,ObjImpTestClass=1,testWritableUint8" "exit"</cli_input_4>
+        <cli_expected_output_4>['testWritableUint8=0']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'ailed',  'COM Closed connection', 'testWritableUint8=-1']</cli_nonexpected_output_4>
+
+    	<cli_input_5>"configure" "ManagedElement=1" "ObjImpTestClass=1" "testWritableUint8=255" "commit" "exit"</cli_input_5>
+        <cli_expected_output_5>['configure', '255']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_5>
+		
+    	<cli_input_6>"show ManagedElement=1,ObjImpTestClass=1,testWritableUint8" "exit"</cli_input_6>
+        <cli_expected_output_6>['testWritableUint8=255']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_6>
+
+        <cli_input_7>"configure" "ManagedElement=1" "ObjImpTestClass=1" "testWritableUint8=256" "commit" "exit"</cli_input_7>
+        <cli_expected_output_7>['configure', 'ERROR: Invalid value', '256']</cli_expected_output_7>
+        <cli_nonexpected_output_7>['COM Closed connection']</cli_nonexpected_output_7>
+
+        <cli_input_8>"show ManagedElement=1,ObjImpTestClass=1,testWritableUint8" "exit"</cli_input_8>
+        <cli_expected_output_8>['testWritableUint8=255']</cli_expected_output_8>
+        <cli_nonexpected_output_8>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_8>
+
+        <cli_input_9>"configure" "ManagedElement=1" "no ObjImpTestClass=1" "commit" "exit"</cli_input_9>
+        <cli_expected_output_9>['configure']</cli_expected_output_9>
+        <cli_nonexpected_output_9>['error', 'ailed',  'COM Closed connection']</cli_nonexpected_output_9>
+
+
+        <test_consumer_1>testConsumer1.so</test_consumer_1>
+
+
+		<enable_class_notify_1>ObjImpTestClass</enable_class_notify_1>
+		<enable_objectOrAttr_1>testWritableUint8</enable_objectOrAttr_1>
+		
+		
+		<searchPatterns1>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ManagementOperation ', 'dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoCreated ', 'attributes: name: ', 'name: testWritableUint8 attrType: UINT8 nrOfValues: 1 values: 0 ', 'eventTime: ']</searchPatterns1> 
+		<searchPatterns2>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ManagementOperation ', 'dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'name: testWritableUint8 attrType: UINT8 nrOfValues: 1 values: 255 ', 'eventTime: ']</searchPatterns2> 
+		<searchPatterns3>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ManagementOperation ', 'dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoDeleted attributes: eventTime: ']</searchPatterns3> 
+		
+		<unexpectedPattern1>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ManagementOperation ', 'dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'name: testWritableUint8 attrType: UINT8 nrOfValues: 1 values: -1 ', 'eventTime: ']</unexpectedPattern1> 
+		<unexpectedPattern2>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ManagementOperation ', 'dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'name: testWritableUint8 attrType: UINT8 nrOfValues: 1 values: 256 ', 'eventTime: ']</unexpectedPattern2>
+	</config>
+</testcase>

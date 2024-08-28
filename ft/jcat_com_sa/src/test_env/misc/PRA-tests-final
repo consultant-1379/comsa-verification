@@ -1,0 +1,47 @@
+***3.1 PRA test final***
+
+LOTC: R3A04-sh1 (if not specified otherwise)
+Vip: R1A03 (if not specified otherwise)
+
+New since BT6 (R5A09 (P5A255)):
+* Upgrade campaign & upath script updates to support upgrade from CoreMW 3.0 CP3
+* Removed coremw-rpm-adapt patch
+
+Date 		Test case			Version		Target	Config	Result	Notes									Status	TC logs
+--------------------------------------------------------------------------------------------------------------------------------------------
+20120918	LCT - LRC			R5A09				2+10	21/21											OK		https://cc-isisupp.rnd.ki.sw.ericsson.se/RDA/logs/LCT_LOGS/201209/LCT_547_20120918101037/
+20120914	LCT - LBC			R5A09				2+10	26/27	serverMonitor coredump					OK		https://cc-isisupp.rnd.ki.sw.ericsson.se/RDA/logs/LCT_LOGS/201209/LCT_533_20120914222954/
+
+20120918	FT					R5A09		cots24a	2+0				with LOTC4.2 PRA, dc enabled					file:///home/eanjoel/tmp/201209/CMW_FT_20120918102857/index.html							
+20120915	FT					R5A09		cots4b	2+2		307/315	cluster resize failed 1st run			OK		file:///home/eanjoel/tmp/201209/CMW_FT_20120915111839/index.html, file:///home/eanjoel/tmp/201209/CMW_FT_20120917133320/index.html
+20120917	FT					R5A09		cots24a	2+2		311/315	with LOTC4.2 PRA						OK		file:///home/eanjoel/tmp/201209/CMW_FT_20120917163232/index.html
+
+20120914	nightTest2p0		R5A09		cots22b	2+0		56/58											OK		file:///proj/coremw_scratch/eanjoel/logs//201209/CMW-coremw3.1_dev-R5A09_20120914224722/index.html
+20120918	nightTest			R5A09		sun1	2+2				dc enabled								OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-R5A09_nightTest_2p2_dc_20120918142013/index.html
+20120916 	nightTest       	R5A09		sun2	2+2     80/82											OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-R5A09_nightTest_2p2_20120916101623/index.html
+20120914	nightTest			R5A09		sun2	2+8		124/130	retest maint-017 & 018!					OK		file:///proj/coremw_scratch/eanjoel/logs//201209/CMW-coremw3.1_dev-R5A09_20120914224709/index.html																	
+Per-Erik	smokeTest								2+38			LOTC4.1 CP4
+Per-Erik	nightTest								2+38			default config file??
+20120918	Hostname agn+night	R5A09				2+2																file:///proj/coremw_scratch/uabikan/logs/201209/CMW-coremw3.1_dev_opensaf-_20120918152644/index.html
+20120918	Upgrade U2+nightT	P5A259		cots23b	2+2														OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-P5A259_nightTest_2p2_U2_20120918143443/index.html
+
+20120914	Stabtest, 72 h		R5A09		cots24b	2+0				Pm activated							NOK!	file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-R5A09_20120914225106/index.html
+20120914	Stabtest, 72 h		R5A09		sun1	2+2				Pm activated							OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-R5A09_20120914225024/index.html								
+Per-Erik	Stabtest, 72 h							2+38			LOTC4.1 CP4Pm NOT activated
+Per-Erik	72h stab test							2+68			with CMW,LOTC 4.2 PRA,eVIP2.0 CP1
+
+20120916	Char				R5A09		cots4b	2+0		58/61	100k, no pm								???		file:///proj/coremw_scratch/eanjoel/logs//201209/CMW-coremw3.1_dev-CoreMW3.1_BT6_2plus0_100k_2_20120916225406/index.html
+???			Char									2+8				350k, no pm
+
+20120918	Upgrade	all			P5A259		sun1	2+0				dc										OK		file:///proj/coremw_scratch/eanjoel/logs//201209/CMW-coremw3.1_dev-deploymentUpgradeTestSuite_2p0_20120918104357/index.html
+20120918	Upgrade	all			P5A259		sun2	2+8														OK		file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-deploymentUpgradeTestSuite_2p8_20120918100452/index.html, file:///proj/coremw_scratch/eanjoel/logs/201209/CMW-coremw3.1_dev-deploymentUpgradeTestSuite_2p8_20120918134711/index.html
+20120918	Upgrade U3      	P5A259		cots23b	2+2				Pm activated, manual test				OK		
+20120918	U3+rollback+start	P5A259				2+2				manual test								OK
+
+Done?		PM full FT			R5A09				2+2		
+Done?		PM char test		R5A09				2+?
+
+Rafael		CPI										2+?
+Per-Erik	Manual tests							2+68    		Only with CMW and LOTC 4.2 PRA file:???	NOK		file:///proj/coremw_scratch/erapeik/manually_tests/Selected_manually_tests_on_70.htm
+Kath H		AIT										?				already done in LCT?
+Ingvar K	Cluster resize							2+8				1+0->2+0->2+8->2+2(testapps)

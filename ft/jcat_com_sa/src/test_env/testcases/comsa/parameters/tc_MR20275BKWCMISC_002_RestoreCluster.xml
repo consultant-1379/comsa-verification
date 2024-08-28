@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COMSA MR20275 BKWC - Restore the cluster after BkwC testing</id>
+        <tag>TC-MR20275BKWCMISC-002</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr20275</testcase>
+        <class>SetupForMr20275Bkwc</class>
+        <method>SetupForMr20275Bkwc</method>
+        <description>This testcase restores the cluster to the original state as it was before the MR20275 BkwC suite</description>
+    </info>
+    <config>
+	<reqComSaVersion>R6A01</reqComSaVersion>
+        <reqComVersion>R2A12</reqComVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <reqComRelease>2</reqComRelease>
+        <MR20275BkwC_reqCmwRelease>1</MR20275BkwC_reqCmwRelease>
+        <MR20275BkwC_reqCmwVersion>R8A19</MR20275BkwC_reqCmwVersion>
+        <storedBackupFilesLocation>/home/backupfile_mr20275bkwc/</storedBackupFilesLocation>
+        <comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+        <comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+        <cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+        <lotcBackupLocation>/cluster/snapshot/</lotcBackupLocation>
+    </config>
+</testcase>

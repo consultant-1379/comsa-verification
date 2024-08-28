@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP556 FT - Remove test component and restore original COM SA log cfg file</id>
+        <tag>TC-FT556-008</tag>	
+        <version>P1A01</version>
+		<testcase>functionTestSdp556</testcase>
+		<class>FTSdp556</class>
+		<method>FTSdp556</method>
+		<description>SDP556 FT - Remove test component and restore original COM SA log cfg file</description>
+	</info>
+    <config>
+    	   <copyTestCompToTarget>NO</copyTestCompToTarget>
+	</config>  
+</testcase>
+
+ 

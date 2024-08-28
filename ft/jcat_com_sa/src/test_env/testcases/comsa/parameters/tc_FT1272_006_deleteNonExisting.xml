@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>SDP1272 FT - Negative testcase Delete non-existing model</id>
+        <tag>TC-FT1272-006</tag>
+        <version>P1A01</version>
+		<testcase>functionTestSdp1272</testcase>
+		<class>FTSdp1272</class>
+		<method>FTSdp1272</method>
+		<description>SDP1272 FT - Negative testcase Delete non-existing model</description>
+	</info>
+    <config>
+      	   <expectedModelFile1>Licensing_mp.xml</expectedModelFile1>
+    	   <expectedModelFile2>MMAS_mp.xml</expectedModelFile2>
+
+    	   <modelCommentText>This is a comment to identify the modified file</modelCommentText>
+    	   <modelCommentTextIsInPlace>YES</modelCommentTextIsInPlace>
+
+    	   <expectedStatusOutput_line1>SDP: ERIC-CONFIGPKG-CXP9013822_3-R1B02</expectedStatusOutput_line1>
+    	   <expectedStatusOutput_line2>Action: delete</expectedStatusOutput_line2>
+    	   <expectedStatusOutput_line3>State: Waiting for consumer</expectedStatusOutput_line3>
+
+    	   <expectedStatusOutput_shift1>4</expectedStatusOutput_shift1>
+    	   <expectedStatusOutput_shift2>5</expectedStatusOutput_shift2>
+    	   <expectedStatusOutput_shift3>6</expectedStatusOutput_shift3>
+	</config>  
+</testcase>
+
+ 

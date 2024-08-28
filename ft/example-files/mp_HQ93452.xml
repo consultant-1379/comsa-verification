@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+<dtdVersion>D</dtdVersion>
+<momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+  </momMetaData>
+<interMim>
+    <relationship name="ManagedElement_to_CmwTest">
+      <containment>
+        <parent>
+          <hasClass name="ManagedElement">
+            <mimName>ComTop</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="CmwTest">
+            <mimName>CmwTestMom</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+            <max>2</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </interMim>
+<mim author="" contact="" date="" docNo="" name="CmwTestMom" namespace="urn:com:ericsson:ecim:cmwtestmom" namespacePrefix="cmwmom" organization="" release="0" revision="" version="1">
+    <class name="CmwTest">
+      <root/>
+      <attribute name="cmwTestId">
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="attr1">
+        <description>A attribute.</description>
+        <noNotification/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="attr2">
+        <description>A attribute.</description>
+        <noNotification/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <class name="ComSaTest">
+      <attribute name="comSaTestkey">
+        <mandatory/>
+        <readOnly/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="attrdefault1">
+        <description>A attribute with default value.</description>
+        <noNotification/>
+        <dataType>
+          <string>
+            <defaultValue>3</defaultValue>
+          </string>
+        </dataType>
+      </attribute>
+      <attribute name="attrdefault2">
+        <description>A attribute with default value.</description>
+        <noNotification/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+    </class>
+    <relationship name="CmwTest_to_ComSaTest">
+        <containment>
+            <parent>
+                <hasClass name="CmwTest">
+                    <mimName>CmwTestMom</mimName>
+                </hasClass>
+            </parent>
+            <child>
+                <hasClass name="ComSaTest">
+                    <mimName>CmwTestMom</mimName>
+                </hasClass>
+                <cardinality>
+                    <min>0</min>
+                </cardinality>
+            </child>
+        </containment>
+    </relationship>
+  </mim>
+</models>
+

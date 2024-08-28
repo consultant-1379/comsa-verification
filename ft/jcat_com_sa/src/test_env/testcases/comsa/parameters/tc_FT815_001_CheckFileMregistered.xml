@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP815 FT - check if IMM-I-FileM is registered by the active SC</id>
+		<tag>TC-FT815-001</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp815</testcase>
+		<class>FTSdp815</class>
+		<method>FTSdp815</method>
+		<description>SDP815 FT - check if IMM-I-FileM is registered by the active SC</description>
+	</info>
+	<config>
+		<serviceInstanceName>ComSa</serviceInstanceName>
+		<amfNodePattern>Cmw</amfNodePattern>
+	</config>
+</testcase>

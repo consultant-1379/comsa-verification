@@ -1,0 +1,13 @@
+ definitely lost 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+_dl_signal_error (in /lib64/ld-2.11.3.so)
+_dl_open (in /lib64/ld-2.11.3.so)
+dlopen_doit (in /lib64/libdl-2.11.3.so)
+_dl_catch_error (in /lib64/ld-2.11.3.so)
+_dlerror_run (in /lib64/libdl-2.11.3.so)
+dlopen@@GLIBC_2.2.5 (in /lib64/libdl-2.11.3.so)
+__tracepoints__init (in /opt/com/lib/comp/libcom_security_mgmt_service.so)
+??? (in /opt/com/lib/comp/libcom_security_mgmt_service.so)
+??? (in /opt/com/lib/comp/libcom_security_mgmt_service.so)
+??? (in /opt/com/lib/comp/libcom_security_mgmt_service.so)
+call_init (in /lib64/ld-2.11.3.so)

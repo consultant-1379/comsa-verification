@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2013 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Oct 31, 2013 3:36:36 PM using:
+	* com.ericsson.ecim.m2m 2.8.0.201310082250
+	* com.ericsson.ecim.dsl 2.8.0.201310082250
+	* com.ericsson.ecim.edm 2.8.0.201310082250
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>F</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>6/31/2013</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>EUS/ZZT/BHAA Vladica Stanisic</signature>
+        </createdBy>
+    </momMetaData>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" date="" docNo="" name="ECIM_T_L3_Router" namespace="urn:com:ericsson:ecim:ECIM_T_L3_Router" namespacePrefix="ecim_t_l3_router" organization="" release="0" revision="" version="1">
+        <description>Base routing fragment.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_Router" />
+            <extension name="ecimMomVersion" value="1" />
+            <extension name="ecimMomRelease" value="0" />
+        </domainExtension>
+        <class name="Router">
+            <root />
+            <attribute name="routerId">
+                <description>Value component of the RDN for Router.</description>
+                <mandatory />
+                <noNotification />
+                <restricted />
+                <key />
+                <dataType>
+                    <string />
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="EUS/ZZT/BHAA Vladica Stanisic" contact="EUS/ZZT/BHAA Vladica Stanisic" correction="0" date="6/31/2013" docNo="" name="SRV4" namespace="urn:com:ericsson:ecim:ECIM_T_Routes_StaticRouteIPv4" namespacePrefix="ecim_t_routes_staticrouteipv4" organization="" release="3" revision="" version="0">
+        <description>Configure IPv4 Static Routes.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_Routes_StaticRouteIPv4"/>
+            <extension name="ecimMomVersion" value="0"/>
+            <extension name="ecimMomRelease" value="3"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <struct name="NextHopInfoIPv4">
+            <structMember name="discard">
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <boolean/>
+            </structMember>
+        </struct>
+        <derivedDataType name="RouteKeyAttributeType">
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_Routes_Lib"/>
+                <extension name="originatingMimRelease" value="3"/>
+            </domainExtension>
+            <baseType>
+                <string/>
+            </baseType>
+        </derivedDataType>
+        <class name="RouteTableIPv4Static">
+            <root/>
+            <attribute name="routeTableIPv4StaticId">
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="RouteKeyAttributeType">
+                        <mimName>ECIM_T_Routes_StaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="NextHop">
+            <attribute name="nextHopId">
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="RouteKeyAttributeType">
+                        <mimName>ECIM_T_Routes_StaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="nexthop">
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <dataType>
+                    <structRef name="NextHopInfoIPv4">
+                        <mimName>ECIM_T_Routes_StaticRouteIPv4</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="RouteTableIPv4Static_to_NexHop">
+            <containment>
+                <parent>
+                    <hasClass name="RouteTableIPv4Static">
+                        <mimName>ECIM_T_Routes_StaticRouteIPv4</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="NextHop">
+                        <mimName>ECIM_T_Routes_StaticRouteIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_Router">
+            <dependenciesScript><![CDATA[If-feature L3VRfeature]]></dependenciesScript>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Router">
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Router_to_RouteTableIPv4Static">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RouteTableIPv4Static">
+                        <mimName>ECIM_T_Routes_StaticRouteIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

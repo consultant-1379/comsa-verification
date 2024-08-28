@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imm:IMM-contents xmlns:imm="http://www.saforum.org/IMMSchema" xmlns:xs="http://www.w3.org/2001/
+XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.
+saforum.org/IMMSchema SAI-AIS-IMM-XSD-A.01.01.xsd">
+<class name="ObjImpTestClass">
+      <category>SA_CONFIG</category>
+      <rdn>
+        <name>objImpTestClassId</name>
+        <type>SA_STRING_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_INITIALIZED</flag>
+      </rdn>
+      <attr>
+        <name>testRuntimeInt16</name>
+        <type>SA_INT32_T</type>
+        <category>SA_RUNTIME</category>
+        <flag>SA_MULTI_VALUE</flag>
+      </attr>
+      <attr>
+        <name>testRuntimeInt32</name>
+        <type>SA_INT32_T</type>
+        <category>SA_RUNTIME</category>
+        <flag>SA_MULTI_VALUE</flag>
+      </attr>
+      <attr>
+        <name>testRuntimeUint64</name>
+        <type>SA_UINT64_T</type>
+        <category>SA_RUNTIME</category>
+        <flag>SA_MULTI_VALUE</flag>
+      </attr>
+      <attr>
+        <name>testWritableInt16</name>
+        <type>SA_INT32_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <flag>SA_MULTI_VALUE</flag>
+      </attr>
+      <attr>
+        <name>testWritableInt32</name>
+        <type>SA_INT32_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <flag>SA_MULTI_VALUE</flag>
+      </attr>
+      <attr>
+        <name>testWritableUint64</name>
+        <type>SA_UINT64_T</type>
+        <category>SA_CONFIG</category>
+        <flag>SA_WRITABLE</flag>
+        <flag>SA_MULTI_VALUE</flag>
+      </attr>
+</class>
+</imm:IMM-contents>
+

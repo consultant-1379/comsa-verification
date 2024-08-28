@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>Perform COM SA switchover and verify that the SSHD is handled as expected</id>
+		<tag>TC-AMFSSHD-006</tag>
+		<version>P1A01</version>
+		<testcase>amfHandleSshd</testcase>
+		<class>amfHandleSshd</class>
+		<method>amfHandleSshd</method>
+		<description>Perform COM SA switchover and verify that the SSHD is handled as expected</description>
+	</info>
+	<config>
+		<reqComSaMajorVersion>3</reqComSaMajorVersion>
+		<reqCmwVersion>R9A19</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComVersion>R2A06</reqComVersion>
+		<reqComRelease>5</reqComRelease>
+		<reqComSaVersion>R7A06</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+	</config>
+</testcase>

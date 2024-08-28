@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>COMSA BFU upgrade from COM SA 3.0 PRA to current latest</id>
+		<tag>TC-BFUCL5-001</tag>
+		<version>P1A01</version>
+		<testcase>comsaBfu</testcase>
+		<class>UpgradeCOMSA</class>
+		<method>UpgradeCOMSA</method>
+		<description>This testcase installs CoreMW 3.2 PRA, COM 3.2 PRA, installs the old version of COMSA and then upgrades to the current version</description>
+	</info>
+	<config>
+		<upgradeType>bfucl5</upgradeType>
+		<old_comsa>comsa3.0pra/</old_comsa>
+		<storedBackupFilesLocation>/home/backupfile_bfucl5/</storedBackupFilesLocation>
+		<comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+		<comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+		<cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+		<lotcBackupLocation>/cluster/snapshot/</lotcBackupLocation>
+		<removeCoreMW>True</removeCoreMW>
+	</config>
+</testcase>

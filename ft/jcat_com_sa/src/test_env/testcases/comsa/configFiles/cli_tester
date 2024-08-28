@@ -1,0 +1,125 @@
+#!/usr/bin/expect
+
+#################################################################################################################
+#                                                                                                               #
+# Please check the path of expect (in the first line of this file)!                                             #
+#                                                                                                               #
+# Description:                                                                                                  #
+#                                                                                                               #
+#    You can test COM cli remotely with this script (e.g. from IT-HUB).                                         #
+#    The output of the cli is not processed by this script.                                                     #
+#    This script is run by JCAT which is also processing the output.                                            #
+#                                                                                                               #
+# Usage:                                                                                                        #
+#                                                                                                               #
+#    You must add arguments for the script.                                                                     #
+#    The first 4 arguments are mandatory.                                                                       #
+#    You can add cli commands as arguments (0 to n) from the 5th argument.                                      #
+#    If the port argument is provided, this script must be called after a passwordless setup                    #
+#                                                                                                               #
+#   ./cli_tester <target ipaddress> <user> <password> <prompt> <cli cmd1> <cli cmd2> <cli cmd3> ... <cli cmdn>  #
+#                                                                                                               #
+# Example:                                                                                                      #
+#                                                                                                               #
+#   ./cli_tester 134.138.66.123 root rootroot SC-2-1 'show ManagedElement=1' 'show ManagedElement=2' 'show'     #
+#                                                                                                               #
+#################################################################################################################
+
+set ip [lindex $argv 0]
+set username [lindex $argv 1]
+set password [lindex $argv 2]
+set sc_prompt [lindex $argv 3]
+
+set timeout 30
+
+set target_ip_address [lindex [split $ip ":"] 0]
+set port [lindex [split $ip ":"] 1 ]
+set first_ipaddr_part [lindex [split $target_ip_address "."] 0]
+set second_ipaddr_part [lindex [split $target_ip_address "."] 1]
+set third_ipaddr_part [lindex [split $target_ip_address "."] 2]
+set fourth_ipaddr_part [lindex [split $target_ip_address "."] 3]
+
+if { "SC-2-1" == $sc_prompt } {
+    set fourth_ipaddr_part "[expr $fourth_ipaddr_part + 1]"
+} else {
+    set fourth_ipaddr_part "[expr $fourth_ipaddr_part - 1]"
+}
+
+append second_target_ip_address $first_ipaddr_part "." $second_ipaddr_part "." $third_ipaddr_part "." $fourth_ipaddr_part
+#
+# We use ssh -q (quiet) so there is no 'Connection to 10.35.26.216 closed.' message after
+# we logout. This would interfere with the CLI output and cause TC-CLI-016 and -017 to fail
+# because the CLI output parser picks the 'closed' string as unexpected.
+#
+if { "" == $port } {
+    spawn ssh -q $username@$target_ip_address
+} else {
+    set pid [spawn ssh $username@$target_ip_address -p $port]
+    expect "Connection refused" {
+        exec kill $pid
+        set pid [spawn ssh $username@$second_target_ip_address -p $port]
+        expect "Connection refused" {
+            #Unexpected behaviour, AMFSSHD is not activated on both controllers
+            exec kill $pid
+            exit
+        }
+    }
+}
+
+#spawn ssh root@10.0.2.15 "useradd -mG root comtestuser"
+
+if { "" == $port} {
+expect "*assword:*"
+
+send -- "$password\r"
+expect "*$sc_prompt*"
+
+send -- "usermod -G com-emergency root\n"
+send -- "/opt/com/bin/cliss\n"
+
+expect -timeout 3 "Connection refused" {
+if { "SC-2-1" == $sc_prompt} {
+    send -- "ssh SC-2-2\n"
+    expect "*SC-2-2*"
+    send -- "/opt/com/bin/cliss\n"
+} else {
+    send -- "ssh SC-2-1\n"
+    expect "*SC-2-1*"
+    send -- "/opt/com/bin/cliss\n"
+}
+}
+
+for {set i 4} {$i < [llength $argv]} {incr i 1} {
+    expect "*>*"
+    send -- "[lindex $argv $i]\n"
+    #sleep 0.2
+}
+
+expect ">" {
+send -- "exit\n"
+expect "#"
+close
+} "#" {
+close
+} "config" {
+send -- "end\n"
+send -- "exit\n"
+expect "#"
+close
+}
+} else {
+# Currently, for a given port (different from 22), the passwordless must be setup first
+for {set i 4} {$i < [llength $argv]} {incr i 1} {
+    expect "*>*"
+    send -- "[lindex $argv $i]\n"
+#	sleep 0.2
+}
+expect ">" {
+send -- "exit\n"
+} "config" {
+send -- "end"
+expect ">"
+send exit
+}
+}
+#expect eof

@@ -1,0 +1,78 @@
+safSISU=safSu=SC-1\,safSg=NoRed\,safApp=OpenSAF,safSi=NoRed1,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-1\,safSg=2N\,safApp=OpenSAF,safSi=SC-2N,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-1\,safSg=NWayActive\,safApp=ERIC-CoreMW,safSi=All-NWayActive,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-1\,safSg=2N\,safApp=ERIC-CoreMW,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=Cmw2\,safSg=2N\,safApp=ERIC-ComSa,safSi=2N,safApp=ERIC-ComSa
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-2\,safSg=NoRed\,safApp=OpenSAF,safSi=NoRed2,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-2\,safSg=2N\,safApp=OpenSAF,safSi=SC-2N,safApp=OpenSAF
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=Cmw1\,safSg=2N\,safApp=ERIC-ComSa,safSi=2N,safApp=ERIC-ComSa
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-2\,safSg=2N\,safApp=ERIC-CoreMW,safSi=SC-2N,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-2\,safSg=NoRed\,safApp=ERIC-CoreMW,safSi=NoRed1,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-1\,safSg=NoRed\,safApp=ERIC-CoreMW,safSi=NoRed2,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-2\,safSg=NWayActive\,safApp=ERIC-CoreMW,safSi=All-NWayActive,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=PL-4\,safSg=NWayActive\,safApp=ERIC-CoreMW,safSi=All-NWayActive,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=PL-4\,safSg=NoRed\,safApp=ERIC-CoreMW,safSi=NoRed3,safApp=ERIC-CoreMW
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=PL-4\,safSg=NoRed\,safApp=OpenSAF,safSi=NoRed3,safApp=OpenSAF
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=COORD2\,safSg=2N-COORD\,safApp=ERIC-MMAS,safSi=2N-COORD,safApp=ERIC-MMAS
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=COORD1\,safSg=2N-COORD\,safApp=ERIC-MMAS,safSi=2N-COORD,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=PL-4\,safSg=ta_tapp_pl\,safApp=ta_global,safSi=ta_tapp_pl,safApp=ta_global
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=DAS2\,safSg=2N-DAS\,safApp=ERIC-MMAS,safSi=2N-DAS,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=OAM2\,safSg=NWay-OAM\,safApp=ERIC-MMAS,safSi=NWay-OAM,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=OAM1\,safSg=NWay-OAM\,safApp=ERIC-MMAS,safSi=NWay-OAM,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=DAS1\,safSg=2N-DAS\,safApp=ERIC-MMAS,safSi=2N-DAS,safApp=ERIC-MMAS
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=PL-4\,safSg=ta_tgc_pl\,safApp=ta_global,safSi=ta_tgc_pl,safApp=ta_global
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-1\,safSg=ta_tgc_sc\,safApp=ta_global,safSi=ta_tgc_sc,safApp=ta_global
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=SC-2\,safSg=ta_tgc_sc\,safApp=ta_global,safSi=ta_tgc_sc,safApp=ta_global
+        HAState=STANDBY(2)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)
+safSISU=safSu=TRAFFIC4\,safSg=NWay-TRAFFIC\,safApp=ERIC-MMAS,safSi=NWay-TRAFFIC,safApp=ERIC-MMAS
+        HAState=ACTIVE(1)
+        HAReadinessState=READY_FOR_ASSIGNMENT(1)

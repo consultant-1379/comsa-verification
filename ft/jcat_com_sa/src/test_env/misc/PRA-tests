@@ -1,0 +1,63 @@
+***3.1 PRA test activities***
+
+LOTC: R3A04-sh1 (if not specified otherwise)
+Vip: R1A03 (if not specified otherwise)
+
+BT4/dev = 1st BT4 candidate with AIT issues
+BT4/dev* = 2nd BT4 candidate (dev stream, baseline P5A180) with AIT and FT PM fixes delivered from trmap
+R5A06* = 2nd BT4 candidate (dev stream, baseline P5A180) with AIT and FT PM fixes delivered from trmap
+~ = not complete
+
+New since BT4:
+* SDP1926 (new make build system)
+* avd-edu (osafamfd core dump related to SI check pointing fix)
+* P2713.patch (PBE dispatch must be realtime responsive on external termination conditions fix (#2713))
+* HQ26515 (Problems with cmw-sdp-import for RPM)
+* HQ15980 (CMW RHEL installation failure (log_sync))
+* Updates in deployment campaigns to support upgrades from CPs
+* FT 2+0 adaptations
+* FT PM Cmw122_31_xx fix
+
+TC#	Date 		Test case			Version		Target	Config	Result	Notes						TC logs
+--------------------------------------------------------------------------------------------------------------------------------------------
+1.	20120822	LCT - LRC			R5A06*				2+10	81/83	COM coredump				https://cc-isisupp.rnd.ki.sw.ericsson.se/RDA/logs/LCT_LOGS/201208/LCT_434_20120822092029/
+2. 	20120818	LCT - LBC			BT4/dev*			2+10	81/83	HQ26999, LCT fw error		https://cc-isisupp.rnd.ki.sw.ericsson.se/RDA/logs/LCT_LOGS/201208/LCT_415_20120819103902/
+3. 	20120816	nightTest2p0		BT4/dev		cots4A	2+0		53/54								file:///proj/coremw_scratch/eanjoel/logs/201208/CMW-coremw3.1_dev-nightTest2plus0_20120816155921/index.html
+4.	20120814 	nightTest       	BT4/dev		cots4A  2+2     78/82   HQ29756,2*HQ26999,HQ29748	file:///proj/coremw_scratch/eanjoel/logs/201208/CMW-coremw3.1_dev-bt4_candidate_20120814153558/index.html
+5. 	20120817	nightTest			R5A06		sun2	2+8		126/132	dc enabled, 6f: ipmi errors	file:///proj/coremw_scratch/eanjoel/logs//201208/CMW-coremw3.1_dev-BT4_2plus8_20120817191704/index.html
+6. 	20120616	smokeTest			BT4/dev		cots12	2+38	12/15	LOTC4.1 CP4,  				file:///proj/coremw_scratch/erapeik/logs/201208/CMW-coremw3.1_dev-smkTestOn40nodesWithLOTC4.1_CP4_take2_20120816162740/index.html
+																		TC-ROB-ROB(quick reboot of cluster)failed due to uneven load on PL's()testApp problem. 
+																		(quick reboot of cluster)failed due
+																		to uneven load on PL's()testApp problem.
+																		TC-MAINT-002(backup and restore)failed to do quick reboot on 2 PL's, LOTC problem.
+																		TC-TR-002(lock/unlock of SU's) testenv problem,see artifact artf147866
+																		
+7.	20120814	FT					BT4/dev		cots4B	2+2		311/311								file:///home/uabikan/tmp/201208/CMW_FT_20120814150733/index.html
+~8.	20120817	Stabtest, 72 h		BT4/dev		cots12	2+38	1/1		LOTC4.1 CP4Pm NOT activated			file:///proj/coremw_scratch/erapeik/logs/201208/CMW-coremw3.1_dev-72hStabOn40nodesWithLOTC4.1_CP4_take1_20120817142359/index.html
+																		mem leakage on active ta_tgc_pl
+																		see artf136450 (in the thesis tenon project)
+
+9.	20120817	Stabtest, 72 h		BT4/dev		cots4A	2+0		1/1		Pm activated				file:///proj/coremw_scratch/eanjoel/logs/201208/CMW-coremw3.1_dev-stab72h_2plus0_20120817202146/index.html
+10.	20120817/18	Char				R5A06		cots4B	2+0		61/61	100k, no pm					file:///proj/coremw_scratch/eanjoel/logs/201208/CMW-coremw3.0__R4A10-CoreMW3.0_2plus0_100k_20120817124342/index.html, file:///proj/coremw_scratch/eanjoel/logs/201208/CMW-coremw3.1_dev-CoreMW3.1_BT4_2plus0_100k_20120817221029/index.html
+~11.20120817/?	Char				R5A06		sun1	2+7		56/78	350k, no pm, 22f, 19 left	file:///proj/coremw_scratch/eanjoel/logs/201208/CMW-coremw3.0__R4A10-CoreMW3.0_2plus7_350k_20120817213331/index.html, ?
+12.	20120820	AIT					BT4/dev		?		?		ok		already done in LCT?		logs are attached in Kath's mail
+~13.20120817	Cluster resize		BT4/dev		sun1	2+7		4/4		1+0->2+0(with testapps)->2+7->2+2(without testapps)	(manual test)
+14.	20120815	Upgrade	all			BT4/dev		cots4A	2+0		4/4									file:///proj/coremw_scratch/eanjoel/logs//201208/CMW-coremw3.1_dev-deploymentUpgradeTestSuite2plus0_20120815164230/index.html
+15.	20120815	Upgrade	all			BT4/dev		sun2	2+8		3/4		immdumps in old sw, dc 		file:///proj/coremw_scratch/eanjoel/logs//201208/CMW-coremw3.1_dev-deploymentUpgradeTestSuite_2plus8_20120816091249
+16.	20120816	Upgrade U3      	BT4/dev		cots4B  2+2		1/1		Pm activated, manual test
+~17.20120816	PM full FT			BT4/dev		cots20A	2+2		247/260								file:///home/xgarlee/tmp/201208/CMW_FT_20120817023143/index.html
+18.	20120821	Upgrade from CPs	trmap		cots4B	2+2		2/4		ok, old dumps+immnd old sw	file:///proj/coremw_scratch/eanjoel/logs/201208/CMW-coremw3.1_dev_trmap-depUpgTestSuite_20120821133442/index.html
+19.	20120821	Upgrade U2+nightT	BT4/dev*	cots4A	2+2		77/82	ntfhck (fix), bad cmw-rep	file:///proj/coremw_scratch/uabikan/logs/201208/CMW-coremw3.1_dev-U2_nightTest_20120821145940/index.html
+20.	20120822	Hostname agn+night	BT4/dev*	sun2	2+2		75/82	ipmifel+2*HQ26999			file:///proj/coremw_scratch/ehsbran/logs/201208/CMW-coremw3.1_dev-_20120822144411/index.html
+21.	DEK			PM char test							2+?
+22.	DEK?		CPI										2+?
+23.	20120823	Manual tests		BT4/dev		cots12	2+68    NOK		Only with CMW and LOTC 4.2 PRA file:??? file:///proj/coremw_scratch/erapeik/manually_tests/Selected_manually_tests_on_70.htm												
+24.	Per-Erik	72h stab test		BT4/dev		cots12	2+68	NOK		with CMW,LOTC 4.2 PRA,eVIP2.0 CP1, 3 pl nodes unexpected shutdown (hw problems)
+25.	Per-Erik	nightTest			BT4/dev		cots6	2+38			default config file??
+26.	20120828	FT					trmap		sun1	2+0		278/281	FT is updated! New regtest suite added. file:///home/eanjoel/tmp/201208/CMW_FT_20120827135127/index.html
+27.	20120824	U3+rollback+start	BT4/dev		sun1	2+2		OK		manual test
+28.	20120814	FT					BT4/dev		xxx	    2+2				with LOTC4.2 PRA
+
+
+23/27 PRA test activities completed
+[.......................    ]%

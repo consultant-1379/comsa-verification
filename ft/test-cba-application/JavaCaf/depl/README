@@ -1,0 +1,50 @@
+------------------------------------------------------------------------
+		JAVACAF 3.1 DEPLOYMENT TEMPLATE README
+
+JAVACAF VERSION: R1A03
+RELEASE DATE : Wed Apr  6 18:40:21 EDT 2011
+
+IMPORTANT: Please read the package_instruction.txt on each deployment 
+           template folder before you proceed.
+------------------------------------------------------------------------
+
+The JAVACAF Deployment Template product may include one or several
+Upgrade Templates. An Upgrade Template contain an implemented upgrade
+path for JAVACAF from a specific older earlier runtime product version
+to the latest runtime product version included in the same APR product
+version as this Deployment Template product.
+
+The Upgrade Templates are called Templates to clarify that it shall not
+be deployed on an end-customer site. Instead they shall be used as a
+template to which site/cluster specific data needs to be added before
+it can be verified and then deployed on an end-customer site. For
+further information, see the Package Instruction files included under
+the Upgrade Template directories.
+
+This JAVACAF Deployment Template contains:
+--------------------------------------
+
+1) ERIC-JAVACAF_I_TEMPLATE-CXP9013050_4-R1A03
+
+   Contains template to install ERIC-JAVACAF-CXP9013050_4-R1A03.
+   Use: ERIC-JAVACAF-I-TEMPLATE-CXP9013050_4-R1A03.sdp
+
+2) ERIC-JAVACAF-R-TEMPLATE-CXP9013050_4-R1A03
+
+   Contains template to remove ERIC-JAVACAF-CXP9013050_4-R1A03.
+   Use: ERIC-JAVACAF-R-TEMPLATE-CXP9013050_4-R1A03.sdp
+
+3) ERIC-JAVACAF-U1-TEMPLATE-CXP9013050_4-R1A03
+
+   Contains template for upgrading to ERIC-JAVACAF-CXP9013050_4-R1A03 
+   from revision JAVACAF_x86_64-CXP9013050_4-_PREVIOUS_PACKAGE_VESION_.
+   Use: ERIC-JAVACAF-U1-TEMPLATE-CXP9013050_4-R1A03.sdp
+
+4) ERIC-JAVACAF-U2-TEMPLATE-CXP9013050_4-R1A03
+
+   This upgrade template implements the upgrade path from JAVACAF 3.0 (CPx)
+   to ERIC-JAVACAF-CXP9013050_4-R1A03
+   Use: ERIC-JAVACAF-U2-TEMPLATE-CXP9013050_4-R1A03.sdp
+   For this upgrade template to function correctly, all parts of OMP must be
+   upgraded to their CBA equivalents at the same time (see package_instruction.txt).
+

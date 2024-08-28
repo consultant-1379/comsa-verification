@@ -1,0 +1,45 @@
+#!/usr/bin/expect
+
+#################################################################################################################
+#                                                                                                               #
+# Please check the path of expect (in the first line of this file)!                                             #
+#                                                                                                               #
+# Description:                                                                                                  #
+#                                                                                                               #
+#    Log in as specified user.												                                    #
+#                                                                                                               #
+# Usage:                                                                                                        #
+#                                                                                                               #
+#    You must add 3 arguments for the script.                                                                   #
+#																		                                        #
+#                                                                                                               #
+#   ./LoginAsUser <target ipaddress> <user> <password>     														#
+#                                                                                                               #
+# Example:                                                                                                      #
+#                                                                                                               #
+#   ./LoginAsUser 134.138.66.123 erik secret   	 									   			        		#
+#                                                                                                               #
+#################################################################################################################
+
+set ip [lindex $argv 0]
+set username [lindex $argv 1]
+set password [lindex $argv 2] 
+
+
+set target_ip_address [lindex [split $ip ":"] 0]
+set port [lindex [split $ip ":"] 1 ]
+
+if { "" == $port } { 
+    spawn ssh $username@$target_ip_address
+} else {
+    spawn ssh $username@$target_ip_address -p $port
+}
+
+expect "*assword:*"
+
+send -- "$password\r"
+expect "$username@SC-2-*"
+
+send -- "exit\n"
+expect "*>>"
+

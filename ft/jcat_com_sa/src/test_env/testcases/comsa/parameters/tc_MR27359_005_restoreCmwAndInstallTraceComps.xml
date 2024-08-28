@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Restore CoreMW and Install Trace EA and Trace CC</id>
+        <tag>TC-MR27359-005</tag>
+        <version>P1A01</version>
+        <testcase>functionTestMr27359</testcase>
+        <class>FTMr27359</class>
+        <method>FTMr27359</method>
+        <description>Restore CoreMW and Install Trace EA and Trace CC</description>
+        </info>
+    <config>
+		<createInitBackup>True</createInitBackup>
+        <restoreCmwBackup>True</restoreCmwBackup>
+		<installTraceEA>True</installTraceEA>
+		<installTraceCC>True</installTraceCC>
+        <createBackupWithTrace>False</createBackupWithTrace>
+        <findActiveController>False</findActiveController>
+    </config>  
+</testcase>

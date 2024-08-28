@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Code Coverage - collecting the coverage results and restoring the cluster</id>
+        <tag>TC-COV-003</tag>	
+        <version>P1A01</version>
+		<testcase>codeCoverage</testcase>
+		<class>CodeCoverage</class>
+		<method>CodeCoverage</method>
+		<description>Code Coverage - collecting the coverage results and restoring the cluster</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>

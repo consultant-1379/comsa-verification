@@ -1,0 +1,12 @@
+#Thu Nov 17 17:33:09 CET 2011
+eclipse.preferences.version=1
+formatter_profile=_JCAT_CBA_Java_conventions
+formatter_settings_version=11
+org.eclipse.jdt.ui.ignorelowercasenames=true
+org.eclipse.jdt.ui.importorder=java;javax;org;com;
+org.eclipse.jdt.ui.ondemandthreshold=99
+org.eclipse.jdt.ui.staticondemandthreshold=99
+editor_save_participant_org.eclipse.jdt.ui.postsavelistener.cleanup=true
+sp_cleanup.format_source_code=true
+sp_cleanup.format_source_code_changes_only=false
+sp_cleanup.organize_imports=true

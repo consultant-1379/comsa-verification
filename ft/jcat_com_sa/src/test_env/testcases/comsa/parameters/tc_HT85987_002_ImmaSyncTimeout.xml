@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>Configure the imma sync timeout</id>
+        <tag>TC-HT85987-002</tag>
+        <version>P1A01</version>
+        <testcase>cliConfigurationTestCase</testcase>
+        <class>CLIconfiguration</class>
+        <method>CLIconfiguration</method>
+        <description>Configure the imma sync timeout less than default value - the default value is 1000</description>
+    </info>
+    <config>
+
+        <configFile>comsa.cfg</configFile>
+        <immasynctimeoutConfig>True</immasynctimeoutConfig>
+        <greaterDefaultValue>False</greaterDefaultValue>
+
+        <expectedImmasynctimeout_syslog>IMMA_SYNCR_TIMEOUT: 10</expectedImmasynctimeout_syslog>
+
+    </config>
+</testcase>

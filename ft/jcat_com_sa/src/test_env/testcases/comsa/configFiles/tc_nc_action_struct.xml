@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+<action xmlns="urn:com:ericsson:ecim:1.0">
+  <data>
+    <ManagedElement xmlns="urn:com:ericsson:ecim:ComTop">
+      <managedElementId>1</managedElementId>
+      <Sdp617ActiontestRoot xmlns="urn:com:ericsson:ecim:Sdp617ActiontestMom::1.0">
+        <sdp617ActiontestRootId>1</sdp617ActiontestRootId>
+        <ActionTest>
+          <actionTestId>1</actionTestId>
+      <adderStruct>
+            <structparam1 struct="StructInput">
+                    <int1>5</int1>
+                    <int2>3</int2>
+            </structparam1>
+      </adderStruct>
+        </ActionTest>
+      </Sdp617ActiontestRoot>
+    </ManagedElement>
+  </data>
+</action>
+</rpc>
+]]>]]>

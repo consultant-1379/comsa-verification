@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP1120 FT - Send an alarm from test component</id>
+		<tag>TC-FT1120-001</tag>	
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>SDP1120 FT - Send an alarm from test component</description>
+	</info>
+	<config>
+		<reqComSaVersion>R2A02</reqComSaVersion>
+		<reqComVersion>R6A01</reqComVersion>
+		<reqCmwVersion>R0A00</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<number_of_alarms>1</number_of_alarms>
+		<number_of_lines>8</number_of_lines>
+		<expected_alarm1>eventType = SA_NTF_ALARM_NOTIFICATIONS_START notificationObject = "objImpTestClassId=1" notifyingObject = "objImpTestClassId=1" notificationClassId = 193.0.391 (0x187) additionalText = "Alarm_Raised_by_TestComponent1120" probableCause = SA_NTF_UNSPECIFIED_REASON perceivedSeverity = SA_NTF_SEVERITY_MAJOR </expected_alarm1>
+
+		<modelfile_mp>SDP763_mp10.xml</modelfile_mp>
+		<modelfile_imm_classes>SDP763_imm_classes10.xml</modelfile_imm_classes>
+		<modelfile_imm_objects>SDP763_imm_objects.xml</modelfile_imm_objects>
+
+		<setup_action_obj>YES</setup_action_obj>
+		<actionDn>actionTestId=1,objImpTestClassId=1</actionDn>
+
+		<setup_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1,ActionTest=1\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>		
+
+		<setup_REG2>#define COMPONENT_NAME \"testComp1120\"</setup_REG2>
+		<setup_REG3>#define ALARMS</setup_REG3>
+
+		<attribute1>#define ACTION1 \"ManagedElement=1,ObjImpTestClass=1,ActionTest=1,control\"</attribute1>
+		<attribute1_type>#define ACTION1_TYPE ComOamSpiMoAttributeType_3_STRING</attribute1_type>
+		<attribute1_type_maf>#define ACTION1_TYPE MafOamSpiMoAttributeType_3_STRING</attribute1_type_maf>
+		<attribute1_value> </attribute1_value>
+
+		<expected_init_log_1>com: testComp1120: maf_start(): returning MafOk</expected_init_log_1>
+
+		<cli_input_1>"configure" "ManagedElement=1" "ObjImpTestClass=1" "ActionTest=1" "control \"ALARM 'ManagedElement=1,ObjImpTestClass=1',193,391,'Alarm_Raised_by_TestComponent1120','major',1326512375205072572\"" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['true']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'COM Closed connection', 'ailed']</cli_nonexpected_output_1>
+
+		<expected_test_log_1>com: testComp1120: MO::maf_action(): dn ManagedElement=1,ObjImpTestClass=1,ActionTest=1 name control type 9</expected_test_log_1>
+
+		<teardown_REG1>#define REG1 \"ManagedElement=1,ObjImpTestClass=1,ActionTest=1\"</teardown_REG1>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+		<teardown_REG2>#define COMPONENT_NAME \"testComp1120\"</teardown_REG2>
+		<teardown_REG2>#define ALARMS</teardown_REG2>
+	</config>
+</testcase>

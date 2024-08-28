@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"Import models with no EcimRootMoClass and multiple EcimContribution children, using COM 3.1 CP1 that does not support MAF MR SPI v3"</id>
+        <tag>TC-MR29333-003</tag>
+        <version>P1A01</version>
+                <testcase>functionTestMr29333</testcase>
+                <class>functiontestMR29333</class>
+                <method>functiontestMR29333</method>
+                <description>"Import models with no EcimRootMoClass and multiple EcimContribution children, using COM 3.1 CP1 that does not support MAF MR SPI v3"</description>
+        </info>
+    <config>
+        <reqComSaVersion>R5A11</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <useExternalModels>yes</useExternalModels>
+        <immClassesFile>NoRootMom1_imm_classes.xml</immClassesFile>
+        <immClassesFile2>NoRootMom2_imm_classes.xml</immClassesFile2>
+        <immClassesFile3>NoRootMom3_imm_classes.xml</immClassesFile3>
+        <momFile>NoRootMom1_mp.xml</momFile>
+        <momFile2>NoRootMom2_mp.xml</momFile2>
+        <momFile3>NoRootMom3_mp.xml</momFile3>
+
+        <cli_input_1>"show ManagedElement=1,C1A=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['c1AId=\"1\"', 'closed connection']</cli_nonexpected_output_1>
+
+        <cli_input_2>"show ManagedElement=1,C2A=1" "exit"</cli_input_2>
+        <cli_expected_output_2>['ERROR: Specific element not found']</cli_expected_output_2>
+        <cli_nonexpected_output_2>['c2AId=\"1\"', 'closed connection']</cli_nonexpected_output_2>
+
+        <cli_input_3>"configure" "ManagedElement=1,C1A=1" "commit" "end" "exit"</cli_input_3>
+        <cli_expected_output_3>['ERROR: Transaction commit failed']</cli_expected_output_3>
+        <cli_nonexpected_output_3>['c1AId=\"1\"']</cli_nonexpected_output_3>
+
+        <cli_input_4>"configure" "ManagedElement=1,C2A=1" "commit" "end" "exit"</cli_input_4>
+        <cli_expected_output_4>['ManagedElement=1', 'C2A=1', 'commit', 'end', 'exit']</cli_expected_output_4>
+        <cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+
+        <cli_input_5>"configure" "ManagedElement=1,C2A=1" "C1B=1" "commit" "end" "exit"</cli_input_5>
+        <cli_expected_output_5>['ERROR: Transaction commit failed']</cli_expected_output_5>
+        <cli_nonexpected_output_5>['c1BId=\"1\"']</cli_nonexpected_output_5>
+
+        <cli_input_6>"configure" "ManagedElement=1,C2A=1" "C2B=1" "commit" "end" "exit"</cli_input_6>
+        <cli_expected_output_6>['ManagedElement=1', 'C2A=1', 'C2B=1', 'commit', 'end', 'exit']</cli_expected_output_6>
+        <cli_nonexpected_output_6>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_6>
+
+        <cli_input_7>"configure" "ManagedElement=1,C2A=1" "C2B=1" "C3B=1" "commit" "end" "exit"</cli_input_7>
+        <cli_expected_output_7>['ERROR: Transaction commit failed']</cli_expected_output_7>
+        <cli_nonexpected_output_7>['c3BId=\"1\"']</cli_nonexpected_output_7>
+
+        <cli_input_8>"show all ManagedElement=1,C1A=1" "exit"</cli_input_8>
+        <cli_expected_output_8>['ERROR: Specific element not found']</cli_expected_output_8>
+        <cli_nonexpected_output_8>['c1AId=1', 'C1B=1', 'C3A=1']</cli_nonexpected_output_8>
+
+        <cli_input_9>"show all ManagedElement=1,C2A=1" "exit"</cli_input_9>
+        <cli_expected_output_9>['C2A=1', 'C2B=1']</cli_expected_output_9>
+        <cli_nonexpected_output_9>['ERROR: Specific element not found']</cli_nonexpected_output_9>
+
+        <imm_input_1>immfind | grep -i root</imm_input_1>
+        <imm_expected_output_1>['NoRootMom2c2AId=1', 'c2BId=1,NoRootMom2c2AId=1']</imm_expected_output_1>
+        <imm_nonexpected_output_1>['ERROR']</imm_nonexpected_output_1>
+
+        <backupName>backupMR29333</backupName>
+        <storedBackupFilesLocation>/home/backupfileMR29333/</storedBackupFilesLocation>
+
+        <comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+        <comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+        <cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+        <loctBackupLocation>/cluster/snapshot/</loctBackupLocation>
+        </config>
+</testcase>

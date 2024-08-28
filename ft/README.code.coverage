@@ -1,0 +1,39 @@
+
+Instructions how to run COM SA automated FT regression with code coverage
+using GCOV and LCOV.
+http://gcc.gnu.org/onlinedocs/gcc/Gcov.html#Gcov
+
+Follow these steps:
+
+1). Set the environment variable COM_SA_RESULT (used by the Makefile in ~/com_sa/dev/src)
+	to point to some location in your home directory, e.g:
+
+	setenv COM_SA_RESULT /home/$USER/COV_COMSA
+
+	Note: This directory will be created during the FT run. The default setting in the Makefile
+		  does not work on the target since we log in as root.
+
+2). Prepare the cluster with the selected CoreMW and COM releases. Alternativelly the autoinstallation
+	option can be used with executive.py:
+
+		  --swDirNumber <dirname> --installSw True --build True
+
+	The TC-MISC-004 will reinstal COM SA with a specially build version with code coverage support.
+
+3). Start the code coverage FT regression test suite, e.g.:
+
+	executive.py --config cots_target_10B --sc 2 --pl 2 --suite regTestSuiteCoverage.xml --loglevel DEBUG
+
+	The first TC-COV-001 will prepare the cluster for testing and will execute
+	the COMSA unit tests on the build server as well. The code coverage
+	result for the unit tests will be displayed in Firefox. At the end of
+	the code coverage regression suite the FT code coverage result will
+	be also displayed in Firefox as well as the FT result (as usual).
+	The results will be stored in a location similar to this one:
+
+	/home/$USER/cov_comsa_20121124_1417
+
+	Finally the combined code coverage result from the unit tests and FT will
+	be displayed in Firefox.
+
+	The e-mail sent by the TC-MISC-006 will contain links to the coverage results.

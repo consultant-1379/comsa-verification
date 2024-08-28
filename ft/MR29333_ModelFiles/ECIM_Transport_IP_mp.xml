@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2014 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Apr 10, 2014 2:36:48 PM using:
+	* com.ericsson.ecim.m2m 2.10.0.201404011339
+	* com.ericsson.ecim.dsl 2.10.0.201404011339
+	* com.ericsson.ecim.edm 2.10.0.201404011339
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>EUS/ZZT/BHAA Athanasios Kyparlis</signature>
+        </createdBy>
+    </momMetaData>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" correction="11" date="" docNo="" name="ECIM_T_L3_Ipv4Address" namespace="urn:com:ericsson:ecim:ECIM_T_L3_Ipv4Address" namespacePrefix="ecim_t_l3_ipv4address" organization="" release="1" revision="" version="0">
+        <description>Assigned IPv4 addresses.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_Ipv4Address"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="Ipv4AddressAndPrefixLengthStr">
+            <description>'Unicast IPv4 address'/'prefix length' string.&#13;
+&#13;
+Address should be specified in dotted-quad decimal notation in accordance with RFC791.&#13;
+IPv4 address within range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters. Prefix is a number 0 to 32.&#13;
+ &#13;
+Regex:&#13;
+(^((0?0?[1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|0?[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/([0-9]|[1-2][0-9]|3[0-2])$)&#13;
+&#13;
+Example: 01.001.2.2/28</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_Library"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^((0?0?[1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|0?[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/([0-9]|[1-2][0-9]|3[0-2])$)</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="Ipv4Address">
+            <description>IPv4 assigned address including information about the subnet it is residing on.</description>
+            <root/>
+            <attribute name="ipv4AddressId">
+                <description>Value component of the RDN for IPv4 assigned addresses.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="address">
+                <description>IPv4 decimal address + "/" + prefix length&lt;0-32&gt;.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4AddressAndPrefixLengthStr">
+                        <mimName>ECIM_T_L3_Ipv4Address</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" correction="11" date="" docNo="" name="ECIM_T_L3_Ipv4Interface" namespace="urn:com:ericsson:ecim:ECIM_T_L3_Ipv4Interface" namespacePrefix="ecim_t_l3_ipv4interface" organization="" release="1" revision="" version="0">
+        <description>Assigned IPv4 addresses.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_Ipv4Interface"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="L3EncapsulationUnion">
+            <description>Union of all possible IPv4 capable encapsulations .</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_prelim"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="bvi">
+                <description>Bridged VLAN virtual interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="portVlanIf">
+                <description>port vlan interface (802_1q pvc).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="ethPort">
+                <description>Ethernet Port (interface name).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="ipTunnelIf">
+                <description>point-to-point interface type .</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="atmIf">
+                <description>IP on ATM .</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="lagIf">
+                <description>LAG used directly for IP, point-to-point interface type.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="loopbackIf">
+                <description>A loopback binding.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="ipsec">
+                <description>IPsec connection endpoint.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+        </struct>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="5"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable&#13;
+</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="5"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users. This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only. While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="Ipv4Mtu">
+            <description>IPv4 mtu range is platform specific, thus left uncostrained and will be defined in platform model.&#13;
+&#13;
+Suggested range : 576-16384</description>
+            <baseType>
+                <int32/>
+            </baseType>
+        </derivedDataType>
+        <class name="Ipv4Interface">
+            <description>IPv4-addressed termination point; interface on an IPv4 routing domain.</description>
+            <dependenciesScript><![CDATA['unnumbered' can point to an address only within the same routing domain]]></dependenciesScript>
+            <attribute name="mtu">
+                <description>Set IPv4 mtu size on this interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4Mtu">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>The underlying encapsulation.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <structRef name="L3EncapsulationUnion">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="ipv4InterfaceId">
+                <description>Value component of the RDN for IPv4 Interface.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="adminState">
+                <description>Administrative state of L3 interface.&#13;
+&#13;
+When LOCKED, the connection to the L3 stack is disabled and no L3 packets are received or transmitted or routed through.&#13;
+ </description>
+                <mandatory/>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="operState">
+                <description>Operational state.</description>
+                <nonPersistent/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" correction="11" date="" docNo="" name="ECIM_T_L3_Ipv6Address" namespace="urn:com:ericsson:ecim:ECIM_T_L3_Ipv6Address" namespacePrefix="ecim_t_l3_ipv6address" organization="" release="1" revision="" version="0">
+        <description>IPv6 asssigned addresses.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_Ipv6Address"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="Ipv6AddressAndPrefixLengthStr">
+            <description>Unicast Ipv6Address (colon separated, rfc4291) / prefix_length 0-128.&#13;
+&#13;
+Regex:&#13;
+^((\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*)|&#13;
+(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*))/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])$&#13;
+&#13;
+Example: 2001:DB8::8:800:200C:417A/64</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_Library"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>^((\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*)|&#13;
+(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*))/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])$</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="Ipv6Address">
+            <description>IPv6 assigned subnet (address + mask length).</description>
+            <root/>
+            <attribute name="ipv6AddressId">
+                <description>Value component of the RDN for an IPv6 assigned address.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="address">
+                <description>IPv6 address + "/" + prefix length&lt;0-128&gt;. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv6AddressAndPrefixLengthStr">
+                        <mimName>ECIM_T_L3_Ipv6Address</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" correction="11" date="" docNo="" name="ECIM_T_L3_Ipv6Interface" namespace="urn:com:ericsson:ecim:ECIM_T_L3_Ipv6Interface" namespacePrefix="ecim_t_l3_ipv6interface" organization="" release="1" revision="" version="0">
+        <description>IPv6-addressed termination point; interface on an IPv6 routing domain.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_Ipv6Interface"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="L3EncapsulationUnion">
+            <description>Union of all possible IPv4 capable encapsulations .</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_prelim"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="bvi">
+                <description>Bridged VLAN virtual interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="portVlanIf">
+                <description>port vlan interface (802_1q pvc).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="ethPort">
+                <description>Ethernet Port (interface name).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="ipTunnelIf">
+                <description>point-to-point interface type .</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="atmIf">
+                <description>IP on ATM .</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="lagIf">
+                <description>LAG used directly for IP, point-to-point interface type.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="loopbackIf">
+                <description>A loopback binding.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="ipsec">
+                <description>IPsec connection endpoint.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+        </struct>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="5"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable&#13;
+</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="5"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users. This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only. While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="Ipv6Mtu">
+            <description>IPv6 mtu range is platform specific, thus left uncostrained and will be defined in platform model.&#13;
+&#13;
+Suggested range : 1280..65535</description>
+            <baseType>
+                <int32/>
+            </baseType>
+        </derivedDataType>
+        <class name="Ipv6Interface">
+            <description>IPv6-addressed termination point; interface on an IPv6 routing domain.</description>
+            <dependenciesScript><![CDATA[An encapsulation can be used by only one interface per address family.]]></dependenciesScript>
+            <attribute name="encapsulation">
+                <description>The underlying encapsulation.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <structRef name="L3EncapsulationUnion">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="mtu">
+                <description>Set IPv6 mtu size.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv6Mtu">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ipv6InterfaceId">
+                <description>Value component of the RDN for IPv6 Interface.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="adminState">
+                <description>Administrative state of L3 interface.&#13;
+&#13;
+When LOCKED, the connection to the L3 stack is disabled and no L3 packets are received or transmitted or routed through.&#13;
+ </description>
+                <mandatory/>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="operState">
+                <description>Operational state.</description>
+                <nonPersistent/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" correction="11" date="" docNo="" name="ECIM_T_L3_VRF" namespace="urn:com:ericsson:ecim:ECIM_T_L3_VRF" namespacePrefix="ecim_t_l3_vrf" organization="" release="1" revision="" version="0">
+        <description>IP VRF.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_VRF"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="RouteDistinguisher">
+            <description>vpn-rd format: as-number:number OR number:as-number OR ipAddress:as-number; 'as-number' is a 2-byte value and 'number' is any 4-byte value.&#13;
+&#13;
+Regex:&#13;
+([0-9]*:[0-9]*)|&#13;
+((^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)):[0-9]*)&#13;
+&#13;
+Example: 2:100, 2.2.2.2:1000</description>
+            <baseType>
+                <string>
+                    <validValues>([0-9]*:[0-9]*)|&#13;
+((^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)):[0-9]*)</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Ipv6HopLimit">
+            <description>The IPv6 hop limit range.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_Router"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Ipv4TTLType">
+            <description>IPv4 TTL range.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_Router"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="VRF">
+            <description>VRF: L3VPN (rfc4364 - rfc2547bis) capable routing domain.&#13;
+ &#13;
+A VRF is an instance of a routing domain, thus allowing local isolation of routed traffic like a virtual router, but in addition a VRF allows routes and traffic to be communicated with remote VRFs belonging to the same L3VPN. &#13;
+&#13;
+Reference : RFC4364&#13;
+ </description>
+            <root/>
+            <attribute name="vrfId">
+                <description>Value component of the RDN for VRF.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="routeDistinguisher">
+                <description>Router Distinguisher for injecting VRF routes into the Internet VRF.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RouteDistinguisher">
+                        <mimName>ECIM_T_L3_VRF</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ipv4DefaultTTL">
+                <description>Default TTL value.&#13;
+&#13;
+The default value inserted into the Time-To-Live field of the IPv4 header of datagrams originated at this entity, whenever a TTL value is not supplied by the transport layer protocol.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4TTLType">
+                        <defaultValue>64</defaultValue>
+                        <mimName>ECIM_T_L3_VRF</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ipv6IpDefaultHopLimit">
+                <description>IPv6 default hop limit.&#13;
+&#13;
+The default value inserted into the Hop Limit field of the IPv6 header of datagrams originated at this entity whenever&#13;
+a Hop Limit value is not supplied by the transport layer protocol.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv6HopLimit">
+                        <defaultValue>128</defaultValue>
+                        <mimName>ECIM_T_L3_VRF</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" correction="11" date="" docNo="" name="ECIM_T_L3_Router" namespace="urn:com:ericsson:ecim:ECIM_T_L3_Router" namespacePrefix="ecim_t_l3_router" organization="" release="1" revision="" version="0">
+        <description>Base routing fragment.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_Router"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="Ipv6HopLimit">
+            <description>The IPv6 hop limit range.</description>
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Ipv4TTLType">
+            <description>IPv4 TTL range.</description>
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="Router">
+            <description>A routing domain or VR instance. &#13;
+&#13;
+It provides data plane isolation of routed traffic and control plane isolation of routing entities from other routing instances.&#13;
+&#13;
+It allows for further fragmentation of the routing domain.</description>
+            <root/>
+            <attribute name="routerId">
+                <description>Value component of the RDN for Router.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="ipv4DefaultTTL">
+                <description>Default TTL value.&#13;
+&#13;
+The default value inserted into the Time-To-Live field of the IPv4 header of datagrams originated at this entity, whenever a TTL value is not supplied by the transport layer protocol.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4TTLType">
+                        <defaultValue>64</defaultValue>
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ipv6IpDefaultHopLimit">
+                <description>IPv6 default hop limit.&#13;
+&#13;
+The default value inserted into the Hop Limit field of the IPv6 header of datagrams originated at this entity whenever&#13;
+a Hop Limit value is not supplied by the transport layer protocol.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv6HopLimit">
+                        <defaultValue>128</defaultValue>
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <mim author="EUS/ZZT/BHAA Athanasios Kyparlis" contact="EUS/ZZT/BHAA Athanasios Kyparlis" correction="11" date="" docNo="" name="ECIM_T_L3_Host" namespace="urn:com:ericsson:ecim:ECIM_T_L3_Host" namespacePrefix="ecim_t_l3_host" organization="" release="1" revision="" version="0">
+        <description>IP termination.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_Host"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="Ipv6HopLimit">
+            <description>The IPv6 hop limit range.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_Router"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Ipv4TTLType">
+            <description>IPv4 TTL range.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="0"/>
+                <extension name="originatingMimName" value="ECIM_T_L3_Router"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="Host">
+            <description>Representation of an IP domain for traffic termination.</description>
+            <root/>
+            <dependenciesScript><![CDATA[If-feature L3HostFeature]]></dependenciesScript>
+            <attribute name="hostId">
+                <description>Value component of the RDN for Host.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="ipv4DefaultTTL">
+                <description>Default TTL value.&#13;
+&#13;
+The default value inserted into the Time-To-Live field of&#13;
+the IPv4 header of datagrams originated at this entity,&#13;
+whenever a TTL value is not supplied by the transport layer protocol.&#13;
+&#13;
+&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4TTLType">
+                        <defaultValue>64</defaultValue>
+                        <mimName>ECIM_T_L3_Host</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ipv6DefaultHopLimit">
+                <description>IPv6 default hop limit.&#13;
+&#13;
+The default value inserted into the Hop Limit field of the&#13;
+IPv6 header of datagrams originated at this entity whenever&#13;
+a Hop Limit value is not supplied by the transport layer&#13;
+protocol.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv6HopLimit">
+                        <mimName>ECIM_T_L3_Host</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Ipv4Interface_to_Ipv4Address">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Ipv4Interface">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv4Address">
+                        <mimName>ECIM_T_L3_Ipv4Address</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="VRF_to_Ipv4Interface">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="VRF">
+                        <mimName>ECIM_T_L3_VRF</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv4Interface">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Host_to_Ipv4Interface">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Host">
+                        <mimName>ECIM_T_L3_Host</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv4Interface">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Router_to_Ipv4Interface">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv4Interface">
+                        <mimName>ECIM_T_L3_Ipv4Interface</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Ipv6Interface_to_Ipv6Address">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Ipv6Interface">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv6Address">
+                        <mimName>ECIM_T_L3_Ipv6Address</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="VRF_to_Ipv6Interface">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="VRF">
+                        <mimName>ECIM_T_L3_VRF</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv6Interface">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Host_to_Ipv6Interface">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Host">
+                        <mimName>ECIM_T_L3_Host</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv6Interface">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Router_to_Ipv6Interface">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ipv6Interface">
+                        <mimName>ECIM_T_L3_Ipv6Interface</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Router_to_VRF">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <dependenciesScript><![CDATA[If-feature L3VPNfeature AND L3VRfeature]]></dependenciesScript>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="VRF">
+                        <mimName>ECIM_T_L3_VRF</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Transport_to_Router">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Router">
+                        <mimName>ECIM_T_L3_Router</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Transport_to_Host">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Host">
+                        <mimName>ECIM_T_L3_Host</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+            </containment>
+        </relationship>
+    </interMim>
+    
+    
+    
+    
+    
+    
+    
+    
+</models>

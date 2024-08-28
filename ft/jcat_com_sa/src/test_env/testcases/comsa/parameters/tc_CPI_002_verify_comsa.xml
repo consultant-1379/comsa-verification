@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>Verifying ComSA Installation</id>
+		<tag>TC-CPI-002</tag>
+		<version>P1A01</version>
+		<testcase>verify_comsa_installation</testcase>
+		<class>ComSAVerifyInstall</class>
+		<method>ComSAVerifyInstall</method>
+		<description>Verifying ComSA installation</description>
+	</info>
+	<config>
+		<ssh_cli_tester_script>cli_tester</ssh_cli_tester_script>
+		<set_pw_script>SetUserPassword</set_pw_script>
+		<set_pw_script_rhel>SetUserPasswordRhel</set_pw_script_rhel>
+		<set_login_script>LoginAsUser</set_login_script>
+
+		<ssh_cli_input>"show" "exit"</ssh_cli_input>
+		<ssh_cli_expected_output>['ManagedElement=1']</ssh_cli_expected_output>
+		<ssh_cli_nonexpected_output>['error', 'closed connection', 'Connection to COM failed']</ssh_cli_nonexpected_output>
+
+		<cli_input_1>"configure" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "SnmpTargetV2C=1" "address=147.214.15.104" "port=27987" "community=public" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['address', 'community', 'port']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1, SnmpTargetV2C=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['address="147.214.15.104"', 'community="public"', 'port=27987']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_2>
+
+		<cli_input_3>"configure" "" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "no SnmpTargetV2C=1" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['SnmpTargetV2C=1']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "" "ManagedElement=1, SystemFunctions=1, SysM=1, Snmp=1" "show" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['host', 'port']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['SnmpTargetV2C=1', 'error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_4>
+	</config>
+</testcase>

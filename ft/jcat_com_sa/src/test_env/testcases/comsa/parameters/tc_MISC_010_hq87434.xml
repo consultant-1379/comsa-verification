@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>HQ87434</id>
+        <tag>TC-MISC-010</tag>
+        <version>P1A01</version>
+                <testcase>cliConfigurationTestCase</testcase>
+                <class>CLIconfiguration</class>
+                <method>CLIconfiguration</method>
+                <description>HQ87434 - read an object that have prefix MOM name</description>
+    </info>
+    <config>
+        <cli_input_1>"show verbose ManagedElement=1,SystemFunctions=1,Pm=1" "exit"</cli_input_1>
+        <cli_expected_output_1>['pmId="1"']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+    </config>  
+</testcase>
+

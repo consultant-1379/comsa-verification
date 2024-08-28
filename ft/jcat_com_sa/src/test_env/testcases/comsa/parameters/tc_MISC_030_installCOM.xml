@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MISC - Install COM</id>
+        <tag>TC-MISC-030</tag>
+        <version>P1A01</version>
+		<testcase>miscInstallComponents</testcase>
+		<class>InstallComponents</class>
+		<method>InstallComponents</method>
+		<description>MISC - Install COM</description>
+	</info>
+    <config>
+        <reqComSaVersion>R5A11</reqComSaVersion>
+        <reqComSaRelease>3</reqComSaRelease>
+        <component_to_install>COM</component_to_install>
+        <suRestartMaxSet>False</suRestartMaxSet>
+	</config>
+</testcase>

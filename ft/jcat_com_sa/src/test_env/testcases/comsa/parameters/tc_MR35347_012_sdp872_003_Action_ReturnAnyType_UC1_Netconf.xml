@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>Long DN - SDP872 - Testing Action Any Return Type UC1 with Netconf</id>
+		<tag>TC-MR35347-012</tag>
+		<version>P1A01</version>
+		<testcase>changingNetconfConfig</testcase>
+		<class>changingNetconfConfig</class>
+		<method>changingNetconfConfig</method>
+		<description>Long DN - SDP872 - Testing Action Any Return Type UC1 with Netconf</description>
+	</info>
+	<config>
+		<reqComSaVersion>R6A07</reqComSaVersion>
+		<reqComVersion>R2A12</reqComVersion>
+		<reqCmwVersion>R10A01</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<longDn>True</longDn>
+		<scriptFile>execCommandScript.sh</scriptFile>
+		<pwdFreeScript>pwdfree_ssh.py</pwdFreeScript>
+		<useExternalModels>yes</useExternalModels>
+		<modelFilePathOnTarget>/home/netconfTest/</modelFilePathOnTarget>
+		<modelFileType>975</modelFileType>
+		<momFile>Sdp872ActiontestMom_mp.xml</momFile>
+		<immClassesFile>Sdp872ActiontestMom_imm_classes.xml</immClassesFile>
+
+		<helloFile>Hello.xml</helloFile>
+		<actionFile>['tc_nc_action_return_typeslongdn.xml']</actionFile>
+		<closeFile>Close.xml</closeFile>
+		<logFile>logFile.txt</logFile>
+		<respFile>sdp872_ExpOutputlongdn.txt</respFile>
+		<serviceInstanceName>ComSa</serviceInstanceName>
+		<amfNodePattern>Cmw</amfNodePattern>
+
+		<forbiddenContent>['SnmpTargetV2C']</forbiddenContent>
+	</config>
+</testcase>

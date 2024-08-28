@@ -1,0 +1,50 @@
+#!/usr/bin/env expect
+#
+# LOTC BACKUP
+#
+proc lotcbackup {} {
+    upvar spawn_id spawn_id
+
+    global properties
+    
+    set timeout -1
+	#DEBUG msguser "cluster backup --create $properties(BACKUP_USER)@$properties(BACKUP_IP):$properties(BACKUP_FILEPATH)\r"
+	#DEBUG msguser "$properties(BACKUP_PASSWORD)\r"
+    ssh_login $properties(IP) $properties(ROOT_USER) $properties(ROOT_PASSWORD)	
+	
+	
+	send -- "cluster backup --create $properties(BACKUP_USER)@$properties(BACKUP_IP):$properties(BACKUP_FILEPATH)\r"
+    login_expect $properties(BACKUP_PASSWORD)
+    set timeout -1
+    expect {
+    		"usage:" { doexit "Syntax error. Variables missing or faulty." 1 }
+ 	       "Backup failed" {doexit "Backup failed." 1 }
+	       "No space left on device" {doexit 1 "No space left on device $properties(BACKUP_IP):$properties(BACKUP_FILEPATH)"  }
+	       "Backup completed" {}
+	   }
+    waitforprompt "SC_2.+#" 15
+
+   logoff
+   return 0
+}
+
+
+#
+#main
+#
+ 	global properties
+    set properties(IP) [lindex $argv 0]
+    set properties(ROOT_USER) [lindex $argv 1]
+    set properties(ROOT_PASSWORD) [lindex $argv 2]
+    set scriptPath [lindex $argv 3]
+    set properties(BACKUP_USER) [lindex $argv 4]
+    set properties(BACKUP_PASSWORD) [lindex $argv 5]
+    set properties(BACKUP_IP) [lindex $argv 6]
+    set properties(BACKUP_FILEPATH) [lindex $argv 7]
+#    log_file -noappend /tmp/auto_$env(USER).log
+    
+    source $scriptPath\helpers.exp
+
+    dostart "Going to run lotc backup script."
+    set success [lotcbackup]
+    doexit "Lotc backup script done!" $success

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>"HQ98927 - read an object that value has "=" character"</id>
+        <tag>TC-MISC-014</tag>	
+        <version>P1A01</version>
+		<testcase>cliConfigurationTestCase</testcase>
+		<class>CLIconfiguration</class>
+		<method>CLIconfiguration</method>
+		<description>"HQ98927 - read an object that value has "=" character"</description>
+	</info>	
+    <config>
+        <useExternalModels>yes</useExternalModels>
+        <modelFileType>CDT</modelFileType>
+        <immObjectsFile>imm_object_HQ98927.xml</immObjectsFile>
+
+        <cli_input_1>"show verbose ManagedElement=1,SystemFunctions=1,SecM=1,UserManagement=1,LocalAuthorizationMethod=1,Role=SystemSecurityAdministrator,Rule=HQ98927_top" "exit"</cli_input_1>
+        <cli_expected_output_1>['ruleData="ManagedElement=1,SystemFunctions=1,SysM=1,Snmp=1,SnmpTargetV1=1"']</cli_expected_output_1>
+        <cli_nonexpected_output_1>['error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_1>
+        
+        <immObjPattern>['HQ98927', 'snmpTargetV1Id']</immObjPattern>
+	</config>  
+</testcase>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>MISC - Restore backup</id>
+        <tag>TC-MISC-011</tag>
+        <version>P1A01</version>
+		<testcase>miscRestoreBackup</testcase>
+		<class>RestoreBackup</class>
+		<method>RestoreBackup</method>
+		<description>MISC - Restore backup</description>
+	</info>	
+    <config>
+    	<backupName>testBackup</backupName>
+	</config>
+</testcase>

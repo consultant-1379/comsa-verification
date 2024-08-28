@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>MR-36131 SUGAR: Upgrade COM SA to COM SA 3.7 in SUGaR environment and observe that COM and COM SA start to execute as a non-root user.</id>
+		<tag>TC-SUGAR-002</tag>
+		<version>P1A01</version>
+		<testcase>sugar</testcase>
+		<class>Sugar</class>
+		<method>Sugar</method>
+		<description>Upgrade COM SA to COM SA 3.7 in SUGaR environment and observe that COM and COM SA start to execute as a non-root user.</description>
+	</info>
+	<config>
+		<reqCmwVersion>R9A19</reqCmwVersion>
+		<reqCmwRelease>1</reqCmwRelease>
+		<reqComVersion>R3A01</reqComVersion>
+		<reqComRelease>5</reqComRelease>
+		<reqComSaVersion>R8A04</reqComSaVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<storedBackupFilesLocation>/home/backupfile_mr36131bk/</storedBackupFilesLocation>
+		<comsaBackupLocation>/cluster/storage/no-backup/comsa_for_coremw-apr9010555/backup/</comsaBackupLocation>
+		<comBackupLocation>/cluster/storage/no-backup/com-apr9010443/backup/</comBackupLocation>
+		<cmwBackupLocation>/cluster/storage/no-backup/coremw/cmw-backup/</cmwBackupLocation>
+		<lotcBackupLocation>/cluster/snapshot/</lotcBackupLocation>
+	</config>
+</testcase>

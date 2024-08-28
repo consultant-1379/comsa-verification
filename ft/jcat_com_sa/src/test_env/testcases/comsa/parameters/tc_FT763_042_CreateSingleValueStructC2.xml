@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>SDP763 FT - Negative case: OI answers ComValidationFailed to setMo call - Single value - Register class case: Create an object - with single value struct inside - that is registered to MAFOI with permission Yes</id>
+		<tag>TC-FT763-042</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp763</testcase>
+		<class>FTSdp763</class>
+		<method>FTSdp763</method>
+		<description>SDP763 FT - Negative case: OI answers ComValidationFailed to setMo call - Single value - Register class case: Create an object - with single value struct inside - that is registered to MAFOI with permission Yes</description>
+		<!-- Modified TC-FT763-029 with case 2 of key attribute -->
+	</info>
+	<config>
+		<reqComSaVersion>R2A04</reqComSaVersion>
+		<reqComVersion>R2A12</reqComVersion>
+		<reqCmwVersion>R3A09</reqCmwVersion>
+		<reqComSaRelease>3</reqComSaRelease>
+		<reqComRelease>2</reqComRelease>
+		<reqCmwRelease>1</reqCmwRelease>
+		<modelfile_mp>SDP763_mp3_C2.xml</modelfile_mp>
+		<modelfile_imm_classes>SDP763_imm_classes3_C2.xml</modelfile_imm_classes>
+
+		<pathToConfigFiles>/test_env/testcases/comsa/configFiles/</pathToConfigFiles>
+		<cli_tester_script>cli_tester</cli_tester_script>
+
+		<setup_NEGATIVE_CASE_SETTING>#define SKIP_ERROR</setup_NEGATIVE_CASE_SETTING>
+		<setup_RETURN_VALUES>#define returnValueConfig  returnValues.setMo = ComValidationFailed; returnValues.getMo = ComFailure; returnValues.action = ComFailure;</setup_RETURN_VALUES>
+		<setup_MAF_RETURN_VALUES>#define maf_returnValueConfig returnValues.setMo = MafValidationFailed; returnValues.getMo = MafFailure; returnValues.action = MafFailure;</setup_MAF_RETURN_VALUES>
+		<setup_REG1>#define REG1 \"/ManagedElement/ObjImpComplexClass.mAiD\"</setup_REG1>
+		<setup_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</setup_REG1_PERMISSION>
+
+		<expected_init_log_1>com: MAFOiComponent: mafLCMinit(): Component started</expected_init_log_1>
+		<expected_init_log_2>com: MAFOiComponent: loadMocOrDnConfig(): registerAsOIToOamSA: MOC: /ManagedElement/ObjImpComplexClass.mAiD Permission: YES</expected_init_log_2>
+		<expected_init_log_3>com: MAFOiComponent: maf_start(): returning MafOk</expected_init_log_3>
+
+		<cli_input_1>"configure" "ManagedElement=1" "ObjImpComplexClass=1" "TestStructAttr" "testWritableAttrUint8=35" "testWritableAttrUint16=[179,213,3982]" "testWritableAttrString=\"Single value struct is possible to create with testWritableAttrString inside\"" "testWritableAttrBool=true" "commit" "exit"</cli_input_1>
+		<cli_expected_output_1>['fail']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['COM Closed connection']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show ManagedElement=1,ObjImpComplexClass=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['ERROR: Specific element not found']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['COM Closed connection']</cli_nonexpected_output_2>
+
+		<expected_test_log_1>com: MAFOiComponent: TR::join() entered</expected_test_log_1>
+		<expected_test_log_2>com: MAFOiComponent: TR::registerParticipant()</expected_test_log_2>
+
+		<expected_test_log_3>com: MAFOiComponent: MO::maf_createMo(): parentDn ManagedElement=1 className ObjImpComplexClass keyAttributeName mAiD keyAttributeValue mAiD=1</expected_test_log_3>
+		<expected_test_log_4>com: MAFOiComponent: MO::maf_setMoAttribute(): dn ManagedElement=1,ObjImpComplexClass.mAiD=1 attributeName TestStructAttr</expected_test_log_4>
+		<expected_test_log_5>com: MAFOiComponent: MO::maf_setMoAttribute(): attributeName: TestStructAttr Struct\[0\]\: {testWritableAttrBool BOOL = 1, testWritableAttrString STRING = Single value struct is possible to create with testWritableAttrString inside, testWritableAttrUint16 UINT16 = 179, 3982, 213, testWritableAttrUint8 UINT8 = 35}</expected_test_log_5>
+
+		<expected_test_log_6>com: MAFOiComponent: TR::abort() entered</expected_test_log_6>
+		<expected_test_log_7>com: MAFOiComponent: TR::finish() entered</expected_test_log_7>
+
+		<teardown_REG1>#define REG1 \"/ManagedElement/ObjImpComplexClass.mAiD\"</teardown_REG1>
+		<teardown_REG1_PERMISSION>#define REG1_PERMISSION \"YES\"</teardown_REG1_PERMISSION>
+	</config>
+</testcase>

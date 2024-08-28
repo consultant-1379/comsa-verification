@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+	<info>
+		<id>MR24146 FT - COM-SA forwards CM notifications for configuration attributes.</id>
+		<tag>TC-MR24146-005</tag>
+		<version>P1A01</version>
+		<testcase>functionTestSdp1724</testcase>
+		<class>FTSdp1724</class>
+		<method>FTSdp1724</method>
+		<description>MR24146 FT - COM-SA forwards CM notifications for configuration attributes.</description>
+	</info>
+	<config>
+		<modelfile_mp1>CmNtfCfg_Attr_FP_mp.xml</modelfile_mp1>
+		<modelfile_imm_classes1>CmNtfCfg_Attr_FP_imm_class.xml</modelfile_imm_classes1>
+
+		<modelfile_mp2>CmNtfCfg_AttrSvStr_FP_mp.xml</modelfile_mp2>
+		<modelfile_imm_classes2>CmNtfCfg_AttrSvStr_FP_imm_classes.xml</modelfile_imm_classes2>
+
+		<modelfile_mp3>CmNtfCfg_AttrMvStr_FP_mp.xml</modelfile_mp3>
+		<modelfile_imm_classes3>CmNtfCfg_AttrMvStr_FP_imm_classes.xml</modelfile_imm_classes3>
+
+	<!-- create an object -->
+	<imm_input_1>immcfg -c ObjImpTestClass objImpTestClassId=1</imm_input_1>
+		<imm_expected_output_1></imm_expected_output_1>
+		<imm_nonexpected_output_1>['ERROR']</imm_nonexpected_output_1>
+
+	<!-- congfig an attribute single and multivalue-->
+		<imm_input_2>immcfg -a testWritableDecimal64=3.1459 -a testWritableDecimal64Mv=6.66 -a testWritableDecimal64Mv+=7.77 objImpTestClassId=1</imm_input_2>
+		<imm_expected_output_2></imm_expected_output_2>
+		<imm_nonexpected_output_2>['ERROR', 'does not exist']</imm_nonexpected_output_2>
+
+	<!-- change an attribute single and multivalue-->
+	<imm_input_3>immcfg -a testWritableDecimal64=1.2345 -a testWritableDecimal64Mv=8.88 -a testWritableDecimal64Mv+=9.99 objImpTestClassId=1 objImpTestClassId=1</imm_input_3>
+		<imm_expected_output_3></imm_expected_output_3>
+		<imm_nonexpected_output_3>['ERROR', 'does not exist']</imm_nonexpected_output_3>
+
+	<!--Delete Object-->
+	<imm_input_3>immcfg -d objImpTestClassId=1</imm_input_3>
+		<imm_expected_output_3></imm_expected_output_3>
+		<imm_nonexpected_output_3>['ERROR', 'does not exist']</imm_nonexpected_output_3>
+
+	<!-- For structure single-->
+
+	<imm_input_4>immcfg --class-name TestStructSv --enable-attr-notify testWritableAttrUint8 testWritableAttrUint16 testWritableDecimal64 testWritableAttrString</imm_input_4>
+	<imm_expected_output_4></imm_expected_output_4>
+		<imm_nonexpected_output_4>['ERROR', 'does not exist']</imm_nonexpected_output_4>
+
+
+	<!-- create an parent object -->
+	<imm_input_5>immcfg -c ObjImpComplexClassSv objImpComplexClassSvId=1</imm_input_5>
+		<imm_expected_output_5></imm_expected_output_5>
+		<imm_nonexpected_output_5>['ERROR']</imm_nonexpected_output_5>
+
+	<!--create child object structure-->
+	<imm_input_6>immcfg -c TestStructSv id=1,objImpComplexClassSvId=1</imm_input_6>
+		<imm_expected_output_6></imm_expected_output_6>
+		<imm_nonexpected_output_6>['ERROR']</imm_nonexpected_output_6>
+
+	<!--create relationship -->
+	<imm_input_7>immcfg -a TestStructAttrSv=id\=1,objImpComplexClassSvId\=1 objImpComplexClassSvId=1</imm_input_7>
+		<imm_expected_output_7></imm_expected_output_7>
+		<imm_nonexpected_output_7>['ERROR']</imm_nonexpected_output_7>
+
+	<!-- congfig structure of single-->
+
+	<imm_input_8>immcfg -a testWritableAttrUint8=35 -a testWritableAttrUint16=45 -a testWritableDecimal64=1.2345 id=1,objImpComplexClassSvId=1</imm_input_8>
+		<imm_expected_output_8></imm_expected_output_8>
+		<imm_nonexpected_output_8>['ERROR', 'does not exist']</imm_nonexpected_output_8>
+
+	<!-- delete object-->
+
+	<imm_input_9>immcfg -d objImpComplexClassSvId=1</imm_input_9>
+		<imm_expected_output_9></imm_expected_output_9>
+		<imm_nonexpected_output_9>['ERROR', 'does not exist']</imm_nonexpected_output_9>
+
+
+	<!--For structure of multivalue -->
+	<!--enable NOTIFY flag-->
+
+	<imm_input_10>immcfg --class-name TestStructMv --enable-attr-notify testWritableAttrString testWritableDecimal64 name</imm_input_10>
+	<imm_expected_output_10></imm_expected_output_10>
+		<imm_nonexpected_output_10>['ERROR', 'does not exist']</imm_nonexpected_output_10>
+
+	<!--create object-->
+	<imm_input_11>immcfg -c ObjImpComplexClassMv objImpComplexClassMvId=1</imm_input_11>
+		<imm_expected_output_11></imm_expected_output_11>
+		<imm_nonexpected_output_11>['ERROR', 'does not exist']</imm_nonexpected_output_11>
+
+	<imm_input_12>immcfg -c TestStructMv id=1,objImpComplexClassMvId=1</imm_input_12>
+		<imm_expected_output_12></imm_expected_output_12>
+		<imm_nonexpected_output_12>['ERROR', 'does not exist']</imm_nonexpected_output_12>
+
+	<imm_input_13>immcfg -c TestStructMv id=2,objImpComplexClassMvId=1</imm_input_13>
+		<imm_expected_output_13></imm_expected_output_13>
+		<imm_nonexpected_output_13>['ERROR', 'does not exist']</imm_nonexpected_output_13>
+
+	<!--Make relationship-->
+
+	<imm_input_14>immcfg -a TestStructAttrMv=id\=1,objImpComplexClassMvId\=1 objImpComplexClassMvId=1</imm_input_14>
+		<imm_expected_output_14></imm_expected_output_14>
+		<imm_nonexpected_output_14>['ERROR', 'does not exist']</imm_nonexpected_output_14>
+
+	<imm_input_15>immcfg -a TestStructAttrMv+=id\=2,objImpComplexClassMvId\=1 objImpComplexClassMvId=1</imm_input_15>
+		<imm_expected_output_15></imm_expected_output_15>
+		<imm_nonexpected_output_15>['ERROR', 'does not exist']</imm_nonexpected_output_15>
+
+	<!--config attribute-->
+
+	<imm_input_16>immcfg -a name=one id=1,objImpComplexClassMvId=1</imm_input_16>
+		<imm_expected_output_16></imm_expected_output_16>
+		<imm_nonexpected_output_16>['ERROR', 'does not exist']</imm_nonexpected_output_16>
+
+	<imm_input_17>immcfg -a name=two id=2,objImpComplexClassMvId=1</imm_input_17>
+		<imm_expected_output_17></imm_expected_output_17>
+		<imm_nonexpected_output_17>['ERROR', 'does not exist']</imm_nonexpected_output_17>
+
+	<!--deleteobject-->
+	<imm_input_17>immcfg -d objImpComplexClassMvId=1</imm_input_17>
+		<imm_expected_output_17></imm_expected_output_17>
+		<imm_nonexpected_output_17>['ERROR', 'does not exist']</imm_nonexpected_output_17>
+
+		<test_consumer_1>testConsumer1.so</test_consumer_1>
+		<test_consumer_2>testConsumer2.so</test_consumer_2>
+		<test_consumer_3>testConsumer3.so</test_consumer_3>
+
+		<testCons1Regexp1>.*ObjImpTestClass.*</testCons1Regexp1>
+		<testCons1Regexp2>.*ObjImpComplexClassSv.*</testCons1Regexp2>
+		<testCons1Regexp3>.*ObjImpComplexClassMv.*</testCons1Regexp3>
+		<testCons2Regexp1>.*</testCons2Regexp1>
+		<testCons3Regexp1>^ManagedElement=1,SystemFunctions=1.*</testCons3Regexp1>
+
+
+
+	<searchPatterns1>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</searchPatterns1>
+	<searchPatterns2>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</searchPatterns2>
+	<searchPatterns3>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: testWritableDecimal64 attrType: DECIMAL64 nrOfValues: 1 values: 3.1459 ', 'name: testWritableDecimal64Mv attrType: DECIMAL64 nrOfValues: 2 values: 6.66 7.77 ', 'eventTime: ']</searchPatterns3>
+		<searchPatterns4>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: testWritableDecimal64 attrType: DECIMAL64 nrOfValues: 1 values: 3.1459 ', 'name: testWritableDecimal64Mv attrType: DECIMAL64 nrOfValues: 2 values: 6.66 7.77 ', 'eventTime: ']</searchPatterns4>
+	<searchPatterns5>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: testWritableDecimal64 attrType: DECIMAL64 nrOfValues: 1 values: 1.2345 ', 'name: testWritableDecimal64Mv attrType: DECIMAL64 nrOfValues: 2 values: 8.88 9.99 ', 'eventTime: ']</searchPatterns5>
+		<searchPatterns6>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: testWritableDecimal64 attrType: DECIMAL64 nrOfValues: 1 values: 1.2345 ', 'name: testWritableDecimal64Mv attrType: DECIMAL64 nrOfValues: 2 values: 8.88 9.99 ', 'eventTime: ']</searchPatterns6>
+	<searchPatterns7>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoDeleted ', 'attributes: eventTime:']</searchPatterns7>
+	<searchPatterns8>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoDeleted ', 'attributes: eventTime:']</searchPatterns8>
+
+		<!--STRUCTURE-->
+	<searchPatterns9 >['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: MoCreated ', 'attributes: eventTime:  ']</searchPatterns9>
+	<searchPatterns10>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</searchPatterns10>
+	<searchPatterns11>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 ', 'memberName: testWritableAttrUint16 memberValue: attrType: UINT16 nrOfValues: 1 values: 45 ', 'memberName: testWritableAttrUint8 memberValue: attrType: UINT8 nrOfValues: 1 values: 35 ', 'memberName: testWritableDecimal64 memberValue: attrType: DECIMAL64 nrOfValues: 1 values: 1.2345 ', 'eventTime:']</searchPatterns11>
+		<searchPatterns12>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 ', 'memberName: testWritableAttrUint16 memberValue: attrType: UINT16 nrOfValues: 1 values: 45 ', 'memberName: testWritableAttrUint8 memberValue: attrType: UINT8 nrOfValues: 1 values: 35 ', 'memberName: testWritableDecimal64 memberValue: attrType: DECIMAL64 nrOfValues: 1 values: 1.2345 ', 'eventTime:']</searchPatterns12>
+	<searchPatterns13>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</searchPatterns13>
+		<searchPatterns14>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</searchPatterns14>
+
+		<!--STRUCTURE Multi-->
+	<searchPatterns15>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</searchPatterns15>
+	<searchPatterns16>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</searchPatterns16>
+	<searchPatterns17>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</searchPatterns17>
+	<searchPatterns18>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</searchPatterns18>
+	<searchPatterns19>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'TestStructAttrMv attrType: STRUCT nrOfValues: 1 ', 'memberName: name memberValue: attrType: STRING nrOfValues: 1 values: one eventTime: ']</searchPatterns19>
+		<searchPatterns20>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'TestStructAttrMv attrType: STRUCT nrOfValues: 1 ', 'memberName: name memberValue: attrType: STRING nrOfValues: 1 values: one eventTime: ']</searchPatterns20>
+	<searchPatterns21>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', ;Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'TestStructAttrMv attrType: STRUCT nrOfValues: 1 ', 'memberName: name memberValue: attrType: STRING nrOfValues: 1 values: two eventTime: ']</searchPatterns21>
+		<searchPatterns22>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'TestStructAttrMv attrType: STRUCT nrOfValues: 1 ', 'memberName: name memberValue: attrType: STRING nrOfValues: 1 values: two eventTime: ']</searchPatterns22>
+	<searchPatterns23>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</searchPatterns23>
+		<searchPatterns24>['com: testConsumer2: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</searchPatterns24>
+
+
+
+	<unexpectedPattern1>['com: testConsumer3: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</unexpectedPattern1>
+	<unexpectedPattern2>['com: testConsumer3: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: testWritableDecimal64 attrType: DECIMAL64 nrOfValues: 1 values: 3.1459 ', 'name: testWritableDecimal64Mv attrType: DECIMAL64 nrOfValues: 2 values: 6.66 7.77 ', 'eventTime:']</unexpectedPattern2>
+	<unexpectedPattern3>['com: testConsumer3: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: AttributeValueChange ', 'attributes: name: testWritableDecimal64 attrType: DECIMAL64 nrOfValues: 1 values: 1.2345 ', 'name: testWritableDecimal64Mv attrType: DECIMAL64 nrOfValues: 2 values: 8.88 9.99 ', 'eventTime:']</unexpectedPattern3>
+	<unexpectedPattern4>['com: testConsumer3: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpTestClass=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</unexpectedPattern4>
+
+	<unexpectedPattern5>['com: testConsumer3: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</unexpectedPattern5>
+	<unexpectedPattern6>['com: testConsumer3: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: TestStructAttrSv attrType: STRUCT nrOfValues: 1 ', 'memberName: testWritableAttrUint16 memberValue: attrType: UINT16 nrOfValues: 1 values: 45 ', 'memberName: testWritableAttrUint8 memberValue: attrType: UINT8 nrOfValues: 1 values: 35 ', 'memberName: testWritableDecimal64 memberValue: attrType: DECIMAL64 nrOfValues: 1 values: 1.2345 ', 'eventTime: ']</unexpectedPattern6>
+	<unexpectedPattern7>['com: testConsumer3: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassSv=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</unexpectedPattern7>
+
+	<unexpectedPattern8>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</unexpectedPattern8>
+	<unexpectedPattern9>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoCreated ', 'attributes: eventTime: ']</unexpectedPattern9>
+	<unexpectedPattern10>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'TestStructAttrMv attrType: STRUCT nrOfValues: 1 ', 'memberName: name memberValue: attrType: STRING nrOfValues: 1 values: one eventTime: ']</unexpectedPattern10>
+	<unexpectedPattern11>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', ;Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: AttributeValueChange ', 'attributes: name: ', 'TestStructAttrMv attrType: STRUCT nrOfValues: 1 ', 'memberName: name memberValue: attrType: STRING nrOfValues: 1 values: two eventTime: ']</unexpectedPattern11>
+	<unexpectedPattern12>['com: testConsumer1: ', 'cmEventNotify(): txHandle: 0 ', 'sourceIndicator: ', 'Unknown dn: ManagedElement=1,ObjImpComplexClassMv=1 ', 'eventType: MoDeleted ', 'attributes: eventTime: ']</unexpectedPattern12>
+
+	</config>
+</testcase>
+

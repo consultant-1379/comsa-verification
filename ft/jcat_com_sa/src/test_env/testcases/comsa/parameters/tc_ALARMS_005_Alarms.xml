@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>COM SA, Proxy Status of a Component Changed to Unproxied</id>
+        <tag>TC-ALARMS-005</tag>	
+        <version>P1A01</version>
+		<testcase>alarms</testcase>
+		<class>Alarms</class>
+		<method>Alarms</method>
+		<description>COM SA, Proxy Status of a Component Changed to Unproxied</description>
+	</info>	
+    <config>
+        
+        <ntfsendMsg>ntfsend -T 0x4000 -e 16384 -c 18568,2,6 -n "fmAlarmTypeId=ComSaProxyStatusOfAComponentChangedToUnproxied,fmAlarmModelId=coreMw,fmId=1" -s 5 -a "</ntfsendMsg>
+        <ntfsendMsg2>ntfsend -T 0x4000 -e 16384 -c 18568,2,6 -n "fmAlarmTypeId=ComSaProxyStatusOfAComponentChangedToUnproxied,fmAlarmModelId=coreMw,fmId=1" -s 0 -a "</ntfsendMsg2>
+    	
+    	<expectedDN>ManagedElement=1,SystemFunctions=1,Fm=1,FmAlarmModel=coreMw,FmAlarmType=ComSaProxyStatusOfAComponentChangedToUnproxied;</expectedDN>
+    	<expectedMajorType>18568;</expectedMajorType>
+    	<expectedMinorType>131078;</expectedMinorType>
+    	<expectedAlarmMsg>COM SA, Proxy Status of a Component Changed to Unproxied;</expectedAlarmMsg>
+    
+      
+	</config>  
+</testcase>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>  
+	<info>
+		<id>"Create and delete objects using modified model with more complex parent-child relationships"</id>
+		<tag>TC-MR26712-008</tag>
+		<version>P1A01</version>
+		<testcase>functionTestMr26712</testcase>
+		<class>functiontestMR26712</class>
+		<method>functiontestMR26712</method>
+		<description>"Create and delete objects using modified model with more complex parent-child relationships"</description>
+	</info>
+	<config>
+		<obsoleteComSaVersion>R5A01</obsoleteComSaVersion>
+		<obsoleteComSaRelease>3</obsoleteComSaRelease>
+
+		<useExternalModels>yes</useExternalModels>
+		<immClassesFile>XMom_imm_classes.xml</immClassesFile>
+		<immClassesFile2>YMom_imm_classes.xml</immClassesFile2>
+		<immClassesFile3>AMom_imm_classes.xml</immClassesFile3>
+		<immClassesFile4>BMom_imm_classes.xml</immClassesFile4>
+		<immClassesFile5>CMom_imm_classes.xml</immClassesFile5>
+		<immClassesFile6>DMom_imm_classes.xml</immClassesFile6>
+		<momFile>ImmSplitTestModel_TC8_mp.xml</momFile>
+
+		<cli_input_1>"show ManagedElement=1,RootX=1" "exit"</cli_input_1>
+		<cli_expected_output_1>['ERROR: Specific element not found']</cli_expected_output_1>
+		<cli_nonexpected_output_1>['rootXId=\"1\"', 'closed connection']</cli_nonexpected_output_1>
+
+		<cli_input_2>"show ManagedElement=1,RootY=1" "exit"</cli_input_2>
+		<cli_expected_output_2>['ERROR: Specific element not found']</cli_expected_output_2>
+		<cli_nonexpected_output_2>['rootYId=\"1\"', 'closed connection']</cli_nonexpected_output_2>
+
+		<cli_input_3>"configure" "ManagedElement=1,RootX=1" "RootC=CX1" "ClassC=CCX1" "RootD=DCCX1" "RootB=BDCCX1" "commit" "exit"</cli_input_3>
+		<cli_expected_output_3>['ManagedElement=1', 'RootX=1', 'RootC=CX1', 'ClassC=CCX1', 'RootD=DCCX1', 'RootB=BDCCX1', 'commit', 'exit']</cli_expected_output_3>
+		<cli_nonexpected_output_3>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_3>
+
+		<cli_input_4>"configure" "ManagedElement=1,RootX=1" "RootC=CX1" "RootB=BCX1" "commit" "exit"</cli_input_4>
+		<cli_expected_output_4>['ManagedElement=1', 'RootX=1', 'RootC=CX1', 'RootB=BCX1','commit', 'exit']</cli_expected_output_4>
+		<cli_nonexpected_output_4>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_4>
+
+		<cli_input_5>"configure" "ManagedElement=1,RootX=1" "RootA=AX1" "ClassA=AAX1" "RootB=BAAX1" "commit" "exit"</cli_input_5>
+		<cli_expected_output_5>['ManagedElement=1', 'RootX=1', 'RootA=AX1', 'ClassA=AAX1', 'RootB=BAAX1', 'commit', 'exit']</cli_expected_output_5>
+		<cli_nonexpected_output_5>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_5>
+
+		<cli_input_6>"configure" "ManagedElement=1,RootY=1" "RootC=CY1" "ClassC=CCY1" "RootD=DCCY1" "RootB=BDCCY1" "commit" "exit"</cli_input_6>
+		<cli_expected_output_6>['ManagedElement=1', 'RootY=1', 'RootC=CY1', 'ClassC=CCY1', 'RootD=DCCY1', 'RootB=BDCCY1', 'commit', 'exit']</cli_expected_output_6>
+		<cli_nonexpected_output_6>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_6>
+
+		<cli_input_7>"configure" "ManagedElement=1,RootY=1" "RootC=CY1" "RootB=BCY1" "commit" "exit"</cli_input_7>
+		<cli_expected_output_7>['ManagedElement=1', 'RootY=1', 'RootC=CY1', 'RootB=BCY1', 'commit', 'exit']</cli_expected_output_7>
+		<cli_nonexpected_output_7>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_7>
+
+		<cli_input_8>"configure" "ManagedElement=1,RootY=1" "RootA=AY1" "ClassA=AAY1" "RootB=BAAY1" "commit" "exit"</cli_input_8>
+		<cli_expected_output_8>['ManagedElement=1', 'RootY=1', 'RootA=AY1', 'ClassA=AAY1', 'RootB=BAAY1', 'commit', 'exit']</cli_expected_output_8>
+		<cli_nonexpected_output_8>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_8>
+
+		<cli_input_9>"show all verbose ManagedElement=1,RootX=1" "exit"</cli_input_9>
+		<cli_expected_output_9>['ManagedElement=1', 'RootX=1', 'rootXId=\"1\"', 'RootA=AX1', 'rootAId=\"AX1\"', 'ClassA=AAX1', 'classAId=\"AAX1\"', 'RootB=BAAX1', 'rootBId=\"BAAX1\"', 'RootC=CX1', 'rootCId=\"CX1\"', 'ClassC=CCX1', 'classCId=\"CCX1\"', 'RootD=DCCX1', 'rootDId=\"DCCX1\"', 'RootB=BDCCX1', 'rootBId=\"BDCCX1\"', 'RootD=DCCY1', 'rootDId=\"DCCY1\"', 'RootB=BDCCY1', 'rootBId=\"BDCCY1\"', 'RootB=BCX1', 'rootBId=\"BCX1\"']</cli_expected_output_9>
+		<cli_nonexpected_output_9>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed']</cli_nonexpected_output_9>
+
+		<cli_input_10>"show all verbose ManagedElement=1,RootY=1" "exit"</cli_input_10>
+		<cli_expected_output_10>['ManagedElement=1', 'RootY=1', 'rootYId=\"1\"', 'RootA=AY1', 'rootAId=\"AY1\"', 'ClassA=AAY1', 'classAId=\"AAY1\"', 'RootB=BAAY1', 'rootBId=\"BAAY1\"', 'RootC=CY1', 'rootCId=\"CY1\"', 'ClassC=CCY1', 'classCId=\"CCY1\"', 'RootD=DCCX1', 'rootDId=\"DCCX1\"', 'RootB=BDCCX1', 'rootBId=\"BDCCX1\"', 'RootD=DCCY1', 'rootDId=\"DCCY1\"', 'RootB=BDCCY1', 'rootBId=\"BDCCY1\"', 'RootB=BCY1', 'rootBId=\"BCY1\"']</cli_expected_output_10>
+		<cli_nonexpected_output_10>['ERROR: Specific element not found', 'error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_10>
+
+		<cli_input_11>"configure" "ManagedElement=1,RootX=1" "no RootA=AX1" "commit" "exit"</cli_input_11>
+		<cli_expected_output_11>['ManagedElement=1', 'RootX=1', 'no RootA=AX1', 'commit', 'exit']</cli_expected_output_11>
+		<cli_nonexpected_output_11>['error', 'closed connection', 'Connection to COM failed', 'ERROR: Transaction commit failed', 'ERROR: Command not found']</cli_nonexpected_output_11>
+
+		<cli_input_12>"show all verbose ManagedElement=1,RootX=1" "exit"</cli_input_12>
+		<cli_expected_output_12>['ManagedElement=1', 'RootX=1', 'rootXId=\"1\"', 'RootC=CX1', 'rootCId=\"CX1\"', 'ClassC=CCX1', 'classCId=\"CCX1\"', 'RootD=DCCX1', 'rootDId=\"DCCX1\"', 'RootB=BDCCX1', 'rootBId=\"BDCCX1\"', 'RootD=DCCY1', 'rootDId=\"DCCY1\"', 'RootB=BDCCY1', 'rootBId=\"BDCCY1\"', 'RootB=BCX1', 'rootBId=\"BCX1\"']</cli_expected_output_12>
+		<cli_nonexpected_output_12>['ERROR: Specific element not found', 'error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_12>
+
+		<cli_input_13>"show all verbose ManagedElement=1,RootY=1" "exit"</cli_input_13>
+		<cli_expected_output_13>['ManagedElement=1', 'RootY=1', 'rootYId=\"1\"', 'RootA=AY1', 'rootAId=\"AY1\"', 'ClassA=AAY1', 'classAId=\"AAY1\"', 'RootB=BAAY1', 'rootBId=\"BAAY1\"', 'RootC=CY1', 'rootCId=\"CY1\"', 'ClassC=CCY1', 'classCId=\"CCY1\"', 'RootD=DCCX1', 'rootDId=\"DCCX1\"', 'RootB=BDCCX1', 'rootBId=\"BDCCX1\"', 'RootD=DCCY1', 'rootDId=\"DCCY1\"', 'RootB=BDCCY1', 'rootBId=\"BDCCY1\"', 'RootB=BCY1', 'rootBId=\"BCY1\"']</cli_expected_output_13>
+		<cli_nonexpected_output_13>['ERROR: Specific element not found', 'error', 'closed connection', 'Connection to COM failed']</cli_nonexpected_output_13>
+
+		<imm_input_1>immfind | grep -i root</imm_input_1>
+		<imm_expected_output_1>['AMomrootAId=AX1,XMomrootXId=1', 'AMomrootAId=AY1,YMomrootYId=1', 'BMomrootBId=BAAX1,classAId=AAX1,AMomrootAId=AX1,XMomrootXId=1', 'BMomrootBId=BAAY1,classAId=AAY1,AMomrootAId=AY1,YMomrootYId=1', 'BMomrootBId=BCX1,CMomrootCId=CX1,XMomrootXId=1', 'BMomrootBId=BCY1,CMomrootCId=CY1,YMomrootYId=1', 'BMomrootBId=BDCCX1,DMomrootDId=DCCX1', 'BMomrootBId=BDCCY1,DMomrootDId=DCCY1', 'CMomrootCId=CX1,XMomrootXId=1', 'CMomrootCId=CY1,YMomrootYId=1', 'DMomrootDId=DCCX1', 'DMomrootDId=DCCY1', 'XMomrootXId=1', 'YMomrootYId=1', 'classAId=AAX1,AMomrootAId=AX1,XMomrootXId=1', 'classAId=AAY1,AMomrootAId=AY1,YMomrootYId=1', 'classCId=CCX1,CMomrootCId=CX1,XMomrootXId=1', 'classCId=CCY1,CMomrootCId=CY1,YMomrootYId=1']</imm_expected_output_1>
+		<imm_nonexpected_output_1>['ERROR']</imm_nonexpected_output_1>
+
+		<imm_input_2>immfind | grep -i root</imm_input_2>
+		<imm_expected_output_2>['AMomrootAId=AY1,YMomrootYId=1', 'BMomrootBId=BAAY1,classAId=AAY1,AMomrootAId=AY1,YMomrootYId=1', 'BMomrootBId=BCX1,CMomrootCId=CX1,XMomrootXId=1', 'BMomrootBId=BCY1,CMomrootCId=CY1,YMomrootYId=1', 'BMomrootBId=BDCCX1,DMomrootDId=DCCX1', 'BMomrootBId=BDCCY1,DMomrootDId=DCCY1', 'CMomrootCId=CX1,XMomrootXId=1', 'CMomrootCId=CY1,YMomrootYId=1', 'DMomrootDId=DCCX1', 'DMomrootDId=DCCY1', 'XMomrootXId=1', 'YMomrootYId=1', 'classAId=AAY1,AMomrootAId=AY1,YMomrootYId=1', 'classCId=CCX1,CMomrootCId=CX1,XMomrootXId=1', 'classCId=CCY1,CMomrootCId=CY1,YMomrootYId=1']</imm_expected_output_2>
+		<imm_nonexpected_output_2>['ERROR']</imm_nonexpected_output_2>
+
+		<immObjPattern>['root']</immObjPattern>
+	</config>
+</testcase>

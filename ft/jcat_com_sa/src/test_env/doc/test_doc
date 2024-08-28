@@ -1,0 +1,16 @@
+open up a new project for jcat_com_sa in Eclipse:
+
+
+File -> New -> Project...
+Select: SVN, checkout Projects from SVN, then press Next
+#Choose (if it's the first time you create a project): Create a new reposistory location
+
+choose: Use existing repository location
+select: https://teamforge.lmera.ericsson.se/svn/repos/jcat_com_sa
+Select folder (for ongoing : trunk
+choose: check out as a project in the worksapce
+In the Project Name field fill in: jcat_com_sa
+Press: Next
+(If you dont use default workspace, then you have to update your .alias_core file to point out the right path)
+Press: Finish
+

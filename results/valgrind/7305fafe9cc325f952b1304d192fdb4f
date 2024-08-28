@@ -1,0 +1,13 @@
+ definitely lost 
+malloc (in /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so)
+???
+???
+???
+???
+???
+???
+???
+???
+???
+Maf::LibraryManager::runInitLibsCmd() (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/LibraryManager.cc:273)
+Maf::LibraryManager::initLibs() (/home/ekimfou/git_repo/com_main/3pp/src/maf/src/core/LibraryManager.cc:376)

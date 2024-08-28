@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testcase>
+    <info>
+        <id>FT665 - Check integrity of installation</id>
+        <tag>TC-FT665-002</tag>
+        <version>P1A01</version>
+		<testcase>functionTestSdp665_Integrity</testcase>
+		<class>FT665_Integrity</class>
+		<method>FT665_Integrity</method>
+		<description>FT665 - Check integrity of installation</description>
+	</info>	
+    <config>
+	</config>  
+</testcase>
